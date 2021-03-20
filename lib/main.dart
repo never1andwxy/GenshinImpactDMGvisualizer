@@ -56,8 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int eburstlv = 8;
   int weaponlv = 80;
   int weaponref = 1;
-  int fstar = 5;
-  int flv = 20;
+
   String fsub1n = 'HP%';
 
   //     'ATK%',
@@ -72,6 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //     'DEF',
 
 //artifact1stat
+  int fstar = 5;
+  int flv = 20;
   double stat1atkpercent = 0;
   bool stat1atkpercentOn = false;
   double stat1hppercent = 0;
@@ -92,8 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat1hpOn = false;
   int stat1def = 0;
   bool stat1defOn = false;
+  int checkstat1 = 0;
 
 //artifact2stat
+
+  int pstar = 5;
+  int plv = 20;
   double stat2atkpercent = 0;
   bool stat2atkpercentOn = false;
   double stat2hppercent = 0;
@@ -114,8 +119,11 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat2hpOn = false;
   int stat2def = 0;
   bool stat2defOn = false;
+  int checkstat2 = 0;
 
 //artifact3stat
+  int sstar = 5;
+  int slv = 20;
   int artifact3mainstatcat = 1;
   double stat3atkpercent = 0;
   bool stat3atkpercentOn = false;
@@ -137,8 +145,12 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat3hpOn = false;
   int stat3def = 0;
   bool stat3defOn = false;
+  int checkstat3 = 0;
 
   //artifact4stat
+  int gstar = 5;
+  int glv = 20;
+  int artifact4mainstatcat = 1;
   double stat4atkpercent = 0;
   bool stat4atkpercentOn = false;
   double stat4hppercent = 0;
@@ -159,8 +171,12 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat4hpOn = false;
   int stat4def = 0;
   bool stat4defOn = false;
+  int checkstat4 = 0;
 
 //artifact5stat
+  int cstar = 5;
+  int clv = 20;
+  int artifact5mainstatcat = 1;
   double stat5atkpercent = 0;
   bool stat5atkpercentOn = false;
   double stat5hppercent = 0;
@@ -181,9 +197,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat5hpOn = false;
   int stat5def = 0;
   bool stat5defOn = false;
+  int checkstat5 = 0;
 
   String _label = '';
-  int checkstat1 = 0;
 
   void _setLabel(String s) {
     if (s == null) {
@@ -758,6 +774,2350 @@ class _MyHomePageState extends State<MyHomePage> {
                           setState(() {
                             stat1def = value.toInt();
                             _setLabel(stat1atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  Future _showSimpleDialog2() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Set artifact stats:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2atkpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2atkpercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2atkpercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK%:$stat2atkpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2atkpercent.toString(),
+                        value: stat2atkpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2atkpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      _setLabel(stat2atkpercent.toString());
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2hppercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2hppercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2hppercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP%:$stat2hppercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2hppercent.toString(),
+                        value: stat2hppercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2hppercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2defpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2defpercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2defpercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF%:$stat2defpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 43.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2defpercent.toString(),
+                        value: stat2defpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2defpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2CRpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2CRpercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2CRpercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Rate%:$stat2CRpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 23.4,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2CRpercent.toString(),
+                        value: stat2CRpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2CRpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2CDpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2CDpercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2CDpercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Damage%:$stat2CDpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 46.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2CDpercent.toString(),
+                        value: stat2CDpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2CDpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2EMOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2EMOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2EMOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Elemental Mastery:$stat2EM'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2EM.toString(),
+                        value: stat2EM.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2EM = value.toInt();
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2ERpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2ERpercentOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2ERpercentOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Energy Recharge%:$stat2ERpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 39,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2ERpercent.toString(),
+                        value: stat2ERpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2ERpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2hpOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2hpOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2hpOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP:$stat2hp'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 1794,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2hp.toString(),
+                        value: stat2hp.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2hp = value.toInt();
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2atkOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2atkOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      } else {
+                                        checkstat2--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2atkOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK:$stat2atk'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 114,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2atk.toString(),
+                        value: stat2atk.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2atk = value.toInt();
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat2defOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat2 < 4) {
+                                      stat2defOn = value;
+
+                                      _setLabel(stat2atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat2++;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat2defOn = value;
+
+                                        _setLabel(stat2atkpercent.toString());
+
+                                        checkstat2--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF:$stat2def'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat2def.toString(),
+                        value: stat2def.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat2def = value.toInt();
+                            _setLabel(stat2atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  Future _showSimpleDialog3() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Set artifact stats:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3atkpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3atkpercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3atkpercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK%:$stat3atkpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3atkpercent.toString(),
+                        value: stat3atkpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3atkpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      _setLabel(stat3atkpercent.toString());
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3hppercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3hppercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3hppercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP%:$stat3hppercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3hppercent.toString(),
+                        value: stat3hppercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3hppercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3defpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3defpercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3defpercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF%:$stat3defpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 43.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3defpercent.toString(),
+                        value: stat3defpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3defpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3CRpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3CRpercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3CRpercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Rate%:$stat3CRpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 23.4,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3CRpercent.toString(),
+                        value: stat3CRpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3CRpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3CDpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3CDpercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3CDpercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Damage%:$stat3CDpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 46.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3CDpercent.toString(),
+                        value: stat3CDpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3CDpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3EMOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3EMOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3EMOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Elemental Mastery:$stat3EM'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3EM.toString(),
+                        value: stat3EM.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3EM = value.toInt();
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3ERpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3ERpercentOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3ERpercentOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Energy Recharge%:$stat3ERpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 39,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3ERpercent.toString(),
+                        value: stat3ERpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3ERpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3hpOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3hpOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3hpOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP:$stat3hp'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 1794,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3hp.toString(),
+                        value: stat3hp.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3hp = value.toInt();
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3atkOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3atkOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      } else {
+                                        checkstat3--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3atkOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK:$stat3atk'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 114,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3atk.toString(),
+                        value: stat3atk.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3atk = value.toInt();
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat3defOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat3 < 4) {
+                                      stat3defOn = value;
+
+                                      _setLabel(stat3atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat3++;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat3defOn = value;
+
+                                        _setLabel(stat3atkpercent.toString());
+
+                                        checkstat3--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF:$stat3def'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat3def.toString(),
+                        value: stat3def.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat3def = value.toInt();
+                            _setLabel(stat3atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  Future _showSimpleDialog4() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Set artifact stats:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4atkpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4atkpercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4atkpercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK%:$stat4atkpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4atkpercent.toString(),
+                        value: stat4atkpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4atkpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      _setLabel(stat4atkpercent.toString());
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4hppercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4hppercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4hppercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP%:$stat4hppercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4hppercent.toString(),
+                        value: stat4hppercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4hppercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4defpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4defpercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4defpercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF%:$stat4defpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 43.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4defpercent.toString(),
+                        value: stat4defpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4defpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4CRpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4CRpercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4CRpercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Rate%:$stat4CRpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 23.4,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4CRpercent.toString(),
+                        value: stat4CRpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4CRpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4CDpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4CDpercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4CDpercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Damage%:$stat4CDpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 46.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4CDpercent.toString(),
+                        value: stat4CDpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4CDpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4EMOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4EMOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4EMOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Elemental Mastery:$stat4EM'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4EM.toString(),
+                        value: stat4EM.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4EM = value.toInt();
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4ERpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4ERpercentOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4ERpercentOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Energy Recharge%:$stat4ERpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 39,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4ERpercent.toString(),
+                        value: stat4ERpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4ERpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4hpOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4hpOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4hpOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP:$stat4hp'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 1794,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4hp.toString(),
+                        value: stat4hp.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4hp = value.toInt();
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4atkOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4atkOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      } else {
+                                        checkstat4--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4atkOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK:$stat4atk'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 114,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4atk.toString(),
+                        value: stat4atk.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4atk = value.toInt();
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat4defOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat4 < 4) {
+                                      stat4defOn = value;
+
+                                      _setLabel(stat4atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat4++;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat4defOn = value;
+
+                                        _setLabel(stat4atkpercent.toString());
+
+                                        checkstat4--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF:$stat4def'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat4def.toString(),
+                        value: stat4def.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat4def = value.toInt();
+                            _setLabel(stat4atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  Future _showSimpleDialog5() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Set artifact stats:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5atkpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5atkpercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5atkpercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK%:$stat5atkpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5atkpercent.toString(),
+                        value: stat5atkpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5atkpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      _setLabel(stat5atkpercent.toString());
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5hppercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5hppercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5hppercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP%:$stat5hppercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 34.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5hppercent.toString(),
+                        value: stat5hppercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5hppercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5defpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5defpercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5defpercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF%:$stat5defpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 43.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5defpercent.toString(),
+                        value: stat5defpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5defpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5CRpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5CRpercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5CRpercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Rate%:$stat5CRpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 23.4,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5CRpercent.toString(),
+                        value: stat5CRpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5CRpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5CDpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5CDpercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5CDpercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Critical Damage%:$stat5CDpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 46.8,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5CDpercent.toString(),
+                        value: stat5CDpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5CDpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5EMOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5EMOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5EMOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Elemental Mastery:$stat5EM'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5EM.toString(),
+                        value: stat5EM.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5EM = value.toInt();
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 200,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5ERpercentOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5ERpercentOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5ERpercentOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('Energy Recharge%:$stat5ERpercent'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 39,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5ERpercent.toString(),
+                        value: stat5ERpercent.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5ERpercent =
+                                double.parse((value).toStringAsFixed(1));
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5hpOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5hpOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5hpOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('HP:$stat5hp'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 1794,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5hp.toString(),
+                        value: stat5hp.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5hp = value.toInt();
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5atkOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5atkOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      } else {
+                                        checkstat5--;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5atkOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('ATK:$stat5atk'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 114,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5atk.toString(),
+                        value: stat5atk.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5atk = value.toInt();
+                            _setLabel(stat5atkpercent.toString());
+                          });
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: ListTile(
+                      leading: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                                value: stat5defOn,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    if (checkstat5 < 4) {
+                                      stat5defOn = value;
+
+                                      _setLabel(stat5atkpercent.toString());
+
+                                      if (value) {
+                                        checkstat5++;
+                                      }
+                                    } else {
+                                      if (!value) {
+                                        stat5defOn = value;
+
+                                        _setLabel(stat5atkpercent.toString());
+
+                                        checkstat5--;
+                                      }
+                                    }
+                                  });
+                                }),
+                            Text('DEF:$stat5def'),
+                          ],
+                        ),
+                      ),
+                      title: Slider(
+                        min: 0,
+                        max: 138,
+                        activeColor: Colors.lightBlue,
+                        inactiveColor: Colors.lightBlue[50],
+                        label: stat5def.toString(),
+                        value: stat5def.toDouble(),
+                        onChanged: (value) {
+                          setState(() {
+                            stat5def = value.toInt();
+                            _setLabel(stat5atkpercent.toString());
                           });
                         },
                       ),
@@ -1452,7 +3812,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Star: $fstar',
+                                            'Star: $pstar',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -1468,11 +3828,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: fstar.toString(),
-                                              value: fstar.toDouble(),
+                                              label: pstar.toString(),
+                                              value: pstar.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  fstar = value.toInt();
+                                                  pstar = value.toInt();
                                                 });
                                               },
                                             ),
@@ -1484,7 +3844,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Lv: $flv',
+                                            'Lv: $plv',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -1500,11 +3860,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: flv.toString(),
-                                              value: flv.toDouble(),
+                                              label: plv.toString(),
+                                              value: plv.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  flv = value.toInt();
+                                                  plv = value.toInt();
                                                 });
                                               },
                                             ),
@@ -1516,7 +3876,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Card(
                                     elevation: 1,
                                     child: InkWell(
-                                      onTap: _showSimpleDialog,
+                                      onTap: _showSimpleDialog2,
                                       child: Container(
                                         width: 300,
                                         height: 100,
@@ -1528,42 +3888,42 @@ class _MyHomePageState extends State<MyHomePage> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                if (!stat1atkpercentOn &&
-                                                    !stat1hppercentOn &&
-                                                    !stat1defpercentOn &&
-                                                    !stat1atkOn &&
-                                                    !stat1hpOn &&
-                                                    !stat1defOn &&
-                                                    !stat1CRpercentOn &&
-                                                    !stat1CDpercentOn &&
-                                                    !stat1EMOn &&
-                                                    !stat1ERpercentOn)
+                                                if (!stat2atkpercentOn &&
+                                                    !stat2hppercentOn &&
+                                                    !stat2defpercentOn &&
+                                                    !stat2atkOn &&
+                                                    !stat2hpOn &&
+                                                    !stat2defOn &&
+                                                    !stat2CRpercentOn &&
+                                                    !stat2CDpercentOn &&
+                                                    !stat2EMOn &&
+                                                    !stat2ERpercentOn)
                                                   Text(
                                                       'Please click to set stats'),
-                                                if (stat1atkpercentOn)
-                                                  Text('ATK%:$stat1atkpercent'),
-                                                if (stat1hppercentOn)
-                                                  Text('HP%:$stat1hppercent'),
-                                                if (stat1defpercentOn)
-                                                  Text('DEF%:$stat1defpercent'),
-                                                if (stat1CRpercentOn)
+                                                if (stat2atkpercentOn)
+                                                  Text('ATK%:$stat2atkpercent'),
+                                                if (stat2hppercentOn)
+                                                  Text('HP%:$stat2hppercent'),
+                                                if (stat2defpercentOn)
+                                                  Text('DEF%:$stat2defpercent'),
+                                                if (stat2CRpercentOn)
                                                   Text(
-                                                      'Critial Rate%:$stat1CRpercent'),
-                                                if (stat1CDpercentOn)
+                                                      'Critial Rate%:$stat2CRpercent'),
+                                                if (stat2CDpercentOn)
                                                   Text(
-                                                      'Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn)
+                                                      'Critial Damage%:$stat2CDpercent'),
+                                                if (stat2EMOn)
                                                   Text(
-                                                      'Elemental Mastery%:$stat1EM'),
-                                                if (stat1ERpercentOn)
+                                                      'Elemental Mastery%:$stat2EM'),
+                                                if (stat2ERpercentOn)
                                                   Text(
-                                                      'Energy Recharge%:$stat1ERpercent'),
-                                                if (stat1atkOn)
-                                                  Text('ATK:$stat1atk'),
-                                                if (stat1hpOn)
-                                                  Text('HP:$stat1hp'),
-                                                if (stat1defOn)
-                                                  Text('DEF:$stat1def'),
+                                                      'Energy Recharge%:$stat2ERpercent'),
+                                                if (stat2atkOn)
+                                                  Text('ATK:$stat2atk'),
+                                                if (stat2hpOn)
+                                                  Text('HP:$stat2hp'),
+                                                if (stat2defOn)
+                                                  Text('DEF:$stat2def'),
                                               ],
                                             ),
                                             Row(
@@ -1701,7 +4061,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Star: $fstar',
+                                            'Star: $sstar',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -1717,11 +4077,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: fstar.toString(),
-                                              value: fstar.toDouble(),
+                                              label: sstar.toString(),
+                                              value: sstar.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  fstar = value.toInt();
+                                                  sstar = value.toInt();
                                                 });
                                               },
                                             ),
@@ -1733,7 +4093,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Lv: $flv',
+                                            'Lv: $slv',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -1749,11 +4109,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: flv.toString(),
-                                              value: flv.toDouble(),
+                                              label: slv.toString(),
+                                              value: slv.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  flv = value.toInt();
+                                                  slv = value.toInt();
                                                 });
                                               },
                                             ),
@@ -1765,7 +4125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Card(
                                     elevation: 1,
                                     child: InkWell(
-                                      onTap: _showSimpleDialog,
+                                      onTap: _showSimpleDialog3,
                                       child: Container(
                                         width: 300,
                                         height: 100,
@@ -1777,42 +4137,42 @@ class _MyHomePageState extends State<MyHomePage> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                if (!stat1atkpercentOn &&
-                                                    !stat1hppercentOn &&
-                                                    !stat1defpercentOn &&
-                                                    !stat1atkOn &&
-                                                    !stat1hpOn &&
-                                                    !stat1defOn &&
-                                                    !stat1CRpercentOn &&
-                                                    !stat1CDpercentOn &&
-                                                    !stat1EMOn &&
-                                                    !stat1ERpercentOn)
+                                                if (!stat3atkpercentOn &&
+                                                    !stat3hppercentOn &&
+                                                    !stat3defpercentOn &&
+                                                    !stat3atkOn &&
+                                                    !stat3hpOn &&
+                                                    !stat3defOn &&
+                                                    !stat3CRpercentOn &&
+                                                    !stat3CDpercentOn &&
+                                                    !stat3EMOn &&
+                                                    !stat3ERpercentOn)
                                                   Text(
                                                       'Please click to set stats'),
-                                                if (stat1atkpercentOn)
-                                                  Text('ATK%:$stat1atkpercent'),
-                                                if (stat1hppercentOn)
-                                                  Text('HP%:$stat1hppercent'),
-                                                if (stat1defpercentOn)
-                                                  Text('DEF%:$stat1defpercent'),
-                                                if (stat1CRpercentOn)
+                                                if (stat3atkpercentOn)
+                                                  Text('ATK%:$stat3atkpercent'),
+                                                if (stat3hppercentOn)
+                                                  Text('HP%:$stat3hppercent'),
+                                                if (stat3defpercentOn)
+                                                  Text('DEF%:$stat3defpercent'),
+                                                if (stat3CRpercentOn)
                                                   Text(
-                                                      'Critial Rate%:$stat1CRpercent'),
-                                                if (stat1CDpercentOn)
+                                                      'Critial Rate%:$stat3CRpercent'),
+                                                if (stat3CDpercentOn)
                                                   Text(
-                                                      'Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn)
+                                                      'Critial Damage%:$stat3CDpercent'),
+                                                if (stat3EMOn)
                                                   Text(
-                                                      'Elemental Mastery%:$stat1EM'),
-                                                if (stat1ERpercentOn)
+                                                      'Elemental Mastery%:$stat3EM'),
+                                                if (stat3ERpercentOn)
                                                   Text(
-                                                      'Energy Recharge%:$stat1ERpercent'),
-                                                if (stat1atkOn)
-                                                  Text('ATK:$stat1atk'),
-                                                if (stat1hpOn)
-                                                  Text('HP:$stat1hp'),
-                                                if (stat1defOn)
-                                                  Text('DEF:$stat1def'),
+                                                      'Energy Recharge%:$stat3ERpercent'),
+                                                if (stat3atkOn)
+                                                  Text('ATK:$stat3atk'),
+                                                if (stat3hpOn)
+                                                  Text('HP:$stat3hp'),
+                                                if (stat3defOn)
+                                                  Text('DEF:$stat3def'),
                                               ],
                                             ),
                                             Row(
@@ -1885,7 +4245,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           ),
                                           DropdownButton(
-                                              value: artifact3mainstatcat,
+                                              value: artifact4mainstatcat,
                                               items: [
                                                 DropdownMenuItem(
                                                   child: Text(
@@ -1930,46 +4290,46 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 6),
                                                 DropdownMenuItem(
                                                     child: Text(
                                                       "Hydro Damage%",
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 7),
                                                 DropdownMenuItem(
                                                     child: Text(
                                                       "Cryo Damage%",
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 8),
                                                 DropdownMenuItem(
                                                     child: Text(
                                                       "Electro Damage%",
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 9),
                                                 DropdownMenuItem(
                                                     child: Text(
                                                       "Anemo Damage%",
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 10),
                                                 DropdownMenuItem(
                                                     child: Text(
                                                       "Geo Damage%",
                                                       style: TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    value: 5),
+                                                    value: 11),
                                               ],
                                               onChanged: (value) {
                                                 setState(() {
-                                                  artifact3mainstatcat = value;
+                                                  artifact4mainstatcat = value;
                                                 });
                                               }),
                                         ],
@@ -1984,7 +4344,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Star: $fstar',
+                                            'Star: $gstar',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -2000,11 +4360,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: fstar.toString(),
-                                              value: fstar.toDouble(),
+                                              label: gstar.toString(),
+                                              value: gstar.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  fstar = value.toInt();
+                                                  gstar = value.toInt();
                                                 });
                                               },
                                             ),
@@ -2016,7 +4376,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Lv: $flv',
+                                            'Lv: $glv',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -2032,11 +4392,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: flv.toString(),
-                                              value: flv.toDouble(),
+                                              label: glv.toString(),
+                                              value: glv.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  flv = value.toInt();
+                                                  glv = value.toInt();
                                                 });
                                               },
                                             ),
@@ -2048,7 +4408,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Card(
                                     elevation: 1,
                                     child: InkWell(
-                                      onTap: _showSimpleDialog,
+                                      onTap: _showSimpleDialog4,
                                       child: Container(
                                         width: 300,
                                         height: 100,
@@ -2060,42 +4420,42 @@ class _MyHomePageState extends State<MyHomePage> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                if (!stat1atkpercentOn &&
-                                                    !stat1hppercentOn &&
-                                                    !stat1defpercentOn &&
-                                                    !stat1atkOn &&
-                                                    !stat1hpOn &&
-                                                    !stat1defOn &&
-                                                    !stat1CRpercentOn &&
-                                                    !stat1CDpercentOn &&
-                                                    !stat1EMOn &&
-                                                    !stat1ERpercentOn)
+                                                if (!stat4atkpercentOn &&
+                                                    !stat4hppercentOn &&
+                                                    !stat4defpercentOn &&
+                                                    !stat4atkOn &&
+                                                    !stat4hpOn &&
+                                                    !stat4defOn &&
+                                                    !stat4CRpercentOn &&
+                                                    !stat4CDpercentOn &&
+                                                    !stat4EMOn &&
+                                                    !stat4ERpercentOn)
                                                   Text(
                                                       'Please click to set stats'),
-                                                if (stat1atkpercentOn)
-                                                  Text('ATK%:$stat1atkpercent'),
-                                                if (stat1hppercentOn)
-                                                  Text('HP%:$stat1hppercent'),
-                                                if (stat1defpercentOn)
-                                                  Text('DEF%:$stat1defpercent'),
-                                                if (stat1CRpercentOn)
+                                                if (stat4atkpercentOn)
+                                                  Text('ATK%:$stat4atkpercent'),
+                                                if (stat4hppercentOn)
+                                                  Text('HP%:$stat4hppercent'),
+                                                if (stat4defpercentOn)
+                                                  Text('DEF%:$stat4defpercent'),
+                                                if (stat4CRpercentOn)
                                                   Text(
-                                                      'Critial Rate%:$stat1CRpercent'),
-                                                if (stat1CDpercentOn)
+                                                      'Critial Rate%:$stat4CRpercent'),
+                                                if (stat4CDpercentOn)
                                                   Text(
-                                                      'Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn)
+                                                      'Critial Damage%:$stat4CDpercent'),
+                                                if (stat4EMOn)
                                                   Text(
-                                                      'Elemental Mastery%:$stat1EM'),
-                                                if (stat1ERpercentOn)
+                                                      'Elemental Mastery%:$stat4EM'),
+                                                if (stat4ERpercentOn)
                                                   Text(
-                                                      'Energy Recharge%:$stat1ERpercent'),
-                                                if (stat1atkOn)
-                                                  Text('ATK:$stat1atk'),
-                                                if (stat1hpOn)
-                                                  Text('HP:$stat1hp'),
-                                                if (stat1defOn)
-                                                  Text('DEF:$stat1def'),
+                                                      'Energy Recharge%:$stat4ERpercent'),
+                                                if (stat4atkOn)
+                                                  Text('ATK:$stat4atk'),
+                                                if (stat4hpOn)
+                                                  Text('HP:$stat4hp'),
+                                                if (stat4defOn)
+                                                  Text('DEF:$stat4def'),
                                               ],
                                             ),
                                             Row(
@@ -2168,7 +4528,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           ),
                                           DropdownButton(
-                                              value: artifact3mainstatcat,
+                                              value: artifact5mainstatcat,
                                               items: [
                                                 DropdownMenuItem(
                                                   child: Text(
@@ -2224,7 +4584,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ],
                                               onChanged: (value) {
                                                 setState(() {
-                                                  artifact3mainstatcat = value;
+                                                  artifact5mainstatcat = value;
                                                 });
                                               }),
                                         ],
@@ -2239,7 +4599,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Star: $fstar',
+                                            'Star: $cstar',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -2255,11 +4615,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: fstar.toString(),
-                                              value: fstar.toDouble(),
+                                              label: cstar.toString(),
+                                              value: cstar.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  fstar = value.toInt();
+                                                  cstar = value.toInt();
                                                 });
                                               },
                                             ),
@@ -2271,7 +4631,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
-                                            'Lv: $flv',
+                                            'Lv: $clv',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -2287,11 +4647,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               activeColor: Colors.lightBlue,
                                               inactiveColor:
                                                   Colors.lightBlue[50],
-                                              label: flv.toString(),
-                                              value: flv.toDouble(),
+                                              label: clv.toString(),
+                                              value: clv.toDouble(),
                                               onChanged: (value) {
                                                 setState(() {
-                                                  flv = value.toInt();
+                                                  clv = value.toInt();
                                                 });
                                               },
                                             ),
@@ -2303,7 +4663,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Card(
                                     elevation: 1,
                                     child: InkWell(
-                                      onTap: _showSimpleDialog,
+                                      onTap: _showSimpleDialog5,
                                       child: Container(
                                         width: 300,
                                         height: 100,
@@ -2315,42 +4675,42 @@ class _MyHomePageState extends State<MyHomePage> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                if (!stat1atkpercentOn &&
-                                                    !stat1hppercentOn &&
-                                                    !stat1defpercentOn &&
-                                                    !stat1atkOn &&
-                                                    !stat1hpOn &&
-                                                    !stat1defOn &&
-                                                    !stat1CRpercentOn &&
-                                                    !stat1CDpercentOn &&
-                                                    !stat1EMOn &&
-                                                    !stat1ERpercentOn)
+                                                if (!stat5atkpercentOn &&
+                                                    !stat5hppercentOn &&
+                                                    !stat5defpercentOn &&
+                                                    !stat5atkOn &&
+                                                    !stat5hpOn &&
+                                                    !stat5defOn &&
+                                                    !stat5CRpercentOn &&
+                                                    !stat5CDpercentOn &&
+                                                    !stat5EMOn &&
+                                                    !stat5ERpercentOn)
                                                   Text(
                                                       'Please click to set stats'),
-                                                if (stat1atkpercentOn)
-                                                  Text('ATK%:$stat1atkpercent'),
-                                                if (stat1hppercentOn)
-                                                  Text('HP%:$stat1hppercent'),
-                                                if (stat1defpercentOn)
-                                                  Text('DEF%:$stat1defpercent'),
-                                                if (stat1CRpercentOn)
+                                                if (stat5atkpercentOn)
+                                                  Text('ATK%:$stat5atkpercent'),
+                                                if (stat5hppercentOn)
+                                                  Text('HP%:$stat5hppercent'),
+                                                if (stat5defpercentOn)
+                                                  Text('DEF%:$stat5defpercent'),
+                                                if (stat5CRpercentOn)
                                                   Text(
-                                                      'Critial Rate%:$stat1CRpercent'),
-                                                if (stat1CDpercentOn)
+                                                      'Critial Rate%:$stat5CRpercent'),
+                                                if (stat5CDpercentOn)
                                                   Text(
-                                                      'Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn)
+                                                      'Critial Damage%:$stat5CDpercent'),
+                                                if (stat5EMOn)
                                                   Text(
-                                                      'Elemental Mastery%:$stat1EM'),
-                                                if (stat1ERpercentOn)
+                                                      'Elemental Mastery%:$stat5EM'),
+                                                if (stat5ERpercentOn)
                                                   Text(
-                                                      'Energy Recharge%:$stat1ERpercent'),
-                                                if (stat1atkOn)
-                                                  Text('ATK:$stat1atk'),
-                                                if (stat1hpOn)
-                                                  Text('HP:$stat1hp'),
-                                                if (stat1defOn)
-                                                  Text('DEF:$stat1def'),
+                                                      'Energy Recharge%:$stat5ERpercent'),
+                                                if (stat5atkOn)
+                                                  Text('ATK:$stat5atk'),
+                                                if (stat5hpOn)
+                                                  Text('HP:$stat5hp'),
+                                                if (stat5defOn)
+                                                  Text('DEF:$stat5def'),
                                               ],
                                             ),
                                             Row(
