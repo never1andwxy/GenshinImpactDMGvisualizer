@@ -59,6 +59,45 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String fsub1n = 'HP%';
 
+  Map<int, int> cleveltoatk = {
+    1: 26,
+    10: 26,
+    20: 68,
+    30: 68,
+    40: 135,
+    50: 173,
+    60: 217,
+    70: 256,
+    80: 295,
+    90: 335
+  };
+  int levelatk = 0;
+
+  Map<int, int> weapontoatk = {
+    1: 46,
+    5: 62,
+    10: 82,
+    15: 102,
+    20: 122,
+    25: 173,
+    30: 194,
+    35: 214,
+    40: 235,
+    45: 287,
+    50: 308,
+    55: 361,
+    60: 382,
+    65: 435,
+    70: 457,
+    75: 510,
+    80: 532,
+    85: 586,
+    90: 608
+  };
+
+  int weaponatk = 0;
+  int basicatk = 0;
+
   //     'ATK%',
   //     'HP%',
   //     'DEF%',
@@ -3158,6 +3197,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
 
+    levelatk = cleveltoatk[level];
+    weaponatk = weapontoatk[weaponlv];
+    basicatk = levelatk + weaponatk;
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -4758,11 +4801,49 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SelectableText(
-                        'You have liked your wife this many times:',
+                        'Status:',
+                        style: TextStyle(fontSize: 20),
                       ),
-                      Image(
-                        image: AssetImage('Character_Ganyu_Portrait.png'),
-                        height: 500,
+                      SizedBox(height: 10),
+                      SelectableText(
+                        'ATK:$basicatk',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SelectableText(
+                                  'level:$levelatk',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                Container(
+                                  width: levelatk / 7,
+                                  height: 20,
+                                  color: Colors.red,
+                                ),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SelectableText(
+                                  'weapon:$weaponatk',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                Container(
+                                  width: weaponatk / 7,
+                                  height: 20,
+                                  color: Colors.blue,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                       Text(
                         '$_counter',
