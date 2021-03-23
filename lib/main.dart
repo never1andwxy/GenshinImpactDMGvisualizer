@@ -95,6 +95,33 @@ class _MyHomePageState extends State<MyHomePage> {
     90: 608
   };
 
+  Map<int, double> weapontoatkpercent = {
+    1: 10.8,
+    5: 12.5,
+    10: 14.7,
+    15: 16.9,
+    20: 19.1,
+    25: 21.3,
+    30: 23.4,
+    35: 25.6,
+    40: 27.8,
+    45: 30,
+    50: 32.2,
+    55: 34.4,
+    60: 36.5,
+    65: 38.7,
+    70: 40.9,
+    75: 43.1,
+    80: 45.3,
+    85: 47.4,
+    90: 49.6
+  };
+
+  double weaponatkpercent = 0;
+  double weaponatkpercentstat = 0;
+  double bonusatk = 0;
+  double allatk = 0;
+
   int weaponatk = 0;
   int basicatk = 0;
 
@@ -3199,7 +3226,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     levelatk = cleveltoatk[level];
     weaponatk = weapontoatk[weaponlv];
+    weaponatkpercent = weapontoatkpercent[weaponlv];
     basicatk = levelatk + weaponatk;
+    weaponatkpercentstat = basicatk * weaponatkpercent / 100;
+    bonusatk = weaponatkpercentstat;
+    allatk = basicatk + bonusatk;
 
     return Scaffold(
       appBar: AppBar(
@@ -4806,7 +4837,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       SizedBox(height: 10),
                       SelectableText(
-                        'ATK:$basicatk',
+                        'ATK:$basicatk + ' +
+                            double.parse(bonusatk.toStringAsFixed(1))
+                                .toString() +
+                            ' = ' +
+                            double.parse(allatk.toStringAsFixed(1)).toString(),
                         style: TextStyle(fontSize: 15),
                       ),
                       Padding(
@@ -4818,10 +4853,16 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SelectableText(
-                                  'level:$levelatk',
+                                  'level',
                                   style: TextStyle(fontSize: 10),
                                 ),
-                                Container(
+                                SelectableText(
+                                  '$levelatk',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                AnimatedContainer(
+                                  curve: Curves.easeIn,
+                                  duration: Duration(milliseconds: 500),
                                   width: levelatk / 7,
                                   height: 20,
                                   color: Colors.red,
@@ -4832,22 +4873,46 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SelectableText(
-                                  'weapon:$weaponatk',
+                                  'weapon',
                                   style: TextStyle(fontSize: 10),
                                 ),
-                                Container(
+                                SelectableText(
+                                  '$weaponatk',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                AnimatedContainer(
+                                  curve: Curves.easeIn,
+                                  duration: Duration(milliseconds: 500),
                                   width: weaponatk / 7,
                                   height: 20,
                                   color: Colors.blue,
                                 ),
                               ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SelectableText(
+                                  'weapon%($weaponatkpercent)',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                SelectableText(
+                                  double.parse(weaponatkpercentstat
+                                          .toStringAsFixed(1))
+                                      .toString(),
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                                AnimatedContainer(
+                                  curve: Curves.easeIn,
+                                  duration: Duration(milliseconds: 500),
+                                  width: weaponatk / 7,
+                                  height: 20,
+                                  color: Colors.green,
+                                ),
+                              ],
                             )
                           ],
                         ),
-                      ),
-                      Text(
-                        '$_counter',
-                        style: Theme.of(context).textTheme.headline4,
                       ),
                     ],
                   ),
