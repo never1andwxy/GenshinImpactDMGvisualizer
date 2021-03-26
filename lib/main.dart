@@ -48,6 +48,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //ANCHOR characterstat
   int _counter = 0;
   int level = 80;
   int cons = 0;
@@ -136,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //     'HP',
   //     'DEF',
 
-//artifact1stat
+//ANCHOR artifact1stat
   int fstar = 5;
   int flv = 20;
   double stat1atkpercent = 0;
@@ -161,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat1defOn = false;
   int checkstat1 = 0;
 
-//artifact2stat
+//ANCHOR artifact2stat
 
   int pstar = 5;
   int plv = 20;
@@ -187,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat2defOn = false;
   int checkstat2 = 0;
 
-//artifact3stat
+//ANCHOR artifact3stat
   int sstar = 5;
   int slv = 20;
   int artifact3mainstatcat = 1;
@@ -213,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat3defOn = false;
   int checkstat3 = 0;
 
-  //artifact4stat
+//ANCHOR artifact4stat
   int gstar = 5;
   int glv = 20;
   int artifact4mainstatcat = 1;
@@ -239,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat4defOn = false;
   int checkstat4 = 0;
 
-//artifact5stat
+//ANCHOR artifact5stat
   int cstar = 5;
   int clv = 20;
   int artifact5mainstatcat = 1;
@@ -274,6 +275,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() => _label = s);
   }
 
+  //ANCHOR artifact1Popup
   Future _showSimpleDialog() async {
     String result = "";
     result = await showDialog(
@@ -860,6 +862,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _setLabel(result);
   }
 
+  //ANCHOR artifact2Popup
   Future _showSimpleDialog2() async {
     String result = "";
     result = await showDialog(
@@ -1446,6 +1449,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _setLabel(result);
   }
 
+  //ANCHOR artifact3Popup
   Future _showSimpleDialog3() async {
     String result = "";
     result = await showDialog(
@@ -2032,6 +2036,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _setLabel(result);
   }
 
+  //ANCHOR artifact4Popup
   Future _showSimpleDialog4() async {
     String result = "";
     result = await showDialog(
@@ -2618,6 +2623,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _setLabel(result);
   }
 
+  //ANCHOR artifact5Popup
   Future _showSimpleDialog5() async {
     String result = "";
     result = await showDialog(
@@ -3215,6 +3221,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+//ANCHOR ---homepage----
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -3241,6 +3248,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Container(
           child: ResponsiveGridRow(children: [
+            //ANCHOR characterPage
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -3439,6 +3447,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            //ANCHOR weapon&artifactPage
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -3459,6 +3468,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Color.fromRGBO(255, 255, 255, 0.8),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
+
+                          //ANCHOR weapon
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -3544,6 +3555,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
+                        //ANCHOR artifactset
                         Container(
                           height: 800,
                           padding: EdgeInsets.all(10.0),
@@ -3642,7 +3654,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
 
-                              //artifact1
+                              //ANCHOR artifact1
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -3833,7 +3845,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ],
                               ),
-//artifact2
+//ANCHOR artifact2
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -4024,7 +4036,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ],
                               ),
-//artifact3
+//ANCHOR artifact3
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -4273,7 +4285,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ],
                               ),
-//artifact4
+//ANCHOR artifact4
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -4556,7 +4568,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ],
                               ),
-//artifact5
+//ANCHOR artifact5
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -4820,6 +4832,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+
+            //ANCHOR statPage
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -4828,6 +4842,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 800,
                 color: Colors.yellow[50],
                 child: Center(
+                  //ANCHOR statATK
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -4946,6 +4961,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            //ANCHOR damagePage
             ResponsiveGridCol(
               xs: 12,
               md: 12,
