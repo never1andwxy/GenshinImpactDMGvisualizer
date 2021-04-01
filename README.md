@@ -1,6 +1,8 @@
 # genshindamagecalculator
 
 A new Flutter project.
+to visualize the damage in Genshin Impact.
+Web IOS Andriod and Windows
 
 ## Getting Started
 
