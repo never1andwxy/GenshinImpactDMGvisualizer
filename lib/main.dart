@@ -118,6 +118,41 @@ class _MyHomePageState extends State<MyHomePage> {
     90: 49.6
   };
 
+  int lvldef = 0;
+
+  Map<int, int> baseDEFbyLV = {
+    1: 49,
+    10: 49,
+    20: 127,
+    30: 169,
+    40: 253,
+    50: 326,
+    60: 409,
+    70: 482,
+    80: 556,
+    90: 630
+  };
+
+  int critRate = 5;
+
+  double critDMGpercent = 0;
+  double critDMG = 0;
+
+  Map<int, double> critDMGPercentbyLVL = {
+    1: 50,
+    10: 50,
+    20: 50,
+    30: 50,
+    40: 50,
+    50: 59.6,
+    60: 69.2,
+    70: 69.2,
+    80: 78.8,
+    90: 88.4
+  };
+
+  int baseELEMASTERY = 0;
+
   double weaponatkpercent = 0;
   double weaponatkpercentstat = 0;
   double bonusatk = 0;
@@ -3238,6 +3273,9 @@ class _MyHomePageState extends State<MyHomePage> {
     weaponatkpercentstat = basicatk * weaponatkpercent / 100;
     bonusatk = weaponatkpercentstat;
     allatk = basicatk + bonusatk;
+    lvldef = baseDEFbyLV[level];
+    critDMGpercent = critDMGPercentbyLVL[level];
+    critDMG = allatk * critDMGpercent / 100;
 
     return Scaffold(
       appBar: AppBar(
@@ -4928,6 +4966,140 @@ class _MyHomePageState extends State<MyHomePage> {
                             )
                           ],
                         ),
+                      ),
+                      //ANCHOR statCritRate
+                      SizedBox(height: 10),
+                      SelectableText(
+                        'Crit Rate:$critRate',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SelectableText(
+                                    'Crit Rate',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  SelectableText(
+                                    '$critRate',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  AnimatedContainer(
+                                    curve: Curves.easeIn,
+                                    duration: Duration(milliseconds: 500),
+                                    width: critRate / 1.5,
+                                    height: 20,
+                                    color: Colors.deepOrange[200],
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                      //ANCHOR statCritDMG
+                      SizedBox(height: 10),
+                      SelectableText(
+                        'Crit Damage:' +
+                            double.parse(critDMG.toStringAsFixed(1)).toString(),
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SelectableText(
+                                    'Crit Damage',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  SelectableText(
+                                    double.parse(critDMG.toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  AnimatedContainer(
+                                    curve: Curves.easeIn,
+                                    duration: Duration(milliseconds: 500),
+                                    width: critDMG / 2.5,
+                                    height: 20,
+                                    color: Colors.deepOrange[700],
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                      //ANCHOR DEF
+                      SizedBox(height: 10),
+                      SelectableText(
+                        'DEF:$lvldef',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SelectableText(
+                                    'DEF',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  SelectableText(
+                                    '$lvldef',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  AnimatedContainer(
+                                    curve: Curves.easeIn,
+                                    duration: Duration(milliseconds: 500),
+                                    width: lvldef / 1.2,
+                                    height: 20,
+                                    color: Colors.cyan[200],
+                                  ),
+                                ],
+                              ),
+                            ]),
+                      ),
+                      //ANCHOR ELEMASTERY
+                      SizedBox(height: 10),
+                      SelectableText(
+                        'Elemental Mastery:$baseELEMASTERY',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SelectableText(
+                                    'Elemental Mastery',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  SelectableText(
+                                    '$baseELEMASTERY',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  AnimatedContainer(
+                                    curve: Curves.easeIn,
+                                    duration: Duration(milliseconds: 500),
+                                    width: baseELEMASTERY / 1.5,
+                                    height: 20,
+                                    color: Colors.purple[200],
+                                  ),
+                                ],
+                              ),
+                            ]),
                       ),
                     ],
                   ),
