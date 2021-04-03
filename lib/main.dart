@@ -3727,12 +3727,27 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                       ),
-                                      SelectableText(
-                                        'Flower: HP',
-                                        style: TextStyle(
-                                          //fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                          fontSize: 15,
+                                      Container(
+                                        width: 110,
+                                        child: Column(
+                                          children: [
+                                            SelectableText(
+                                              'Flower:',
+                                              style: TextStyle(
+                                                //fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                            SelectableText(
+                                              'HP',
+                                              style: TextStyle(
+                                                //fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -3811,7 +3826,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: InkWell(
                                       onTap: _showSimpleDialog,
                                       child: Container(
-                                        width: 300,
+                                        width: 200,
                                         height: 100,
                                         child: Column(
                                           mainAxisAlignment:
@@ -3918,12 +3933,27 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                       ),
-                                      SelectableText(
-                                        'Plume: ATK',
-                                        style: TextStyle(
-                                          //fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                          fontSize: 15,
+                                      Container(
+                                        width: 110.0,
+                                        child: Column(
+                                          children: [
+                                            SelectableText(
+                                              'Plume: ',
+                                              style: TextStyle(
+                                                //fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                            SelectableText(
+                                              'ATK',
+                                              style: TextStyle(
+                                                //fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -4002,7 +4032,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: InkWell(
                                       onTap: _showSimpleDialog2,
                                       child: Container(
-                                        width: 300,
+                                        width: 200,
                                         height: 100,
                                         child: Column(
                                           mainAxisAlignment:
@@ -4127,52 +4157,57 @@ class _MyHomePageState extends State<MyHomePage> {
                                               fontSize: 15,
                                             ),
                                           ),
-                                          DropdownButton(
-                                              value: artifact3mainstatcat,
-                                              items: [
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "HP%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 1,
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "ATK%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 2,
-                                                ),
-                                                DropdownMenuItem(
+                                          Container(
+                                            height: 50.0,
+                                            width: 110.0,
+                                            child: DropdownButton(
+                                                value: artifact3mainstatcat,
+                                                items: [
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "DEF%",
+                                                      "HP%",
                                                       style: TextStyle(
                                                           fontSize: 15),
                                                     ),
-                                                    value: 3),
-                                                DropdownMenuItem(
+                                                    value: 1,
+                                                  ),
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "Elemental Mastery",
+                                                      "ATK%",
                                                       style: TextStyle(
-                                                          fontSize: 10),
+                                                          fontSize: 15),
                                                     ),
-                                                    value: 4),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Energy Recharge%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 5)
-                                              ],
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  artifact3mainstatcat = value;
-                                                });
-                                              }),
+                                                    value: 2,
+                                                  ),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "DEF%",
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      ),
+                                                      value: 3),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Elemental Mastery",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 4),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Energy Recharge%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 5)
+                                                ],
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    artifact3mainstatcat =
+                                                        value;
+                                                  });
+                                                }),
+                                          ),
                                         ],
                                       )
                                     ],
@@ -4251,7 +4286,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: InkWell(
                                       onTap: _showSimpleDialog3,
                                       child: Container(
-                                        width: 300,
+                                        width: 200,
                                         height: 100,
                                         child: Column(
                                           mainAxisAlignment:
@@ -4368,94 +4403,99 @@ class _MyHomePageState extends State<MyHomePage> {
                                               fontSize: 15,
                                             ),
                                           ),
-                                          DropdownButton(
-                                              value: artifact4mainstatcat,
-                                              items: [
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "HP%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 1,
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "ATK%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 2,
-                                                ),
-                                                DropdownMenuItem(
+                                          Container(
+                                            height: 50.0,
+                                            width: 110.0,
+                                            child: DropdownButton(
+                                                value: artifact4mainstatcat,
+                                                items: [
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "DEF%",
+                                                      "HP%",
                                                       style: TextStyle(
                                                           fontSize: 15),
                                                     ),
-                                                    value: 3),
-                                                DropdownMenuItem(
+                                                    value: 1,
+                                                  ),
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "Elemental Mastery",
+                                                      "ATK%",
                                                       style: TextStyle(
-                                                          fontSize: 10),
+                                                          fontSize: 15),
                                                     ),
-                                                    value: 4),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Physical Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 5),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Pyro Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 6),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Hydro Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 7),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Cryo Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 8),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Electro Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 9),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Anemo Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 10),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Geo Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 11),
-                                              ],
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  artifact4mainstatcat = value;
-                                                });
-                                              }),
+                                                    value: 2,
+                                                  ),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "DEF%",
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      ),
+                                                      value: 3),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Elemental Mastery",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 4),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Physical Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 5),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Pyro Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 6),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Hydro Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 7),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Cryo Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 8),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Electro Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 9),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Anemo Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 10),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Geo Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 11),
+                                                ],
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    artifact4mainstatcat =
+                                                        value;
+                                                  });
+                                                }),
+                                          ),
                                         ],
                                       )
                                     ],
@@ -4534,7 +4574,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: InkWell(
                                       onTap: _showSimpleDialog4,
                                       child: Container(
-                                        width: 300,
+                                        width: 200,
                                         height: 100,
                                         child: Column(
                                           mainAxisAlignment:
@@ -4651,66 +4691,71 @@ class _MyHomePageState extends State<MyHomePage> {
                                               fontSize: 15,
                                             ),
                                           ),
-                                          DropdownButton(
-                                              value: artifact5mainstatcat,
-                                              items: [
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "HP%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 1,
-                                                ),
-                                                DropdownMenuItem(
-                                                  child: Text(
-                                                    "ATK%",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
-                                                  ),
-                                                  value: 2,
-                                                ),
-                                                DropdownMenuItem(
+                                          Container(
+                                            height: 50.0,
+                                            width: 110.0,
+                                            child: DropdownButton(
+                                                value: artifact5mainstatcat,
+                                                items: [
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "DEF%",
+                                                      "HP%",
                                                       style: TextStyle(
                                                           fontSize: 15),
                                                     ),
-                                                    value: 3),
-                                                DropdownMenuItem(
+                                                    value: 1,
+                                                  ),
+                                                  DropdownMenuItem(
                                                     child: Text(
-                                                      "Elemental Mastery",
+                                                      "ATK%",
                                                       style: TextStyle(
-                                                          fontSize: 10),
+                                                          fontSize: 15),
                                                     ),
-                                                    value: 4),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Critical Rate%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 5),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Critical Damage%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 6),
-                                                DropdownMenuItem(
-                                                    child: Text(
-                                                      "Healing Bonus%",
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                    value: 7),
-                                              ],
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  artifact5mainstatcat = value;
-                                                });
-                                              }),
+                                                    value: 2,
+                                                  ),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "DEF%",
+                                                        style: TextStyle(
+                                                            fontSize: 15),
+                                                      ),
+                                                      value: 3),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Elemental Mastery",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 4),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Critical Rate%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 5),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Critical Damage%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 6),
+                                                  DropdownMenuItem(
+                                                      child: Text(
+                                                        "Healing Bonus%",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      value: 7),
+                                                ],
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    artifact5mainstatcat =
+                                                        value;
+                                                  });
+                                                }),
+                                          ),
                                         ],
                                       )
                                     ],
@@ -4789,7 +4834,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: InkWell(
                                       onTap: _showSimpleDialog5,
                                       child: Container(
-                                        width: 300,
+                                        width: 200,
                                         height: 100,
                                         child: Column(
                                           mainAxisAlignment:
