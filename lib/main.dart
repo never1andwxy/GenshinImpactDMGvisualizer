@@ -197,6 +197,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat1defOn = false;
   int checkstat1 = 0;
 
+  double a1percentatk = 0;
+
 //ANCHOR artifact2stat
 
   int pstar = 5;
@@ -223,10 +225,18 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat2defOn = false;
   int checkstat2 = 0;
 
+  var a2atkbyLVL = {
+    4: {1: 54, 4: 90, 8: 137, 12: 185, 16: 232, 20: 232},
+    5: {1: 60, 4: 100, 8: 152, 12: 205, 16: 258, 20: 311}
+  };
+
+  int a2atk = 0;
+  double a2percentatk = 0;
+
 //ANCHOR artifact3stat
   int sstar = 5;
   int slv = 20;
-  int artifact3mainstatcat = 1;
+  int artifact3mainstatcat = 2;
   double stat3atkpercent = 0;
   bool stat3atkpercentOn = false;
   double stat3hppercent = 0;
@@ -248,6 +258,16 @@ class _MyHomePageState extends State<MyHomePage> {
   int stat3def = 0;
   bool stat3defOn = false;
   int checkstat3 = 0;
+
+  //1:HP% 2:ATK% 3:DEF% 4:EM 5:ER
+  var a3atkpercentbyLVL = {
+    4: {1: 8.1, 4: 13.4, 8: 20.6, 12: 27.7, 16: 34.8, 20: 34.8},
+    5: {1: 9, 4: 14.9, 8: 22.8, 12: 30.8, 16: 38.7, 20: 46.6}
+  };
+
+  double a3atkpercentMain = 0;
+  double a3percentatkMain = 0;
+  double a3percentatk = 0;
 
 //ANCHOR artifact4stat
   int gstar = 5;
@@ -275,6 +295,15 @@ class _MyHomePageState extends State<MyHomePage> {
   bool stat4defOn = false;
   int checkstat4 = 0;
 
+  var a4atkpercentbyLVL = {
+    4: {1: 8.1, 4: 13.4, 8: 20.6, 12: 27.7, 16: 34.8, 20: 34.8},
+    5: {1: 9, 4: 14.9, 8: 22.8, 12: 30.8, 16: 38.7, 20: 46.6}
+  };
+
+  double a4atkpercentMain = 0;
+  double a4percentatkMain = 0;
+  double a4percentatk = 0;
+
 //ANCHOR artifact5stat
   int cstar = 5;
   int clv = 20;
@@ -300,6 +329,15 @@ class _MyHomePageState extends State<MyHomePage> {
   int stat5def = 0;
   bool stat5defOn = false;
   int checkstat5 = 0;
+
+  var a5atkpercentbyLVL = {
+    4: {1: 8.1, 4: 13.4, 8: 20.6, 12: 27.7, 16: 34.8, 20: 34.8},
+    5: {1: 9, 4: 14.9, 8: 22.8, 12: 30.8, 16: 38.7, 20: 46.6}
+  };
+
+  double a5atkpercentMain = 0;
+  double a5percentatkMain = 0;
+  double a5percentatk = 0;
 
   String _label = '';
 
@@ -3256,7 +3294,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-//ANCHOR ---homepage----
+//ANCHOR ---homepage----caculation
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -3271,11 +3309,42 @@ class _MyHomePageState extends State<MyHomePage> {
     weaponatkpercent = weapontoatkpercent[weaponlv];
     basicatk = levelatk + weaponatk;
     weaponatkpercentstat = basicatk * weaponatkpercent / 100;
-    bonusatk = weaponatkpercentstat;
+    bonusatk = weaponatkpercentstat +
+        a1percentatk +
+        stat1atk +
+        a2atk +
+        a2percentatk +
+        a3percentatkMain +
+        a3percentatk +
+        stat3atk +
+        a4percentatkMain +
+        a4percentatk +
+        stat4atk +
+        a5percentatkMain +
+        a5percentatk +
+        stat5atk;
+
+    a1percentatk = stat1atkpercentOn ? basicatk * stat1atkpercent / 100 : 0;
+    a2percentatk = stat2atkpercentOn ? basicatk * stat2atkpercent / 100 : 0;
+    a3percentatk = stat3atkpercentOn ? basicatk * stat3atkpercent / 100 : 0;
+    a4percentatk = stat4atkpercentOn ? basicatk * stat4atkpercent / 100 : 0;
+    a5percentatk = stat5atkpercentOn ? basicatk * stat5atkpercent / 100 : 0;
+
     allatk = basicatk + bonusatk;
     lvldef = baseDEFbyLV[level];
     critDMGpercent = critDMGPercentbyLVL[level];
     critDMG = allatk * critDMGpercent / 100;
+
+    a2atk = a2atkbyLVL[pstar][plv];
+    a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
+    a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
+    a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
+    a3percentatkMain =
+        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
+    a4percentatkMain =
+        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
+    a5percentatkMain =
+        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -4944,71 +5013,599 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        child: Column(
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            //ANCHOR statATK:stats
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                SelectableText(
-                                  'level',
-                                  style: TextStyle(fontSize: 10),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.red,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'level',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        SelectableText(
+                                          '$levelatk',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                SelectableText(
-                                  '$levelatk',
-                                  style: TextStyle(fontSize: 10),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.blue,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'weapon',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        SelectableText(
+                                          '$weaponatk',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                AnimatedContainer(
-                                  curve: Curves.easeIn,
-                                  duration: Duration(milliseconds: 500),
-                                  width: levelatk / 7,
-                                  height: 20,
-                                  color: Colors.red,
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.green,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'weapon%($weaponatkpercent)',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        SelectableText(
+                                          double.parse(weaponatkpercentstat
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
+                                if (stat1atkOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a1',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat1atk.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat1atkpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a1%($stat1atkpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a1percentatk
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.pink,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'a2',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        SelectableText(
+                                          a2atk.toString(),
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                if (stat2atkpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.pink[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a2%($stat2atkpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a2percentatk
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 2)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($a3atkpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a3percentatkMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3atkpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($stat3atkpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a3percentatk
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3atkOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat3atk.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact4mainstatcat == 2)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4%($a4atkpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a4percentatkMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4atkpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4%($stat4atkpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a4percentatk
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4atkOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat4atk.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact5mainstatcat == 2)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5%($a5atkpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a5percentatkMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5atkpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5%($stat5atkpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a5percentatk
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5atkOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat5atk.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                               ],
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+
+                            //ANCHOR statATK:bar
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                SelectableText(
-                                  'weapon',
-                                  style: TextStyle(fontSize: 10),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: levelatk / 7,
+                                      height: 20,
+                                      color: Colors.red,
+                                    ),
+                                  ],
                                 ),
-                                SelectableText(
-                                  '$weaponatk',
-                                  style: TextStyle(fontSize: 10),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: weaponatk / 7,
+                                      height: 20,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
                                 ),
-                                AnimatedContainer(
-                                  curve: Curves.easeIn,
-                                  duration: Duration(milliseconds: 500),
-                                  width: weaponatk / 7,
-                                  height: 20,
-                                  color: Colors.blue,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: weaponatk / 7,
+                                      height: 20,
+                                      color: Colors.green,
+                                    ),
+                                  ],
                                 ),
+                                if (stat1atkOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat1atk / 7,
+                                        height: 20,
+                                        color: Colors.yellow,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat1atkpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a1percentatk / 7,
+                                        height: 20,
+                                        color: Colors.yellow[700],
+                                      ),
+                                    ],
+                                  ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: a2atk / 7,
+                                      height: 20,
+                                      color: Colors.pink,
+                                    ),
+                                  ],
+                                ),
+                                if (stat2atkpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a2percentatk / 7,
+                                        height: 20,
+                                        color: Colors.pink[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 2)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a3percentatkMain / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3atkpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a3percentatk / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3atkOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat3atk / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact4mainstatcat == 2)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a4percentatkMain / 7,
+                                        height: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4atkpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a4percentatk / 7,
+                                        height: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4atkOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat4atk / 7,
+                                        height: 20,
+                                        color: Colors.purple[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact5mainstatcat == 2)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a5percentatkMain / 7,
+                                        height: 20,
+                                        color: Colors.teal,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5atkpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a5percentatk / 7,
+                                        height: 20,
+                                        color: Colors.teal,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5atkOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat5atk / 7,
+                                        height: 20,
+                                        color: Colors.teal[700],
+                                      ),
+                                    ],
+                                  ),
                               ],
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SelectableText(
-                                  'weapon%($weaponatkpercent)',
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                                SelectableText(
-                                  double.parse(weaponatkpercentstat
-                                          .toStringAsFixed(1))
-                                      .toString(),
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                                AnimatedContainer(
-                                  curve: Curves.easeIn,
-                                  duration: Duration(milliseconds: 500),
-                                  width: weaponatk / 7,
-                                  height: 20,
-                                  color: Colors.green,
-                                ),
-                              ],
-                            )
                           ],
                         ),
                       ),
