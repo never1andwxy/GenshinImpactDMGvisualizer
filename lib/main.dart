@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
@@ -132,6 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
     80: 556,
     90: 630
   };
+  Map<int, double> weapontodefpercent = {};
 
   int critRate = 5;
 
@@ -155,11 +158,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   double weaponatkpercent = 0;
   double weaponatkpercentstat = 0;
+  double weapondefpercent = 0;
+  double weapondefpercentstat = 0;
   double bonusatk = 0;
   double allatk = 0;
+  double bonusdef = 0;
+  double alldef = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
+  int basicdef = 0;
 
   //     'ATK%',
   //     'HP%',
@@ -198,6 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int checkstat1 = 0;
 
   double a1percentatk = 0;
+  double a1percentdef = 0;
 
 //ANCHOR artifact2stat
 
@@ -232,6 +241,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int a2atk = 0;
   double a2percentatk = 0;
+  double a2percentdef = 0;
 
 //ANCHOR artifact3stat
   int sstar = 5;
@@ -269,6 +279,15 @@ class _MyHomePageState extends State<MyHomePage> {
   double a3percentatkMain = 0;
   double a3percentatk = 0;
 
+  var a3defpercentbyLVL = {
+    4: {1: 10.1, 4: 16.8, 8: 25.7, 12: 34.6, 16: 43.5, 20: 43.5},
+    5: {1: 11.2, 4: 18.6, 8: 28.6, 12: 38.5, 16: 48.4, 20: 58.3}
+  };
+
+  double a3defpercentMain = 0;
+  double a3percentdefMain = 0;
+  double a3percentdef = 0;
+
 //ANCHOR artifact4stat
   int gstar = 5;
   int glv = 20;
@@ -304,6 +323,15 @@ class _MyHomePageState extends State<MyHomePage> {
   double a4percentatkMain = 0;
   double a4percentatk = 0;
 
+  var a4defpercentbyLVL = {
+    4: {1: 10.1, 4: 16.8, 8: 25.7, 12: 34.6, 16: 43.5, 20: 43.5},
+    5: {1: 11.2, 4: 18.6, 8: 28.6, 12: 38.5, 16: 48.4, 20: 58.3}
+  };
+
+  double a4defpercentMain = 0;
+  double a4percentdefMain = 0;
+  double a4percentdef = 0;
+
 //ANCHOR artifact5stat
   int cstar = 5;
   int clv = 20;
@@ -338,6 +366,15 @@ class _MyHomePageState extends State<MyHomePage> {
   double a5atkpercentMain = 0;
   double a5percentatkMain = 0;
   double a5percentatk = 0;
+
+  var a5defpercentbyLVL = {
+    4: {1: 10.1, 4: 16.8, 8: 25.7, 12: 34.6, 16: 43.5, 20: 43.5},
+    5: {1: 11.2, 4: 18.6, 8: 28.6, 12: 38.5, 16: 48.4, 20: 58.3}
+  };
+
+  double a5defpercentMain = 0;
+  double a5percentdefMain = 0;
+  double a5percentdef = 0;
 
   String _label = '';
 
@@ -3331,7 +3368,41 @@ class _MyHomePageState extends State<MyHomePage> {
     a5percentatk = stat5atkpercentOn ? basicatk * stat5atkpercent / 100 : 0;
 
     allatk = basicatk + bonusatk;
+
+    //DEF params
     lvldef = baseDEFbyLV[level];
+
+    weapondefpercent = weapontodefpercent[weaponlv];
+
+    if (weapondefpercent != null) {
+      weapondefpercentstat = lvldef * weapondefpercent / 100;
+    } else {
+      weapondefpercentstat = 0;
+    }
+
+    bonusdef = weapondefpercentstat +
+        a1percentdef +
+        stat1def +
+        a2percentdef +
+        stat1def +
+        a3percentdefMain +
+        a3percentdef +
+        stat3def +
+        a4percentdefMain +
+        a4percentdef +
+        stat4def +
+        a5percentdefMain +
+        a5percentdef +
+        stat5def;
+
+    a1percentdef = stat1defpercentOn ? lvldef * stat1defpercent / 100 : 0;
+    a2percentdef = stat2defpercentOn ? lvldef * stat2defpercent / 100 : 0;
+    a3percentdef = stat3defpercentOn ? lvldef * stat3defpercent / 100 : 0;
+    a4percentdef = stat4defpercentOn ? lvldef * stat4defpercent / 100 : 0;
+    a5percentdef = stat5defpercentOn ? lvldef * stat5defpercent / 100 : 0;
+
+    alldef = lvldef + bonusdef;
+
     critDMGpercent = critDMGPercentbyLVL[level];
     critDMG = allatk * critDMGpercent / 100;
 
@@ -3339,12 +3410,24 @@ class _MyHomePageState extends State<MyHomePage> {
     a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
     a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
     a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
+
+    a3defpercentMain = a3defpercentbyLVL[sstar][slv];
+    a4defpercentMain = a4defpercentbyLVL[gstar][glv];
+    a5defpercentMain = a5defpercentbyLVL[cstar][clv];
+
     a3percentatkMain =
         (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
     a4percentatkMain =
         artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
     a5percentatkMain =
         artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
+
+    a3percentdefMain =
+        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
+    a4percentdefMain =
+        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
+    a5percentdefMain =
+        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -5678,37 +5761,534 @@ class _MyHomePageState extends State<MyHomePage> {
                             ]),
                       ),
                       //ANCHOR DEF
-                      SizedBox(height: 10),
                       SelectableText(
-                        'DEF:$lvldef',
+                        'DEF:$lvldef + ' +
+                            double.parse(bonusdef.toStringAsFixed(1))
+                                .toString() +
+                            ' = ' +
+                            double.parse(alldef.toStringAsFixed(1)).toString(),
                         style: TextStyle(fontSize: 15),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SelectableText(
-                                    'DEF',
-                                    style: TextStyle(fontSize: 10),
+                        child: Column(
+                          children: [
+                            //ANCHOR statDEF:stats
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.red,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'level',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        SelectableText(
+                                          '$lvldef',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                if (stat1defOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.green,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'weapon%($weapondefpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(weapondefpercentstat
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  SelectableText(
-                                    '$lvldef',
-                                    style: TextStyle(fontSize: 10),
+                                if (stat1defOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a1',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat1def.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  AnimatedContainer(
-                                    curve: Curves.easeIn,
-                                    duration: Duration(milliseconds: 500),
-                                    width: lvldef / 1.2,
-                                    height: 20,
-                                    color: Colors.cyan[200],
+                                if (stat1defpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a1%($stat1defpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a1percentdef
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ]),
+                                if (stat2defpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.pink[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a2%($stat2defpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a2percentdef
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 3)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($a3defpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a3percentdefMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3defpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($stat3defpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a3percentdef
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3defOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat3def.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact4mainstatcat == 3)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4%($a4defpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a4percentdefMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4defpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4%($stat4defpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a4percentdef
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4defOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat4def.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact5mainstatcat == 3)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5%($a5defpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a5percentdefMain
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5defpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5%($stat5defpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(a5percentdef
+                                                    .toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5defOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            double.parse(
+                                                    stat5def.toStringAsFixed(1))
+                                                .toString(),
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                              ],
+                            ),
+
+                            //ANCHOR statDEF:bar
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: lvldef / 7,
+                                      height: 20,
+                                      color: Colors.red,
+                                    ),
+                                  ],
+                                ),
+                                if (stat1defOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat1def / 7,
+                                        height: 20,
+                                        color: Colors.yellow,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat1defpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a1percentdef / 7,
+                                        height: 20,
+                                        color: Colors.yellow[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat2defpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a2percentdef / 7,
+                                        height: 20,
+                                        color: Colors.pink[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 3)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a3percentdefMain / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3defpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a3percentdef / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3defOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat3def / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact4mainstatcat == 3)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a4percentdefMain / 7,
+                                        height: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4defpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a4percentdef / 7,
+                                        height: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4defOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat4def / 7,
+                                        height: 20,
+                                        color: Colors.purple[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact5mainstatcat == 3)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a5percentdefMain / 7,
+                                        height: 20,
+                                        color: Colors.teal,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5defpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a5percentdef / 7,
+                                        height: 20,
+                                        color: Colors.teal,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5defOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat5def / 7,
+                                        height: 20,
+                                        color: Colors.teal[700],
+                                      ),
+                                    ],
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       //ANCHOR ELEMASTERY
                       SizedBox(height: 10),
