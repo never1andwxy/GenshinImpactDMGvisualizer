@@ -136,6 +136,8 @@ class _MyHomePageState extends State<MyHomePage> {
   };
   Map<int, double> weapontodefpercent = {};
 
+  Map<int, double> weapontoERpercent = {};
+
   int critRate = 5;
 
   double critDMGpercent = 0;
@@ -160,10 +162,13 @@ class _MyHomePageState extends State<MyHomePage> {
   double weaponatkpercentstat = 0;
   double weapondefpercent = 0;
   double weapondefpercentstat = 0;
+  double weaponERpercent = 0;
   double bonusatk = 0;
   double allatk = 0;
   double bonusdef = 0;
+  double bonusER = 0;
   double alldef = 0;
+  double allER = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
@@ -287,6 +292,14 @@ class _MyHomePageState extends State<MyHomePage> {
   double a3defpercentMain = 0;
   double a3percentdefMain = 0;
   double a3percentdef = 0;
+
+  var a3ERpercentbyLVL = {
+    4: {1: 9, 4: 14.9, 8: 22.8, 12: 30.8, 16: 38.7, 20: 38.7},
+    5: {1: 10, 4: 16.6, 8: 25.4, 12: 34.2, 16: 43, 20: 51.8}
+  };
+
+  double a3ERpercentMain = 0;
+  double a3percentERMain = 0;
 
 //ANCHOR artifact4stat
   int gstar = 5;
@@ -3403,6 +3416,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
     alldef = lvldef + bonusdef;
 
+    //ER params
+    if (weapontoERpercent[weaponlv] != null)
+      weaponERpercent = weapontoERpercent[weaponlv];
+
+    a3ERpercentMain = a3ERpercentbyLVL[sstar][slv];
+    a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain;
+
+    bonusER = weaponERpercent +
+        a3percentERMain +
+        stat1ERpercent +
+        stat2ERpercent +
+        stat3ERpercent +
+        stat4ERpercent +
+        stat5ERpercent;
+
+    allER = 100 + bonusER;
+
     critDMGpercent = critDMGPercentbyLVL[level];
     critDMG = allatk * critDMGpercent / 100;
 
@@ -5798,7 +5828,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ],
                                 ),
-                                if (stat1defOn == true)
+                                if (weapondefpercentstat != 0)
                                   Row(
                                     children: [
                                       Container(
@@ -6129,6 +6159,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ],
                                 ),
+                                if (weapondefpercentstat != 0)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: weapondefpercentstat / 7,
+                                        height: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ],
+                                  ),
                                 if (stat1defOn == true)
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -6282,6 +6325,282 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: stat5def / 7,
                                         height: 20,
                                         color: Colors.teal[700],
+                                      ),
+                                    ],
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      //ANCHOR ER
+                      SelectableText(
+                        'Energy Recharge:100% + ' +
+                            double.parse(bonusER.toStringAsFixed(1))
+                                .toString() +
+                            '% = ' +
+                            double.parse(allER.toStringAsFixed(1)).toString() +
+                            '%',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            //ANCHOR statER:stats
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 10,
+                                      height: 10,
+                                      color: Colors.red,
+                                    ),
+                                    Column(
+                                      children: [
+                                        SelectableText(
+                                          'baseER%(100)',
+                                          style: TextStyle(fontSize: 10),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                if (weaponERpercent != 0)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.green,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'weapon%($weaponERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat1ERpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a1%($stat1ERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat2ERpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.pink[700],
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a2%($stat2ERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 5)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($a3ERpercentMain)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3ERpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a3%($stat3ERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4ERpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.purple,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a4%($stat4ERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5ERpercentOn == true)
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.teal,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'a5%($stat5ERpercent)',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                              ],
+                            ),
+
+                            //ANCHOR statER:bar
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: 100 / 7,
+                                      height: 20,
+                                      color: Colors.red,
+                                    ),
+                                  ],
+                                ),
+                                if (weaponERpercent != 0)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: weaponERpercent / 7,
+                                        height: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat1ERpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat1ERpercent / 7,
+                                        height: 20,
+                                        color: Colors.yellow[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (stat2ERpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat2ERpercent / 7,
+                                        height: 20,
+                                        color: Colors.pink[700],
+                                      ),
+                                    ],
+                                  ),
+                                if (artifact3mainstatcat == 5)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: a3ERpercentMain / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat3ERpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat3ERpercent / 7,
+                                        height: 20,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat4ERpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat4ERpercent / 7,
+                                        height: 20,
+                                        color: Colors.purple,
+                                      ),
+                                    ],
+                                  ),
+                                if (stat5ERpercentOn == true)
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: stat5ERpercent / 7,
+                                        height: 20,
+                                        color: Colors.teal,
                                       ),
                                     ],
                                   ),
