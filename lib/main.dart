@@ -3421,7 +3421,7 @@ class _MyHomePageState extends State<MyHomePage> {
       weaponERpercent = weapontoERpercent[weaponlv];
 
     a3ERpercentMain = a3ERpercentbyLVL[sstar][slv];
-    a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain;
+    a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain : 0;
 
     bonusER = weaponERpercent +
         a3percentERMain +
