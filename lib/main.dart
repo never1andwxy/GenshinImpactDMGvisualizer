@@ -74,7 +74,23 @@ class _MyHomePageState extends State<MyHomePage> {
     80: 295,
     90: 335
   };
+
   int levelatk = 0;
+
+  Map<int, double> cleveltoPhysicalDMGpercent = {};
+  double levelPhysicalDMGpercent = 0;
+  Map<int, double> cleveltoPyroDMGpercent = {};
+  double levelPyroDMGpercent = 0;
+  Map<int, double> cleveltoHydroDMGpercent = {};
+  double levelHydroDMGpercent = 0;
+  Map<int, double> cleveltoCryoDMGpercent = {};
+  double levelCryoDMGpercent = 0;
+  Map<int, double> cleveltoElectroDMGpercent = {};
+  double levelElectroDMGpercent = 0;
+  Map<int, double> cleveltoAnemoDMGpercent = {};
+  double levelAnemoDMGpercent = 0;
+  Map<int, double> cleveltoGeoDMGpercent = {};
+  double levelGeoDMGpercent = 0;
 
   Map<int, int> weapontoatk = {
     1: 46,
@@ -137,6 +153,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<int, double> weapontodefpercent = {};
 
   Map<int, double> weapontoERpercent = {};
+
+  Map<int, double> weapontoPhysicalDMGpercent = {};
+  double weaponPhysicalDMGpercent = 0;
+  Map<int, double> weapontoPyroDMGpercent = {};
+  double weaponPyroDMGpercent = 0;
+  Map<int, double> weapontoHydroDMGpercent = {};
+  double weaponHydroDMGpercent = 0;
+  Map<int, double> weapontoCryoDMGpercent = {};
+  double weaponCryoDMGpercent = 0;
+  Map<int, double> weapontoElectroDMGpercent = {};
+  double weaponElectroDMGpercent = 0;
+  Map<int, double> weapontoAnemoDMGpercent = {};
+  double weaponAnemoDMGpercent = 0;
+  Map<int, double> weapontoGeoDMGpercent = {};
+  double weaponGeoDMGpercent = 0;
 
   int lvlhp = 0;
 
@@ -203,6 +234,14 @@ class _MyHomePageState extends State<MyHomePage> {
   double allHP = 0;
   int allEM = 0;
   int bonusEM = 0;
+
+  double bonusPhysicalDMGpercent = 0;
+  double bonusPyroDMGpercent = 0;
+  double bonusHydroDMGpercent = 0;
+  double bonusCryoDMGpercent = 0;
+  double bonusElectroDMGpercent = 0;
+  double bonusAnemoDMGpercent = 0;
+  double bonusGeoDMGpercent = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
@@ -420,6 +459,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int a4EMmain = 0;
   int a4EM = 0;
+
+  var a4PhysicalDMGpercentbyLVL = {
+    4: {1: 10.1, 4: 16.8, 8: 25.7, 12: 34.6, 16: 43.5, 20: 43.5},
+    5: {1: 11.2, 4: 18.6, 8: 28.6, 12: 38.5, 16: 48.4, 20: 58.3}
+  };
+  double a4PhysicalDMGpercentMain = 0;
+  double a4PhysicalDMGpercent = 0;
+
+  var a4ElementDMGpercentbyLVL = {
+    4: {1: 8.1, 4: 13.4, 8: 20.6, 12: 27.7, 16: 34.8, 20: 34.8},
+    5: {1: 9, 4: 14.9, 8: 22.8, 12: 30.8, 16: 38.7, 20: 44.6}
+  };
+  double a4PyroDMGpercentMain = 0;
+  double a4HydroDMGpercentMain = 0;
+  double a4CryoDMGpercentMain = 0;
+  double a4ElectroDMGpercentMain = 0;
+  double a4AnemoDMGpercentMain = 0;
+  double a4GeoDMGpercentMain = 0;
+
+  double a4PyroDMGpercent = 0;
+  double a4HydroDMGpercent = 0;
+  double a4CryoDMGpercent = 0;
+  double a4ElectroDMGpercent = 0;
+  double a4AnemoDMGpercent = 0;
+  double a4GeoDMGpercent = 0;
 
 //ANCHOR artifact5stat
   int cstar = 5;
@@ -3513,7 +3577,7 @@ class _MyHomePageState extends State<MyHomePage> {
         a1percentdef +
         stat1def +
         a2percentdef +
-        stat1def +
+        stat2def +
         a3percentdefMain +
         a3percentdef +
         stat3def +
@@ -3656,6 +3720,87 @@ class _MyHomePageState extends State<MyHomePage> {
         artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
     a5percentdefMain =
         artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
+
+    //DMG params
+    if (cleveltoPhysicalDMGpercent[level] != null)
+      levelPhysicalDMGpercent = cleveltoPhysicalDMGpercent[level];
+    if (weapontoPhysicalDMGpercent[weaponlv] != null)
+      weaponPhysicalDMGpercent = weapontoPhysicalDMGpercent[weaponlv];
+
+    a4PhysicalDMGpercentMain = a4PhysicalDMGpercentbyLVL[sstar][slv];
+    a4PhysicalDMGpercent =
+        artifact4mainstatcat == 5 ? a4PhysicalDMGpercentMain : 0;
+
+    bonusPhysicalDMGpercent = levelPhysicalDMGpercent +
+        weaponPhysicalDMGpercent +
+        a4PhysicalDMGpercent;
+
+    if (cleveltoPyroDMGpercent[level] != null)
+      levelPyroDMGpercent = cleveltoPyroDMGpercent[level];
+    if (weapontoPyroDMGpercent[weaponlv] != null)
+      weaponPyroDMGpercent = weapontoPyroDMGpercent[weaponlv];
+
+    a4PyroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4PyroDMGpercent = artifact4mainstatcat == 6 ? a4PyroDMGpercentMain : 0;
+
+    bonusPyroDMGpercent =
+        levelPyroDMGpercent + weaponPyroDMGpercent + a4PyroDMGpercent;
+
+    if (cleveltoHydroDMGpercent[level] != null)
+      levelHydroDMGpercent = cleveltoHydroDMGpercent[level];
+    if (weapontoHydroDMGpercent[weaponlv] != null)
+      weaponHydroDMGpercent = weapontoHydroDMGpercent[weaponlv];
+
+    a4HydroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4HydroDMGpercent = artifact4mainstatcat == 7 ? a4HydroDMGpercentMain : 0;
+
+    bonusHydroDMGpercent =
+        levelHydroDMGpercent + weaponHydroDMGpercent + a4HydroDMGpercent;
+
+    if (cleveltoCryoDMGpercent[level] != null)
+      levelCryoDMGpercent = cleveltoCryoDMGpercent[level];
+    if (weapontoCryoDMGpercent[weaponlv] != null)
+      weaponCryoDMGpercent = weapontoCryoDMGpercent[weaponlv];
+
+    a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4CryoDMGpercent = artifact4mainstatcat == 8 ? a4CryoDMGpercentMain : 0;
+
+    bonusCryoDMGpercent =
+        levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent;
+
+    if (cleveltoElectroDMGpercent[level] != null)
+      levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
+    if (weapontoElectroDMGpercent[weaponlv] != null)
+      weaponElectroDMGpercent = weapontoElectroDMGpercent[weaponlv];
+
+    a4ElectroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4ElectroDMGpercent =
+        artifact4mainstatcat == 9 ? a4ElectroDMGpercentMain : 0;
+
+    bonusElectroDMGpercent =
+        levelElectroDMGpercent + weaponElectroDMGpercent + a4ElectroDMGpercent;
+
+    if (cleveltoAnemoDMGpercent[level] != null)
+      levelAnemoDMGpercent = cleveltoAnemoDMGpercent[level];
+    if (weapontoAnemoDMGpercent[weaponlv] != null)
+      weaponAnemoDMGpercent = weapontoAnemoDMGpercent[weaponlv];
+
+    a4AnemoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4AnemoDMGpercent = artifact4mainstatcat == 10 ? a4AnemoDMGpercentMain : 0;
+
+    bonusAnemoDMGpercent =
+        levelAnemoDMGpercent + weaponAnemoDMGpercent + a4AnemoDMGpercent;
+
+    if (cleveltoGeoDMGpercent[level] != null)
+      levelGeoDMGpercent = cleveltoGeoDMGpercent[level];
+    if (weapontoGeoDMGpercent[weaponlv] != null)
+      weaponGeoDMGpercent = weapontoGeoDMGpercent[weaponlv];
+
+    a4GeoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4GeoDMGpercent = artifact4mainstatcat == 11 ? a4GeoDMGpercentMain : 0;
+
+    bonusGeoDMGpercent =
+        levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
 
     return Scaffold(
       appBar: AppBar(
@@ -7505,7 +7650,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               curve: Curves.easeIn,
                                               duration:
                                                   Duration(milliseconds: 500),
-                                              width: 100 / 7,
+                                              width: 100,
                                               height: 20,
                                               color: Colors.red,
                                             ),
@@ -7520,7 +7665,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponERpercent / 7,
+                                                width: weaponERpercent,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -7535,7 +7680,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: stat1ERpercent / 7,
+                                                width: stat1ERpercent,
                                                 height: 20,
                                                 color: Colors.yellow[700],
                                               ),
@@ -7550,7 +7695,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: stat2ERpercent / 7,
+                                                width: stat2ERpercent,
                                                 height: 20,
                                                 color: Colors.pink[700],
                                               ),
@@ -7565,7 +7710,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a3ERpercentMain / 7,
+                                                width: a3ERpercentMain,
                                                 height: 20,
                                                 color: Colors.blueGrey,
                                               ),
@@ -7580,7 +7725,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: stat3ERpercent / 7,
+                                                width: stat3ERpercent,
                                                 height: 20,
                                                 color: Colors.blueGrey,
                                               ),
@@ -7595,7 +7740,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: stat4ERpercent / 7,
+                                                width: stat4ERpercent,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -7610,7 +7755,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: stat5ERpercent / 7,
+                                                width: stat5ERpercent,
                                                 height: 20,
                                                 color: Colors.teal,
                                               ),
@@ -8282,6 +8427,895 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+                              //ANCHOR Physical Damage Title
+                              if (bonusPhysicalDMGpercent != 0)
+                                SelectableText(
+                                  'Physical Damage:' +
+                                      double.parse(bonusPhysicalDMGpercent
+                                              .toStringAsFixed(1))
+                                          .toString() +
+                                      '%',
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  children: [
+                                    //ANCHOR statPhysicalDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelPhysicalDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelPhysicalDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponPhysicalDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponPhysicalDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 5)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4PhysicalDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statPhysicalDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelPhysicalDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelPhysicalDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponPhysicalDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponPhysicalDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 5)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4PhysicalDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Pyro Damage Title
+                                    if (bonusPyroDMGpercent != 0)
+                                      SelectableText(
+                                        'Pyro Damage:' +
+                                            double.parse(bonusPyroDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statPyroDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelPyroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelPyroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponPyroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponPyroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 6)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4PyroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statPyroDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelPyroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelPyroDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponPyroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponPyroDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 6)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4PyroDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Hydro Damage Title
+                                    if (bonusHydroDMGpercent != 0)
+                                      SelectableText(
+                                        'Hydro Damage:' +
+                                            double.parse(bonusHydroDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statHydroDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelHydroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelHydroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponHydroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponHydroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 7)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4HydroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statHydroDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelHydroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelHydroDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponHydroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponHydroDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 7)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4HydroDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Cryo Damage Title
+                                    if (bonusCryoDMGpercent != 0)
+                                      SelectableText(
+                                        'Cryo Damage:' +
+                                            double.parse(bonusCryoDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statCryoDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelCryoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelCryoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponCryoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponCryoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 8)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4CryoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statCryoDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelCryoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelCryoDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponCryoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponCryoDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 8)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4CryoDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Electro Damage Title
+                                    if (bonusElectroDMGpercent != 0)
+                                      SelectableText(
+                                        'Electro Damage:' +
+                                            double.parse(bonusElectroDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statElectroDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelElectroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelElectroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponElectroDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponElectroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 9)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4ElectroDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statElectroDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelElectroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelElectroDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponElectroDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponElectroDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 9)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4ElectroDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Anemo Damage Title
+                                    if (bonusAnemoDMGpercent != 0)
+                                      SelectableText(
+                                        'Anemo Damage:' +
+                                            double.parse(bonusAnemoDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statAnemoDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelAnemoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelAnemoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponAnemoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponAnemoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 10)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4AnemoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statAnemoDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelAnemoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelAnemoDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponAnemoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponAnemoDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 10)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4AnemoDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Geo Damage Title
+                                    if (bonusGeoDMGpercent != 0)
+                                      SelectableText(
+                                        'Geo Damage:' +
+                                            double.parse(bonusGeoDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statGeoDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelGeoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'chara%($levelGeoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponGeoDMGpercent != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponGeoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 11)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.purple,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'a3%($a4GeoDMGpercent)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statGeoDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (levelGeoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: levelGeoDMGpercent,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (weaponGeoDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponGeoDMGpercent,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (artifact4mainstatcat == 11)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: a4GeoDMGpercent,
+                                                height: 20,
+                                                color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),
