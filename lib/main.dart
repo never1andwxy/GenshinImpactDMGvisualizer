@@ -402,7 +402,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //ANCHOR artifact4stat
   int gstar = 5;
   int glv = 20;
-  int artifact4mainstatcat = 1;
+  int artifact4mainstatcat = 8;
   double stat4atkpercent = 0;
   bool stat4atkpercentOn = false;
   double stat4hppercent = 0;
@@ -488,7 +488,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //ANCHOR artifact5stat
   int cstar = 5;
   int clv = 20;
-  int artifact5mainstatcat = 1;
+  int artifact5mainstatcat = 6;
   double stat5atkpercent = 0;
   bool stat5atkpercentOn = false;
   double stat5hppercent = 0;
@@ -561,6 +561,52 @@ class _MyHomePageState extends State<MyHomePage> {
 
   double a5CDmain = 0;
   double a5CD = 0;
+
+  //ANCHOR enemystat
+  int enemylv = 80;
+  int enemydefdebuff = 0;
+  int enemytype = 1;
+  int enemyPhysicalres = 10;
+  int enemyPyrores = 10;
+  int enemyHydrores = 10;
+  int enemyDendrores = 10;
+  int enemyElectrores = 10;
+  int enemyAnemores = 10;
+  int enemyCryores = 10;
+  int enemyGeores = 10;
+
+  var eneresbytype = {
+    1: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    },
+    2: {
+      'physical': 70,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    },
+    3: {
+      'physical': -20,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }
+  };
 
   String _label = '';
 
@@ -3801,6 +3847,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
     bonusGeoDMGpercent =
         levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
+
+    //enemyparams
+    enemyPhysicalres = eneresbytype[enemytype]['physical'];
+    enemyPyrores = eneresbytype[enemytype]['pyro'];
+    enemyHydrores = eneresbytype[enemytype]['hydro'];
+    enemyDendrores = eneresbytype[enemytype]['dendro'];
+    enemyElectrores = eneresbytype[enemytype]['electro'];
+    enemyAnemores = eneresbytype[enemytype]['anemo'];
+    enemyCryores = eneresbytype[enemytype]['cryo'];
+    enemyGeores = eneresbytype[enemytype]['geo'];
 
     return Scaffold(
       appBar: AppBar(
@@ -8519,7 +8575,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelPhysicalDMGpercent,
+                                                width:
+                                                    levelPhysicalDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -8534,7 +8591,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponPhysicalDMGpercent,
+                                                width:
+                                                    weaponPhysicalDMGpercent *
+                                                        2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -8549,7 +8608,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4PhysicalDMGpercent,
+                                                width: a4PhysicalDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -8645,7 +8704,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelPyroDMGpercent,
+                                                width: levelPyroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -8660,7 +8719,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponPyroDMGpercent,
+                                                width: weaponPyroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -8675,7 +8734,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4PyroDMGpercent,
+                                                width: a4PyroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -8771,7 +8830,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelHydroDMGpercent,
+                                                width: levelHydroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -8786,7 +8845,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponHydroDMGpercent,
+                                                width:
+                                                    weaponHydroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -8801,7 +8861,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4HydroDMGpercent,
+                                                width: a4HydroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -8897,7 +8957,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelCryoDMGpercent,
+                                                width: levelCryoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -8912,7 +8972,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponCryoDMGpercent,
+                                                width: weaponCryoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -8927,7 +8987,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4CryoDMGpercent,
+                                                width: a4CryoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -9023,7 +9083,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelElectroDMGpercent,
+                                                width:
+                                                    levelElectroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -9038,7 +9099,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponElectroDMGpercent,
+                                                width:
+                                                    weaponElectroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -9053,7 +9115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4ElectroDMGpercent,
+                                                width: a4ElectroDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -9149,7 +9211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelAnemoDMGpercent,
+                                                width: levelAnemoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -9164,7 +9226,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponAnemoDMGpercent,
+                                                width:
+                                                    weaponAnemoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -9179,7 +9242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4AnemoDMGpercent,
+                                                width: a4AnemoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -9275,7 +9338,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: levelGeoDMGpercent,
+                                                width: levelGeoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.red,
                                               ),
@@ -9290,7 +9353,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: weaponGeoDMGpercent,
+                                                width: weaponGeoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.blue,
                                               ),
@@ -9305,7 +9368,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: a4GeoDMGpercent,
+                                                width: a4GeoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
                                               ),
@@ -9730,6 +9793,217 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'Enemytype: ',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 50.0,
+                                    child: DropdownButton(
+                                        value: enemytype,
+                                        items: [
+                                          DropdownMenuItem(
+                                            child: Text(
+                                              "Hilichurl",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            value: 1,
+                                          ),
+                                          DropdownMenuItem(
+                                            child: Text(
+                                              "Ruin Guard",
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            value: 2,
+                                          ),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Treasure Hoarder",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 3),
+                                        ],
+                                        onChanged: (value) {
+                                          setState(() {
+                                            enemytype = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Physical',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyPhysicalres',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Pyro',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.red,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyPyrores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Hydro',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.blue,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyHydrores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Dendro',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.green,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyDendrores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Electro',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.purple,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyElectrores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Anemo',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.green[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyAnemores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Cryo',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.blue[100],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyCryores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      SelectableText(
+                                        'Geo',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.yellow,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        '$enemyGeores',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
@@ -9749,6 +10023,58 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'EnemyLv: $enemylv',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  Slider(
+                                    min: 1,
+                                    max: 100,
+                                    activeColor: Colors.lightBlue,
+                                    inactiveColor: Colors.lightBlue[50],
+                                    label: enemylv.toString(),
+                                    value: enemylv.toDouble(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        enemylv = value.toInt();
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'EnemyDefenceDebuff%: $enemydefdebuff%',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  Slider(
+                                    min: 0,
+                                    max: 100,
+                                    activeColor: Colors.lightBlue,
+                                    inactiveColor: Colors.lightBlue[50],
+                                    label: enemydefdebuff.toString(),
+                                    value: enemydefdebuff.toDouble(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        enemydefdebuff = value.toInt();
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
