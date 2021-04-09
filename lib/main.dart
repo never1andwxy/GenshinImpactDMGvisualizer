@@ -172,7 +172,9 @@ class _MyHomePageState extends State<MyHomePage> {
     90: 88.4
   };
 
-  int baseELEMASTERY = 0;
+  int lvlEM = 0;
+  int weaponEM = 0;
+  Map<int, int> weapontoEM = {};
 
   double weaponHPpercent = 0;
   double weaponHPpercentstat = 0;
@@ -189,6 +191,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double allER = 0;
   double bonusHP = 0;
   double allHP = 0;
+  int allEM = 0;
+  int bonusEM = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
@@ -338,6 +342,14 @@ class _MyHomePageState extends State<MyHomePage> {
   double a3ERpercentMain = 0;
   double a3percentERMain = 0;
 
+  var a3EMbyLVL = {
+    4: {1: 32, 4: 54, 8: 82, 12: 111, 16: 139, 20: 139},
+    5: {1: 36, 4: 60, 8: 91, 12: 123, 16: 155, 20: 187}
+  };
+
+  int a3EMmain = 0;
+  int a3EM = 0;
+
 //ANCHOR artifact4stat
   int gstar = 5;
   int glv = 20;
@@ -391,6 +403,14 @@ class _MyHomePageState extends State<MyHomePage> {
   double a4percentdefMain = 0;
   double a4percentdef = 0;
 
+  var a4EMbyLVL = {
+    4: {1: 32, 4: 54, 8: 82, 12: 111, 16: 139, 20: 139},
+    5: {1: 36, 4: 60, 8: 91, 12: 123, 16: 155, 20: 187}
+  };
+
+  int a4EMmain = 0;
+  int a4EM = 0;
+
 //ANCHOR artifact5stat
   int cstar = 5;
   int clv = 20;
@@ -443,6 +463,14 @@ class _MyHomePageState extends State<MyHomePage> {
   double a5defpercentMain = 0;
   double a5percentdefMain = 0;
   double a5percentdef = 0;
+
+  var a5EMbyLVL = {
+    4: {1: 32, 4: 54, 8: 82, 12: 111, 16: 139, 20: 139},
+    5: {1: 36, 4: 60, 8: 91, 12: 123, 16: 155, 20: 187}
+  };
+
+  int a5EMmain = 0;
+  int a5EM = 0;
 
   String _label = '';
 
@@ -3487,39 +3515,10 @@ class _MyHomePageState extends State<MyHomePage> {
     a4percentHP = stat4hppercentOn ? lvlhp * stat4hppercent / 100 : 0;
     a5percentHP = stat5hppercentOn ? lvlhp * stat5hppercent / 100 : 0;
 
-    //ER params
-    if (weapontoERpercent[weaponlv] != null)
-      weaponERpercent = weapontoERpercent[weaponlv];
-
-    a3ERpercentMain = a3ERpercentbyLVL[sstar][slv];
-    a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain : 0;
-
-    bonusER = weaponERpercent +
-        a3percentERMain +
-        stat1ERpercent +
-        stat2ERpercent +
-        stat3ERpercent +
-        stat4ERpercent +
-        stat5ERpercent;
-
-    allER = 100 + bonusER;
-
-    critDMGpercent = critDMGPercentbyLVL[level];
-    critDMG = allatk * critDMGpercent / 100;
-
     a1hp = a1hpbyLVL[fstar][flv];
     a3HPpercentMain = a3HPpercentbyLVL[sstar][slv];
     a4HPpercentMain = a4HPpercentbyLVL[gstar][glv];
     a5HPpercentMain = a5HPpercentbyLVL[cstar][clv];
-
-    a2atk = a2atkbyLVL[pstar][plv];
-    a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
-    a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
-    a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
-
-    a3defpercentMain = a3defpercentbyLVL[sstar][slv];
-    a4defpercentMain = a4defpercentbyLVL[gstar][glv];
-    a5defpercentMain = a5defpercentbyLVL[cstar][clv];
 
     a3percentHPMain =
         (artifact3mainstatcat == 1) ? lvlhp * a3HPpercentMain / 100 : 0;
@@ -3527,20 +3526,6 @@ class _MyHomePageState extends State<MyHomePage> {
         artifact4mainstatcat == 1 ? lvlhp * a4HPpercentMain / 100 : 0;
     a5percentHPMain =
         artifact5mainstatcat == 1 ? lvlhp * a5HPpercentMain / 100 : 0;
-
-    a3percentatkMain =
-        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
-    a4percentatkMain =
-        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
-    a5percentatkMain =
-        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
-
-    a3percentdefMain =
-        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
-    a4percentdefMain =
-        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
-    a5percentdefMain =
-        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
 
     bonusHP = weaponHPpercentstat +
         a1percenthp +
@@ -3559,6 +3544,73 @@ class _MyHomePageState extends State<MyHomePage> {
         stat5hp;
 
     allHP = lvlhp + bonusHP;
+
+    //ER params
+    if (weapontoERpercent[weaponlv] != null)
+      weaponERpercent = weapontoERpercent[weaponlv];
+
+    a3ERpercentMain = a3ERpercentbyLVL[sstar][slv];
+    a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain : 0;
+
+    bonusER = weaponERpercent +
+        a3percentERMain +
+        stat1ERpercent +
+        stat2ERpercent +
+        stat3ERpercent +
+        stat4ERpercent +
+        stat5ERpercent;
+
+    allER = 100 + bonusER;
+
+    //EM params
+    if (weapontoEM[weaponlv] != null) weaponEM = weapontoEM[weaponlv];
+
+    a3EMmain = a3EMbyLVL[sstar][slv];
+    a4EMmain = a4EMbyLVL[gstar][glv];
+    a5EMmain = a5EMbyLVL[cstar][clv];
+    a3EM = artifact3mainstatcat == 4 ? a3EMmain : 0;
+    a4EMmain = a4EMbyLVL[sstar][slv];
+    a4EM = artifact4mainstatcat == 4 ? a4EMmain : 0;
+    a5EMmain = a5EMbyLVL[sstar][slv];
+    a5EM = artifact5mainstatcat == 4 ? a5EMmain : 0;
+
+    bonusEM = weaponEM +
+        a3EM +
+        a4EM +
+        a5EM +
+        stat1EM +
+        stat2EM +
+        stat3EM +
+        stat4EM +
+        stat5EM;
+
+    allEM = lvlEM + bonusEM;
+
+    critDMGpercent = critDMGPercentbyLVL[level];
+    critDMG = allatk * critDMGpercent / 100;
+
+    a2atk = a2atkbyLVL[pstar][plv];
+    a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
+    a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
+    a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
+
+    a3defpercentMain = a3defpercentbyLVL[sstar][slv];
+    a4defpercentMain = a4defpercentbyLVL[gstar][glv];
+    a5defpercentMain = a5defpercentbyLVL[cstar][clv];
+
+    a3percentatkMain =
+        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
+    a4percentatkMain =
+        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
+    a5percentatkMain =
+        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
+
+    a3percentdefMain =
+        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
+    a4percentdefMain =
+        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
+    a5percentdefMain =
+        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -6466,75 +6518,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR statCritRate
-                        SizedBox(height: 10),
-                        SelectableText(
-                          'Crit Rate:$critRate',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SelectableText(
-                                      'Crit Rate',
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    SelectableText(
-                                      '$critRate',
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    AnimatedContainer(
-                                      curve: Curves.easeIn,
-                                      duration: Duration(milliseconds: 500),
-                                      width: critRate / 1.5,
-                                      height: 20,
-                                      color: Colors.deepOrange[200],
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                        //ANCHOR statCritDMG
-                        SizedBox(height: 10),
-                        SelectableText(
-                          'Crit Damage:' +
-                              double.parse(critDMG.toStringAsFixed(1))
-                                  .toString(),
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SelectableText(
-                                      'Crit Damage',
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    SelectableText(
-                                      double.parse(critDMG.toStringAsFixed(1))
-                                          .toString(),
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    AnimatedContainer(
-                                      curve: Curves.easeIn,
-                                      duration: Duration(milliseconds: 500),
-                                      width: critDMG / 2.5,
-                                      height: 20,
-                                      color: Colors.deepOrange[700],
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
                         //ANCHOR DEF
                         SelectableText(
                           'DEF:$lvldef + ' +
@@ -7092,6 +7075,358 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
+
+                        //ANCHOR EM
+                        SelectableText(
+                          'Elemental Mastery:$lvlEM + ' +
+                              double.parse(bonusEM.toStringAsFixed(1))
+                                  .toString() +
+                              ' = ' +
+                              double.parse(allEM.toStringAsFixed(1)).toString(),
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            children: [
+                              //ANCHOR statEM:stats
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  if (lvlEM != 0)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.yellow,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'baseEM',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                            SelectableText(
+                                              '$lvlEM',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (weaponEM != 0)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.blue,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'weapon($weaponEM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat1EMOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a1($stat1EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat2EMOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a2($stat2EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact3mainstatcat == 4)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a3($a3EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat3EMOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a3($stat3EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact4mainstatcat == 4)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a4($a4EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4EMOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a4($stat4EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 4)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5($a5EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5EMOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5($stat5EM)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+
+                              //ANCHOR statEM:bar
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: lvlEM / 7,
+                                          height: 20,
+                                          color: Colors.yellow),
+                                    ],
+                                  ),
+                                  if (weaponEM != 0)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: weaponEM / 7,
+                                          height: 20,
+                                          color: Colors.blue,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat1EMOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat1EM / 7,
+                                          height: 20,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat2EMOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat2EM / 7,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact3mainstatcat == 4)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: a3EM / 7,
+                                          height: 20,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat3EMOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat3EM / 7,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact4mainstatcat == 4)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: a4EM / 7,
+                                          height: 20,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4EMOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat4EM / 7,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 4)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: a5EM / 7,
+                                          height: 20,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5ERpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat5EM / 7,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
                         //ANCHOR ER
                         SelectableText(
                           'Energy Recharge:100% + ' +
@@ -7376,10 +7711,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
-                        //ANCHOR ELEMASTERY
+
+                        //ANCHOR statCritRate
                         SizedBox(height: 10),
                         SelectableText(
-                          'Elemental Mastery:$baseELEMASTERY',
+                          'Crit Rate:$critRate',
                           style: TextStyle(fontSize: 15),
                         ),
                         Padding(
@@ -7391,19 +7727,55 @@ class _MyHomePageState extends State<MyHomePage> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     SelectableText(
-                                      'Elemental Mastery',
+                                      'Crit Rate',
                                       style: TextStyle(fontSize: 10),
                                     ),
                                     SelectableText(
-                                      '$baseELEMASTERY',
+                                      '$critRate',
                                       style: TextStyle(fontSize: 10),
                                     ),
                                     AnimatedContainer(
                                       curve: Curves.easeIn,
                                       duration: Duration(milliseconds: 500),
-                                      width: baseELEMASTERY / 1.5,
+                                      width: critRate / 1.5,
                                       height: 20,
-                                      color: Colors.purple[200],
+                                      color: Colors.deepOrange[200],
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                        ),
+                        //ANCHOR statCritDMG
+                        SizedBox(height: 10),
+                        SelectableText(
+                          'Crit Damage:' +
+                              double.parse(critDMG.toStringAsFixed(1))
+                                  .toString(),
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SelectableText(
+                                      'Crit Damage',
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                    SelectableText(
+                                      double.parse(critDMG.toStringAsFixed(1))
+                                          .toString(),
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                    AnimatedContainer(
+                                      curve: Curves.easeIn,
+                                      duration: Duration(milliseconds: 500),
+                                      width: critDMG / 2.5,
+                                      height: 20,
+                                      color: Colors.deepOrange[700],
                                     ),
                                   ],
                                 ),
