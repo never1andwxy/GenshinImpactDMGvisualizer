@@ -161,10 +161,12 @@ class _MyHomePageState extends State<MyHomePage> {
   double bonusCR = 0;
   double allCR = 0;
 
-  double critDMGpercent = 0;
-  double critDMG = 0;
+  double baseCD = 0;
+  double weaponCD = 0;
+  double bonusCD = 0;
+  double allCD = 0;
 
-  Map<int, double> critDMGPercentbyLVL = {
+  Map<int, double> baseCDbyLVL = {
     1: 50,
     10: 50,
     20: 50,
@@ -176,6 +178,8 @@ class _MyHomePageState extends State<MyHomePage> {
     80: 78.8,
     90: 88.4
   };
+
+  Map<int, double> weaponCDbyLVL = {};
 
   int lvlEM = 0;
   Map<int, int> baseEMbylvl = {};
@@ -485,6 +489,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   double a5CRmain = 0;
   double a5CR = 0;
+
+  var a5CDbyLVL = {
+    4: {1: 10.8, 4: 17.9, 8: 27.4, 12: 36.9, 16: 46.4, 20: 46.4},
+    5: {1: 12, 4: 19.9, 8: 30.5, 12: 41, 16: 51.6, 20: 62.2}
+  };
+
+  double a5CDmain = 0;
+  double a5CD = 0;
 
   String _label = '';
 
@@ -3608,8 +3620,18 @@ class _MyHomePageState extends State<MyHomePage> {
     allCR = baseCR + bonusCR;
 
     //CD params
-    critDMGpercent = critDMGPercentbyLVL[level];
-    critDMG = allatk * critDMGpercent / 100;
+    if (baseCDbyLVL[level] != null) baseCD = baseCDbyLVL[level];
+    if (weaponCDbyLVL[weaponlv] != null) weaponCD = weaponCDbyLVL[weaponlv];
+    a5CDmain = a5CDbyLVL[cstar][clv];
+    a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
+    baseCD += weaponCD;
+    bonusCD = a5CD +
+        stat1CDpercent +
+        stat2CDpercent +
+        stat3CDpercent +
+        stat4CDpercent +
+        stat5CDpercent;
+    allCD = baseCD + bonusCD;
 
     a2atk = a2atkbyLVL[pstar][plv];
     a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
