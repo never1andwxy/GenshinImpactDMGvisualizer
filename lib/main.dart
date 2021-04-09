@@ -3441,7 +3441,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-//ANCHOR ---homepage----caculation
+//ANCHOR ---homepage----calculation
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -3456,6 +3456,13 @@ class _MyHomePageState extends State<MyHomePage> {
     weaponatkpercent = weapontoatkpercent[weaponlv];
     basicatk = levelatk + weaponatk;
     weaponatkpercentstat = basicatk * weaponatkpercent / 100;
+
+    a1percentatk = stat1atkpercentOn ? basicatk * stat1atkpercent / 100 : 0;
+    a2percentatk = stat2atkpercentOn ? basicatk * stat2atkpercent / 100 : 0;
+    a3percentatk = stat3atkpercentOn ? basicatk * stat3atkpercent / 100 : 0;
+    a4percentatk = stat4atkpercentOn ? basicatk * stat4atkpercent / 100 : 0;
+    a5percentatk = stat5atkpercentOn ? basicatk * stat5atkpercent / 100 : 0;
+
     bonusatk = weaponatkpercentstat +
         a1percentatk +
         stat1atk +
@@ -3471,12 +3478,6 @@ class _MyHomePageState extends State<MyHomePage> {
         a5percentatk +
         stat5atk;
 
-    a1percentatk = stat1atkpercentOn ? basicatk * stat1atkpercent / 100 : 0;
-    a2percentatk = stat2atkpercentOn ? basicatk * stat2atkpercent / 100 : 0;
-    a3percentatk = stat3atkpercentOn ? basicatk * stat3atkpercent / 100 : 0;
-    a4percentatk = stat4atkpercentOn ? basicatk * stat4atkpercent / 100 : 0;
-    a5percentatk = stat5atkpercentOn ? basicatk * stat5atkpercent / 100 : 0;
-
     allatk = basicatk + bonusatk;
 
     //DEF params
@@ -3489,6 +3490,12 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       weapondefpercentstat = 0;
     }
+
+    a1percentdef = stat1defpercentOn ? lvldef * stat1defpercent / 100 : 0;
+    a2percentdef = stat2defpercentOn ? lvldef * stat2defpercent / 100 : 0;
+    a3percentdef = stat3defpercentOn ? lvldef * stat3defpercent / 100 : 0;
+    a4percentdef = stat4defpercentOn ? lvldef * stat4defpercent / 100 : 0;
+    a5percentdef = stat5defpercentOn ? lvldef * stat5defpercent / 100 : 0;
 
     bonusdef = weapondefpercentstat +
         a1percentdef +
@@ -3504,12 +3511,6 @@ class _MyHomePageState extends State<MyHomePage> {
         a5percentdefMain +
         a5percentdef +
         stat5def;
-
-    a1percentdef = stat1defpercentOn ? lvldef * stat1defpercent / 100 : 0;
-    a2percentdef = stat2defpercentOn ? lvldef * stat2defpercent / 100 : 0;
-    a3percentdef = stat3defpercentOn ? lvldef * stat3defpercent / 100 : 0;
-    a4percentdef = stat4defpercentOn ? lvldef * stat4defpercent / 100 : 0;
-    a5percentdef = stat5defpercentOn ? lvldef * stat5defpercent / 100 : 0;
 
     alldef = lvldef + bonusdef;
 
@@ -5306,6 +5307,19 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: [
                               //ANCHOR statATK:stats
+                              //level:Colors.red
+                              //weapon:Colors.blue
+                              //weapon%:Colors.green
+                              //a1:Colors.yellow
+                              //a1%:Colors.yellow[700]
+                              //a2:Colors.pink
+                              //a2%:Colors.pink[700]
+                              //a3%:Colors.blueGrey
+                              //a3:Colors.blueGrey[700]
+                              //a4%:Colors.purple
+                              //a4:Colors.purple[700]
+                              //a5%:Colors.teal
+                              //a5:Colors.teal[700]
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -5926,6 +5940,19 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             children: [
                               //ANCHOR statHP:stats
+                              //level:Colors.red
+                              //weapon:Colors.blue
+                              //weapon%:Colors.green
+                              //a1:Colors.yellow
+                              //a1%:Colors.yellow[700]
+                              //a2:Colors.pink
+                              //a2%:Colors.pink[700]
+                              //a3%:Colors.blueGrey
+                              //a3:Colors.blueGrey[700]
+                              //a4%:Colors.purple
+                              //a4:Colors.purple[700]
+                              //a5%:Colors.teal
+                              //a5:Colors.teal[700]
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -6027,7 +6054,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Container(
                                         width: 10,
                                         height: 10,
-                                        color: Colors.pink,
+                                        color: Colors.yellow,
                                       ),
                                       Column(
                                         children: [
@@ -6049,7 +6076,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.blueGrey[700],
+                                          color: Colors.pink[700],
                                         ),
                                         Column(
                                           children: [
@@ -6073,7 +6100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.pink[700],
+                                          color: Colors.pink,
                                         ),
                                         Column(
                                           children: [
@@ -6097,7 +6124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.purple,
+                                          color: Colors.blueGrey,
                                         ),
                                         Column(
                                           children: [
@@ -6145,7 +6172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.pink,
+                                          color: Colors.blueGrey[700],
                                         ),
                                         Column(
                                           children: [
@@ -6193,7 +6220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.blueGrey,
+                                          color: Colors.purple,
                                         ),
                                         Column(
                                           children: [
@@ -6217,7 +6244,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.pink,
+                                          color: Colors.purple[700],
                                         ),
                                         Column(
                                           children: [
@@ -6241,7 +6268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.purple,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -6265,7 +6292,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.blueGrey,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -6289,7 +6316,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.pink,
+                                          color: Colors.teal[700],
                                         ),
                                         Column(
                                           children: [
@@ -6376,7 +6403,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         duration: Duration(milliseconds: 500),
                                         width: a1hp / 75,
                                         height: 20,
-                                        color: Colors.pink,
+                                        color: Colors.yellow,
                                       ),
                                     ],
                                   ),
@@ -6390,7 +6417,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat2hp / 75,
                                           height: 20,
-                                          color: Colors.blueGrey[700],
+                                          color: Colors.pink,
                                         ),
                                       ],
                                     ),
@@ -6418,7 +6445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a3percentHPMain / 75,
                                           height: 20,
-                                          color: Colors.purple,
+                                          color: Colors.blueGrey,
                                         ),
                                       ],
                                     ),
@@ -6446,7 +6473,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat3hp / 75,
                                           height: 20,
-                                          color: Colors.pink,
+                                          color: Colors.blueGrey[700],
                                         ),
                                       ],
                                     ),
@@ -6474,7 +6501,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a4percentHP / 50,
                                           height: 20,
-                                          color: Colors.blueGrey,
+                                          color: Colors.purple,
                                         ),
                                       ],
                                     ),
@@ -6488,7 +6515,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat4hp / 75,
                                           height: 20,
-                                          color: Colors.pink,
+                                          color: Colors.purple[700],
                                         ),
                                       ],
                                     ),
@@ -6502,7 +6529,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a5percentHPMain / 75,
                                           height: 20,
-                                          color: Colors.purple,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
@@ -6516,7 +6543,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a5percentHP / 75,
                                           height: 20,
-                                          color: Colors.blueGrey,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
@@ -6530,7 +6557,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat5hp / 75,
                                           height: 20,
-                                          color: Colors.pink,
+                                          color: Colors.teal[700],
                                         ),
                                       ],
                                     ),
@@ -7121,7 +7148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.yellow,
+                                          color: Colors.red,
                                         ),
                                         Column(
                                           children: [
@@ -7161,7 +7188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.red,
+                                          color: Colors.yellow,
                                         ),
                                         Column(
                                           children: [
@@ -7179,7 +7206,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.green,
+                                          color: Colors.pink,
                                         ),
                                         Column(
                                           children: [
@@ -7197,7 +7224,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.red,
+                                          color: Colors.blueGrey,
                                         ),
                                         Column(
                                           children: [
@@ -7215,7 +7242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.green,
+                                          color: Colors.blueGrey,
                                         ),
                                         Column(
                                           children: [
@@ -7233,7 +7260,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.red,
+                                          color: Colors.purple,
                                         ),
                                         Column(
                                           children: [
@@ -7251,7 +7278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.green,
+                                          color: Colors.purple,
                                         ),
                                         Column(
                                           children: [
@@ -7269,7 +7296,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.red,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -7287,7 +7314,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.green,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -7314,7 +7341,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: lvlEM / 7,
                                           height: 20,
-                                          color: Colors.yellow),
+                                          color: Colors.red),
                                     ],
                                   ),
                                   if (weaponEM != 0)
@@ -7341,7 +7368,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat1EM / 7,
                                           height: 20,
-                                          color: Colors.red,
+                                          color: Colors.yellow,
                                         ),
                                       ],
                                     ),
@@ -7355,7 +7382,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat2EM / 7,
                                           height: 20,
-                                          color: Colors.green,
+                                          color: Colors.pink,
                                         ),
                                       ],
                                     ),
@@ -7369,7 +7396,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a3EM / 7,
                                           height: 20,
-                                          color: Colors.red,
+                                          color: Colors.blueGrey,
                                         ),
                                       ],
                                     ),
@@ -7383,7 +7410,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat3EM / 7,
                                           height: 20,
-                                          color: Colors.green,
+                                          color: Colors.blueGrey,
                                         ),
                                       ],
                                     ),
@@ -7397,7 +7424,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a4EM / 7,
                                           height: 20,
-                                          color: Colors.red,
+                                          color: Colors.purple,
                                         ),
                                       ],
                                     ),
@@ -7411,7 +7438,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat4EM / 7,
                                           height: 20,
-                                          color: Colors.green,
+                                          color: Colors.purple,
                                         ),
                                       ],
                                     ),
@@ -7425,7 +7452,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a5EM / 7,
                                           height: 20,
-                                          color: Colors.red,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
@@ -7439,7 +7466,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat5EM / 7,
                                           height: 20,
-                                          color: Colors.green,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
