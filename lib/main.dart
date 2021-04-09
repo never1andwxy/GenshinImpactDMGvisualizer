@@ -7810,7 +7810,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Container(
                                         width: 10,
                                         height: 10,
-                                        color: Colors.yellow,
+                                        color: Colors.red,
                                       ),
                                       Column(
                                         children: [
@@ -7832,7 +7832,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.blue,
+                                          color: Colors.green,
                                         ),
                                         Column(
                                           children: [
@@ -7850,7 +7850,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.red,
+                                          color: Colors.yellow[700],
                                         ),
                                         Column(
                                           children: [
@@ -7868,7 +7868,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.brown,
+                                          color: Colors.pink[700],
                                         ),
                                         Column(
                                           children: [
@@ -7886,7 +7886,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.pink,
+                                          color: Colors.blueGrey,
                                         ),
                                         Column(
                                           children: [
@@ -7904,7 +7904,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.green,
+                                          color: Colors.purple,
                                         ),
                                         Column(
                                           children: [
@@ -7922,7 +7922,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.orange,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -7940,7 +7940,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Container(
                                           width: 10,
                                           height: 10,
-                                          color: Colors.purple,
+                                          color: Colors.teal,
                                         ),
                                         Column(
                                           children: [
@@ -7967,7 +7967,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: baseCR * 2,
                                           height: 20,
-                                          color: Colors.yellow),
+                                          color: Colors.red),
                                     ],
                                   ),
                                   if (weaponCR != 0)
@@ -7980,7 +7980,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: weaponCR * 2,
                                           height: 20,
-                                          color: Colors.blue,
+                                          color: Colors.green,
                                         ),
                                       ],
                                     ),
@@ -7994,7 +7994,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat1CRpercent * 2,
                                           height: 20,
-                                          color: Colors.red,
+                                          color: Colors.yellow[700],
                                         ),
                                       ],
                                     ),
@@ -8008,7 +8008,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat2CRpercent * 2,
                                           height: 20,
-                                          color: Colors.brown,
+                                          color: Colors.pink[700],
                                         ),
                                       ],
                                     ),
@@ -8022,7 +8022,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat3CRpercent * 2,
                                           height: 20,
-                                          color: Colors.pink,
+                                          color: Colors.blueGrey,
                                         ),
                                       ],
                                     ),
@@ -8036,7 +8036,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat4CRpercent * 2,
                                           height: 20,
-                                          color: Colors.green,
+                                          color: Colors.purple,
                                         ),
                                       ],
                                     ),
@@ -8050,7 +8050,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: a5CR * 2,
                                           height: 20,
-                                          color: Colors.orange,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
@@ -8064,7 +8064,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           duration: Duration(milliseconds: 500),
                                           width: stat5CRpercent * 2,
                                           height: 20,
-                                          color: Colors.purple,
+                                          color: Colors.teal,
                                         ),
                                       ],
                                     ),
@@ -8073,42 +8073,299 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
-
-                        //ANCHOR statCritDMG
-                        SizedBox(height: 10),
+                        //ANCHOR CD
                         SelectableText(
-                          'Crit Damage:' +
-                              double.parse(critDMG.toStringAsFixed(1))
-                                  .toString(),
+                          'Critical Damage:' +
+                              double.parse(baseCD.toStringAsFixed(1))
+                                  .toString() +
+                              '% + ' +
+                              double.parse(bonusCD.toStringAsFixed(1))
+                                  .toString() +
+                              '% = ' +
+                              double.parse(allCD.toStringAsFixed(1))
+                                  .toString() +
+                              '%',
                           style: TextStyle(fontSize: 15),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SelectableText(
-                                      'Crit Damage',
-                                      style: TextStyle(fontSize: 10),
+                          child: Column(
+                            children: [
+                              //ANCHOR statCD:stats
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  if ((baseCD - weaponCD) != 0)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'baseCD%',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                            SelectableText(
+                                              '$baseCD',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    SelectableText(
-                                      double.parse(critDMG.toStringAsFixed(1))
-                                          .toString(),
-                                      style: TextStyle(fontSize: 10),
+                                  if (weaponCD != 0)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'weapon%($weaponCD)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    AnimatedContainer(
-                                      curve: Curves.easeIn,
-                                      duration: Duration(milliseconds: 500),
-                                      width: critDMG / 2.5,
-                                      height: 20,
-                                      color: Colors.deepOrange[700],
+                                  if (stat1CDpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.yellow[700],
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a1%($stat1CDpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ]),
+                                  if (stat2CDpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.pink[700],
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a2%($stat2CDpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat3CDpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.blueGrey,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a3%($stat3CDpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4CDpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.purple,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a4%($stat4CDpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 6)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.teal,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5%($a5CD)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5CDpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.teal,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5%($stat5CDpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+
+                              //ANCHOR statCD:bar
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  if ((baseCD - weaponCD) != 0)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: baseCD * 2,
+                                            height: 20,
+                                            color: Colors.red),
+                                      ],
+                                    ),
+                                  if (weaponCD != 0)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: weaponCD * 2,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat1CDpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat1CDpercent * 2,
+                                          height: 20,
+                                          color: Colors.yellow[700],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat2CDpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat2CDpercent * 2,
+                                          height: 20,
+                                          color: Colors.pink[700],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat3CDpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat3CDpercent * 2,
+                                          height: 20,
+                                          color: Colors.blueGrey,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4CDpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat4CDpercent * 2,
+                                          height: 20,
+                                          color: Colors.purple,
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 6)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: a5CD * 2,
+                                          height: 20,
+                                          color: Colors.teal,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5CDpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat5CDpercent * 2,
+                                          height: 20,
+                                          color: Colors.teal,
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
