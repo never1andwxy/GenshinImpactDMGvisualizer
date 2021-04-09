@@ -154,7 +154,12 @@ class _MyHomePageState extends State<MyHomePage> {
   };
   Map<int, double> weapontoHPpercent = {};
 
-  int critRate = 5;
+  double baseCR = 5;
+  Map<int, double> baseCRbylvl = {};
+  double weaponCR = 0;
+  Map<int, double> weaponCRbylvl = {};
+  double bonusCR = 0;
+  double allCR = 0;
 
   double critDMGpercent = 0;
   double critDMG = 0;
@@ -173,6 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
   };
 
   int lvlEM = 0;
+  Map<int, int> baseEMbylvl = {};
   int weaponEM = 0;
   Map<int, int> weapontoEM = {};
 
@@ -471,6 +477,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int a5EMmain = 0;
   int a5EM = 0;
+
+  var a5CRbyLVL = {
+    4: {1: 5.4, 4: 9, 8: 13.7, 12: 18.5, 16: 23.2, 20: 23.2},
+    5: {1: 6, 4: 9.9, 8: 15.2, 12: 20.5, 16: 25.8, 20: 31.1}
+  };
+
+  double a5CRmain = 0;
+  double a5CR = 0;
 
   String _label = '';
 
@@ -3501,9 +3515,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //HP params
     lvlhp = baseHPbyLV[level];
-    weaponHPpercent = weapontoHPpercent[weaponlv];
-
-    if (weaponHPpercent != null) {
+    if (weapontoHPpercent[weaponlv] != null) {
+      weaponHPpercent = weapontoHPpercent[weaponlv];
       weaponHPpercentstat = lvlhp * weaponHPpercent / 100;
     } else {
       weaponHPpercentstat = 0;
@@ -3574,18 +3587,27 @@ class _MyHomePageState extends State<MyHomePage> {
     a5EMmain = a5EMbyLVL[sstar][slv];
     a5EM = artifact5mainstatcat == 4 ? a5EMmain : 0;
 
-    bonusEM = weaponEM +
-        a3EM +
-        a4EM +
-        a5EM +
-        stat1EM +
-        stat2EM +
-        stat3EM +
-        stat4EM +
-        stat5EM;
+    lvlEM += weaponEM;
+    bonusEM =
+        a3EM + a4EM + a5EM + stat1EM + stat2EM + stat3EM + stat4EM + stat5EM;
 
     allEM = lvlEM + bonusEM;
 
+    //CR params
+    if (baseCRbylvl[level] != null) baseCR = baseCRbylvl[level];
+    if (weaponCRbylvl[weaponlv] != null) weaponCR = weaponCRbylvl[weaponlv];
+    a5CRmain = a5CRbyLVL[cstar][clv];
+    a5CR = artifact5mainstatcat == 5 ? a5CRmain : 0;
+    baseCR += weaponCR;
+    bonusCR = a5CR +
+        stat1CRpercent +
+        stat2CRpercent +
+        stat3CRpercent +
+        stat4CRpercent +
+        stat5CRpercent;
+    allCR = baseCR + bonusCR;
+
+    //CD params
     critDMGpercent = critDMGPercentbyLVL[level];
     critDMG = allatk * critDMGpercent / 100;
 
@@ -7407,7 +7429,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ],
                                     ),
-                                  if (stat5ERpercentOn == true)
+                                  if (stat5EMOn == true)
                                     Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -7712,39 +7734,297 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR statCritRate
-                        SizedBox(height: 10),
+                        //ANCHOR CR
                         SelectableText(
-                          'Crit Rate:$critRate',
+                          'Critical Rate:' +
+                              double.parse(baseCR.toStringAsFixed(1))
+                                  .toString() +
+                              '% + ' +
+                              double.parse(bonusCR.toStringAsFixed(1))
+                                  .toString() +
+                              '% = ' +
+                              double.parse(allCR.toStringAsFixed(1))
+                                  .toString() +
+                              '%',
                           style: TextStyle(fontSize: 15),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SelectableText(
-                                      'Crit Rate',
-                                      style: TextStyle(fontSize: 10),
+                          child: Column(
+                            children: [
+                              //ANCHOR statCR:stats
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 10,
+                                        height: 10,
+                                        color: Colors.yellow,
+                                      ),
+                                      Column(
+                                        children: [
+                                          SelectableText(
+                                            'baseCR%',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                          SelectableText(
+                                            '$baseCR',
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  if (weaponCR != 0)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.blue,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'weapon%($weaponCR)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    SelectableText(
-                                      '$critRate',
-                                      style: TextStyle(fontSize: 10),
+                                  if (stat1CRpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.red,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a1%($stat1CRpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    AnimatedContainer(
-                                      curve: Curves.easeIn,
-                                      duration: Duration(milliseconds: 500),
-                                      width: critRate / 1.5,
-                                      height: 20,
-                                      color: Colors.deepOrange[200],
+                                  if (stat2CRpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.brown,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a2%($stat2CRpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ]),
+                                  if (stat3CRpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.pink,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a3%($stat3CRpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4CRpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.green,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a4%($stat4CRpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 5)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.orange,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5%($a5CR)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5CRpercentOn == true)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          color: Colors.purple,
+                                        ),
+                                        Column(
+                                          children: [
+                                            SelectableText(
+                                              'a5%($stat5CRpercent)',
+                                              style: TextStyle(fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+
+                              //ANCHOR statCR:bar
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: baseCR * 2,
+                                          height: 20,
+                                          color: Colors.yellow),
+                                    ],
+                                  ),
+                                  if (weaponCR != 0)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: weaponCR * 2,
+                                          height: 20,
+                                          color: Colors.blue,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat1CRpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat1CRpercent * 2,
+                                          height: 20,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat2CRpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat2CRpercent * 2,
+                                          height: 20,
+                                          color: Colors.brown,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat3CRpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat3CRpercent * 2,
+                                          height: 20,
+                                          color: Colors.pink,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat4CRpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat4CRpercent * 2,
+                                          height: 20,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                  if (artifact5mainstatcat == 5)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: a5CR * 2,
+                                          height: 20,
+                                          color: Colors.orange,
+                                        ),
+                                      ],
+                                    ),
+                                  if (stat5CRpercentOn == true)
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AnimatedContainer(
+                                          curve: Curves.easeIn,
+                                          duration: Duration(milliseconds: 500),
+                                          width: stat5CRpercent * 2,
+                                          height: 20,
+                                          color: Colors.purple,
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
+
                         //ANCHOR statCritDMG
                         SizedBox(height: 10),
                         SelectableText(
