@@ -608,6 +608,52 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   };
 
+  //ANCHOR skilldamagestat
+  var natklvtoskill = {
+    'Frostflake Arrow DMG': {
+      1: 128,
+      2: 137.6,
+      3: 147.2,
+      4: 160,
+      5: 169.6,
+      6: 179.2,
+      7: 192,
+      8: 204.8,
+      9: 217.6,
+      10: 230.4,
+      11: 243.2,
+      12: 256,
+      13: 272,
+      14: 288,
+      15: 304,
+    },
+    'Frostflake Arrow Bloom DMG': {
+      1: 217.6,
+      2: 233.92,
+      3: 250.24,
+      4: 272,
+      5: 288.32,
+      6: 304.64,
+      7: 326.4,
+      8: 348.16,
+      9: 369.92,
+      10: 391.68,
+      11: 413.44,
+      12: 435.2,
+      13: 462.4,
+      14: 489.6,
+      15: 516.8,
+    },
+  };
+  double frostflakedmgpercent = 0;
+  double frostflakebloomdmgpercent = 0;
+  double frostflakedmgnc = 0;
+  double frostflakedmgexp = 0;
+  double frostflakedmgc = 0;
+  double frostflakebloomdmgnc = 0;
+  double frostflakebloomdmgexp = 0;
+  double frostflakebloomdmgc = 0;
+
   String _label = '';
 
   void _setLabel(String s) {
@@ -3563,7 +3609,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-//ANCHOR ---homepage----calculation
+//ANCHOR ---home----calculation
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -3572,18 +3618,23 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    //
+    //ATK params
 
     levelatk = cleveltoatk[level];
     weaponatk = weapontoatk[weaponlv];
-    weaponatkpercent = weapontoatkpercent[weaponlv];
+
     basicatk = levelatk + weaponatk;
-    weaponatkpercentstat = basicatk * weaponatkpercent / 100;
 
     a1percentatk = stat1atkpercentOn ? basicatk * stat1atkpercent / 100 : 0;
     a2percentatk = stat2atkpercentOn ? basicatk * stat2atkpercent / 100 : 0;
     a3percentatk = stat3atkpercentOn ? basicatk * stat3atkpercent / 100 : 0;
     a4percentatk = stat4atkpercentOn ? basicatk * stat4atkpercent / 100 : 0;
     a5percentatk = stat5atkpercentOn ? basicatk * stat5atkpercent / 100 : 0;
+
+    weaponatkpercent = weapontoatkpercent[weaponlv];
+
+    weaponatkpercentstat = basicatk * weaponatkpercent / 100;
 
     bonusatk = weaponatkpercentstat +
         a1percentatk +
@@ -3858,6 +3909,57 @@ class _MyHomePageState extends State<MyHomePage> {
     enemyCryores = eneresbytype[enemytype]['cryo'];
     enemyGeores = eneresbytype[enemytype]['geo'];
 
+    //damagecalcparams
+    frostflakedmgpercent = natklvtoskill['Frostflake Arrow DMG'][natklv];
+    frostflakebloomdmgpercent =
+        natklvtoskill['Frostflake Arrow Bloom DMG'][natklv];
+
+    frostflakedmgc = allatk *
+        (frostflakedmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    frostflakedmgnc = allatk *
+        (frostflakedmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    frostflakedmgexp = allatk *
+        (frostflakedmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    frostflakebloomdmgc = allatk *
+        (frostflakebloomdmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    frostflakebloomdmgnc = allatk *
+        (frostflakebloomdmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    frostflakebloomdmgexp = allatk *
+        (frostflakebloomdmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -3867,7 +3969,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Container(
           child: ResponsiveGridRow(children: [
-            //ANCHOR characterPage
+            //ANCHOR ----CharacterPage----
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -4066,7 +4168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            //ANCHOR weapon&artifactPage
+            //ANCHOR ----weapon&artifactPage----
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -5497,7 +5599,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            //ANCHOR statPage
+            //ANCHOR ----StatPage----
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -5510,7 +5612,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        //ANCHOR BasicPanel
+                        //ANCHOR ***BasicPanel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -7826,7 +7928,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR CritPanel
+                        //ANCHOR ***CritPanel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -8468,7 +8570,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                         ),
-                        //ANCHOR Damageplus Panel
+                        //ANCHOR ***Damageplus Panel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -9383,7 +9485,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR Reaction Panel
+                        //ANCHOR ***Reaction Panel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -9778,7 +9880,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR EnemyResistance Panel
+                        //ANCHOR ***EnemyResistance Panel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -10008,7 +10110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
 
-                        //ANCHOR EnemyDefence Panel
+                        //ANCHOR ***EnemyDefence Panel***
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
@@ -10084,6 +10186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            //ANCHOR ----DamagePage----
             ResponsiveGridCol(
               xs: 12,
               md: 6,
@@ -10092,26 +10195,230 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 800,
                 color: Colors.red[50],
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SelectableText(
-                        'You have liked your wife this many times:',
-                      ),
-                      Image(
-                        image: AssetImage('Character_Ganyu_Portrait.png'),
-                        height: 500,
-                      ),
-                      Text(
-                        '$_counter',
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              SelectableText(
+                                'Normal ATK DMG Panel',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'Frostflake Arrow:($frostflakedmgpercent%)',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Non-Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(
+                                            frostflakedmgnc.toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[200],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Expectation:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(
+                                            frostflakedmgexp.toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(
+                                            frostflakedmgc.toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[600],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakedmgc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[600],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakedmgexp / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakedmgnc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[200],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Non-Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(frostflakebloomdmgnc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[200],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Expectation:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(frostflakebloomdmgexp
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(frostflakebloomdmgc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[600],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakebloomdmgc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[600],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakebloomdmgexp / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: frostflakebloomdmgnc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[200],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-            //ANCHOR damagePage
+            //ANCHOR ----Footer----
             ResponsiveGridCol(
               xs: 12,
               md: 12,
