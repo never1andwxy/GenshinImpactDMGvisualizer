@@ -644,6 +644,57 @@ class _MyHomePageState extends State<MyHomePage> {
       14: 489.6,
       15: 516.8,
     },
+    'Trail of the Qilin DMG': {
+      1: 132,
+      2: 141.9,
+      3: 151.8,
+      4: 165,
+      5: 174.9,
+      6: 184.8,
+      7: 198,
+      8: 211.2,
+      9: 224.4,
+      10: 237.6,
+      11: 250.8,
+      12: 264,
+      13: 280.5,
+      14: 297,
+      15: 313.5,
+    },
+    'Trail of the Qilin HP': {
+      1: 120,
+      2: 129,
+      3: 138,
+      4: 150,
+      5: 159,
+      6: 1688,
+      7: 180,
+      8: 192,
+      9: 204,
+      10: 216,
+      11: 228,
+      12: 240,
+      13: 255,
+      14: 270,
+      15: 285,
+    },
+    'Celestial Shower DMG': {
+      1: 70.27,
+      2: 75.54,
+      3: 80.81,
+      4: 87.84,
+      5: 93.11,
+      6: 98.38,
+      7: 105.41,
+      8: 112.44,
+      9: 119.46,
+      10: 126.49,
+      11: 133.52,
+      12: 140.54,
+      13: 149.33,
+      14: 158.11,
+      15: 166.9,
+    },
   };
   double frostflakedmgpercent = 0;
   double frostflakebloomdmgpercent = 0;
@@ -653,6 +704,17 @@ class _MyHomePageState extends State<MyHomePage> {
   double frostflakebloomdmgnc = 0;
   double frostflakebloomdmgexp = 0;
   double frostflakebloomdmgc = 0;
+
+  double trailoftheqilindmgpercent = 0;
+  double trailoftheqilinhppercent = 0;
+  double celestialshowerdmgpercent = 0;
+  double trailoftheqilindmgnc = 0;
+  double trailoftheqilindmgexp = 0;
+  double trailoftheqilindmgc = 0;
+  double trailoftheqilinhp = 0;
+  double celestialshowerdmgnc = 0;
+  double celestialshowerdmgexp = 0;
+  double celestialshowerdmgc = 0;
 
   String _label = '';
 
@@ -3636,6 +3698,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
     weaponatkpercentstat = basicatk * weaponatkpercent / 100;
 
+    a2atk = a2atkbyLVL[pstar][plv];
+    a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
+    a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
+    a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
+
+    a3percentatkMain =
+        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
+    a4percentatkMain =
+        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
+    a5percentatkMain =
+        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
+
     bonusatk = weaponatkpercentstat +
         a1percentatk +
         stat1atk +
@@ -3669,6 +3743,17 @@ class _MyHomePageState extends State<MyHomePage> {
     a3percentdef = stat3defpercentOn ? lvldef * stat3defpercent / 100 : 0;
     a4percentdef = stat4defpercentOn ? lvldef * stat4defpercent / 100 : 0;
     a5percentdef = stat5defpercentOn ? lvldef * stat5defpercent / 100 : 0;
+
+    a3defpercentMain = a3defpercentbyLVL[sstar][slv];
+    a4defpercentMain = a4defpercentbyLVL[gstar][glv];
+    a5defpercentMain = a5defpercentbyLVL[cstar][clv];
+
+    a3percentdefMain =
+        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
+    a4percentdefMain =
+        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
+    a5percentdefMain =
+        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
 
     bonusdef = weapondefpercentstat +
         a1percentdef +
@@ -3795,29 +3880,6 @@ class _MyHomePageState extends State<MyHomePage> {
         stat5CDpercent;
     allCD = baseCD + bonusCD;
 
-    a2atk = a2atkbyLVL[pstar][plv];
-    a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
-    a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
-    a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
-
-    a3defpercentMain = a3defpercentbyLVL[sstar][slv];
-    a4defpercentMain = a4defpercentbyLVL[gstar][glv];
-    a5defpercentMain = a5defpercentbyLVL[cstar][clv];
-
-    a3percentatkMain =
-        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
-    a4percentatkMain =
-        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
-    a5percentatkMain =
-        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
-
-    a3percentdefMain =
-        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
-    a4percentdefMain =
-        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
-    a5percentdefMain =
-        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
-
     //DMG params
     if (cleveltoPhysicalDMGpercent[level] != null)
       levelPhysicalDMGpercent = cleveltoPhysicalDMGpercent[level];
@@ -3914,6 +3976,11 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakebloomdmgpercent =
         natklvtoskill['Frostflake Arrow Bloom DMG'][natklv];
 
+    trailoftheqilindmgpercent =
+        natklvtoskill['Trail of the Qilin DMG'][eskilllv];
+    trailoftheqilinhppercent = natklvtoskill['Trail of the Qilin HP'][eskilllv];
+    celestialshowerdmgpercent = natklvtoskill['Celestial Shower DMG'][eburstlv];
+
     frostflakedmgc = allatk *
         (frostflakedmgpercent / 100) *
         (1 + allCD / 100) *
@@ -3954,6 +4021,54 @@ class _MyHomePageState extends State<MyHomePage> {
 
     frostflakebloomdmgexp = allatk *
         (frostflakebloomdmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    trailoftheqilindmgc = allatk *
+        (trailoftheqilindmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    trailoftheqilindmgnc = allatk *
+        (trailoftheqilindmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    trailoftheqilindmgexp = allatk *
+        (trailoftheqilindmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    trailoftheqilinhp = allHP * trailoftheqilinhppercent / 100;
+
+    celestialshowerdmgc = allatk *
+        (celestialshowerdmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    celestialshowerdmgnc = allatk *
+        (celestialshowerdmgpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyCryores / 100));
+
+    celestialshowerdmgexp = allatk *
+        (celestialshowerdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
@@ -10214,16 +10329,20 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               SizedBox(height: 10),
                               Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    SelectableText(
+                                      'Frostflake Arrow:($frostflakedmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                              Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  SelectableText(
-                                    'Frostflake Arrow:($frostflakedmgpercent%)',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
                                   SelectableText(
                                     'Non-Crit:',
                                     style: TextStyle(
@@ -10312,16 +10431,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                               Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    SelectableText(
+                                      'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                              Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  SelectableText(
-                                    'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
                                   SelectableText(
                                     'Non-Crit:',
                                     style: TextStyle(
@@ -10402,6 +10525,274 @@ class _MyHomePageState extends State<MyHomePage> {
                                         curve: Curves.easeIn,
                                         duration: Duration(milliseconds: 500),
                                         width: frostflakebloomdmgnc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[200],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              SelectableText(
+                                'Elemental Skill Panel',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    SelectableText(
+                                      'Trail of the Qilin HP:($trailoftheqilinhp)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: trailoftheqilinhp / 500,
+                                        height: 20,
+                                        color: Colors.lightBlue[600],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    SelectableText(
+                                      'Trail of the Qilin DMG:($trailoftheqilindmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'Non-Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(trailoftheqilindmgnc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[200],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Expectation:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(trailoftheqilindmgexp
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(trailoftheqilindmgc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[600],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: trailoftheqilindmgc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[600],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: trailoftheqilindmgexp / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: trailoftheqilindmgnc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[200],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              SelectableText(
+                                'Elemental Burst Panel',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    SelectableText(
+                                      'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'Non-Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(celestialshowerdmgnc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[200],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Expectation:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(celestialshowerdmgexp
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    'Crit:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(celestialshowerdmgc
+                                            .toStringAsFixed(1))
+                                        .toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[600],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: celestialshowerdmgc / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[600],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: celestialshowerdmgexp / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: celestialshowerdmgnc / 50,
                                         height: 20,
                                         color: Colors.lightBlue[200],
                                       ),
