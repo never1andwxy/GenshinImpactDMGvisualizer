@@ -698,12 +698,18 @@ class _MyHomePageState extends State<MyHomePage> {
   };
   double frostflakedmgpercent = 0;
   double frostflakebloomdmgpercent = 0;
+
   double frostflakedmgnc = 0;
   double frostflakedmgexp = 0;
   double frostflakedmgc = 0;
+
   double frostflakebloomdmgnc = 0;
   double frostflakebloomdmgexp = 0;
   double frostflakebloomdmgc = 0;
+
+  double frostflakealldmgnc = 0;
+  double frostflakealldmgexp = 0;
+  double frostflakealldmgc = 0;
 
   double trailoftheqilindmgpercent = 0;
   double trailoftheqilinhppercent = 0;
@@ -4026,6 +4032,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         (1 - (enemyCryores / 100)) *
         (1 + allCD / 100 * allCR / 100);
+
+    frostflakealldmgc = frostflakebloomdmgc + frostflakedmgc;
+    frostflakealldmgnc = frostflakebloomdmgnc + frostflakedmgnc;
+    frostflakealldmgexp = frostflakebloomdmgexp + frostflakedmgexp;
 
     trailoftheqilindmgc = allatk *
         (trailoftheqilindmgpercent / 100) *
@@ -10328,208 +10338,836 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    SelectableText(
-                                      'Frostflake Arrow:($frostflakedmgpercent%)',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                      ),
+                              //ANCHOR Frostflake Arrow
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(
+                                  children: [
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          SelectableText(
+                                            'Frostflake Arrow:($frostflakedmgpercent%)',
+                                            style: TextStyle(
+                                              //fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ]),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgnc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[200],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgexp
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[400],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[600],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ]),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakedmgc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[600],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakedmgexp / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[400],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakedmgnc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[200],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                                // Text(
+                                //   "Reaction DMG",
+                                //   style: TextStyle(
+                                //     fontSize: 12.0,
+                                //   ),
+                                // ),
                                 children: <Widget>[
-                                  SelectableText(
-                                    'Non-Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(
-                                            frostflakedmgnc.toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[200],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Expectation:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(
-                                            frostflakedmgexp.toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[400],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(
-                                            frostflakedmgc.toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[600],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                    alignment: Alignment.topLeft,
-                                    children: [
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakedmgc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[600],
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Melt:(' +
+                                              double.parse((100 *
+                                                          1.5 *
+                                                          (1 +
+                                                              (1 * 25 * allEM) /
+                                                                  (9 *
+                                                                      (allEM +
+                                                                          1400))))
+                                                      .toStringAsFixed(1))
+                                                  .toString() +
+                                              '%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakedmgexp / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[400],
+                                      SelectableText(
+                                        double.parse((frostflakedmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakedmgnc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[200],
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakedmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakedmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    SelectableText(
-                                      'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                  ]),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  SelectableText(
-                                    'Non-Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(frostflakebloomdmgnc
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[200],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Expectation:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(frostflakebloomdmgexp
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[400],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(frostflakebloomdmgc
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[600],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                    alignment: Alignment.topLeft,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakebloomdmgc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[600],
-                                      ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakebloomdmgexp / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[400],
-                                      ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: frostflakebloomdmgnc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[200],
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakedmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakedmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakedmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                              //ANCHOR Frostflake Arrow Bloom
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(
+                                  children: [
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          SelectableText(
+                                            'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
+                                            style: TextStyle(
+                                              //fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ]),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakebloomdmgnc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[200],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakebloomdmgexp
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[400],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakebloomdmgc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[600],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakebloomdmgc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[600],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakebloomdmgexp / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[400],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakebloomdmgnc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[200],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Melt:(' +
+                                              double.parse((100 *
+                                                          1.5 *
+                                                          (1 +
+                                                              (1 * 25 * allEM) /
+                                                                  (9 *
+                                                                      (allEM +
+                                                                          1400))))
+                                                      .toStringAsFixed(1))
+                                                  .toString() +
+                                              '%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakebloomdmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakebloomdmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakebloomdmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                              //ANCHOR Frostflake All
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(
+                                  children: [
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          SelectableText(
+                                            'Frostflake Arrow All',
+                                            style: TextStyle(
+                                              //fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ]),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse((frostflakealldmgnc)
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[200],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakealldmgexp
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[400],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakealldmgc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[600],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakealldmgc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[600],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakealldmgexp / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[400],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: frostflakealldmgnc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[200],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Melt:(' +
+                                              double.parse((100 *
+                                                          1.5 *
+                                                          (1 +
+                                                              (1 * 25 * allEM) /
+                                                                  (9 *
+                                                                      (allEM +
+                                                                          1400))))
+                                                      .toStringAsFixed(1))
+                                                  .toString() +
+                                              '%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakealldmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakealldmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakealldmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakealldmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakealldmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (frostflakealldmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
                                 ],
                               ),
                             ],
@@ -10572,7 +11210,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         duration: Duration(milliseconds: 500),
                                         width: trailoftheqilinhp / 500,
                                         height: 20,
-                                        color: Colors.lightBlue[600],
+                                        color: Colors.grey[600],
                                       ),
                                     ],
                                   ),
@@ -10758,7 +11396,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   SelectableText(
-                                    double.parse(celestialshowerdmgc
+                                    double.parse((celestialshowerdmgc)
                                             .toStringAsFixed(1))
                                         .toString(),
                                     style: TextStyle(
