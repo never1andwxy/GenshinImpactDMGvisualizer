@@ -11217,106 +11217,274 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                               SizedBox(height: 10),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    SelectableText(
-                                      'Trail of the Qilin DMG:($trailoftheqilindmgpercent%)',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Trail of the Qilin DMG:($trailoftheqilindmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                    ),
-                                  ]),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  SelectableText(
-                                    'Non-Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(trailoftheqilindmgnc
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[200],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Expectation:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(trailoftheqilindmgexp
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[400],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(trailoftheqilindmgc
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[600],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                    alignment: Alignment.topLeft,
-                                    children: [
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: trailoftheqilindmgc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[600],
+                                      SelectableText(
+                                        double.parse(trailoftheqilindmgnc
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: trailoftheqilindmgexp / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[400],
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: trailoftheqilindmgnc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[200],
+                                      SelectableText(
+                                        double.parse(trailoftheqilindmgexp
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(trailoftheqilindmgc
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
                                       ),
                                     ],
                                   ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: trailoftheqilindmgc / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: trailoftheqilindmgexp / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: trailoftheqilindmgnc / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Melt:(' +
+                                              double.parse((100 *
+                                                          1.5 *
+                                                          (1 +
+                                                              (1 * 25 * allEM) /
+                                                                  (9 *
+                                                                      (allEM +
+                                                                          1400))))
+                                                      .toStringAsFixed(1))
+                                                  .toString() +
+                                              '%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((trailoftheqilindmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((trailoftheqilindmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((trailoftheqilindmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
                                 ],
                               ),
                             ],
@@ -11336,106 +11504,274 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    SelectableText(
-                                      'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                    ),
-                                  ]),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  SelectableText(
-                                    'Non-Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(celestialshowerdmgnc
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[200],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Expectation:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse(celestialshowerdmgexp
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[400],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    'Crit:',
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SelectableText(
-                                    double.parse((celestialshowerdmgc)
-                                            .toStringAsFixed(1))
-                                        .toString(),
-                                    style: TextStyle(
-                                      //fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlue[600],
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                    alignment: Alignment.topLeft,
-                                    children: [
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: celestialshowerdmgc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[600],
+                                      SelectableText(
+                                        double.parse(celestialshowerdmgnc
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: celestialshowerdmgexp / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[400],
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
                                       ),
-                                      AnimatedContainer(
-                                        curve: Curves.easeIn,
-                                        duration: Duration(milliseconds: 500),
-                                        width: celestialshowerdmgnc / 50,
-                                        height: 20,
-                                        color: Colors.lightBlue[200],
+                                      SelectableText(
+                                        double.parse(celestialshowerdmgexp
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((celestialshowerdmgc)
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
                                       ),
                                     ],
                                   ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: celestialshowerdmgc / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: celestialshowerdmgexp / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: celestialshowerdmgnc / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Melt:(' +
+                                              double.parse((100 *
+                                                          1.5 *
+                                                          (1 +
+                                                              (1 * 25 * allEM) /
+                                                                  (9 *
+                                                                      (allEM +
+                                                                          1400))))
+                                                      .toStringAsFixed(1))
+                                                  .toString() +
+                                              '%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((celestialshowerdmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((celestialshowerdmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((celestialshowerdmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400))))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgexp *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgnc *
+                                                    1.5 *
+                                                    (1 +
+                                                        (1 * 25 * allEM) /
+                                                            (9 *
+                                                                (allEM +
+                                                                    1400)))) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
                                 ],
                               ),
                             ],
