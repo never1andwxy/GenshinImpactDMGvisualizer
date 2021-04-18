@@ -574,6 +574,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int enemyAnemores = 10;
   int enemyCryores = 10;
   int enemyGeores = 10;
+  int enemyPhysicalresv = 10;
+  int enemyPyroresv = 10;
+  int enemyHydroresv = 10;
+  int enemyDendroresv = 10;
+  int enemyElectroresv = 10;
+  int enemyAnemoresv = 10;
+  int enemyCryoresv = 10;
+  int enemyGeoresv = 10;
 
   var eneresbytype = {
     1: {
@@ -605,11 +613,208 @@ class _MyHomePageState extends State<MyHomePage> {
       'anemo': 10,
       'cryo': 10,
       'geo': 10
+    },
+    4: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 999,
+      'cryo': 999,
+      'geo': 10
     }
   };
 
   //ANCHOR skilldamagestat
   var natklvtoskill = {
+    '1hitDMG': {
+      1: 31.73,
+      2: 34.32,
+      3: 36.9,
+      4: 40.59,
+      5: 43.17,
+      6: 46.13,
+      7: 50.18,
+      8: 54.24,
+      9: 58.3,
+      10: 62.73,
+      11: 67.8,
+      12: 73.77,
+      13: 79.74,
+      14: 85.7,
+      15: 92.21,
+    },
+    '2hitDMG': {
+      1: 35.6,
+      2: 38.5,
+      3: 41.4,
+      4: 45.54,
+      5: 48.44,
+      6: 51.75,
+      7: 56.3,
+      8: 60.86,
+      9: 65.41,
+      10: 70.38,
+      11: 76.07,
+      12: 82.77,
+      13: 89.46,
+      14: 96.16,
+      15: 103.46,
+    },
+    '3hitDMG': {
+      1: 45.49,
+      2: 49.2,
+      3: 52.9,
+      4: 58.19,
+      5: 61.89,
+      6: 66.13,
+      7: 71.94,
+      8: 77.76,
+      9: 83.58,
+      10: 89.93,
+      11: 97.2,
+      12: 105.76,
+      13: 114.31,
+      14: 122.87,
+      15: 132.2,
+    },
+    '4hitDMG': {
+      1: 45.49,
+      2: 49.2,
+      3: 52.9,
+      4: 58.19,
+      5: 61.89,
+      6: 66.13,
+      7: 71.94,
+      8: 77.76,
+      9: 83.58,
+      10: 89.93,
+      11: 97.2,
+      12: 105.76,
+      13: 114.31,
+      14: 122.87,
+      15: 132.2,
+    },
+    '5hitDMG': {
+      1: 48.25,
+      2: 52.17,
+      3: 56.1,
+      4: 61.71,
+      5: 65.64,
+      6: 70.13,
+      7: 76.3,
+      8: 82.47,
+      9: 88.64,
+      10: 95.37,
+      11: 103.08,
+      12: 112.16,
+      13: 121.23,
+      14: 130.3,
+      15: 140.19,
+    },
+    '6hitDMG': {
+      1: 57.62,
+      2: 62.31,
+      3: 67,
+      4: 73.7,
+      5: 78.39,
+      6: 83.75,
+      7: 91.12,
+      8: 98.49,
+      9: 105.86,
+      10: 113.9,
+      11: 123.11,
+      12: 133.95,
+      13: 144.78,
+      14: 155.61,
+      15: 167.43,
+    },
+    'AimShootDMG': {
+      1: 43.86,
+      2: 47.43,
+      3: 51,
+      4: 56.1,
+      5: 59.67,
+      6: 63.75,
+      7: 69.36,
+      8: 74.97,
+      9: 80.58,
+      10: 86.7,
+      11: 92.82,
+      12: 98.94,
+      13: 105.06,
+      14: 111.18,
+      15: 117.3,
+    },
+    'ChargedAimShootDMG': {
+      1: 124,
+      2: 133.3,
+      3: 142.6,
+      4: 155,
+      5: 164.3,
+      6: 173.6,
+      7: 186,
+      8: 198.4,
+      9: 210.8,
+      10: 223.2,
+      11: 235.6,
+      12: 248,
+      13: 263.5,
+      14: 279,
+      15: 294.5,
+    },
+    'PlungeDMG': {
+      1: 56.83,
+      2: 61.45,
+      3: 66.08,
+      4: 72.69,
+      5: 77.31,
+      6: 82.6,
+      7: 89.87,
+      8: 97.14,
+      9: 104.41,
+      10: 112.34,
+      11: 120.27,
+      12: 128.2,
+      13: 136.12,
+      14: 144.05,
+      15: 151.98,
+    },
+    'LPlungeDMG': {
+      1: 113.63,
+      2: 122.88,
+      3: 132.13,
+      4: 145.35,
+      5: 154.59,
+      6: 165.17,
+      7: 179.7,
+      8: 194.23,
+      9: 208.77,
+      10: 224.62,
+      11: 240.48,
+      12: 256.34,
+      13: 272.19,
+      14: 288.05,
+      15: 303.9,
+    },
+    'HPlungeDMG': {
+      1: 141.93,
+      2: 153.49,
+      3: 165.04,
+      4: 181.54,
+      5: 193.1,
+      6: 206.3,
+      7: 224.45,
+      8: 242.61,
+      9: 260.76,
+      10: 280.57,
+      11: 300.37,
+      12: 320.18,
+      13: 339.98,
+      14: 359.79,
+      15: 379.59,
+    },
     'Frostflake Arrow DMG': {
       1: 128,
       2: 137.6,
@@ -696,8 +901,65 @@ class _MyHomePageState extends State<MyHomePage> {
       15: 166.9,
     },
   };
+
+  double hit1dmgpercent = 0;
+  double hit2dmgpercent = 0;
+  double hit3dmgpercent = 0;
+  double hit4dmgpercent = 0;
+  double hit5dmgpercent = 0;
+  double hit6dmgpercent = 0;
+  double aimdmgpercent = 0;
+  double caimdmgpercent = 0;
+  double plungedmgpercent = 0;
+  double lplungedmgpercent = 0;
+  double hplungedmgpercent = 0;
+
   double frostflakedmgpercent = 0;
   double frostflakebloomdmgpercent = 0;
+
+  double hit1dmgnc = 0;
+  double hit1dmgexp = 0;
+  double hit1dmgc = 0;
+
+  double hit2dmgnc = 0;
+  double hit2dmgexp = 0;
+  double hit2dmgc = 0;
+
+  double hit3dmgnc = 0;
+  double hit3dmgexp = 0;
+  double hit3dmgc = 0;
+
+  double hit4dmgnc = 0;
+  double hit4dmgexp = 0;
+  double hit4dmgc = 0;
+
+  double hit5dmgnc = 0;
+  double hit5dmgexp = 0;
+  double hit5dmgc = 0;
+
+  double hit6dmgnc = 0;
+  double hit6dmgexp = 0;
+  double hit6dmgc = 0;
+
+  double plungedmgnc = 0;
+  double plungedmgexp = 0;
+  double plungedmgc = 0;
+
+  double lplungedmgnc = 0;
+  double lplungedmgexp = 0;
+  double lplungedmgc = 0;
+
+  double hplungedmgnc = 0;
+  double hplungedmgexp = 0;
+  double hplungedmgc = 0;
+
+  double aimdmgnc = 0;
+  double aimdmgexp = 0;
+  double aimdmgc = 0;
+
+  double caimdmgnc = 0;
+  double caimdmgexp = 0;
+  double caimdmgc = 0;
 
   double frostflakedmgnc = 0;
   double frostflakedmgexp = 0;
@@ -3969,15 +4231,61 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //enemyparams
     enemyPhysicalres = eneresbytype[enemytype]['physical'];
+    if (enemyPhysicalres > 100) {
+      enemyPhysicalresv = enemyPhysicalres;
+      enemyPhysicalres = 100;
+    }
     enemyPyrores = eneresbytype[enemytype]['pyro'];
+    if (enemyPyrores > 100) {
+      enemyPyroresv = enemyPyrores;
+      enemyPyrores = 100;
+    }
     enemyHydrores = eneresbytype[enemytype]['hydro'];
+    if (enemyHydrores > 100) {
+      enemyHydroresv = enemyHydrores;
+      enemyHydrores = 100;
+    }
     enemyDendrores = eneresbytype[enemytype]['dendro'];
+    if (enemyDendrores > 100) {
+      enemyDendroresv = enemyDendrores;
+      enemyDendrores = 100;
+    }
     enemyElectrores = eneresbytype[enemytype]['electro'];
+    if (enemyElectrores > 100) {
+      enemyElectroresv = enemyElectrores;
+      enemyElectrores = 100;
+    }
     enemyAnemores = eneresbytype[enemytype]['anemo'];
+    if (enemyAnemores > 100) {
+      enemyAnemoresv = enemyAnemores;
+      enemyAnemores = 100;
+    }
     enemyCryores = eneresbytype[enemytype]['cryo'];
+    if (enemyCryores > 100) {
+      enemyCryoresv = enemyCryores;
+      enemyCryores = 100;
+    }
     enemyGeores = eneresbytype[enemytype]['geo'];
+    if (enemyGeores > 100) {
+      enemyGeoresv = enemyGeores;
+      enemyGeores = 100;
+    }
 
     //damagecalcparams
+    hit1dmgpercent = natklvtoskill['1hitDMG'][natklv];
+    hit2dmgpercent = natklvtoskill['2hitDMG'][natklv];
+    hit3dmgpercent = natklvtoskill['3hitDMG'][natklv];
+    hit4dmgpercent = natklvtoskill['4hitDMG'][natklv];
+    hit5dmgpercent = natklvtoskill['5hitDMG'][natklv];
+    hit6dmgpercent = natklvtoskill['6hitDMG'][natklv];
+
+    plungedmgpercent = natklvtoskill['PlungeDMG'][natklv];
+    lplungedmgpercent = natklvtoskill['LPlungeDMG'][natklv];
+    hplungedmgpercent = natklvtoskill['HPlungeDMG'][natklv];
+
+    aimdmgpercent = natklvtoskill['AimShootDMG'][natklv];
+    aimdmgpercent = natklvtoskill['AimShootDMG'][natklv];
+
     frostflakedmgpercent = natklvtoskill['Frostflake Arrow DMG'][natklv];
     frostflakebloomdmgpercent =
         natklvtoskill['Frostflake Arrow Bloom DMG'][natklv];
@@ -3986,6 +4294,259 @@ class _MyHomePageState extends State<MyHomePage> {
         natklvtoskill['Trail of the Qilin DMG'][eskilllv];
     trailoftheqilinhppercent = natklvtoskill['Trail of the Qilin HP'][eskilllv];
     celestialshowerdmgpercent = natklvtoskill['Celestial Shower DMG'][eburstlv];
+
+    hit1dmgc = allatk *
+        (hit1dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit1dmgnc = allatk *
+        (hit1dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit1dmgexp = allatk *
+        (hit1dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hit2dmgc = allatk *
+        (hit2dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit2dmgnc = allatk *
+        (hit2dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit2dmgexp = allatk *
+        (hit2dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hit3dmgc = allatk *
+        (hit3dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit3dmgnc = allatk *
+        (hit3dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit3dmgexp = allatk *
+        (hit3dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hit4dmgc = allatk *
+        (hit4dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit4dmgnc = allatk *
+        (hit4dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit4dmgexp = allatk *
+        (hit4dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hit5dmgc = allatk *
+        (hit5dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit5dmgnc = allatk *
+        (hit5dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit5dmgexp = allatk *
+        (hit5dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hit6dmgc = allatk *
+        (hit6dmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit6dmgnc = allatk *
+        (hit6dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hit6dmgexp = allatk *
+        (hit6dmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    aimdmgc = allatk *
+        (aimdmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    aimdmgnc = allatk *
+        (aimdmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    aimdmgexp = allatk *
+        (aimdmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    caimdmgc = allatk *
+        (caimdmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    caimdmgnc = allatk *
+        (caimdmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    caimdmgexp = allatk *
+        (caimdmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    plungedmgc = allatk *
+        (plungedmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    plungedmgnc = allatk *
+        (plungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    plungedmgexp = allatk *
+        (plungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    lplungedmgc = allatk *
+        (lplungedmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    lplungedmgnc = allatk *
+        (lplungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    lplungedmgexp = allatk *
+        (lplungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
+
+    hplungedmgc = allatk *
+        (hplungedmgpercent / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hplungedmgnc = allatk *
+        (hplungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100));
+
+    hplungedmgexp = allatk *
+        (hplungedmgpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        (1 - (enemyPhysicalres / 100)) *
+        (1 + allCD / 100 * allCR / 100);
 
     frostflakedmgc = allatk *
         (frostflakedmgpercent / 100) *
@@ -10056,6 +10617,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 style: TextStyle(fontSize: 15),
                                               ),
                                               value: 3),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Andrius, Dominator of Wolves",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 4),
                                         ],
                                         onChanged: (value) {
                                           setState(() {
@@ -10080,7 +10647,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyPhysicalres',
+                                        '$enemyPhysicalresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10100,7 +10667,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyPyrores',
+                                        '$enemyPyroresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10120,7 +10687,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyHydrores',
+                                        '$enemyHydroresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10140,7 +10707,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyDendrores',
+                                        '$enemyDendroresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10160,7 +10727,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyElectrores',
+                                        '$enemyElectroresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10180,7 +10747,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyAnemores',
+                                        '$enemyAnemoresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10200,7 +10767,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyCryores',
+                                        '$enemyCryoresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10220,7 +10787,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        '$enemyGeores',
+                                        '$enemyGeoresv',
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.black,
@@ -10338,6 +10905,284 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+                              //ANCHOR 1-Hit Damage
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(
+                                  children: [
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          SelectableText(
+                                            '1-Hit Damage:($hit1dmgpercent%)',
+                                            style: TextStyle(
+                                              //fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ]),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(
+                                                  hit1dmgnc.toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[200],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(
+                                                  hit1dmgexp.toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[400],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(
+                                                  hit1dmgc.toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[600],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: hit1dmgc / 50,
+                                              height: 20,
+                                              color: Colors.grey[600],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: hit1dmgexp / 50,
+                                              height: 20,
+                                              color: Colors.grey[400],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: hit1dmgnc / 50,
+                                              height: 20,
+                                              color: Colors.grey[200],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                                // Text(
+                                //   "Reaction DMG",
+                                //   style: TextStyle(
+                                //     fontSize: 12.0,
+                                //   ),
+                                // ),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Under Superconduct: Physical RES Decreased by 40%',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.red,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((hit1dmgnc /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((hit1dmgexp /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((hit1dmgc /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4))
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (hit1dmgnc /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4)) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.grey[200],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (hit1dmgexp /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4)) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.grey[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: (hit1dmgnc /
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100)) *
+                                                    (1 -
+                                                        (enemyPhysicalres /
+                                                            100) +
+                                                        0.4)) /
+                                                50,
+                                            height: 20,
+                                            color: Colors.grey[600],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                               //ANCHOR Frostflake Arrow
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
