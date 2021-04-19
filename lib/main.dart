@@ -10942,7 +10942,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[200],
+                                            color: Colors.grey[500],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10960,7 +10960,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[400],
+                                            color: Colors.grey[700],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10978,7 +10978,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[600],
+                                            color: Colors.grey[900],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10997,7 +10997,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   Duration(milliseconds: 500),
                                               width: hit1dmgc / 50,
                                               height: 20,
-                                              color: Colors.grey[600],
+                                              color: Colors.grey[900],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
@@ -11005,7 +11005,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   Duration(milliseconds: 500),
                                               width: hit1dmgexp / 50,
                                               height: 20,
-                                              color: Colors.grey[400],
+                                              color: Colors.grey[700],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
@@ -11013,7 +11013,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   Duration(milliseconds: 500),
                                               width: hit1dmgnc / 50,
                                               height: 20,
-                                              color: Colors.grey[200],
+                                              color: Colors.grey[500],
                                             ),
                                           ],
                                         ),
@@ -11299,13 +11299,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ],
                                 ),
-
-                                // Text(
-                                //   "Reaction DMG",
-                                //   style: TextStyle(
-                                //     fontSize: 12.0,
-                                //   ),
-                                // ),
                                 children: <Widget>[
                                   Row(
                                       mainAxisAlignment:
@@ -11411,7 +11404,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
+                                        //alignment: Alignment.bottomRight,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -11426,7 +11419,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[200],
+                                            color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -11456,7 +11449,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[600],
+                                            color: Colors.lightBlue[200],
                                           ),
                                         ],
                                       ),
@@ -11606,7 +11599,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ]),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
                                       SelectableText(
                                         'Non-Crit:',
@@ -11686,7 +11678,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -11701,7 +11692,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[200],
+                                            color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -11731,7 +11722,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[600],
+                                            color: Colors.lightBlue[200],
                                           ),
                                         ],
                                       ),
@@ -11961,7 +11952,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -11976,7 +11966,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[200],
+                                            color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -12006,7 +11996,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[600],
+                                            color: Colors.lightBlue[200],
                                           ),
                                         ],
                                       ),
@@ -12032,6 +12022,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+
+                              //ANCHOR Trail of the Qilin HP
                               Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
@@ -12055,13 +12047,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                         duration: Duration(milliseconds: 500),
                                         width: trailoftheqilinhp / 500,
                                         height: 20,
-                                        color: Colors.grey[600],
+                                        color: Colors.grey[900],
                                       ),
                                     ],
                                   ),
                                 ],
                               ),
                               SizedBox(height: 10),
+                              //ANCHOR Trail of the Qilin DMG
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
@@ -12278,7 +12271,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -12293,7 +12285,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[200],
+                                            color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -12323,7 +12315,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[600],
+                                            color: Colors.lightBlue[200],
                                           ),
                                         ],
                                       ),
@@ -12349,6 +12341,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
+                              //ANCHOR Celestial Shower DMG
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
@@ -12565,7 +12558,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -12580,7 +12572,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[200],
+                                            color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
@@ -12610,7 +12602,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     1400)))) /
                                                 50,
                                             height: 20,
-                                            color: Colors.lightBlue[600],
+                                            color: Colors.lightBlue[200],
                                           ),
                                         ],
                                       ),
