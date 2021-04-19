@@ -4231,45 +4231,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //enemyparams
     enemyPhysicalres = eneresbytype[enemytype]['physical'];
-    if (enemyPhysicalres > 100) {
-      enemyPhysicalresv = enemyPhysicalres;
-      enemyPhysicalres = 100;
-    }
+    enemyPhysicalresv = enemyPhysicalres;
+    if (enemyPhysicalres > 100) enemyPhysicalres = 100;
     enemyPyrores = eneresbytype[enemytype]['pyro'];
-    if (enemyPyrores > 100) {
-      enemyPyroresv = enemyPyrores;
-      enemyPyrores = 100;
-    }
+    enemyPyroresv = enemyPyrores;
+    if (enemyPyrores > 100) enemyPyrores = 100;
     enemyHydrores = eneresbytype[enemytype]['hydro'];
-    if (enemyHydrores > 100) {
-      enemyHydroresv = enemyHydrores;
-      enemyHydrores = 100;
-    }
+    enemyHydroresv = enemyHydrores;
+    if (enemyHydrores > 100) enemyHydrores = 100;
     enemyDendrores = eneresbytype[enemytype]['dendro'];
-    if (enemyDendrores > 100) {
-      enemyDendroresv = enemyDendrores;
-      enemyDendrores = 100;
-    }
+    enemyDendroresv = enemyDendrores;
+    if (enemyDendrores > 100) enemyDendrores = 100;
     enemyElectrores = eneresbytype[enemytype]['electro'];
-    if (enemyElectrores > 100) {
-      enemyElectroresv = enemyElectrores;
-      enemyElectrores = 100;
-    }
+    enemyElectroresv = enemyElectrores;
+    if (enemyElectrores > 100) enemyElectrores = 100;
     enemyAnemores = eneresbytype[enemytype]['anemo'];
-    if (enemyAnemores > 100) {
-      enemyAnemoresv = enemyAnemores;
-      enemyAnemores = 100;
-    }
+    enemyAnemoresv = enemyAnemores;
+    if (enemyAnemores > 100) enemyAnemores = 100;
     enemyCryores = eneresbytype[enemytype]['cryo'];
-    if (enemyCryores > 100) {
-      enemyCryoresv = enemyCryores;
-      enemyCryores = 100;
-    }
+    enemyCryoresv = enemyCryores;
+    if (enemyCryores > 100) enemyCryores = 100;
     enemyGeores = eneresbytype[enemytype]['geo'];
-    if (enemyGeores > 100) {
-      enemyGeoresv = enemyGeores;
-      enemyGeores = 100;
-    }
+    enemyGeoresv = enemyGeores;
+    if (enemyGeores > 100) enemyGeores = 100;
 
     //damagecalcparams
     hit1dmgpercent = natklvtoskill['1hitDMG'][natklv];
@@ -4285,6 +4269,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     aimdmgpercent = natklvtoskill['AimShootDMG'][natklv];
     aimdmgpercent = natklvtoskill['AimShootDMG'][natklv];
+
+    caimdmgpercent = natklvtoskill['ChargedAimShootDMG'][natklv];
+    caimdmgpercent = natklvtoskill['ChargedAimShootDMG'][natklv];
 
     frostflakedmgpercent = natklvtoskill['Frostflake Arrow DMG'][natklv];
     frostflakebloomdmgpercent =
@@ -4459,24 +4446,24 @@ class _MyHomePageState extends State<MyHomePage> {
     caimdmgc = allatk *
         (caimdmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        (1 - (enemyCryores / 100));
 
     caimdmgnc = allatk *
         (caimdmgpercent / 100) *
-        (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        (1 - (enemyCryores / 100));
 
     caimdmgexp = allatk *
         (caimdmgpercent / 100) *
-        (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        (1 - (enemyCryores / 100)) *
         (1 + allCD / 100 * allCR / 100);
 
     plungedmgc = allatk *
@@ -10905,7 +10892,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
-                              //ANCHOR 1-Hit Damage
+                              //ANCHOR Charged Aim Shoot Damage
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
@@ -10916,7 +10903,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             MainAxisAlignment.start,
                                         children: <Widget>[
                                           SelectableText(
-                                            '1-Hit Damage:($hit1dmgpercent%)',
+                                            'Charged Aim Shoot Damage:($caimdmgpercent%)',
                                             style: TextStyle(
                                               //fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -10938,11 +10925,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         SelectableText(
                                           double.parse(
-                                                  hit1dmgnc.toStringAsFixed(1))
+                                                  caimdmgnc.toStringAsFixed(1))
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[500],
+                                            color: Colors.lightBlue[200],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10956,11 +10943,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         SelectableText(
                                           double.parse(
-                                                  hit1dmgexp.toStringAsFixed(1))
+                                                  caimdmgexp.toStringAsFixed(1))
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[700],
+                                            color: Colors.lightBlue[400],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10974,11 +10961,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         SelectableText(
                                           double.parse(
-                                                  hit1dmgc.toStringAsFixed(1))
+                                                  caimdmgc.toStringAsFixed(1))
                                               .toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[900],
+                                            color: Colors.lightBlue[600],
                                             fontSize: 15,
                                           ),
                                         ),
@@ -10995,25 +10982,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                               curve: Curves.easeIn,
                                               duration:
                                                   Duration(milliseconds: 500),
-                                              width: hit1dmgc / 50,
+                                              width: caimdmgc / 50,
                                               height: 20,
-                                              color: Colors.grey[900],
+                                              color: Colors.lightBlue[600],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
                                               duration:
                                                   Duration(milliseconds: 500),
-                                              width: hit1dmgexp / 50,
+                                              width: caimdmgexp / 50,
                                               height: 20,
-                                              color: Colors.grey[700],
+                                              color: Colors.lightBlue[400],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
                                               duration:
                                                   Duration(milliseconds: 500),
-                                              width: hit1dmgnc / 50,
+                                              width: caimdmgnc / 50,
                                               height: 20,
-                                              color: Colors.grey[500],
+                                              color: Colors.lightBlue[200],
                                             ),
                                           ],
                                         ),
@@ -11030,14 +11017,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 // ),
                                 children: <Widget>[
                                   Row(
+                                      //ANCHOR 1-Hit Damage
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
-                                          'Under Superconduct: Physical RES Decreased by 40%',
+                                          '1-Hit Damage:($hit1dmgpercent%)',
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
+                                            color: Colors.black,
                                             fontSize: 15,
                                           ),
                                         ),
@@ -11054,19 +11042,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((hit1dmgnc /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4))
-                                                .toStringAsFixed(1))
+                                        double.parse(
+                                                hit1dmgnc.toStringAsFixed(1))
                                             .toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
-                                          color: Colors.grey[200],
+                                          color: Colors.grey[500],
                                           fontSize: 15,
                                         ),
                                       ),
@@ -11079,19 +11060,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((hit1dmgexp /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4))
-                                                .toStringAsFixed(1))
+                                        double.parse(
+                                                hit1dmgexp.toStringAsFixed(1))
                                             .toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
-                                          color: Colors.grey[400],
+                                          color: Colors.grey[700],
                                           fontSize: 15,
                                         ),
                                       ),
@@ -11104,19 +11078,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((hit1dmgc /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4))
-                                                .toStringAsFixed(1))
+                                        double.parse(
+                                                hit1dmgc.toStringAsFixed(1))
                                             .toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
-                                          color: Colors.grey[600],
+                                          color: Colors.grey[900],
                                           fontSize: 15,
                                         ),
                                       ),
@@ -11126,55 +11093,993 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Stack(
-                                        alignment: Alignment.bottomRight,
+                                        alignment: Alignment.topLeft,
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration:
                                                 Duration(milliseconds: 500),
-                                            width: (hit1dmgnc /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4)) /
-                                                50,
+                                            width: hit1dmgc / 50,
                                             height: 20,
-                                            color: Colors.grey[200],
+                                            color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration:
                                                 Duration(milliseconds: 500),
-                                            width: (hit1dmgexp /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4)) /
-                                                50,
+                                            width: hit1dmgexp / 50,
                                             height: 20,
-                                            color: Colors.grey[400],
+                                            color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration:
                                                 Duration(milliseconds: 500),
-                                            width: (hit1dmgnc /
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100)) *
-                                                    (1 -
-                                                        (enemyPhysicalres /
-                                                            100) +
-                                                        0.4)) /
-                                                50,
+                                            width: hit1dmgnc / 50,
                                             height: 20,
-                                            color: Colors.grey[600],
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR 2-Hit Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          '2-Hit Damage:($hit2dmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit2dmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit2dmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit2dmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit2dmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit2dmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit2dmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR 3-Hit Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          '3-Hit Damage:($hit3dmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit3dmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit3dmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit3dmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit3dmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit3dmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit3dmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR 4-Hit Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          '4-Hit Damage:($hit4dmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit4dmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit4dmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit4dmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit4dmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit4dmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit4dmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR 5-Hit Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          '5-Hit Damage:($hit5dmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit5dmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit5dmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit5dmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit5dmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit5dmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit5dmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR 6-Hit Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          '6-Hit Damage:($hit6dmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit6dmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit6dmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hit6dmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit6dmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit6dmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hit6dmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR Aim Shoot Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Aim Shoot Damage:($aimdmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                aimdmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                aimdmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(aimdmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: aimdmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: aimdmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: aimdmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR Plunge Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Plunge Damage:($plungedmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                plungedmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                plungedmgexp.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                plungedmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: plungedmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: plungedmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: plungedmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR Low Plunge Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Low Plunge Damage:($lplungedmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                lplungedmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(lplungedmgexp
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                lplungedmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: lplungedmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: lplungedmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: lplungedmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                      //ANCHOR High Plunge Damage
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'High Plunge Damage:($hplungedmgpercent%)',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hplungedmgnc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[500],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(hplungedmgexp
+                                                .toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[700],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse(
+                                                hplungedmgc.toStringAsFixed(1))
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.grey[900],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.topLeft,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hplungedmgc / 50,
+                                            height: 20,
+                                            color: Colors.grey[900],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hplungedmgexp / 50,
+                                            height: 20,
+                                            color: Colors.grey[700],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                            width: hplungedmgnc / 50,
+                                            height: 20,
+                                            color: Colors.grey[500],
                                           ),
                                         ],
                                       ),
