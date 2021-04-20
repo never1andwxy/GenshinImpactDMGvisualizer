@@ -566,14 +566,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int enemylv = 80;
   int enemydefdebuff = 0;
   int enemytype = 1;
-  int enemyPhysicalres = 10;
-  int enemyPyrores = 10;
-  int enemyHydrores = 10;
-  int enemyDendrores = 10;
-  int enemyElectrores = 10;
-  int enemyAnemores = 10;
-  int enemyCryores = 10;
-  int enemyGeores = 10;
+  double enemyPhysicalres = 10;
+  double enemyPyrores = 10;
+  double enemyHydrores = 10;
+  double enemyDendrores = 10;
+  double enemyElectrores = 10;
+  double enemyAnemores = 10;
+  double enemyCryores = 10;
+  double enemyGeores = 10;
   int enemyPhysicalresv = 10;
   int enemyPyroresv = 10;
   int enemyHydroresv = 10;
@@ -983,6 +983,10 @@ class _MyHomePageState extends State<MyHomePage> {
   double celestialshowerdmgnc = 0;
   double celestialshowerdmgexp = 0;
   double celestialshowerdmgc = 0;
+
+//ANCHOR optionsstat
+  bool undividedHeartOn = false;
+  bool constellation1On = false;
 
   String _label = '';
 
@@ -4131,7 +4135,8 @@ class _MyHomePageState extends State<MyHomePage> {
         stat2CRpercent +
         stat3CRpercent +
         stat4CRpercent +
-        stat5CRpercent;
+        stat5CRpercent +
+        (undividedHeartOn ? 20 : 0);
     allCR = baseCR + bonusCR;
 
     //CD params
@@ -4230,30 +4235,87 @@ class _MyHomePageState extends State<MyHomePage> {
         levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
 
     //enemyparams
-    enemyPhysicalres = eneresbytype[enemytype]['physical'];
-    enemyPhysicalresv = enemyPhysicalres;
-    if (enemyPhysicalres > 100) enemyPhysicalres = 100;
-    enemyPyrores = eneresbytype[enemytype]['pyro'];
-    enemyPyroresv = enemyPyrores;
-    if (enemyPyrores > 100) enemyPyrores = 100;
-    enemyHydrores = eneresbytype[enemytype]['hydro'];
-    enemyHydroresv = enemyHydrores;
-    if (enemyHydrores > 100) enemyHydrores = 100;
-    enemyDendrores = eneresbytype[enemytype]['dendro'];
-    enemyDendroresv = enemyDendrores;
-    if (enemyDendrores > 100) enemyDendrores = 100;
-    enemyElectrores = eneresbytype[enemytype]['electro'];
-    enemyElectroresv = enemyElectrores;
-    if (enemyElectrores > 100) enemyElectrores = 100;
-    enemyAnemores = eneresbytype[enemytype]['anemo'];
-    enemyAnemoresv = enemyAnemores;
-    if (enemyAnemores > 100) enemyAnemores = 100;
-    enemyCryores = eneresbytype[enemytype]['cryo'];
-    enemyCryoresv = enemyCryores;
-    if (enemyCryores > 100) enemyCryores = 100;
-    enemyGeores = eneresbytype[enemytype]['geo'];
-    enemyGeoresv = enemyGeores;
-    if (enemyGeores > 100) enemyGeores = 100;
+
+    enemyPhysicalresv = eneresbytype[enemytype]['physical'];
+    if (enemyPhysicalresv < 0)
+      enemyPhysicalres = 1 - enemyPhysicalresv / 2 / 100;
+    else if (enemyPhysicalresv < 76)
+      enemyPhysicalres = 1 - enemyPhysicalresv / 100;
+    else if (enemyPhysicalresv < 800)
+      enemyPhysicalres = 1 / (4 * enemyPhysicalresv / 100 + 1);
+    else
+      enemyPhysicalres = 0;
+
+    enemyPyroresv = eneresbytype[enemytype]['pyro'];
+    if (enemyPyroresv < 0)
+      enemyPyrores = 1 - enemyPyroresv / 2 / 100;
+    else if (enemyPyroresv < 76)
+      enemyPyrores = 1 - enemyPyroresv / 100;
+    else if (enemyPyroresv < 800)
+      enemyPyrores = 1 / (4 * enemyPyroresv / 100 + 1);
+    else
+      enemyPyrores = 0;
+
+    enemyHydroresv = eneresbytype[enemytype]['hydro'];
+    if (enemyHydroresv < 0)
+      enemyHydrores = 1 - enemyHydroresv / 2 / 100;
+    else if (enemyHydroresv < 76)
+      enemyHydrores = 1 - enemyHydroresv / 100;
+    else if (enemyHydroresv < 800)
+      enemyHydrores = 1 / (4 * enemyHydroresv / 100 + 1);
+    else
+      enemyHydrores = 0;
+
+    enemyDendroresv = eneresbytype[enemytype]['dendro'];
+    if (enemyDendroresv < 0)
+      enemyDendrores = 1 - enemyDendroresv / 2 / 100;
+    else if (enemyDendroresv < 76)
+      enemyDendrores = 1 - enemyDendroresv / 100;
+    else if (enemyDendroresv < 800)
+      enemyDendrores = 1 / (4 * enemyDendroresv / 100 + 1);
+    else
+      enemyDendrores = 0;
+
+    enemyElectroresv = eneresbytype[enemytype]['electro'];
+    if (enemyElectroresv < 0)
+      enemyElectrores = 1 - enemyElectroresv / 2 / 100;
+    else if (enemyElectroresv < 76)
+      enemyElectrores = 1 - enemyElectroresv / 100;
+    else if (enemyElectroresv < 800)
+      enemyElectrores = 1 / (4 * enemyElectroresv / 100 + 1);
+    else
+      enemyElectrores = 0;
+
+    enemyAnemoresv = eneresbytype[enemytype]['anemo'];
+    if (enemyAnemoresv < 0)
+      enemyAnemores = 1 - enemyAnemoresv / 2 / 100;
+    else if (enemyAnemoresv < 76)
+      enemyAnemores = 1 - enemyAnemoresv / 100;
+    else if (enemyAnemoresv < 800)
+      enemyAnemores = 1 / (4 * enemyAnemoresv / 100 + 1);
+    else
+      enemyAnemores = 0;
+
+    enemyCryoresv =
+        eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0);
+    if (enemyCryoresv < 0)
+      enemyCryores = 1 - enemyCryoresv / 2 / 100;
+    else if (enemyCryoresv < 76)
+      enemyCryores = 1 - enemyCryoresv / 100;
+    else if (enemyCryoresv < 800)
+      enemyCryores = 1 / (4 * enemyCryoresv / 100 + 1);
+    else
+      enemyCryores = 0;
+
+    enemyGeoresv = eneresbytype[enemytype]['geo'];
+    if (enemyGeoresv < 0)
+      enemyGeores = 1 - enemyGeoresv / 2 / 100;
+    else if (enemyGeoresv < 76)
+      enemyGeores = 1 - enemyGeoresv / 100;
+    else if (enemyGeoresv < 800)
+      enemyGeores = 1 / (4 * enemyGeoresv / 100 + 1);
+    else
+      enemyGeores = 0;
 
     //damagecalcparams
     hit1dmgpercent = natklvtoskill['1hitDMG'][natklv];
@@ -4288,21 +4350,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit1dmgnc = allatk *
         (hit1dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit1dmgexp = allatk *
         (hit1dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hit2dmgc = allatk *
@@ -4311,21 +4373,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit2dmgnc = allatk *
         (hit2dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit2dmgexp = allatk *
         (hit2dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hit3dmgc = allatk *
@@ -4334,21 +4396,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit3dmgnc = allatk *
         (hit3dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit3dmgexp = allatk *
         (hit3dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hit4dmgc = allatk *
@@ -4357,21 +4419,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit4dmgnc = allatk *
         (hit4dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit4dmgexp = allatk *
         (hit4dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hit5dmgc = allatk *
@@ -4380,21 +4442,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit5dmgnc = allatk *
         (hit5dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit5dmgexp = allatk *
         (hit5dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hit6dmgc = allatk *
@@ -4403,21 +4465,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit6dmgnc = allatk *
         (hit6dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hit6dmgexp = allatk *
         (hit6dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     aimdmgc = allatk *
@@ -4426,21 +4488,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     aimdmgnc = allatk *
         (aimdmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     aimdmgexp = allatk *
         (aimdmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     caimdmgc = allatk *
@@ -4449,21 +4511,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     caimdmgnc = allatk *
         (caimdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     caimdmgexp = allatk *
         (caimdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100)) *
+        enemyCryores *
         (1 + allCD / 100 * allCR / 100);
 
     plungedmgc = allatk *
@@ -4472,21 +4534,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     plungedmgnc = allatk *
         (plungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     plungedmgexp = allatk *
         (plungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     lplungedmgc = allatk *
@@ -4495,21 +4557,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     lplungedmgnc = allatk *
         (lplungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     lplungedmgexp = allatk *
         (lplungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     hplungedmgc = allatk *
@@ -4518,21 +4580,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hplungedmgnc = allatk *
         (hplungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100));
+        enemyPhysicalres;
 
     hplungedmgexp = allatk *
         (hplungedmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyPhysicalres / 100)) *
+        enemyPhysicalres *
         (1 + allCD / 100 * allCR / 100);
 
     frostflakedmgc = allatk *
@@ -4541,21 +4603,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     frostflakedmgnc = allatk *
         (frostflakedmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     frostflakedmgexp = allatk *
         (frostflakedmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100)) *
+        enemyCryores *
         (1 + allCD / 100 * allCR / 100);
 
     frostflakebloomdmgc = allatk *
@@ -4564,21 +4626,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     frostflakebloomdmgnc = allatk *
         (frostflakebloomdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     frostflakebloomdmgexp = allatk *
         (frostflakebloomdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100)) *
+        enemyCryores *
         (1 + allCD / 100 * allCR / 100);
 
     frostflakealldmgc = frostflakebloomdmgc + frostflakedmgc;
@@ -4591,21 +4653,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     trailoftheqilindmgnc = allatk *
         (trailoftheqilindmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     trailoftheqilindmgexp = allatk *
         (trailoftheqilindmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100)) *
+        enemyCryores *
         (1 + allCD / 100 * allCR / 100);
 
     trailoftheqilinhp = allHP * trailoftheqilinhppercent / 100;
@@ -4616,21 +4678,21 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     celestialshowerdmgnc = allatk *
         (celestialshowerdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100));
+        enemyCryores;
 
     celestialshowerdmgexp = allatk *
         (celestialshowerdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        (1 - (enemyCryores / 100)) *
+        enemyCryores *
         (1 + allCD / 100 * allCR / 100);
 
     return Scaffold(
@@ -8797,6 +8859,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (undividedHeartOn == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.amber,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'Undevided Heart',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '20',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -8920,6 +9006,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: stat5CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.teal,
+                                              ),
+                                            ],
+                                          ),
+                                        if (undividedHeartOn == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 40,
+                                                height: 20,
+                                                color: Colors.amber,
                                               ),
                                             ],
                                           ),
@@ -10854,6 +10955,247 @@ class _MyHomePageState extends State<MyHomePage> {
                                       });
                                     },
                                   ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        //ANCHOR ***Options Panel***
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              SelectableText(
+                                'Options Panel',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(height: 10),
+                              //ANCHOR CharacterOptions
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Character',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Talents',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          selectedColor: Colors.amber,
+                                          backgroundColor: Colors.amber[200],
+                                          label: Text(
+                                              'Undivided Heart: CRIT Rate + 20%'),
+                                          selected: undividedHeartOn,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              undividedHeartOn = value;
+                                            });
+                                          },
+                                        ),
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Constellation',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          label: Text(
+                                              'Constellation1: Enemy Cyyo Res -15%'),
+                                          selected: constellation1On,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              constellation1On = value;
+                                            });
+                                          },
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                              //ANCHOR WeaponOptions
+
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Weapon',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Weapon bonus',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          label: Text(
+                                              'Strong-Willed1: Normal and Charged Attack DMG + 12%'),
+                                          selected: true,
+                                          onSelected: (bool value) {
+                                            setState(() {});
+                                          },
+                                        ),
+                                        FilterChip(
+                                          label: Text(
+                                              'Strong-Willed2: 8% every 0.1s the arrow is in the air for up to 5 times.'),
+                                          selected: true,
+                                          onSelected: (bool value) {},
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        ChoiceChip(
+                                          label: Text('1'),
+                                          selected: true,
+                                          onSelected: (bool value) {},
+                                        ),
+                                        ChoiceChip(
+                                          label: Text('2'),
+                                          selected: false,
+                                          onSelected: (bool value) {},
+                                        ),
+                                        ChoiceChip(
+                                          label: Text('3'),
+                                          selected: false,
+                                          onSelected: (bool value) {},
+                                        ),
+                                        ChoiceChip(
+                                          label: Text('4'),
+                                          selected: false,
+                                          onSelected: (bool value) {},
+                                        ),
+                                        ChoiceChip(
+                                          label: Text('5'),
+                                          selected: false,
+                                          onSelected: (bool value) {},
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+
+                              //ANCHOR ArifactOptions
+
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Artifact',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Artifact',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          label: Text('2 set: xxxx'),
+                                          selected: true,
+                                          onSelected: (bool value) {
+                                            setState(() {});
+                                          },
+                                        ),
+                                        FilterChip(
+                                          label: Text('4 set: xxxxxx'),
+                                          selected: true,
+                                          onSelected: (bool value) {},
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
                                 ],
                               ),
                             ],
