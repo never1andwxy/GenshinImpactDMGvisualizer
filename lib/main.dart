@@ -247,6 +247,13 @@ class _MyHomePageState extends State<MyHomePage> {
   int basicatk = 0;
   int basicdef = 0;
 
+  String weaponselect = 'amos';
+
+  var weapontopng = {
+    'amos': AssetImage('Weapon_Amos.png'),
+    'skywardharp': AssetImage('Weapon_Skyward_Harp.png'),
+  };
+
   //     'ATK%',
   //     'HP%',
   //     'DEF%',
@@ -257,6 +264,15 @@ class _MyHomePageState extends State<MyHomePage> {
   //     'ATK',
   //     'HP',
   //     'DEF',
+  //
+//ANCHOR artifactsetstat
+  String artifactsetAselect = 'blizzard';
+  String artifactsetBselect = 'blizzard';
+
+  var artifactsettopng = {
+    'blizzard': AssetImage('Item_Snowswept_Memory.png'),
+    'troupe': AssetImage('Item_Troupes_Dawnlight.png'),
+  };
 
 //ANCHOR artifact1stat
   int fstar = 5;
@@ -995,6 +1011,377 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
     setState(() => _label = s);
+  }
+
+  //ANCHOR weaponPopup
+  Future _showSimpleDialogw() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Select Weapon:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage('Weapon_Amos.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Amos' Bow",
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'amos';
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('Weapon_Skyward_Harp.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Skyward Harp',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'skywardharp';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  //ANCHOR artifactsetAPopup
+  Future _showSimpleDialogasA() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Select Artifact 2-Set A:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('Item_Snowswept_Memory.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Blizzard Strayer',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactsetAselect = 'blizzard';
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'Item_Troupes_Dawnlight.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Troupe's Dawnlight",
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactsetAselect = 'troupe';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
+  }
+
+  //ANCHOR artifactsetBPopup
+  Future _showSimpleDialogasB() async {
+    String result = "";
+    result = await showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return SimpleDialog(
+                title: Text('Select Artifact 2-Set B:'),
+                children: <Widget>[
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage('Item_Snowswept_Memory.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Blizzard Strayer',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactsetBselect = 'blizzard';
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'Item_Troupes_Dawnlight.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Troupe's Dawnlight",
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactsetBselect = 'troupe';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        });
+
+    _setLabel(result);
   }
 
   //ANCHOR artifact1Popup
@@ -4936,9 +5323,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 child: InkWell(
                                   splashColor: Colors.blue.withAlpha(30),
-                                  onTap: () {
-                                    print('Card tapped.');
-                                  },
+                                  onTap: _showSimpleDialogw,
                                   child: Container(
                                     width: 200,
                                     height: 200,
@@ -4947,7 +5332,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(10)),
                                       image: DecorationImage(
-                                        image: AssetImage('Weapon_Amos.png'),
+                                        image: weapontopng[weaponselect],
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -5037,9 +5422,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: InkWell(
                                           splashColor:
                                               Colors.blue.withAlpha(30),
-                                          onTap: () {
-                                            print('Card tapped.');
-                                          },
+                                          onTap: _showSimpleDialogasA,
                                           child: Container(
                                             width: 150,
                                             height: 150,
@@ -5048,8 +5431,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: artifactsettopng[
+                                                    artifactsetAselect],
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -5078,9 +5461,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: InkWell(
                                           splashColor:
                                               Colors.blue.withAlpha(30),
-                                          onTap: () {
-                                            print('Card tapped.');
-                                          },
+                                          onTap: _showSimpleDialogasB,
                                           child: Container(
                                             width: 150,
                                             height: 150,
@@ -5089,8 +5470,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: artifactsettopng[
+                                                    artifactsetBselect],
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
