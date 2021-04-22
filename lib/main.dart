@@ -250,8 +250,24 @@ class _MyHomePageState extends State<MyHomePage> {
   String weaponselect = 'amos';
 
   var weapontopng = {
-    'amos': AssetImage('Weapon_Amos.png'),
-    'skywardharp': AssetImage('Weapon_Skyward_Harp.png'),
+    'amos': AssetImage('weapon/Weapon_Amos.png'),
+    'skywardharp': AssetImage('weapon/Weapon_Skyward_Harp.png'),
+    'alleyhunter': AssetImage('weapon/Weapon_Alley_Hunter.png'),
+    'blackcliffwarbow': AssetImage('weapon/Weapon_Blackcliff_Warbow.png'),
+    'compoundbow': AssetImage('weapon/Weapon_Compound_Bow.png'),
+    'elegyfortheend': AssetImage('weapon/Weapon_Elegy_for_the_End.png'),
+    'favoniuswarbow': AssetImage('weapon/Weapon_Favonius_Warbow.png'),
+    'prototypecrescent': AssetImage('weapon/Weapon_Prototype_Crescent.png'),
+    'rust': AssetImage('weapon/Weapon_Rust.png'),
+    'sacrificialbow': AssetImage('weapon/Weapon_Sacrificial_Bow.png'),
+    'thestringless': AssetImage('weapon/Weapon_The_Stringless.png'),
+    'theviridescenthunt': AssetImage('weapon/Weapon_The_Viridescent_Hunt.png'),
+    'windblumeode': AssetImage('weapon/Weapon_Windblume_Ode.png'),
+    'slingshot': AssetImage('weapon/Weapon_Slingshot.png'),
+    'sharpshooteroath': AssetImage('weapon/Weapon_Sharpshooter_Oath.png'),
+    'recurvebow': AssetImage('weapon/Weapon_Recurve_Bow.png'),
+    'messenger': AssetImage('weapon/Weapon_Messenger.png'),
+    'ebonybow': AssetImage('weapon/Weapon_Ebony_Bow.png')
   };
 
   //     'ATK%',
@@ -1047,19 +1063,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage('Weapon_Amos.png'),
+                                    image: AssetImage('weapon/Weapon_Amos.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                          Text(
-                            "Amos' Bow",
-                            style: TextStyle(
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 20,
+                          Container(
+                            width: 200,
+                            child: Text(
+                              "Amos' Bow",
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ],
@@ -1098,20 +1117,23 @@ class _MyHomePageState extends State<MyHomePage> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image:
-                                        AssetImage('Weapon_Skyward_Harp.png'),
+                                    image: AssetImage(
+                                        'weapon/Weapon_Skyward_Harp.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                          Text(
-                            'Skyward Harp',
-                            style: TextStyle(
-                              //fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 20,
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Skyward Harp',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ],
@@ -1120,6 +1142,977 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() {
                         weaponselect = 'skywardharp';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Elegy_for_the_End.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Elegy for the End',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'elegyfortheend';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Favonius_Warbow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Favonius Warbow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'favoniuswarbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Windblume_Ode.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Windblume Ode',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'windblumeode';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Alley_Hunter.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Alley Hunter',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'alleyhunter';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Blackcliff_Warbow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Blackcliff Warbow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'blackcliffwarbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_The_Viridescent_Hunt.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'The Viridescent Hunt',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'theviridescenthunt';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Prototype_Crescent.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Prototype Crescent',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'prototypecrescent';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Compound_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Compound Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'compoundbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_The_Stringless.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'The Stringless',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'thestringless';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage('weapon/Weapon_Rust.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Rust',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'rust';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Royal_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Royal Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'royalbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Sacrificial_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Sacrificial Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'sacrificialbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Slingshot.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Slingshot',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'slingshot';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Sharpshooter_Oath.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              "Sharpshooter's Oath",
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'sharpshootersoath';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Messenger.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Messenger',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'messenger';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Recurve_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Recurve Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'recurvebow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Raven_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Raven Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'ravenbow';
+                      });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'weapon/Weapon_Ebony_Bow.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              'Ebony Bow',
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        weaponselect = 'ebonybow';
                       });
                       Navigator.pop(
                         context,
