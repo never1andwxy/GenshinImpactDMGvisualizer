@@ -609,7 +609,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'anemo': 10,
       'cryo': 10,
       'geo': 10
-    },
+    }, //1 -> Hilichurl
     2: {
       'physical': 70,
       'pyro': 10,
@@ -619,7 +619,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'anemo': 10,
       'cryo': 10,
       'geo': 10
-    },
+    }, //2 -> Ruin Guard
     3: {
       'physical': -20,
       'pyro': 10,
@@ -629,7 +629,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'anemo': 10,
       'cryo': 10,
       'geo': 10
-    },
+    }, //3 -> Treasure Hoarder
     4: {
       'physical': 10,
       'pyro': 10,
@@ -639,7 +639,347 @@ class _MyHomePageState extends State<MyHomePage> {
       'anemo': 999,
       'cryo': 999,
       'geo': 10
-    }
+    }, //4 -> Andrius, Dominator of Wolves
+    5: {
+      'physical': 10,
+      'pyro': 999,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //5 -> Pyro Slime
+    6: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 999,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //6 -> Hydro Slime
+    7: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 999,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //7 -> Dendro Slime
+    8: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 999,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //8 -> Electro Slime
+    9: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 999,
+      'cryo': 10,
+      'geo': 10
+    }, //9 -> Anemo Slime
+    10: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 999,
+      'geo': 10
+    }, //10-> Cryo Slime
+    11: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 999
+    }, //11-> Geo Slime
+    12: {
+      'physical': 30,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //12-> Mitachurl
+    13: {
+      'physical': 10,
+      'pyro': 50,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //13-> Pyro Samachurl
+    14: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 50,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //14-> Hydro Samachurl
+    15: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 50,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //15-> Dendro Samachurl
+    16: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 50,
+      'cryo': 10,
+      'geo': 10
+    }, //16-> Anemo Samachurl
+    17: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 50
+    }, //17-> Geo Samachurl
+    18: {
+      'physical': 50,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 70
+    }, //18-> Stonehide Lawachurl
+    19: {
+      'physical': 50,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //19-> Ruin Hunter
+    20: {
+      'physical': 35,
+      'pyro': 75,
+      'hydro': 35,
+      'dendro': 35,
+      'electro': 35,
+      'anemo': 35,
+      'cryo': 35,
+      'geo': 35
+    }, //20-> Pyro Flower
+    21: {
+      'physical': 35,
+      'pyro': 35,
+      'hydro': 35,
+      'dendro': 35,
+      'electro': 35,
+      'anemo': 35,
+      'cryo': 75,
+      'geo': 35
+    }, //21-> Cryo Flower
+    22: {
+      'physical': 10,
+      'pyro': 50,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //22-> Pyro Flower(Stunned)
+    23: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 50,
+      'geo': 10
+    }, //23-> Cryo Flower(Stunned)
+    24: {
+      'physical': -20,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //24-> Fatui Skirmisher
+    25: {
+      'physical': 80,
+      'pyro': 110,
+      'hydro': 110,
+      'dendro': 110,
+      'electro': 110,
+      'anemo': 110,
+      'cryo': 110,
+      'geo': 110
+    }, //25-> Fatui Skirmisher(Shielded)
+    26: {
+      'physical': -20,
+      'pyro': 50,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //26-> Fatui Pyro Agent
+    27: {
+      'physical': -20,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 50,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //27-> Fatui Electro Cincin Mage
+    28: {
+      'physical': 30,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 50
+    }, //28-> Geovishap Hatchling
+    29: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //29-> Abyss Mage
+    30: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 999,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //30-> Electro Hypostasis
+    31: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 999,
+      'cryo': 10,
+      'geo': 10
+    }, //31-> Anemo Hypostasis
+    32: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 999
+    }, //32-> Geo Hypostasis
+    33: {
+      'physical': 130,
+      'pyro': 170,
+      'hydro': 110,
+      'dendro': 110,
+      'electro': 110,
+      'anemo': 110,
+      'cryo': 110,
+      'geo': 110
+    }, //33-> Pyro Regisvine
+    34: {
+      'physical': 130,
+      'pyro': 110,
+      'hydro': 110,
+      'dendro': 110,
+      'electro': 110,
+      'anemo': 110,
+      'cryo': 170,
+      'geo': 110
+    }, //34-> Cryo Regisvine
+    35: {
+      'physical': 30,
+      'pyro': 70,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //35-> Pyro Regisvine(Stunned)
+    36: {
+      'physical': 30,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 70,
+      'geo': 10
+    }, //36-> Cryo Regisvine(Stunned)
+    37: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 10,
+      'cryo': 10,
+      'geo': 10
+    }, //37-> Dvalin
+    38: {
+      'physical': 10,
+      'pyro': 10,
+      'hydro': 10,
+      'dendro': 10,
+      'electro': 10,
+      'anemo': 999,
+      'cryo': 999,
+      'geo': 10
+    } //38-> Andrius
   };
 
   //ANCHOR skilldamagestat
@@ -11092,6 +11432,210 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 style: TextStyle(fontSize: 15),
                                               ),
                                               value: 4),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 5),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Hydro Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 6),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Dendro Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 7),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Electro Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 8),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Anemo Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 9),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Cryo Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 10),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Geo Slime",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 11),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Mitachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 12),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Samachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 13),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Hydro Samachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 14),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Dendro Samachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 15),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Anemo Samachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 16),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Geo Samachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 17),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Stonehide Lawachurl",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 18),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Ruin Hunter",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 19),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Flower",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 20),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Cryo Flower",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 21),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Flower(Stunned)",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 22),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Cryo Flower(Stunned)",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 23),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Fatui Skirmisher",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 24),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Fatui Skirmisher(Shielded)",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 25),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Fatui Pyro Agent",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 26),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Fatui Electro Cincin Mage",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 27),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Geovishap Hatchling",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 28),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Abyss Mage",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 29),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Electro Hypostasis",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 30),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Anemo Hypostasis",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 31),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Geo Hypostasis",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 32),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Regisvine",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 33),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Cryo Regisvine",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 34),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Pyro Regisvine(Stunned)",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 35),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Cryo Regisvine(Stunned)",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 36),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Dvalin",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 37),
+                                          DropdownMenuItem(
+                                              child: Text(
+                                                "Andrius",
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              value: 38),
                                         ],
                                         onChanged: (value) {
                                           setState(() {
