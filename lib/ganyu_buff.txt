@@ -1,0 +1,73 @@
+//用来记录甘雨的buff
+
+分类：圣遗物
+2冰套
+buff1 种类：冰伤 buff1量：15% ON
+2角斗士
+buff1 种类：攻击 buff1量：18% ON
+4冰套
+buff1 种类：冰伤 buff1量：15% ON
+buff2 种类：暴击率 buff2量：20%/40% OFF
+4乐团
+buff1 种类：元素精通 buff1量：80 ON
+buff2 种类：重击伤害 buff2量：35% ON
+
+分类：天赋
+唯此一心
+buff1 种类：暴击率 buff1量：20% OFF
+天地交泰
+buff1 种类：冰伤 buff1量：20% OFF
+
+分类：命之座
+饮露
+buff1 种类：冰抗 buff1量：-15% OFF
+西狩
+buff1 种类：冰伤 buff1量：5%~25% OFF
+
+分类：武器
+阿莫斯之弓
+buff1 种类：普攻重击 buff1量：12%/15%/18%/21%/24% + 8%/10%/12%/14%/16% ON
+试作澹月
+buff1 种类：普攻 buff1量：36%/45%/54%/63%/72% OFF
+
+分类：元素共鸣
+热诚之火
+buff1 种类：基础攻 buff1量：25% OFF
+粉碎之冰
+buff1 种类：暴击率 buff1量：15% OFF
+坚定之岩
+buff1 种类：增伤 buff1量：15% OFF
+buff2 种类：岩抗 buff2量：-20% OFF
+
+分类：其他角色常见buff
+钟离减抗
+buff1 种类：物抗 buff1量：-20%  OFF
+buff2 种类：火抗 buff2量：-20%  OFF
+buff3 种类：水抗 buff3量：-20%  OFF
+buff4 种类：冰抗 buff4量：-20%  OFF
+buff5 种类：雷抗 buff5量：-20%  OFF
+buff6 种类：岩抗 buff6量：-20%  OFF
+buff7 种类：风抗 buff7量：-20%  OFF
+buff8 种类：草抗 buff8量：-20%  OFF
+
+雷泽减防
+buff1 种类：防御 buff1量：-15% OFF
+
+罗莎莉亚
+buff1 种类：物抗 buff1量：-20% OFF
+buff2 种类：暴击率 buff2量：15% OFF
+
+班尼特加攻
+buff1 种类：基础攻 buff1量：56%~133% OFF
+
+砂糖精通加成
+buff1 种类：精通 buff1量：50 OFF
+buff2 种类：元素增伤 buff2量：20% OFF
+
+迪奥娜精通加成
+buff1种类：精通 buff1量：200 OFF
+buff2种类：攻击 buff2量：-10% OFF
+
+香菱
+buff1 种类：火抗 buff1量：-15% OFF
+buff2 种类：火伤 buff2量：15% OFF
