@@ -11184,10 +11184,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'strong Willed2%(' +
-                                                        (8 +
-                                                                weaponref *
-                                                                    2 *
-                                                                    strongWilled2Times)
+                                                        ((6 + weaponref * 2) *
+                                                                strongWilled2Times)
                                                             .toString() +
                                                         ')',
                                                     style:
@@ -11229,10 +11227,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: (8 +
-                                                        weaponref *
-                                                            2 *
-                                                            strongWilled2Times) *
+                                                width: ((6 + weaponref * 2) *
+                                                        strongWilled2Times) *
                                                     2 *
                                                     2 as double,
                                                 height: 20,
@@ -11291,10 +11287,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'strong Willed2%(' +
-                                                        (8 +
-                                                                weaponref *
-                                                                    2 *
-                                                                    strongWilled2Times)
+                                                        ((6 + weaponref * 2) *
+                                                                strongWilled2Times)
                                                             .toString() +
                                                         ')',
                                                     style:
@@ -11336,10 +11330,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 curve: Curves.easeIn,
                                                 duration:
                                                     Duration(milliseconds: 500),
-                                                width: (8 +
-                                                        weaponref *
-                                                            2 *
-                                                            strongWilled2Times) *
+                                                width: ((6 + weaponref * 2) *
+                                                        strongWilled2Times) *
                                                     2 *
                                                     2 as double,
                                                 height: 20,
@@ -13286,15 +13278,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: <Widget>[
                                         FilterChip(
                                           label: Text(
-                                              'Strong-Willed1: Normal and Charged Attack DMG + 12%'),
+                                              'Strong-Willed1: Normal and Charged Attack DMG + ' +
+                                                  (9 + weaponref * 3)
+                                                      .toString() +
+                                                  '%'),
                                           selected: true,
                                           onSelected: (bool value) {
                                             setState(() {});
                                           },
                                         ),
                                         FilterChip(
-                                          label: Text(
-                                              'Strong-Willed2: 8% every 0.1s the arrow is in the air for up to 5 times.'),
+                                          label: Text('Strong-Willed2: ' +
+                                              (6 + weaponref * 2).toString() +
+                                              '% every 0.1s the arrow is in the air for up to 5 times.'),
                                           selected: true,
                                           onSelected: (bool value) {
                                             setState(() {});
@@ -13307,7 +13303,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       runSpacing: 10,
                                       children: <Widget>[
                                         ChoiceChip(
-                                          label: Text('1'),
+                                          label: Text('0.1s'),
                                           selected: (strongWilled2Times == 1),
                                           onSelected: (bool value) {
                                             setState(() {
@@ -13316,7 +13312,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           },
                                         ),
                                         ChoiceChip(
-                                          label: Text('2'),
+                                          label: Text('0.2s'),
                                           selected: (strongWilled2Times == 2),
                                           onSelected: (bool value) {
                                             setState(() {
@@ -13325,7 +13321,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           },
                                         ),
                                         ChoiceChip(
-                                          label: Text('3'),
+                                          label: Text('0.3s'),
                                           selected: (strongWilled2Times == 3),
                                           onSelected: (bool value) {
                                             setState(() {
@@ -13334,7 +13330,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           },
                                         ),
                                         ChoiceChip(
-                                          label: Text('4'),
+                                          label: Text('0.4s'),
                                           selected: (strongWilled2Times == 4),
                                           onSelected: (bool value) {
                                             setState(() {
@@ -13343,7 +13339,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           },
                                         ),
                                         ChoiceChip(
-                                          label: Text('5'),
+                                          label: Text('0.5s'),
                                           selected: (strongWilled2Times == 5),
                                           onSelected: (bool value) {
                                             setState(() {
