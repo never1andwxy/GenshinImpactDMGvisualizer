@@ -317,6 +317,11 @@ class _MyHomePageState extends State<MyHomePage> {
   String show4A = "";
   String show4B = "";
 
+  bool a2check = true;
+  bool b2check = true;
+  bool a4check = true;
+  bool b4check = true;
+
   var artifactAttrText = {
     'ATK': 'Attack DMG',
     'ATK%': 'ATK Percent',
@@ -350,6 +355,94 @@ class _MyHomePageState extends State<MyHomePage> {
   double setbonusHP = 0;
   double setbonusHPpercent = 0;
   double setbonusChargedAttackpencent = 0;
+  double setbonusPhysical = 0;
+  double setbonusPyro = 0;
+  double setbonusHydro = 0;
+  double setbonusDendro = 0;
+  double setbonusElectro = 0;
+  double setbonusAnemo = 0;
+  double setbonusCryo = 0;
+  double setbonusGeo = 0;
+
+  double a2bonusAtk = 0;
+  double a2bonusAtkpercent = 0;
+  double a2bonusDef = 0;
+  double a2bonusDefpercent = 0;
+  double a2bonusCrit = 0;
+  double a2bonusCritDMG = 0;
+  double a2bonusER = 0;
+  double a2bonusEM = 0;
+  double a2bonusHP = 0;
+  double a2bonusHPpercent = 0;
+  double a2bonusChargedAttackpencent = 0;
+  double a2bonusPhysical = 0;
+  double a2bonusPyro = 0;
+  double a2bonusHydro = 0;
+  double a2bonusDendro = 0;
+  double a2bonusElectro = 0;
+  double a2bonusAnemo = 0;
+  double a2bonusCryo = 0;
+  double a2bonusGeo = 0;
+
+  double b2bonusAtk = 0;
+  double b2bonusAtkpercent = 0;
+  double b2bonusDef = 0;
+  double b2bonusDefpercent = 0;
+  double b2bonusCrit = 0;
+  double b2bonusCritDMG = 0;
+  double b2bonusER = 0;
+  double b2bonusEM = 0;
+  double b2bonusHP = 0;
+  double b2bonusHPpercent = 0;
+  double b2bonusChargedAttackpencent = 0;
+  double b2bonusPhysical = 0;
+  double b2bonusPyro = 0;
+  double b2bonusHydro = 0;
+  double b2bonusDendro = 0;
+  double b2bonusElectro = 0;
+  double b2bonusAnemo = 0;
+  double b2bonusCryo = 0;
+  double b2bonusGeo = 0;
+
+  double a4bonusAtk = 0;
+  double a4bonusAtkpercent = 0;
+  double a4bonusDef = 0;
+  double a4bonusDefpercent = 0;
+  double a4bonusCrit = 0;
+  double a4bonusCritDMG = 0;
+  double a4bonusER = 0;
+  double a4bonusEM = 0;
+  double a4bonusHP = 0;
+  double a4bonusHPpercent = 0;
+  double a4bonusChargedAttackpencent = 0;
+  double a4bonusPhysical = 0;
+  double a4bonusPyro = 0;
+  double a4bonusHydro = 0;
+  double a4bonusDendro = 0;
+  double a4bonusElectro = 0;
+  double a4bonusAnemo = 0;
+  double a4bonusCryo = 0;
+  double a4bonusGeo = 0;
+
+  double b4bonusAtk = 0;
+  double b4bonusAtkpercent = 0;
+  double b4bonusDef = 0;
+  double b4bonusDefpercent = 0;
+  double b4bonusCrit = 0;
+  double b4bonusCritDMG = 0;
+  double b4bonusER = 0;
+  double b4bonusEM = 0;
+  double b4bonusHP = 0;
+  double b4bonusHPpercent = 0;
+  double b4bonusChargedAttackpencent = 0;
+  double b4bonusPhysical = 0;
+  double b4bonusPyro = 0;
+  double b4bonusHydro = 0;
+  double b4bonusDendro = 0;
+  double b4bonusElectro = 0;
+  double b4bonusAnemo = 0;
+  double b4bonusCryo = 0;
+  double b4bonusGeo = 0;
 
   var artifactTitleText = {
     'blizzard': 'Blizzard Strayer',
@@ -2708,7 +2801,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Card(
                             elevation: 3,
@@ -2733,6 +2826,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(width: 15),
                           Text(
                             'Blizzard Strayer',
                             style: TextStyle(
@@ -2760,7 +2854,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Card(
                             elevation: 3,
@@ -2785,6 +2879,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(width: 15),
                           Text(
                             "Troupe's Dawnlight",
                             style: TextStyle(
@@ -5937,6 +6032,254 @@ class _MyHomePageState extends State<MyHomePage> {
             articacteffect4Battr == 'Anemo' ||
             articacteffect4Battr == 'Cryo' ||
             articacteffect4Battr == 'Geo')) show4B = show4B + '%';
+
+    switch (articacteffectA2attr) {
+      case 'ATK':
+        a2bonusAtk = articacteffectA2value.toDouble();
+        break;
+      case 'ATK%':
+        a2bonusAtkpercent = articacteffectA2value.toDouble();
+        break;
+      case 'DEF':
+        a2bonusDef = articacteffectA2value.toDouble();
+        break;
+      case 'DEF%':
+        a2bonusDefpercent = articacteffectA2value.toDouble();
+        break;
+      case 'HP':
+        a2bonusHP = articacteffectA2value.toDouble();
+        break;
+      case 'HP%':
+        a2bonusHPpercent = articacteffectA2value.toDouble();
+        break;
+      case 'CR':
+        a2bonusCrit = articacteffectA2value.toDouble();
+        break;
+      case 'CD':
+        a2bonusCritDMG = articacteffectA2value.toDouble();
+        break;
+      case 'ER':
+        a2bonusER = articacteffectA2value.toDouble();
+        break;
+      case 'EM':
+        a2bonusEM = articacteffectA2value.toDouble();
+        break;
+      case 'CA':
+        a2bonusChargedAttackpencent = articacteffectA2value.toDouble();
+        break;
+      case 'Physical':
+        a2bonusPhysical = articacteffectA2value.toDouble();
+        break;
+      case 'Pyro':
+        a2bonusPyro = articacteffectA2value.toDouble();
+        break;
+      case 'Hydro':
+        a2bonusHydro = articacteffectA2value.toDouble();
+        break;
+      case 'Dendro':
+        a2bonusDendro = articacteffectA2value.toDouble();
+        break;
+      case 'Electro':
+        a2bonusElectro = articacteffectA2value.toDouble();
+        break;
+      case 'Anemo':
+        a2bonusAnemo = articacteffectA2value.toDouble();
+        break;
+      case 'Cryo':
+        a2bonusCryo = articacteffectA2value.toDouble();
+        break;
+      case 'Geo':
+        a2bonusGeo = articacteffectA2value.toDouble();
+        break;
+      default:
+        a2bonusAtk = 0;
+    }
+
+    switch (articacteffectB2attr) {
+      case 'ATK':
+        b2bonusAtk = articacteffectB2value.toDouble();
+        break;
+      case 'ATK%':
+        b2bonusAtkpercent = articacteffectB2value.toDouble();
+        break;
+      case 'DEF':
+        b2bonusDef = articacteffectB2value.toDouble();
+        break;
+      case 'DEF%':
+        b2bonusDefpercent = articacteffectB2value.toDouble();
+        break;
+      case 'HP':
+        b2bonusHP = articacteffectB2value.toDouble();
+        break;
+      case 'HP%':
+        b2bonusHPpercent = articacteffectB2value.toDouble();
+        break;
+      case 'CR':
+        b2bonusCrit = articacteffectB2value.toDouble();
+        break;
+      case 'CD':
+        b2bonusCritDMG = articacteffectB2value.toDouble();
+        break;
+      case 'ER':
+        b2bonusER = articacteffectB2value.toDouble();
+        break;
+      case 'EM':
+        b2bonusEM = articacteffectB2value.toDouble();
+        break;
+      case 'CA':
+        b2bonusChargedAttackpencent = articacteffectB2value.toDouble();
+        break;
+      case 'Physical':
+        b2bonusPhysical = articacteffectB2value.toDouble();
+        break;
+      case 'Pyro':
+        b2bonusPyro = articacteffectB2value.toDouble();
+        break;
+      case 'Hydro':
+        b2bonusHydro = articacteffectB2value.toDouble();
+        break;
+      case 'Dendro':
+        b2bonusDendro = articacteffectB2value.toDouble();
+        break;
+      case 'Electro':
+        b2bonusElectro = articacteffectB2value.toDouble();
+        break;
+      case 'Anemo':
+        b2bonusAnemo = articacteffectB2value.toDouble();
+        break;
+      case 'Cryo':
+        b2bonusCryo = articacteffectB2value.toDouble();
+        break;
+      case 'Geo':
+        b2bonusGeo = articacteffectB2value.toDouble();
+        break;
+      default:
+        a2bonusAtk = 0;
+    }
+
+    switch (articacteffect4Aattr) {
+      case 'ATK':
+        a4bonusAtk = articacteffect4Avalue.toDouble();
+        break;
+      case 'ATK%':
+        a4bonusAtkpercent = articacteffect4Avalue.toDouble();
+        break;
+      case 'DEF':
+        a4bonusDef = articacteffect4Avalue.toDouble();
+        break;
+      case 'DEF%':
+        a4bonusDefpercent = articacteffect4Avalue.toDouble();
+        break;
+      case 'HP':
+        a4bonusHP = articacteffect4Avalue.toDouble();
+        break;
+      case 'HP%':
+        a4bonusHPpercent = articacteffect4Avalue.toDouble();
+        break;
+      case 'CR':
+        a4bonusCrit = articacteffect4Avalue.toDouble();
+        break;
+      case 'CD':
+        a4bonusCritDMG = articacteffect4Avalue.toDouble();
+        break;
+      case 'ER':
+        a4bonusER = articacteffect4Avalue.toDouble();
+        break;
+      case 'EM':
+        a4bonusEM = articacteffect4Avalue.toDouble();
+        break;
+      case 'CA':
+        a4bonusChargedAttackpencent = articacteffect4Avalue.toDouble();
+        break;
+      case 'Physical':
+        a4bonusPhysical = articacteffect4Avalue.toDouble();
+        break;
+      case 'Pyro':
+        a4bonusPyro = articacteffect4Avalue.toDouble();
+        break;
+      case 'Hydro':
+        a4bonusHydro = articacteffect4Avalue.toDouble();
+        break;
+      case 'Dendro':
+        a4bonusDendro = articacteffect4Avalue.toDouble();
+        break;
+      case 'Electro':
+        a4bonusElectro = articacteffect4Avalue.toDouble();
+        break;
+      case 'Anemo':
+        a4bonusAnemo = articacteffect4Avalue.toDouble();
+        break;
+      case 'Cryo':
+        a4bonusCryo = articacteffect4Avalue.toDouble();
+        break;
+      case 'Geo':
+        a4bonusGeo = articacteffect4Avalue.toDouble();
+        break;
+      default:
+        a4bonusAtk = 0;
+    }
+
+    switch (articacteffect4Battr) {
+      case 'ATK':
+        b4bonusAtk = articacteffect4Bvalue.toDouble();
+        break;
+      case 'ATK%':
+        b4bonusAtkpercent = articacteffect4Bvalue.toDouble();
+        break;
+      case 'DEF':
+        b4bonusDef = articacteffect4Bvalue.toDouble();
+        break;
+      case 'DEF%':
+        b4bonusDefpercent = articacteffect4Bvalue.toDouble();
+        break;
+      case 'HP':
+        b4bonusHP = articacteffect4Bvalue.toDouble();
+        break;
+      case 'HP%':
+        b4bonusHPpercent = articacteffect4Bvalue.toDouble();
+        break;
+      case 'CR':
+        b4bonusCrit = articacteffect4Bvalue.toDouble();
+        break;
+      case 'CD':
+        b4bonusCritDMG = articacteffect4Bvalue.toDouble();
+        break;
+      case 'ER':
+        b4bonusER = articacteffect4Bvalue.toDouble();
+        break;
+      case 'EM':
+        b4bonusEM = articacteffect4Bvalue.toDouble();
+        break;
+      case 'CA':
+        b4bonusChargedAttackpencent = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Physical':
+        b4bonusPhysical = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Pyro':
+        b4bonusPyro = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Hydro':
+        b4bonusHydro = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Dendro':
+        b4bonusDendro = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Electro':
+        b4bonusElectro = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Anemo':
+        b4bonusAnemo = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Cryo':
+        b4bonusCryo = articacteffect4Bvalue.toDouble();
+        break;
+      case 'Geo':
+        b4bonusGeo = articacteffect4Bvalue.toDouble();
+        break;
+      default:
+        b4bonusAtk = 0;
+    }
 
     //ATK params
 
@@ -13629,29 +13972,66 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: <Widget>[
                                         FilterChip(
                                           selectedColor: Colors.amber,
-                                          label: Text("2 set:"),
-                                          selected: true,
-                                          onSelected: (bool value) {},
+                                          label: Text("$showA2"),
+                                          selected: a2check,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              a2check = value;
+                                            });
+                                          },
                                         ),
-                                        FilterChip(
-                                          selectedColor: Colors.amber,
-                                          label: Text('2 set:'),
-                                          selected: true,
-                                          onSelected: (bool value) {},
-                                        ),
+                                        if (artifactsetAselect !=
+                                            artifactsetBselect)
+                                          FilterChip(
+                                            selectedColor: Colors.amber,
+                                            label: Text('$showB2'),
+                                            selected: b2check,
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                b2check = value;
+                                              });
+                                            },
+                                          ),
                                       ]),
                                   SizedBox(height: 10),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          label: Text('4 set:'),
-                                          selected: true,
-                                          onSelected: (bool value) {},
-                                        ),
-                                      ]),
+                                  if ((artifactsetAselect ==
+                                          artifactsetBselect) &
+                                      (show4A != '-'))
+                                    Wrap(
+                                        spacing: 10,
+                                        runSpacing: 10,
+                                        children: <Widget>[
+                                          FilterChip(
+                                            selectedColor: Colors.amber,
+                                            label: Text('$show4A'),
+                                            selected: a4check,
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                a4check = value;
+                                              });
+                                            },
+                                          ),
+                                        ]),
                                   SizedBox(height: 10),
+                                  if ((artifactsetAselect ==
+                                          artifactsetBselect) &
+                                      (show4B != '-'))
+                                    Wrap(
+                                        spacing: 10,
+                                        runSpacing: 10,
+                                        children: <Widget>[
+                                          FilterChip(
+                                            selectedColor: Colors.amber,
+                                            label: Text('$show4B'),
+                                            selected: true,
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                b4check = value;
+                                              });
+                                            },
+                                          ),
+                                          SizedBox(height: 10),
+                                        ]),
                                 ],
                               ),
                             ],
