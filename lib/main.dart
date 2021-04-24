@@ -297,90 +297,6 @@ class _MyHomePageState extends State<MyHomePage> {
     'blizzard': AssetImage('Item_Snowswept_Memory.png'),
     'troupe': AssetImage('Item_Troupes_Dawnlight.png'),
   };
-  var articacteffectA2 = {};
-  var articacteffectB2 = {};
-  var articacteffect4A = {};
-  var articacteffect4B = {};
-
-  var articacteffectA2attr = '';
-  int articacteffectA2value = 0;
-  var articacteffectB2attr = '';
-  int articacteffectB2value = 0;
-
-  var articacteffect4Aattr = '';
-  int articacteffect4Avalue = 0;
-  var articacteffect4Battr = '';
-  int articacteffect4Bvalue = 0;
-
-  String showA2 = "";
-  String showB2 = "";
-  String show4A = "";
-  String show4B = "";
-
-  var artifactAttrText = {
-    'ATK': 'Attack DMG',
-    'ATK%': 'ATK Percent',
-    'DEF': 'Defence',
-    'DEF%': 'Defence Percent',
-    'HP': 'HP',
-    'HP%': 'HP Percent',
-    'CR': 'CRIT Rate',
-    'CD': 'CRIT DMG',
-    'ER': 'Elemental Recharge Rate',
-    'EM': 'Elemental Mastery',
-    'CA': 'Charged Attack DMG',
-    'Physical': 'Physical DMG',
-    'Pyro': 'Pyro DMG',
-    'Hydro': 'Hydro DMG',
-    'Dendro': 'Dendro DMG',
-    'Electro': 'Electro DMG',
-    'Anemo': 'Anemo DMG',
-    'Cryo': 'Cryo DMG',
-    'Geo': 'Geo DMG',
-  };
-
-  double setbonusAtk = 0;
-  double setbonusAtkpercent = 0;
-  double setbonusDef = 0;
-  double setbonusDefpercent = 0;
-  double setbonusCrit = 0;
-  double setbonusCritDMG = 0;
-  double setbonusER = 0;
-  double setbonusEM = 0;
-  double setbonusHP = 0;
-  double setbonusHPpercent = 0;
-  double setbonusChargedAttackpencent = 0;
-
-  var artifactTitleText = {
-    'blizzard': 'Blizzard Strayer',
-    'troupe': 'Wanderers Troupe'
-  };
-
-  var artifactList = [
-    {
-      'name': 'blizzard',
-      'set': 2,
-      'sequence': 1,
-      'attribute': 'Cryo',
-      'value': 15
-    },
-    {
-      'name': 'blizzard',
-      'set': 4,
-      'sequence': 1,
-      'attribute': 'CR',
-      'value': 20
-    },
-    {
-      'name': 'blizzard',
-      'set': 4,
-      'sequence': 2,
-      'attribute': 'CR',
-      'value': 20
-    },
-    {'name': 'troupe', 'set': 2, 'sequence': 1, 'attribute': 'EM', 'value': 80},
-    {'name': 'troupe', 'set': 4, 'sequence': 1, 'attribute': 'CA', 'value': 35}
-  ];
 
 //ANCHOR artifact1stat
   int fstar = 5;
@@ -1451,6 +1367,12 @@ class _MyHomePageState extends State<MyHomePage> {
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
   bool constellation1On = false;
+
+  bool blizzardstrayer2On = false;
+  bool blizzardstrayer41On = false;
+  bool blizzardstrayer42On = false;
+  bool troupesdawnlight2on = false;
+  bool troupesdawnlight4on = false;
 
   bool strongWilled1On = true;
   bool strongWilled2On = true;
@@ -2582,7 +2504,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Card(
                             elevation: 3,
@@ -2607,7 +2529,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 15),
                           Text(
                             'Blizzard Strayer',
                             style: TextStyle(
@@ -2622,6 +2543,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() {
                         artifactsetAselect = 'blizzard';
+
+                        if (artifactsetAselect == 'blizzard' &&
+                            artifactsetAselect == 'troupe') {
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'troupe' &&
+                            artifactsetAselect == 'blizzard') {
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'blizzard' &&
+                            artifactsetAselect == 'blizzard') {
+                          troupesdawnlight2on = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'troupe' &&
+                            artifactsetAselect == 'troupe') {
+                          blizzardstrayer2On = false;
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                        }
                       });
 
                       Navigator.pop(
@@ -2635,7 +2580,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Card(
                             elevation: 3,
@@ -2660,7 +2605,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 15),
                           Text(
                             "Troupe's Dawnlight",
                             style: TextStyle(
@@ -2675,6 +2619,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() {
                         artifactsetAselect = 'troupe';
+
+                        if (artifactsetAselect == 'blizzard' &&
+                            artifactsetAselect == 'troupe') {
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'troupe' &&
+                            artifactsetAselect == 'blizzard') {
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'blizzard' &&
+                            artifactsetAselect == 'blizzard') {
+                          troupesdawnlight2on = false;
+                          troupesdawnlight4on = false;
+                        }
+                        if (artifactsetAselect == 'troupe' &&
+                            artifactsetAselect == 'troupe') {
+                          blizzardstrayer2On = false;
+                          blizzardstrayer41On = false;
+                          blizzardstrayer42On = false;
+                        }
                       });
                       Navigator.pop(
                         context,
@@ -5776,8 +5744,8 @@ class _MyHomePageState extends State<MyHomePage> {
             (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
         as double;
     bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-            (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
-        as double;
+        (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
+        (troupesdawnlight4on ? 35 : 0) as double;
 
     if (strongWilled2Times <= 3) {
       bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
@@ -5786,157 +5754,6 @@ class _MyHomePageState extends State<MyHomePage> {
           (strongWilled1On ? (9 + weaponref * 3) : 0) +
               (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) as double;
     }
-
-    //ARTIFACT params
-    articacteffectA2 = artifactList.singleWhere(
-        (artifact) =>
-            ((artifact['name'] == artifactsetAselect) & (artifact['set'] == 2)),
-        orElse: () => null);
-    if (articacteffectA2 != null) {
-      articacteffectA2attr = articacteffectA2['attribute'];
-      articacteffectA2value = articacteffectA2['value'];
-    } else {
-      articacteffectA2attr = '';
-      articacteffectA2value = 0;
-    }
-
-    articacteffectB2 = artifactList.singleWhere(
-        (artifact) =>
-            ((artifact['name'] == artifactsetBselect) & (artifact['set'] == 2)),
-        orElse: () => null);
-    if (articacteffectB2 != null) {
-      articacteffectB2attr = articacteffectB2['attribute'];
-      articacteffectB2value = articacteffectB2['value'];
-    } else {
-      articacteffectB2attr = '';
-      articacteffectB2value = 0;
-    }
-
-    articacteffect4A = artifactList.singleWhere(
-        (artifact) => ((artifact['name'] == artifactsetAselect) &
-            (artifact['set'] == 4) &
-            (artifact['sequence'] == 1)),
-        orElse: () => null);
-    if (articacteffect4A != null) {
-      articacteffect4Aattr = articacteffect4A['attribute'];
-      articacteffect4Avalue = articacteffect4A['value'];
-    } else {
-      articacteffect4Aattr = '';
-      articacteffect4Avalue = 0;
-    }
-
-    articacteffect4B = artifactList.singleWhere(
-        (artifact) => ((artifact['name'] == artifactsetAselect) &
-            (artifact['set'] == 4) &
-            (artifact['sequence'] == 2)),
-        orElse: () => null);
-    if (articacteffect4B != null) {
-      articacteffect4Battr = articacteffect4B['attribute'];
-      articacteffect4Bvalue = articacteffect4B['value'];
-    } else {
-      articacteffect4Battr = '';
-      articacteffect4Bvalue = 0;
-    }
-
-    showA2 = artifactTitleText[artifactsetAselect] +
-        " 2: " +
-        artifactAttrText[articacteffectA2attr] +
-        " + " +
-        articacteffectA2value.toString();
-
-    showB2 = artifactTitleText[artifactsetBselect] +
-        " 2: " +
-        artifactAttrText[articacteffectB2attr] +
-        " + " +
-        articacteffectB2value.toString();
-
-    if (artifactsetAselect != artifactsetBselect || articacteffect4A == null) {
-      show4A = '-';
-    } else {
-      show4A = artifactTitleText[artifactsetAselect] +
-          " 4: " +
-          artifactAttrText[articacteffect4Aattr] +
-          " + " +
-          articacteffect4Avalue.toString();
-    }
-
-    if (artifactsetAselect != artifactsetBselect || articacteffect4B == null) {
-      show4B = '-';
-    } else {
-      show4B = artifactTitleText[artifactsetAselect] +
-          " 4: " +
-          artifactAttrText[articacteffect4Battr] +
-          " + " +
-          articacteffect4Bvalue.toString();
-    }
-
-    if ((showA2 != '-') &
-        (articacteffectA2attr == 'ATK%' ||
-            articacteffectA2attr == 'DEF%' ||
-            articacteffectA2attr == 'HP%' ||
-            articacteffectA2attr == 'CR' ||
-            articacteffectA2attr == 'CD' ||
-            articacteffectA2attr == 'ER' ||
-            articacteffectA2attr == 'CA' ||
-            articacteffectA2attr == 'Physical' ||
-            articacteffectA2attr == 'Pyro' ||
-            articacteffectA2attr == 'Hydro' ||
-            articacteffectA2attr == 'Dendro' ||
-            articacteffectA2attr == 'Electro' ||
-            articacteffectA2attr == 'Anemo' ||
-            articacteffectA2attr == 'Cryo' ||
-            articacteffectA2attr == 'Geo')) showA2 = showA2 + '%';
-
-    if ((showB2 != '-') &
-        (articacteffectB2attr == 'ATK%' ||
-            articacteffectB2attr == 'DEF%' ||
-            articacteffectB2attr == 'HP%' ||
-            articacteffectB2attr == 'CR' ||
-            articacteffectB2attr == 'CD' ||
-            articacteffectB2attr == 'ER' ||
-            articacteffectB2attr == 'CA' ||
-            articacteffectB2attr == 'Physical' ||
-            articacteffectB2attr == 'Pyro' ||
-            articacteffectB2attr == 'Hydro' ||
-            articacteffectB2attr == 'Dendro' ||
-            articacteffectB2attr == 'Electro' ||
-            articacteffectB2attr == 'Anemo' ||
-            articacteffectB2attr == 'Cryo' ||
-            articacteffectB2attr == 'Geo')) showB2 = showB2 + '%';
-
-    if ((show4A != '-') &
-        (articacteffect4Aattr == 'ATK%' ||
-            articacteffect4Aattr == 'DEF%' ||
-            articacteffect4Aattr == 'HP%' ||
-            articacteffect4Aattr == 'CR' ||
-            articacteffect4Aattr == 'CD' ||
-            articacteffect4Aattr == 'ER' ||
-            articacteffect4Aattr == 'CA' ||
-            articacteffect4Aattr == 'Physical' ||
-            articacteffect4Aattr == 'Pyro' ||
-            articacteffect4Aattr == 'Hydro' ||
-            articacteffect4Aattr == 'Dendro' ||
-            articacteffect4Aattr == 'Electro' ||
-            articacteffect4Aattr == 'Anemo' ||
-            articacteffect4Aattr == 'Cryo' ||
-            articacteffect4Aattr == 'Geo')) show4A = show4A + '%';
-
-    if ((show4B != '-') &
-        (articacteffect4Battr == 'ATK%' ||
-            articacteffect4Battr == 'DEF%' ||
-            articacteffect4Battr == 'HP%' ||
-            articacteffect4Battr == 'CR' ||
-            articacteffect4Battr == 'CD' ||
-            articacteffect4Battr == 'ER' ||
-            articacteffect4Battr == 'CA' ||
-            articacteffect4Battr == 'Physical' ||
-            articacteffect4Battr == 'Pyro' ||
-            articacteffect4Battr == 'Hydro' ||
-            articacteffect4Battr == 'Dendro' ||
-            articacteffect4Battr == 'Electro' ||
-            articacteffect4Battr == 'Anemo' ||
-            articacteffect4Battr == 'Cryo' ||
-            articacteffect4Battr == 'Geo')) show4B = show4B + '%';
 
     //ATK params
 
@@ -6104,8 +5921,15 @@ class _MyHomePageState extends State<MyHomePage> {
     a5EM = artifact5mainstatcat == 4 ? a5EMmain : 0;
 
     lvlEM += weaponEM;
-    bonusEM =
-        a3EM + a4EM + a5EM + stat1EM + stat2EM + stat3EM + stat4EM + stat5EM;
+    bonusEM = a3EM +
+        a4EM +
+        a5EM +
+        stat1EM +
+        stat2EM +
+        stat3EM +
+        stat4EM +
+        stat5EM +
+        (troupesdawnlight2on ? 80 : 0);
 
     allEM = lvlEM + bonusEM;
 
@@ -6121,7 +5945,9 @@ class _MyHomePageState extends State<MyHomePage> {
         stat3CRpercent +
         stat4CRpercent +
         stat5CRpercent +
-        (undividedHeartOn ? 20 : 0);
+        (undividedHeartOn ? 20 : 0) +
+        (blizzardstrayer41On ? 20 : 0) +
+        (blizzardstrayer42On ? 20 : 0);
     allCR = baseCR + bonusCR;
 
     //CD params
@@ -6182,8 +6008,10 @@ class _MyHomePageState extends State<MyHomePage> {
     a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
     a4CryoDMGpercent = artifact4mainstatcat == 8 ? a4CryoDMGpercentMain : 0;
 
-    bonusCryoDMGpercent =
-        levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent;
+    bonusCryoDMGpercent = levelCryoDMGpercent +
+        weaponCryoDMGpercent +
+        a4CryoDMGpercent +
+        (blizzardstrayer2On ? 15 : 0);
 
     if (cleveltoElectroDMGpercent[level] != null)
       levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
@@ -10892,6 +10720,54 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (blizzardstrayer41On == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue[300],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'Blizzard Strayer 4 set(cryo)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '20',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (blizzardstrayer42On == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue[400],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'Blizzard Strayer 4 set(frozen)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '20',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -11030,6 +10906,36 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: 40,
                                                 height: 20,
                                                 color: Colors.amber,
+                                              ),
+                                            ],
+                                          ),
+                                        if (blizzardstrayer41On == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 40,
+                                                height: 20,
+                                                color: Colors.blue[300],
+                                              ),
+                                            ],
+                                          ),
+                                        if (blizzardstrayer42On == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 40,
+                                                height: 20,
+                                                color: Colors.blue[400],
                                               ),
                                             ],
                                           ),
@@ -11535,6 +11441,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (troupesdawnlight4on)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green[400],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    "Troupe's Dawnlight 4 set",
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    "35",
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
                                     //ANCHOR statChargedATKDMG:bar
@@ -11573,6 +11503,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     2 as double,
                                                 height: 20,
                                                 color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                        if (troupesdawnlight4on)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 35 * 2 as double,
+                                                height: 20,
+                                                color: Colors.green[400],
                                               ),
                                             ],
                                           ),
@@ -12032,6 +11977,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (blizzardstrayer2On)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue[300],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'Blizzard Strayer 2 Set',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '15',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
                                     //ANCHOR statCryoDMG:bar
@@ -12081,6 +12050,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: a4CryoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                        if (blizzardstrayer2On)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 15 * 2 as double,
+                                                height: 20,
+                                                color: Colors.blue[300],
                                               ),
                                             ],
                                           ),
@@ -12704,6 +12688,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (troupesdawnlight2on)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.green[400],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    "Troupe's Dawnlight 2 set",
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    "80",
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -12857,6 +12865,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: stat5EM / 7,
                                                 height: 20,
                                                 color: Colors.teal,
+                                              ),
+                                            ],
+                                          ),
+                                        if (troupesdawnlight2on)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 80 / 7,
+                                                height: 20,
+                                                color: Colors.green[400],
                                               ),
                                             ],
                                           ),
@@ -13623,34 +13646,76 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                       ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          selectedColor: Colors.amber,
-                                          label: Text("2 set:"),
-                                          selected: true,
-                                          onSelected: (bool value) {},
-                                        ),
-                                        FilterChip(
-                                          selectedColor: Colors.amber,
-                                          label: Text('2 set:'),
-                                          selected: true,
-                                          onSelected: (bool value) {},
-                                        ),
-                                      ]),
-                                  SizedBox(height: 10),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          label: Text('4 set:'),
-                                          selected: true,
-                                          onSelected: (bool value) {},
-                                        ),
-                                      ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <
+                                      Widget>[
+                                    if (artifactsetAselect == 'blizzard' ||
+                                        artifactsetBselect == 'blizzard')
+                                      FilterChip(
+                                        label: Text('2 set: Cryo DMG +15%'),
+                                        selectedColor: Colors.blue[300],
+                                        backgroundColor: Colors.blue[200],
+                                        selected: blizzardstrayer2On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            blizzardstrayer2On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'blizzard' &&
+                                        artifactsetBselect == 'blizzard')
+                                      FilterChip(
+                                        label:
+                                            Text('4 set: Crit Rate +20%(cryo)'),
+                                        selectedColor: Colors.blue[300],
+                                        backgroundColor: Colors.blue[200],
+                                        selected: blizzardstrayer41On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            blizzardstrayer41On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'blizzard' &&
+                                        artifactsetBselect == 'blizzard')
+                                      FilterChip(
+                                        label: Text(
+                                            '4 set: Crit Rate +20%(frozen)'),
+                                        selectedColor: Colors.blue[400],
+                                        backgroundColor: Colors.blue[300],
+                                        selected: blizzardstrayer42On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            blizzardstrayer42On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'troupe' ||
+                                        artifactsetBselect == 'troupe')
+                                      FilterChip(
+                                        label: Text('2 set: em +80 '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: troupesdawnlight2on,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            troupesdawnlight2on = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'troupe' &&
+                                        artifactsetBselect == 'troupe')
+                                      FilterChip(
+                                        label: Text('4 set: Charged Atk +35% '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: troupesdawnlight4on,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            troupesdawnlight4on = value;
+                                          });
+                                        },
+                                      ),
+                                  ]),
                                   SizedBox(height: 10),
                                 ],
                               ),
