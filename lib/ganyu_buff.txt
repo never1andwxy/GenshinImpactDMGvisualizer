@@ -50,21 +50,21 @@ buff6 种类：岩抗 buff6量：-20%  OFF
 buff7 种类：风抗 buff7量：-20%  OFF
 buff8 种类：草抗 buff8量：-20%  OFF
 
-雷泽减防
+雷泽
 buff1 种类：防御 buff1量：-15% OFF
 
 罗莎莉亚
 buff1 种类：物抗 buff1量：-20% OFF
 buff2 种类：暴击率 buff2量：15% OFF
 
-班尼特加攻
+班尼特
 buff1 种类：基础攻 buff1量：56%~133% OFF
 
-砂糖精通加成
+砂糖
 buff1 种类：精通 buff1量：50 OFF
 buff2 种类：元素增伤 buff2量：20% OFF
 
-迪奥娜精通加成
+迪奥娜
 buff1种类：精通 buff1量：200 OFF
 buff2种类：攻击 buff2量：-10% OFF
 
