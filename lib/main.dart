@@ -224,6 +224,11 @@ class _MyHomePageState extends State<MyHomePage> {
   double weapondefpercent = 0;
   double weapondefpercentstat = 0;
   double weaponERpercent = 0;
+  double weaponBonus1NormalATKDMGpercent = 0;
+  double weaponBonus2NormalATKDMGpercent = 0;
+  double weaponBonus1ChargedATKDMGpercent = 0;
+  double weaponBonus2ChargedATKDMGpercent = 0;
+  double bloomWeaponBonus2ChargedATKDMGpercent = 0;
   double bonusatk = 0;
   double allatk = 0;
   double bonusdef = 0;
@@ -235,6 +240,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int allEM = 0;
   int bonusEM = 0;
 
+  double bonusNormalATKDMGpercent = 0;
+  double bonusChargedATKDMGpercent = 0;
+  double bloomBonusChargedATKDMGpercent = 0;
   double bonusPhysicalDMGpercent = 0;
   double bonusPyroDMGpercent = 0;
   double bonusHydroDMGpercent = 0;
@@ -1443,6 +1451,10 @@ class _MyHomePageState extends State<MyHomePage> {
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
   bool constellation1On = false;
+
+  bool strongWilled1On = true;
+  bool strongWilled2On = true;
+  int strongWilled2Times = 1;
 
   String _label = '';
 
@@ -5758,7 +5770,23 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    //
+
+    //weaponBonus
+    bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
+            (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
+        as double;
+    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
+            (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
+        as double;
+
+    if (strongWilled2Times <= 3) {
+      bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
+    } else {
+      bloomBonusChargedATKDMGpercent =
+          (strongWilled1On ? (9 + weaponref * 3) : 0) +
+              (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) as double;
+    }
+
     //ARTIFACT params
     articacteffectA2 = artifactList.singleWhere(
         (artifact) =>
@@ -6305,6 +6333,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit1dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6312,6 +6341,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit1dmgnc = allatk *
         (hit1dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6319,6 +6349,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit1dmgexp = allatk *
         (hit1dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6328,6 +6359,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit2dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6335,6 +6367,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit2dmgnc = allatk *
         (hit2dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6342,6 +6375,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit2dmgexp = allatk *
         (hit2dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6351,6 +6385,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit3dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6358,6 +6393,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit3dmgnc = allatk *
         (hit3dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6365,6 +6401,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit3dmgexp = allatk *
         (hit3dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6374,6 +6411,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit4dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6381,6 +6419,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit4dmgnc = allatk *
         (hit4dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6388,6 +6427,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit4dmgexp = allatk *
         (hit4dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6397,6 +6437,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit5dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6404,6 +6445,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit5dmgnc = allatk *
         (hit5dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6411,6 +6453,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit5dmgexp = allatk *
         (hit5dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6420,6 +6463,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (hit6dmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6427,6 +6471,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit6dmgnc = allatk *
         (hit6dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6434,6 +6479,7 @@ class _MyHomePageState extends State<MyHomePage> {
     hit6dmgexp = allatk *
         (hit6dmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusNormalATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6443,6 +6489,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (aimdmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6450,6 +6497,7 @@ class _MyHomePageState extends State<MyHomePage> {
     aimdmgnc = allatk *
         (aimdmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
@@ -6457,6 +6505,7 @@ class _MyHomePageState extends State<MyHomePage> {
     aimdmgexp = allatk *
         (aimdmgpercent / 100) *
         (1 + bonusPhysicalDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -6466,6 +6515,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (caimdmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6473,6 +6523,7 @@ class _MyHomePageState extends State<MyHomePage> {
     caimdmgnc = allatk *
         (caimdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6480,6 +6531,7 @@ class _MyHomePageState extends State<MyHomePage> {
     caimdmgexp = allatk *
         (caimdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -6558,6 +6610,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (frostflakedmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6565,6 +6618,7 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakedmgnc = allatk *
         (frostflakedmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6572,6 +6626,7 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakedmgexp = allatk *
         (frostflakedmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -6581,6 +6636,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (frostflakebloomdmgpercent / 100) *
         (1 + allCD / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bloomBonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6588,6 +6644,7 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakebloomdmgnc = allatk *
         (frostflakebloomdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bloomBonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
@@ -6595,6 +6652,7 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakebloomdmgexp = allatk *
         (frostflakebloomdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
+        (1 + bloomBonusChargedATKDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -11310,20 +11368,226 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               SizedBox(height: 10),
-                              //ANCHOR Physical Damage Title
-                              if (bonusPhysicalDMGpercent != 0)
-                                SelectableText(
-                                  'Physical Damage:' +
-                                      double.parse(bonusPhysicalDMGpercent
-                                              .toStringAsFixed(1))
-                                          .toString() +
-                                      '%',
-                                  style: TextStyle(fontSize: 15),
-                                ),
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Column(
                                   children: [
+                                    if (bonusNormalATKDMGpercent != 0)
+                                      SelectableText(
+                                        'Normal Attack Damage:' +
+                                            double.parse(
+                                                    bonusNormalATKDMGpercent
+                                                        .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statNormalATKDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (strongWilled1On)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'strong Willed1%(' +
+                                                        (9 + weaponref * 3)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (strongWilled2On)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'strong Willed2%(' +
+                                                        ((6 + weaponref * 2) *
+                                                                strongWilled2Times)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statNormalATKDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (strongWilled1On)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: (9 + weaponref * 3) * 2
+                                                    as double,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (strongWilled2On)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: ((6 + weaponref * 2) *
+                                                        strongWilled2Times) *
+                                                    2 *
+                                                    2 as double,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    if (bonusChargedATKDMGpercent != 0)
+                                      SelectableText(
+                                        'Charged Attack Damage:' +
+                                            double.parse(
+                                                    bonusChargedATKDMGpercent
+                                                        .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statChargedATKDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (strongWilled1On)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'strong Willed1%(' +
+                                                        (9 + weaponref * 3)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        if (strongWilled2On)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'strong Willed2%(' +
+                                                        ((6 + weaponref * 2) *
+                                                                strongWilled2Times)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statChargedATKDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (strongWilled1On)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: (9 + weaponref * 3) * 2
+                                                    as double,
+                                                height: 20,
+                                                color: Colors.red,
+                                              ),
+                                            ],
+                                          ),
+                                        if (strongWilled2On)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: ((6 + weaponref * 2) *
+                                                        strongWilled2Times) *
+                                                    2 *
+                                                    2 as double,
+                                                height: 20,
+                                                color: Colors.blue,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Physical Damage Title
+                                    if (bonusPhysicalDMGpercent != 0)
+                                      SelectableText(
+                                        'Physical Damage:' +
+                                            double.parse(bonusPhysicalDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
                                     //ANCHOR statPhysicalDMG:stats
                                     Row(
                                       mainAxisAlignment:
@@ -13251,17 +13515,23 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: <Widget>[
                                         FilterChip(
                                           label: Text(
-                                              'Strong-Willed1: Normal and Charged Attack DMG + 12%'),
+                                              'Strong-Willed1: Normal and Charged Attack DMG + ' +
+                                                  (9 + weaponref * 3)
+                                                      .toString() +
+                                                  '%'),
                                           selected: true,
                                           onSelected: (bool value) {
                                             setState(() {});
                                           },
                                         ),
                                         FilterChip(
-                                          label: Text(
-                                              'Strong-Willed2: 8% every 0.1s the arrow is in the air for up to 5 times.'),
+                                          label: Text('Strong-Willed2: ' +
+                                              (6 + weaponref * 2).toString() +
+                                              '% every 0.1s the arrow is in the air for up to 5 times.'),
                                           selected: true,
-                                          onSelected: (bool value) {},
+                                          onSelected: (bool value) {
+                                            setState(() {});
+                                          },
                                         ),
                                       ]),
                                   SizedBox(height: 10),
@@ -13270,29 +13540,49 @@ class _MyHomePageState extends State<MyHomePage> {
                                       runSpacing: 10,
                                       children: <Widget>[
                                         ChoiceChip(
-                                          label: Text('1'),
-                                          selected: true,
-                                          onSelected: (bool value) {},
+                                          label: Text('0.1s'),
+                                          selected: (strongWilled2Times == 1),
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              strongWilled2Times = 1;
+                                            });
+                                          },
                                         ),
                                         ChoiceChip(
-                                          label: Text('2'),
-                                          selected: false,
-                                          onSelected: (bool value) {},
+                                          label: Text('0.2s'),
+                                          selected: (strongWilled2Times == 2),
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              strongWilled2Times = 2;
+                                            });
+                                          },
                                         ),
                                         ChoiceChip(
-                                          label: Text('3'),
-                                          selected: false,
-                                          onSelected: (bool value) {},
+                                          label: Text('0.3s'),
+                                          selected: (strongWilled2Times == 3),
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              strongWilled2Times = 3;
+                                            });
+                                          },
                                         ),
                                         ChoiceChip(
-                                          label: Text('4'),
-                                          selected: false,
-                                          onSelected: (bool value) {},
+                                          label: Text('0.4s'),
+                                          selected: (strongWilled2Times == 4),
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              strongWilled2Times = 4;
+                                            });
+                                          },
                                         ),
                                         ChoiceChip(
-                                          label: Text('5'),
-                                          selected: false,
-                                          onSelected: (bool value) {},
+                                          label: Text('0.5s'),
+                                          selected: (strongWilled2Times == 5),
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              strongWilled2Times = 5;
+                                            });
+                                          },
                                         ),
                                       ]),
                                   SizedBox(height: 10),
