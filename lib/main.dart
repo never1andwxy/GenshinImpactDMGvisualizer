@@ -289,6 +289,90 @@ class _MyHomePageState extends State<MyHomePage> {
     'blizzard': AssetImage('Item_Snowswept_Memory.png'),
     'troupe': AssetImage('Item_Troupes_Dawnlight.png'),
   };
+  var articacteffectA2 = {};
+  var articacteffectB2 = {};
+  var articacteffect4A = {};
+  var articacteffect4B = {};
+
+  var articacteffectA2attr = '';
+  int articacteffectA2value = 0;
+  var articacteffectB2attr = '';
+  int articacteffectB2value = 0;
+
+  var articacteffect4Aattr = '';
+  int articacteffect4Avalue = 0;
+  var articacteffect4Battr = '';
+  int articacteffect4Bvalue = 0;
+
+  String showA2 = "";
+  String showB2 = "";
+  String show4A = "";
+  String show4B = "";
+
+  var artifactAttrText = {
+    'ATK': 'Attack DMG',
+    'ATK%': 'ATK Percent',
+    'DEF': 'Defence',
+    'DEF%': 'Defence Percent',
+    'HP': 'HP',
+    'HP%': 'HP Percent',
+    'CR': 'CRIT Rate',
+    'CD': 'CRIT DMG',
+    'ER': 'Elemental Recharge Rate',
+    'EM': 'Elemental Mastery',
+    'CA': 'Charged Attack DMG',
+    'Physical': 'Physical DMG',
+    'Pyro': 'Pyro DMG',
+    'Hydro': 'Hydro DMG',
+    'Dendro': 'Dendro DMG',
+    'Electro': 'Electro DMG',
+    'Anemo': 'Anemo DMG',
+    'Cryo': 'Cryo DMG',
+    'Geo': 'Geo DMG',
+  };
+
+  double setbonusAtk = 0;
+  double setbonusAtkpercent = 0;
+  double setbonusDef = 0;
+  double setbonusDefpercent = 0;
+  double setbonusCrit = 0;
+  double setbonusCritDMG = 0;
+  double setbonusER = 0;
+  double setbonusEM = 0;
+  double setbonusHP = 0;
+  double setbonusHPpercent = 0;
+  double setbonusChargedAttackpencent = 0;
+
+  var artifactTitleText = {
+    'blizzard': 'Blizzard Strayer',
+    'troupe': 'Wanderers Troupe'
+  };
+
+  var artifactList = [
+    {
+      'name': 'blizzard',
+      'set': 2,
+      'sequence': 1,
+      'attribute': 'Cryo',
+      'value': 15
+    },
+    {
+      'name': 'blizzard',
+      'set': 4,
+      'sequence': 1,
+      'attribute': 'CR',
+      'value': 20
+    },
+    {
+      'name': 'blizzard',
+      'set': 4,
+      'sequence': 2,
+      'attribute': 'CR',
+      'value': 20
+    },
+    {'name': 'troupe', 'set': 2, 'sequence': 1, 'attribute': 'EM', 'value': 80},
+    {'name': 'troupe', 'set': 4, 'sequence': 1, 'attribute': 'CA', 'value': 35}
+  ];
 
 //ANCHOR artifact1stat
   int fstar = 5;
@@ -2486,7 +2570,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Card(
                             elevation: 3,
@@ -2511,6 +2595,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(width: 15),
                           Text(
                             'Blizzard Strayer',
                             style: TextStyle(
@@ -2538,7 +2623,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 400,
                       height: 110,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Card(
                             elevation: 3,
@@ -2563,6 +2648,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          SizedBox(width: 15),
                           Text(
                             "Troupe's Dawnlight",
                             style: TextStyle(
@@ -5673,6 +5759,157 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     //
+    //ARTIFACT params
+    articacteffectA2 = artifactList.singleWhere(
+        (artifact) =>
+            ((artifact['name'] == artifactsetAselect) & (artifact['set'] == 2)),
+        orElse: () => null);
+    if (articacteffectA2 != null) {
+      articacteffectA2attr = articacteffectA2['attribute'];
+      articacteffectA2value = articacteffectA2['value'];
+    } else {
+      articacteffectA2attr = '';
+      articacteffectA2value = 0;
+    }
+
+    articacteffectB2 = artifactList.singleWhere(
+        (artifact) =>
+            ((artifact['name'] == artifactsetBselect) & (artifact['set'] == 2)),
+        orElse: () => null);
+    if (articacteffectB2 != null) {
+      articacteffectB2attr = articacteffectB2['attribute'];
+      articacteffectB2value = articacteffectB2['value'];
+    } else {
+      articacteffectB2attr = '';
+      articacteffectB2value = 0;
+    }
+
+    articacteffect4A = artifactList.singleWhere(
+        (artifact) => ((artifact['name'] == artifactsetAselect) &
+            (artifact['set'] == 4) &
+            (artifact['sequence'] == 1)),
+        orElse: () => null);
+    if (articacteffect4A != null) {
+      articacteffect4Aattr = articacteffect4A['attribute'];
+      articacteffect4Avalue = articacteffect4A['value'];
+    } else {
+      articacteffect4Aattr = '';
+      articacteffect4Avalue = 0;
+    }
+
+    articacteffect4B = artifactList.singleWhere(
+        (artifact) => ((artifact['name'] == artifactsetAselect) &
+            (artifact['set'] == 4) &
+            (artifact['sequence'] == 2)),
+        orElse: () => null);
+    if (articacteffect4B != null) {
+      articacteffect4Battr = articacteffect4B['attribute'];
+      articacteffect4Bvalue = articacteffect4B['value'];
+    } else {
+      articacteffect4Battr = '';
+      articacteffect4Bvalue = 0;
+    }
+
+    showA2 = artifactTitleText[artifactsetAselect] +
+        " 2: " +
+        artifactAttrText[articacteffectA2attr] +
+        " + " +
+        articacteffectA2value.toString();
+
+    showB2 = artifactTitleText[artifactsetBselect] +
+        " 2: " +
+        artifactAttrText[articacteffectB2attr] +
+        " + " +
+        articacteffectB2value.toString();
+
+    if (artifactsetAselect != artifactsetBselect || articacteffect4A == null) {
+      show4A = '-';
+    } else {
+      show4A = artifactTitleText[artifactsetAselect] +
+          " 4: " +
+          artifactAttrText[articacteffect4Aattr] +
+          " + " +
+          articacteffect4Avalue.toString();
+    }
+
+    if (artifactsetAselect != artifactsetBselect || articacteffect4B == null) {
+      show4B = '-';
+    } else {
+      show4B = artifactTitleText[artifactsetAselect] +
+          " 4: " +
+          artifactAttrText[articacteffect4Battr] +
+          " + " +
+          articacteffect4Bvalue.toString();
+    }
+
+    if ((showA2 != '-') &
+        (articacteffectA2attr == 'ATK%' ||
+            articacteffectA2attr == 'DEF%' ||
+            articacteffectA2attr == 'HP%' ||
+            articacteffectA2attr == 'CR' ||
+            articacteffectA2attr == 'CD' ||
+            articacteffectA2attr == 'ER' ||
+            articacteffectA2attr == 'CA' ||
+            articacteffectA2attr == 'Physical' ||
+            articacteffectA2attr == 'Pyro' ||
+            articacteffectA2attr == 'Hydro' ||
+            articacteffectA2attr == 'Dendro' ||
+            articacteffectA2attr == 'Electro' ||
+            articacteffectA2attr == 'Anemo' ||
+            articacteffectA2attr == 'Cryo' ||
+            articacteffectA2attr == 'Geo')) showA2 = showA2 + '%';
+
+    if ((showB2 != '-') &
+        (articacteffectB2attr == 'ATK%' ||
+            articacteffectB2attr == 'DEF%' ||
+            articacteffectB2attr == 'HP%' ||
+            articacteffectB2attr == 'CR' ||
+            articacteffectB2attr == 'CD' ||
+            articacteffectB2attr == 'ER' ||
+            articacteffectB2attr == 'CA' ||
+            articacteffectB2attr == 'Physical' ||
+            articacteffectB2attr == 'Pyro' ||
+            articacteffectB2attr == 'Hydro' ||
+            articacteffectB2attr == 'Dendro' ||
+            articacteffectB2attr == 'Electro' ||
+            articacteffectB2attr == 'Anemo' ||
+            articacteffectB2attr == 'Cryo' ||
+            articacteffectB2attr == 'Geo')) showB2 = showB2 + '%';
+
+    if ((show4A != '-') &
+        (articacteffect4Aattr == 'ATK%' ||
+            articacteffect4Aattr == 'DEF%' ||
+            articacteffect4Aattr == 'HP%' ||
+            articacteffect4Aattr == 'CR' ||
+            articacteffect4Aattr == 'CD' ||
+            articacteffect4Aattr == 'ER' ||
+            articacteffect4Aattr == 'CA' ||
+            articacteffect4Aattr == 'Physical' ||
+            articacteffect4Aattr == 'Pyro' ||
+            articacteffect4Aattr == 'Hydro' ||
+            articacteffect4Aattr == 'Dendro' ||
+            articacteffect4Aattr == 'Electro' ||
+            articacteffect4Aattr == 'Anemo' ||
+            articacteffect4Aattr == 'Cryo' ||
+            articacteffect4Aattr == 'Geo')) show4A = show4A + '%';
+
+    if ((show4B != '-') &
+        (articacteffect4Battr == 'ATK%' ||
+            articacteffect4Battr == 'DEF%' ||
+            articacteffect4Battr == 'HP%' ||
+            articacteffect4Battr == 'CR' ||
+            articacteffect4Battr == 'CD' ||
+            articacteffect4Battr == 'ER' ||
+            articacteffect4Battr == 'CA' ||
+            articacteffect4Battr == 'Physical' ||
+            articacteffect4Battr == 'Pyro' ||
+            articacteffect4Battr == 'Hydro' ||
+            articacteffect4Battr == 'Dendro' ||
+            articacteffect4Battr == 'Electro' ||
+            articacteffect4Battr == 'Anemo' ||
+            articacteffect4Battr == 'Cryo' ||
+            articacteffect4Battr == 'Geo')) show4B = show4B + '%';
+
     //ATK params
 
     levelatk = cleveltoatk[level];
@@ -13101,14 +13338,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                       runSpacing: 10,
                                       children: <Widget>[
                                         FilterChip(
-                                          label: Text('2 set: xxxx'),
+                                          selectedColor: Colors.amber,
+                                          label: Text("2 set:"),
                                           selected: true,
-                                          onSelected: (bool value) {
-                                            setState(() {});
-                                          },
+                                          onSelected: (bool value) {},
                                         ),
                                         FilterChip(
-                                          label: Text('4 set: xxxxxx'),
+                                          selectedColor: Colors.amber,
+                                          label: Text('2 set:'),
+                                          selected: true,
+                                          onSelected: (bool value) {},
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          label: Text('4 set:'),
                                           selected: true,
                                           onSelected: (bool value) {},
                                         ),
