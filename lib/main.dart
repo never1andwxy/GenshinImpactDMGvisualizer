@@ -1378,6 +1378,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool strongWilled2On = true;
   int strongWilled2Times = 1;
 
+  bool pyro2On = false;
+  bool cryo2On = false;
+
   String _label = '';
 
   void _setLabel(String s) {
@@ -5787,7 +5790,8 @@ class _MyHomePageState extends State<MyHomePage> {
         stat4atk +
         a5percentatkMain +
         a5percentatk +
-        stat5atk;
+        stat5atk +
+        (pyro2On ? basicatk * 25 / 100 : 0);
 
     allatk = basicatk + bonusatk;
 
@@ -5937,7 +5941,8 @@ class _MyHomePageState extends State<MyHomePage> {
         stat5CRpercent +
         (undividedHeartOn ? 20 : 0) +
         (blizzardstrayer41On ? 20 : 0) +
-        (blizzardstrayer42On ? 20 : 0);
+        (blizzardstrayer42On ? 20 : 0) +
+        (cryo2On ? 15 : 0);
     allCR = baseCR + bonusCR;
 
     //CD params
@@ -8631,6 +8636,31 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (pyro2On == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    '2 pyro(25%)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    (basicatk * 25 / 100)
+                                                        .toStringAsFixed(1),
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -8872,6 +8902,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: stat5atk / 7,
                                                 height: 20,
                                                 color: Colors.teal[700],
+                                              ),
+                                            ],
+                                          ),
+                                        if (pyro2On == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width:
+                                                    (basicatk * 25 / 100) / 7,
+                                                height: 20,
+                                                color: Colors.red,
                                               ),
                                             ],
                                           ),
@@ -10758,6 +10804,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (cryo2On == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue[200],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    '2 Cryo',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '15',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -10926,6 +10996,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: 40,
                                                 height: 20,
                                                 color: Colors.blue[400],
+                                              ),
+                                            ],
+                                          ),
+                                        if (cryo2On == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: 30,
+                                                height: 20,
+                                                color: Colors.blue[200],
                                               ),
                                             ],
                                           ),
@@ -13631,7 +13716,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
-                                          'Artifact',
+                                          'Artifact Bonus',
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.black,
@@ -13709,6 +13794,124 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                       ),
                                   ]),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+
+                              //ANCHOR UsualOptions
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Usual Buffs',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Elemental Resonance',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          selectedColor: Colors.red,
+                                          backgroundColor: Colors.red[200],
+                                          label: Text('2 Pyro: ATK + 25%'),
+                                          selected: pyro2On,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              pyro2On = value;
+                                            });
+                                          },
+                                        ),
+                                        FilterChip(
+                                          selectedColor: Colors.blue[200],
+                                          backgroundColor: Colors.blue[50],
+                                          label: Text('2 Cryo: Crit Rate +15%'),
+                                          selected: cryo2On,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              cryo2On = value;
+                                            });
+                                          },
+                                        ),
+                                      ]),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+
+                              //ANCHOR Manual adjusts
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(children: [
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Manual adjusts',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                ]),
+                                children: <Widget>[
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Talents',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ]),
+                                  Wrap(
+                                      spacing: 10,
+                                      runSpacing: 10,
+                                      children: <Widget>[
+                                        FilterChip(
+                                          selectedColor: Colors.amber,
+                                          backgroundColor: Colors.amber[200],
+                                          label: Text(
+                                              'Undivided Heart: CRIT Rate + 20%'),
+                                          selected: undividedHeartOn,
+                                          onSelected: (bool value) {
+                                            setState(() {
+                                              undividedHeartOn = value;
+                                            });
+                                          },
+                                        ),
+                                      ]),
                                   SizedBox(height: 10),
                                 ],
                               ),
