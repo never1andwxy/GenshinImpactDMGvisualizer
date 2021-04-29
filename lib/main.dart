@@ -1387,6 +1387,40 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() => _label = s);
   }
 
+  //ANCHOR artifactstatcontrol
+  void artifactstatcontrol(String t, String s) {
+    if (t == "A")
+      artifactsetAselect = s;
+    else if (t == "B") artifactsetBselect = s;
+
+    if (artifactsetAselect == 'blizzard' && artifactsetBselect == 'blizzard') {
+      blizzardstrayer2On = true;
+      blizzardstrayer41On = true;
+      blizzardstrayer42On = true;
+    } else if (artifactsetAselect == 'blizzard' ||
+        artifactsetBselect == 'blizzard') {
+      blizzardstrayer2On = true;
+      blizzardstrayer41On = false;
+      blizzardstrayer42On = false;
+    } else {
+      blizzardstrayer2On = false;
+      blizzardstrayer41On = false;
+      blizzardstrayer42On = false;
+    }
+
+    if (artifactsetAselect == 'troupe' && artifactsetBselect == 'troupe') {
+      troupesdawnlight2on = true;
+      troupesdawnlight4on = true;
+    } else if (artifactsetAselect == 'troupe' ||
+        artifactsetBselect == 'troupe') {
+      troupesdawnlight2on = true;
+      troupesdawnlight4on = false;
+    } else {
+      troupesdawnlight2on = false;
+      troupesdawnlight4on = false;
+    }
+  }
+
   //ANCHOR weaponPopup
   Future _showSimpleDialogw() async {
     String result = "";
@@ -2543,40 +2577,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        artifactsetAselect = 'blizzard';
-
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = true;
-                          blizzardstrayer42On = true;
-                          troupesdawnlight2on = false;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = false;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = true;
-                        }
+                        artifactstatcontrol("A", 'blizzard');
                       });
 
                       Navigator.pop(
@@ -2629,40 +2630,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        artifactsetAselect = 'troupe';
-
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = true;
-                          blizzardstrayer42On = true;
-                          troupesdawnlight2on = false;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = false;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = true;
-                        }
+                        artifactstatcontrol("A", 'troupe');
                       });
                       Navigator.pop(
                         context,
@@ -2735,39 +2703,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        artifactsetBselect = 'blizzard';
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = true;
-                          blizzardstrayer42On = true;
-                          troupesdawnlight2on = false;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = false;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = true;
-                        }
+                        artifactstatcontrol("B", 'blizzard');
                       });
 
                       Navigator.pop(
@@ -2820,39 +2756,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        artifactsetBselect = 'troupe';
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'blizzard' &&
-                            artifactsetBselect == 'blizzard') {
-                          blizzardstrayer2On = true;
-                          blizzardstrayer41On = true;
-                          blizzardstrayer42On = true;
-                          troupesdawnlight2on = false;
-                          troupesdawnlight4on = false;
-                        }
-                        if (artifactsetAselect == 'troupe' &&
-                            artifactsetBselect == 'troupe') {
-                          blizzardstrayer2On = false;
-                          blizzardstrayer41On = false;
-                          blizzardstrayer42On = false;
-                          troupesdawnlight2on = true;
-                          troupesdawnlight4on = true;
-                        }
+                        artifactstatcontrol("B", 'troupe');
                       });
                       Navigator.pop(
                         context,
@@ -13507,6 +13411,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
+                                initiallyExpanded: true,
                                 title: Column(children: [
                                   Row(
                                       mainAxisAlignment:
@@ -13588,6 +13493,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
+                                initiallyExpanded: true,
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
                                   Row(
@@ -13702,6 +13608,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
+                                initiallyExpanded: true,
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
                                   Row(
