@@ -7496,6 +7496,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (artifact5mainstatcat == 2) buildstatbar(Colors.teal, a5percentatkMain),
                                         if (stat5atkpercentOn == true) buildstatbar(Colors.teal, a5percentatk),
                                         if (stat5atkOn == true) buildstatbar(Colors.teal[700], stat5atk),
+                                        if (pyro2On == true) buildstatbar(Colors.red, (basicatk * 25 / 100)),
                                       ],
                                     ),
                                   ],
@@ -11576,7 +11577,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                   Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
                                     FilterChip(
-                                      label: Text('Constellation1: Enemy Cyyo Res -15%'),
+                                      label: Text('Constellation1: Enemy Cryo Res -15%'),
                                       selected: constellation1On,
                                       onSelected: (bool value) {
                                         setState(() {
