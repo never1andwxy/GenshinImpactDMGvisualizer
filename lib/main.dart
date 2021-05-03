@@ -6173,6 +6173,7 @@ class _MyHomePageState extends State<MyHomePage> {
         a5percentatkMain +
         a5percentatk +
         stat5atk +
+        (unreturningOn ? basicatk * (27 + weaponref * 9) / 100 : 0) +
         (pyro2On ? basicatk * 25 / 100 : 0) +
         (gladiator2On ? basicatk * 18 / 100 : 0) +
         (royalflora4On ? basicatk * 20 / 100 : 0);
