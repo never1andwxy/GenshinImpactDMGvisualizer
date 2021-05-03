@@ -2839,7 +2839,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Royal Flora',
+                            'Noblesse Oblige',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -2892,7 +2892,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Gladiator Nostalgia',
+                            'Gladiator Finale',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -3070,7 +3070,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Royal Flora',
+                            'Noblesse Oblige',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -3123,7 +3123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Gladiator Nostalgia',
+                            'Gladiator Finale',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -8764,7 +8764,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (royalflora4On == true)
                                           buildStatRow(
                                               Colors.purple,
-                                              'RoyalFlora4(20%)',
+                                              'Noblesse4(20%)',
                                               (basicatk * 20 / 100)
                                                   .toStringAsFixed(1)),
                                       ],
