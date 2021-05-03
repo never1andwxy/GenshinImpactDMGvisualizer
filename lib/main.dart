@@ -296,6 +296,8 @@ class _MyHomePageState extends State<MyHomePage> {
   var artifactsettopng = {
     'blizzard': AssetImage('Item_Snowswept_Memory.png'),
     'troupe': AssetImage('Item_Troupes_Dawnlight.png'),
+    'royal': AssetImage('Item_Royal_Flora.png'),
+    'gladiator': AssetImage('Item_Gladiator_Nostalgia.png'),
   };
 
 //ANCHOR artifact1stat
@@ -1377,6 +1379,10 @@ class _MyHomePageState extends State<MyHomePage> {
   bool blizzardstrayer42On = true;
   bool troupesdawnlight2on = false;
   bool troupesdawnlight4on = false;
+  bool royalflora2On = false;
+  bool royalflora4On = false;
+  bool gladiator2On = false;
+  bool gladiator4On = false;
 
   bool strongWilled1On = true;
   bool strongWilled2On = true;
@@ -1429,6 +1435,30 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       troupesdawnlight2on = false;
       troupesdawnlight4on = false;
+    }
+
+    if (artifactsetAselect == 'royal' && artifactsetBselect == 'royal') {
+      royalflora2On = true;
+      royalflora4On = true;
+    } else if (artifactsetAselect == 'royal' || artifactsetBselect == 'royal') {
+      royalflora2On = true;
+      royalflora4On = false;
+    } else {
+      royalflora2On = false;
+      royalflora4On = false;
+    }
+
+    if (artifactsetAselect == 'gladiator' &&
+        artifactsetBselect == 'gladiator') {
+      gladiator2On = true;
+      gladiator4On = true;
+    } else if (artifactsetAselect == 'gladiator' ||
+        artifactsetBselect == 'gladiator') {
+      gladiator2On = true;
+      gladiator4On = false;
+    } else {
+      gladiator2On = false;
+      gladiator4On = false;
     }
   }
 
@@ -2778,6 +2808,111 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     },
                   ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage('Item_Royal_Flora.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Royal Flora',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactstatcontrol("A", 'royal');
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'Item_Gladiator_Nostalgia.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Gladiator Nostalgia',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactstatcontrol("A", 'gladiator');
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
                 ],
               );
             },
@@ -2898,6 +3033,111 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() {
                         artifactstatcontrol("B", 'troupe');
                       });
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage('Item_Royal_Flora.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Royal Flora',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactstatcontrol("B", 'royal');
+                      });
+
+                      Navigator.pop(
+                        context,
+                        "user1",
+                      );
+                    },
+                  ),
+                  SimpleDialogOption(
+                    child: Container(
+                      width: 400,
+                      height: 110,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Card(
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.lightBlue[50],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'Item_Gladiator_Nostalgia.png'),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Gladiator Nostalgia',
+                            style: TextStyle(
+                              //fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        artifactstatcontrol("B", 'gladiator');
+                      });
+
                       Navigator.pop(
                         context,
                         "user1",
@@ -5933,8 +6173,9 @@ class _MyHomePageState extends State<MyHomePage> {
         a5percentatkMain +
         a5percentatk +
         stat5atk +
-        (unreturningOn ? (27 + weaponref * 9) : 0) +
-        (pyro2On ? basicatk * 25 / 100 : 0);
+        (pyro2On ? basicatk * 25 / 100 : 0) +
+        (gladiator2On ? basicatk * 18 / 100 : 0) +
+        (royalflora4On ? basicatk * 20 / 100 : 0);
 
     allatk = basicatk + bonusatk;
 
@@ -6671,14 +6912,16 @@ class _MyHomePageState extends State<MyHomePage> {
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        enemyCryores;
+        enemyCryores *
+        (royalflora2On ? (1 + 20 / 100) : 1);
 
     celestialshowerdmgnc = allatk *
         (celestialshowerdmgpercent / 100) *
         (1 + bonusCryoDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        enemyCryores;
+        enemyCryores *
+        (royalflora2On ? (1 + 20 / 100) : 1);
 
     celestialshowerdmgexp = allatk *
         (celestialshowerdmgpercent / 100) *
@@ -6686,7 +6929,8 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * allCR / 100) *
+        (royalflora2On ? (1 + 20 / 100) : 1);
 
     echoingballaddmgc = allatk *
         (125 / 100) *
@@ -8403,6 +8647,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //a5%:Colors.teal
                                     //a5:Colors.teal[700]
                                     //pyro2On:Colors.red
+                                    //gladiator2On:Colors.purple
+                                    //royalflora4On:Colors.purple
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -8509,6 +8755,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                               '2 pyro(25%)',
                                               (basicatk * 25 / 100)
                                                   .toStringAsFixed(1)),
+                                        if (gladiator2On == true)
+                                          buildStatRow(
+                                              Colors.purple,
+                                              'Gladiator2(18%)',
+                                              (basicatk * 18 / 100)
+                                                  .toStringAsFixed(1)),
+                                        if (royalflora4On == true)
+                                          buildStatRow(
+                                              Colors.purple,
+                                              'RoyalFlora4(20%)',
+                                              (basicatk * 20 / 100)
+                                                  .toStringAsFixed(1)),
                                       ],
                                     ),
 
@@ -8560,6 +8818,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (pyro2On == true)
                                           buildstatbar(Colors.red,
                                               (basicatk * 25 / 100)),
+                                        if (gladiator2On == true)
+                                          buildstatbar(Colors.purple,
+                                              (basicatk * 18 / 100)),
+                                        if (royalflora4On == true)
+                                          buildstatbar(Colors.purple,
+                                              (basicatk * 20 / 100)),
                                       ],
                                     ),
                                   ],
@@ -13456,6 +13720,61 @@ class _MyHomePageState extends State<MyHomePage> {
                                         onSelected: (bool value) {
                                           setState(() {
                                             troupesdawnlight4on = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'royal' ||
+                                        artifactsetBselect == 'royal')
+                                      FilterChip(
+                                        label: Text(
+                                            '2 set: Elemental Burst DMG +20% '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: royalflora2On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            royalflora2On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'royal' &&
+                                        artifactsetBselect == 'royal')
+                                      FilterChip(
+                                        label: Text(
+                                            '4 set: Using an Elemental Burst increases all party members\' ATK by 20% for 12s '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: royalflora4On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            royalflora4On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'gladiator' ||
+                                        artifactsetBselect == 'gladiator')
+                                      FilterChip(
+                                        label: Text('2 set: ATK +18% '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: gladiator2On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            gladiator2On = value;
+                                          });
+                                        },
+                                      ),
+                                    if (artifactsetAselect == 'gladiator' &&
+                                        artifactsetBselect == 'gladiator')
+                                      FilterChip(
+                                        label: Text(
+                                            '4 set: Increase Normal Attack DMG by 35% (Using sword/claymore/poleram) '),
+                                        selectedColor: Colors.green[400],
+                                        backgroundColor: Colors.green[300],
+                                        selected: gladiator4On,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            gladiator4On = value;
                                           });
                                         },
                                       ),
