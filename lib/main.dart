@@ -10137,26 +10137,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (royalflora2On == true) buildStatRow(Colors.red, 'Noblesse Oblige 2 Set', '20'),
+                                        if (royalflora2On) buildStatRow(Colors.blue, 'Noblesse Oblige 2 Set', '20'),
                                       ],
                                     ),
                                     //ANCHOR statBurstDMG:bar
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (bonusBurstDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: bonusBurstDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
+                                        if (royalflora2On) buildstatbarpercent(Colors.blue, 20),
                                       ],
                                     ),
                                   ],
@@ -13826,6 +13814,22 @@ class _MyHomePageState extends State<MyHomePage> {
           curve: Curves.easeIn,
           duration: Duration(milliseconds: 500),
           width: a / 7,
+          height: 20,
+          color: color,
+        ),
+      ],
+    );
+  }
+
+//ANCHOR method:statbarbuilder:percent
+  Column buildstatbarpercent(Color color, var a) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AnimatedContainer(
+          curve: Curves.easeIn,
+          duration: Duration(milliseconds: 500),
+          width: a * 2,
           height: 20,
           color: color,
         ),
