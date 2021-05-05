@@ -6316,7 +6316,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (baseCRbylvl[level] != null) {
       baseCR = baseCRbylvl[level];
     } else {
-      baseCR = 0;
+      baseCR = 5;
     }
 
     if (weapontoCRpercent[weaponlv] != null) {
@@ -6327,8 +6327,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     a5CRmain = a5CRbyLVL[cstar][clv];
     a5CR = artifact5mainstatcat == 5 ? a5CRmain : 0;
-    baseCR += weaponCR;
-    bonusCR = a5CR +
+    //baseCR += weaponCR;
+    bonusCR = weaponCR +
+        a5CR +
         stat1CRpercent +
         stat2CRpercent +
         stat3CRpercent +
@@ -6346,8 +6347,9 @@ class _MyHomePageState extends State<MyHomePage> {
       weaponCD = weapontoCDpercent[weaponlv];
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
-    baseCD += weaponCD;
-    bonusCD = a5CD +
+    //baseCD += weaponCD;
+    bonusCD = weaponCD +
+        a5CD +
         stat1CDpercent +
         stat2CDpercent +
         stat3CDpercent +
@@ -8658,12 +8660,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Colors.red, 'level', '$levelatk'),
                                         buildStatRow(Colors.blue, 'weapon',
                                             '$weaponatk'),
-                                        buildStatRow(
-                                            Colors.green,
-                                            'weapon%($weaponatkpercent)',
-                                            double.parse(weaponatkpercentstat
-                                                    .toStringAsFixed(1))
-                                                .toString()),
+                                        if (weaponatkpercent != 0)
+                                          buildStatRow(
+                                              Colors.green,
+                                              'weapon%($weaponatkpercent)',
+                                              double.parse(weaponatkpercentstat
+                                                      .toStringAsFixed(1))
+                                                  .toString()),
                                         if (stat1atkOn == true)
                                           buildStatRow(
                                               Colors.red,
@@ -8768,6 +8771,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                               'Noblesse4(20%)',
                                               (basicatk * 20 / 100)
                                                   .toStringAsFixed(1)),
+                                        if (unreturningOn == true)
+                                          buildStatRow(
+                                              Colors.tealAccent,
+                                              'Unreturning(' +
+                                                  (27 + weaponref * 9)
+                                                      .toStringAsFixed(1) +
+                                                  '%)',
+                                              (basicatk *
+                                                      (27 + weaponref * 9) /
+                                                      100)
+                                                  .toStringAsFixed(1)),
                                       ],
                                     ),
 
@@ -8825,6 +8839,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (royalflora4On == true)
                                           buildstatbar(Colors.purple,
                                               (basicatk * 20 / 100)),
+                                        if (unreturningOn == true)
+                                          buildstatbar(
+                                              Colors.tealAccent,
+                                              (basicatk *
+                                                  (27 + weaponref * 9) /
+                                                  100)),
                                       ],
                                     ),
                                   ],
@@ -10490,7 +10510,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Column(
                                               children: [
                                                 SelectableText(
-                                                  'baseCR%',
+                                                  'chara%',
                                                   style:
                                                       TextStyle(fontSize: 10),
                                                 ),
@@ -10503,6 +10523,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           ],
                                         ),
+                                        if (weaponCR != 0)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.blue[700],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'weapon%($weaponCR)',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         if (stat1CRpercentOn == true)
                                           Row(
                                             children: [
@@ -10734,6 +10773,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 color: Colors.red),
                                           ],
                                         ),
+                                        if (weaponCR != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: weaponCR * 2,
+                                                height: 20,
+                                                color: Colors.blue[700],
+                                              ),
+                                            ],
+                                          ),
                                         if (stat1CRpercentOn == true)
                                           Column(
                                             mainAxisAlignment:
@@ -10923,7 +10977,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'baseCD%',
+                                                    'chara%',
                                                     style:
                                                         TextStyle(fontSize: 10),
                                                   ),
@@ -10942,7 +10996,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Container(
                                                 width: 10,
                                                 height: 10,
-                                                color: Colors.green,
+                                                color: Colors.blue,
                                               ),
                                               Column(
                                                 children: [
@@ -11069,6 +11123,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (echoingBalladOn == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.tealAccent,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'EchoingBallad%(' +
+                                                        (15 + weaponref * 5)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -11102,7 +11178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Duration(milliseconds: 500),
                                                 width: weaponCD * 2,
                                                 height: 20,
-                                                color: Colors.green,
+                                                color: Colors.blue,
                                               ),
                                             ],
                                           ),
@@ -11193,6 +11269,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: stat5CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.teal,
+                                              ),
+                                            ],
+                                          ),
+                                        if (echoingBalladOn == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: (15 + weaponref * 5) * 2
+                                                    as double,
+                                                height: 20,
+                                                color: Colors.tealAccent,
                                               ),
                                             ],
                                           ),
@@ -13576,16 +13668,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                             children: <Widget>[
                                               FilterChip(
                                                 label: Text(
-                                                    'Echoing Ballad: CD + ' +
+                                                    'Echoing Ballad1: Crit DMG + ' +
                                                         (15 + weaponref * 5)
                                                             .toString() +
-                                                        '% & ' +
-                                                        (50 + weaponref * 10)
-                                                            .toString() +
-                                                        '% chance get a 125% Physical ATK AoE DMG every ' +
-                                                        (4.5 - weaponref * 0.5)
-                                                            .toString() +
-                                                        's'),
+                                                        '%'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                              SizedBox(height: 10),
+                                              FilterChip(
+                                                label: Text('Echoing Ballad2: ' +
+                                                    (50 + weaponref * 10)
+                                                        .toString() +
+                                                    '% chance get a 125% Physical ATK AoE DMG every ' +
+                                                    (4.5 - weaponref * 0.5)
+                                                        .toString() +
+                                                    's'),
                                                 selected: true,
                                                 onSelected: (bool value) {
                                                   setState(() {});
