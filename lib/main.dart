@@ -10962,6 +10962,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           FilterChip(
                                             label: Text('Echoing Ballad1: Crit DMG + ' + (15 + weaponref * 5).toString() + '%'),
                                             selected: true,
+                                            selectedColor: Colors.tealAccent,
                                             onSelected: (bool value) {
                                               setState(() {});
                                             },
@@ -10986,6 +10987,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           FilterChip(
                                             label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' + (27 + weaponref * 9).toString() + '% ATK for 10s'),
                                             selected: true,
+                                            selectedColor: Colors.tealAccent,
                                             onSelected: (bool value) {
                                               setState(() {});
                                             },
