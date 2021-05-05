@@ -9703,60 +9703,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPhysicalDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'chara%($levelPhysicalDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponPhysicalDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.green,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'weapon%($weaponPhysicalDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 5)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.purple,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a4%($a4PhysicalDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelPhysicalDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelPhysicalDMGpercent'),
+                                        if (weaponPhysicalDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponPhysicalDMGpercent'),
+                                        if (artifact4mainstatcat == 5) buildStatRow(Colors.purple, 'a4', '$a4PhysicalDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statPhysicalDMG:bar
@@ -9814,60 +9763,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPyroDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'chara%($levelPyroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponPyroDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.green,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'weapon%($weaponPyroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 6)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.purple,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a4%($a4PyroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelPyroDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelPyroDMGpercent'),
+                                        if (weaponPyroDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponPyroDMGpercent'),
+                                        if (artifact4mainstatcat == 6) buildStatRow(Colors.purple, 'a4', '$a4PyroDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statPyroDMG:bar
@@ -9925,60 +9823,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelHydroDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'chara%($levelHydroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponHydroDMGpercent != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.green,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'weapon%($weaponHydroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 7)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.purple,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a4%($a4HydroDMGpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelHydroDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelHydroDMGpercent'),
+                                        if (weaponHydroDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponHydroDMGpercent'),
+                                        if (artifact4mainstatcat == 7) buildStatRow(Colors.purple, 'a4', '$a4HydroDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statHydroDMG:bar
