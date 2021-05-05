@@ -10137,28 +10137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (royalflora2On == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'Noblesse Oblige 2 Set',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                  SelectableText(
-                                                    '20',
-                                                    style: TextStyle(fontSize: 10),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                        if (royalflora2On == true) buildStatRow(Colors.red, 'Noblesse Oblige 2 Set', '20'),
                                       ],
                                     ),
                                     //ANCHOR statBurstDMG:bar
