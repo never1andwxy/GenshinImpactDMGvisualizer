@@ -9638,114 +9638,61 @@ class _MyHomePageState extends State<MyHomePage> {
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statChargedATKDMG:stats
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        if (strongWilled1On)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'strong Willed1%(' + (9 + weaponref * 3).toString() + ')',
-                                                    style: TextStyle(fontSize: 10),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (strongWilled2On)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.blue,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'strong Willed2%(' + ((6 + weaponref * 2) * strongWilled2Times).toString() + ')',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (troupesdawnlight4on)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.green[400],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    "Troupe's Dawnlight 4 set",
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                  SelectableText(
-                                                    "35",
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                      ],
-                                    ),
+                                    if (bonusChargedATKDMGpercent != 0)
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          if (strongWilled1On) buildStatRow(Colors.red, 'strong Willed1', (9 + weaponref * 3).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue, 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
+                                        ],
+                                      ),
                                     //ANCHOR statChargedATKDMG:bar
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        if (strongWilled1On)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: (9 + weaponref * 3) * 2 as double,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (strongWilled2On)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (troupesdawnlight4on)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: 35 * 2 as double,
-                                                height: 20,
-                                                color: Colors.green[400],
-                                              ),
-                                            ],
-                                          ),
-                                      ],
-                                    ),
+                                    if (bonusChargedATKDMGpercent != 0)
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          if (strongWilled1On)
+                                            Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                AnimatedContainer(
+                                                  curve: Curves.easeIn,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: (9 + weaponref * 3) * 2 as double,
+                                                  height: 20,
+                                                  color: Colors.red,
+                                                ),
+                                              ],
+                                            ),
+                                          if (strongWilled2On)
+                                            Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                AnimatedContainer(
+                                                  curve: Curves.easeIn,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
+                                                  height: 20,
+                                                  color: Colors.blue,
+                                                ),
+                                              ],
+                                            ),
+                                          if (troupesdawnlight4on)
+                                            Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                AnimatedContainer(
+                                                  curve: Curves.easeIn,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: 35 * 2 as double,
+                                                  height: 20,
+                                                  color: Colors.green[400],
+                                                ),
+                                              ],
+                                            ),
+                                        ],
+                                      ),
                                     //ANCHOR Physical Damage Title
                                     if (bonusPhysicalDMGpercent != 0)
                                       SelectableText(
