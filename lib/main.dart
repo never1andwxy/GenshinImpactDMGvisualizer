@@ -9712,45 +9712,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPhysicalDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelPhysicalDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponPhysicalDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponPhysicalDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 5)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4PhysicalDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelPhysicalDMGpercent != 0) buildstatbarpercent(Colors.red, levelPhysicalDMGpercent),
+                                        if (weaponPhysicalDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponPhysicalDMGpercent),
+                                        if (artifact4mainstatcat == 5) buildstatbarpercent(Colors.purple, a4PhysicalDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Pyro Damage Title
@@ -9772,45 +9736,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPyroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelPyroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponPyroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponPyroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 6)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4PyroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelPyroDMGpercent != 0) buildstatbarpercent(Colors.red, levelPyroDMGpercent),
+                                        if (weaponPyroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponPyroDMGpercent),
+                                        if (artifact4mainstatcat == 6) buildstatbarpercent(Colors.purple, a4PyroDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Hydro Damage Title
@@ -9832,45 +9760,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelHydroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelHydroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponHydroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponHydroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 7)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4HydroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelHydroDMGpercent != 0) buildstatbarpercent(Colors.red, levelHydroDMGpercent),
+                                        if (weaponHydroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponHydroDMGpercent),
+                                        if (artifact4mainstatcat == 7) buildstatbarpercent(Colors.purple, a4HydroDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Cryo Damage Title
@@ -9893,58 +9785,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelCryoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelCryoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponCryoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponCryoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 8)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4CryoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
-                                        if (blizzardstrayer2On)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: 15 * 2 as double,
-                                                height: 20,
-                                                color: Colors.blue[300],
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelCryoDMGpercent != 0) buildstatbarpercent(Colors.red, levelCryoDMGpercent),
+                                        if (weaponCryoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponCryoDMGpercent),
+                                        if (artifact4mainstatcat == 8) buildstatbarpercent(Colors.purple, a4CryoDMGpercent),
+                                        if (blizzardstrayer2On) buildstatbarpercent(Colors.blue[300], 15),
                                       ],
                                     ),
                                     //ANCHOR Electro Damage Title
@@ -9966,45 +9810,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelElectroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelElectroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponElectroDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponElectroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 9)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4ElectroDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelElectroDMGpercent != 0) buildstatbarpercent(Colors.red, levelElectroDMGpercent),
+                                        if (weaponElectroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponElectroDMGpercent),
+                                        if (artifact4mainstatcat == 9) buildstatbarpercent(Colors.purple, a4ElectroDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Anemo Damage Title
@@ -10026,45 +9834,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelAnemoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelAnemoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponAnemoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponAnemoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 10)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4AnemoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelAnemoDMGpercent != 0) buildstatbarpercent(Colors.red, levelAnemoDMGpercent),
+                                        if (weaponAnemoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponAnemoDMGpercent),
+                                        if (artifact4mainstatcat == 10) buildstatbarpercent(Colors.purple, a4AnemoDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Geo Damage Title
