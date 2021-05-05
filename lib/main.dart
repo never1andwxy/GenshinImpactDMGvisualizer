@@ -7922,8 +7922,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (stat5atkpercentOn == true) buildStatRow(Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
                                         if (stat5atkOn == true) buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
                                         if (pyro2On == true) buildStatRow(Colors.red, '2 pyro(25%)', (basicatk * 25 / 100).toStringAsFixed(1)),
-                                        if (gladiator2On == true) buildStatRow(Colors.purple, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
-                                        if (royalflora4On == true) buildStatRow(Colors.purple, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
+                                        if (gladiator2On == true) buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
+                                        if (royalflora4On == true) buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
                                         if (unreturningOn == true)
                                           buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
                                       ],
@@ -7950,8 +7950,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (stat5atkpercentOn == true) buildstatbar(Colors.teal, a5percentatk),
                                         if (stat5atkOn == true) buildstatbar(Colors.teal[700], stat5atk),
                                         if (pyro2On == true) buildstatbar(Colors.red, (basicatk * 25 / 100)),
-                                        if (gladiator2On == true) buildstatbar(Colors.purple, (basicatk * 18 / 100)),
-                                        if (royalflora4On == true) buildstatbar(Colors.purple, (basicatk * 20 / 100)),
+                                        if (gladiator2On == true) buildstatbar(Colors.red, (basicatk * 18 / 100)),
+                                        if (royalflora4On == true) buildstatbar(Colors.blue, (basicatk * 20 / 100)),
                                         if (unreturningOn == true) buildstatbar(Colors.tealAccent, (basicatk * (27 + weaponref * 9) / 100)),
                                       ],
                                     ),
@@ -11092,8 +11092,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     if (artifactsetAselect == 'royal' || artifactsetBselect == 'royal')
                                       FilterChip(
                                         label: Text('2 set: Elemental Burst DMG +20% '),
-                                        selectedColor: Colors.green[400],
-                                        backgroundColor: Colors.green[300],
+                                        selectedColor: Colors.blue,
+                                        backgroundColor: Colors.blue[200],
                                         selected: royalflora2On,
                                         onSelected: (bool value) {
                                           setState(() {
@@ -11104,8 +11104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     if (artifactsetAselect == 'royal' && artifactsetBselect == 'royal')
                                       FilterChip(
                                         label: Text('4 set: Using an Elemental Burst increases all party members\' ATK by 20% for 12s '),
-                                        selectedColor: Colors.green[400],
-                                        backgroundColor: Colors.green[300],
+                                        selectedColor: Colors.blue,
+                                        backgroundColor: Colors.blue[200],
                                         selected: royalflora4On,
                                         onSelected: (bool value) {
                                           setState(() {
@@ -11116,8 +11116,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     if (artifactsetAselect == 'gladiator' || artifactsetBselect == 'gladiator')
                                       FilterChip(
                                         label: Text('2 set: ATK +18% '),
-                                        selectedColor: Colors.green[400],
-                                        backgroundColor: Colors.green[300],
+                                        selectedColor: Colors.red[400],
+                                        backgroundColor: Colors.red[300],
                                         selected: gladiator2On,
                                         onSelected: (bool value) {
                                           setState(() {
@@ -11128,8 +11128,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     if (artifactsetAselect == 'gladiator' && artifactsetBselect == 'gladiator')
                                       FilterChip(
                                         label: Text('4 set: Increase Normal Attack DMG by 35% (Using sword/claymore/poleram) '),
-                                        selectedColor: Colors.green[400],
-                                        backgroundColor: Colors.green[300],
+                                        selectedColor: Colors.red[400],
+                                        backgroundColor: Colors.red[300],
                                         selected: gladiator4On,
                                         onSelected: (bool value) {
                                           setState(() {
