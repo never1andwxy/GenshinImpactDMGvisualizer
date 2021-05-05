@@ -9242,14 +9242,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        buildStatRow(Colors.red, 'character%', '$baseCR'),
-                                        if (weaponCR != 0) buildStatRow(Colors.blue[700], 'weapon%', '$weaponCR'),
-                                        if (stat1CRpercentOn == true) buildStatRow(Colors.yellow[700], 'a1%', '$stat1CRpercent'),
-                                        if (stat2CRpercentOn == true) buildStatRow(Colors.pink[700], 'a2%', '$stat2CRpercent'),
-                                        if (stat3CRpercentOn == true) buildStatRow(Colors.blueGrey, 'a3%', '$stat3CRpercent'),
-                                        if (stat4CRpercentOn == true) buildStatRow(Colors.purple, 'a4%', '$stat4CRpercent'),
-                                        if (artifact5mainstatcat == 5) buildStatRow(Colors.purple, 'a5%', '$a5CR'),
-                                        if (stat5CRpercentOn == true) buildStatRow(Colors.teal, 'a5%', '$stat5CRpercent'),
+                                        buildStatRow(Colors.red, 'character', '$baseCR'),
+                                        if (weaponCR != 0) buildStatRow(Colors.blue[700], 'weapon', '$weaponCR'),
+                                        if (stat1CRpercentOn == true) buildStatRow(Colors.yellow[700], 'a1', '$stat1CRpercent'),
+                                        if (stat2CRpercentOn == true) buildStatRow(Colors.pink[700], 'a2', '$stat2CRpercent'),
+                                        if (stat3CRpercentOn == true) buildStatRow(Colors.blueGrey, 'a3', '$stat3CRpercent'),
+                                        if (stat4CRpercentOn == true) buildStatRow(Colors.purple, 'a4', '$stat4CRpercent'),
+                                        if (artifact5mainstatcat == 5) buildStatRow(Colors.purple, 'a5', '$a5CR'),
+                                        if (stat5CRpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CRpercent'),
                                         if (undividedHeartOn == true) buildStatRow(Colors.amber, 'Undevided Heart', '20'),
                                         if (blizzardstrayer41On == true) buildStatRow(Colors.blue[300], 'Blizzard Strayer 4 set(cryo)', '20'),
                                         if (blizzardstrayer42On == true) buildStatRow(Colors.blue[400], 'Blizzard Strayer 4 set(frozen)', '20'),
@@ -9434,172 +9434,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if ((baseCD - weaponCD) != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.red,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'chara%',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                  SelectableText(
-                                                    '$baseCD',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponCD != 0)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.blue,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'weapon%($weaponCD)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (stat1CDpercentOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.yellow[700],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a1%($stat1CDpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (stat2CDpercentOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.pink[700],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a2%($stat2CDpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (stat3CDpercentOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.blueGrey,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a3%($stat3CDpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (stat4CDpercentOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.purple,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a4%($stat4CDpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact5mainstatcat == 6)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.teal,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a5%($a5CD)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (stat5CDpercentOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.teal,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'a5%($stat5CDpercent)',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        if (echoingBalladOn == true)
-                                          Row(
-                                            children: [
-                                              Container(
-                                                width: 10,
-                                                height: 10,
-                                                color: Colors.tealAccent,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  SelectableText(
-                                                    'EchoingBallad%(' + (15 + weaponref * 5).toString() + ')',
-                                                    style: TextStyle(fontSize: 10),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                        buildStatRow(Colors.red, 'character', '$baseCD'),
+                                        if (weaponCD != 0) buildStatRow(Colors.blue, 'weapon', '$weaponCD'),
+                                        if (stat1CDpercentOn == true) buildStatRow(Colors.yellow[700], 'a1', '$stat1CDpercent'),
+                                        if (stat2CDpercentOn == true) buildStatRow(Colors.pink[700], 'a2', '$stat2CDpercent'),
+                                        if (stat3CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a3', '$stat3CDpercent'),
+                                        if (stat4CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a4', '$stat4CDpercent'),
+                                        if (artifact5mainstatcat == 6) buildStatRow(Colors.teal, 'a5', '$a5CD'),
+                                        if (stat5CDpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CDpercent'),
+                                        if (echoingBalladOn == true) buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
                                       ],
                                     ),
 
