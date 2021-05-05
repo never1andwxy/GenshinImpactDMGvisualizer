@@ -9595,7 +9595,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          if (strongWilled1On) buildStatRow(Colors.red, 'strong Willed1', (9 + weaponref * 3).toString()),
+                                          if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
                                           if (strongWilled2On) buildStatRow(Colors.blue, 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                         ],
                                       ),
@@ -9613,7 +9613,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   duration: Duration(milliseconds: 500),
                                                   width: (9 + weaponref * 3) * 2 as double,
                                                   height: 20,
-                                                  color: Colors.red,
+                                                  color: Colors.purple[300],
                                                 ),
                                               ],
                                             ),
@@ -9642,7 +9642,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          if (strongWilled1On) buildStatRow(Colors.red, 'strong Willed1', (9 + weaponref * 3).toString()),
+                                          if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
                                           if (strongWilled2On) buildStatRow(Colors.blue, 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                           if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
                                         ],
@@ -9661,7 +9661,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   duration: Duration(milliseconds: 500),
                                                   width: (9 + weaponref * 3) * 2 as double,
                                                   height: 20,
-                                                  color: Colors.red,
+                                                  color: Colors.purple[300],
                                                 ),
                                               ],
                                             ),
@@ -10890,6 +10890,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           FilterChip(
                                             label: Text('Strong-Willed1: Normal and Charged Attack DMG + ' + (9 + weaponref * 3).toString() + '%'),
                                             selected: true,
+                                            selectedColor: Colors.purple[300],
                                             onSelected: (bool value) {
                                               setState(() {});
                                             },
