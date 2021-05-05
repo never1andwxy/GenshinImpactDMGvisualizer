@@ -5881,7 +5881,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoPhysicalDMGpercent[level] != null) levelPhysicalDMGpercent = cleveltoPhysicalDMGpercent[level];
     if (weapontoPhysicalDMGpercent[weaponlv] != null) weaponPhysicalDMGpercent = weapontoPhysicalDMGpercent[weaponlv];
 
-    a4PhysicalDMGpercentMain = a4PhysicalDMGpercentbyLVL[sstar][slv];
+    a4PhysicalDMGpercentMain = a4PhysicalDMGpercentbyLVL[gstar][glv];
     a4PhysicalDMGpercent = artifact4mainstatcat == 5 ? a4PhysicalDMGpercentMain : 0;
 
     bonusPhysicalDMGpercent = levelPhysicalDMGpercent + weaponPhysicalDMGpercent + a4PhysicalDMGpercent;
@@ -5889,7 +5889,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoPyroDMGpercent[level] != null) levelPyroDMGpercent = cleveltoPyroDMGpercent[level];
     if (weapontoPyroDMGpercent[weaponlv] != null) weaponPyroDMGpercent = weapontoPyroDMGpercent[weaponlv];
 
-    a4PyroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4PyroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4PyroDMGpercent = artifact4mainstatcat == 6 ? a4PyroDMGpercentMain : 0;
 
     bonusPyroDMGpercent = levelPyroDMGpercent + weaponPyroDMGpercent + a4PyroDMGpercent;
@@ -5897,7 +5897,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoHydroDMGpercent[level] != null) levelHydroDMGpercent = cleveltoHydroDMGpercent[level];
     if (weapontoHydroDMGpercent[weaponlv] != null) weaponHydroDMGpercent = weapontoHydroDMGpercent[weaponlv];
 
-    a4HydroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4HydroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4HydroDMGpercent = artifact4mainstatcat == 7 ? a4HydroDMGpercentMain : 0;
 
     bonusHydroDMGpercent = levelHydroDMGpercent + weaponHydroDMGpercent + a4HydroDMGpercent;
@@ -5905,7 +5905,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoCryoDMGpercent[level] != null) levelCryoDMGpercent = cleveltoCryoDMGpercent[level];
     if (weapontoCryoDMGpercent[weaponlv] != null) weaponCryoDMGpercent = weapontoCryoDMGpercent[weaponlv];
 
-    a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4CryoDMGpercent = artifact4mainstatcat == 8 ? a4CryoDMGpercentMain : 0;
 
     bonusCryoDMGpercent = levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent + (blizzardstrayer2On ? 15 : 0);
@@ -5913,7 +5913,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoElectroDMGpercent[level] != null) levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
     if (weapontoElectroDMGpercent[weaponlv] != null) weaponElectroDMGpercent = weapontoElectroDMGpercent[weaponlv];
 
-    a4ElectroDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4ElectroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4ElectroDMGpercent = artifact4mainstatcat == 9 ? a4ElectroDMGpercentMain : 0;
 
     bonusElectroDMGpercent = levelElectroDMGpercent + weaponElectroDMGpercent + a4ElectroDMGpercent;
@@ -5921,7 +5921,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoAnemoDMGpercent[level] != null) levelAnemoDMGpercent = cleveltoAnemoDMGpercent[level];
     if (weapontoAnemoDMGpercent[weaponlv] != null) weaponAnemoDMGpercent = weapontoAnemoDMGpercent[weaponlv];
 
-    a4AnemoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4AnemoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4AnemoDMGpercent = artifact4mainstatcat == 10 ? a4AnemoDMGpercentMain : 0;
 
     bonusAnemoDMGpercent = levelAnemoDMGpercent + weaponAnemoDMGpercent + a4AnemoDMGpercent;
@@ -5929,7 +5929,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (cleveltoGeoDMGpercent[level] != null) levelGeoDMGpercent = cleveltoGeoDMGpercent[level];
     if (weapontoGeoDMGpercent[weaponlv] != null) weaponGeoDMGpercent = weapontoGeoDMGpercent[weaponlv];
 
-    a4GeoDMGpercentMain = a4ElementDMGpercentbyLVL[sstar][slv];
+    a4GeoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4GeoDMGpercent = artifact4mainstatcat == 11 ? a4GeoDMGpercentMain : 0;
 
     bonusGeoDMGpercent = levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
@@ -10350,7 +10350,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4PhysicalDMGpercent)',
+                                                    'a4%($a4PhysicalDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -10461,7 +10461,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4PyroDMGpercent)',
+                                                    'a4%($a4PyroDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -10572,7 +10572,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4HydroDMGpercent)',
+                                                    'a4%($a4HydroDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -10683,7 +10683,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4CryoDMGpercent)',
+                                                    'a4%($a4CryoDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -10829,7 +10829,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4ElectroDMGpercent)',
+                                                    'a4%($a4ElectroDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -10940,7 +10940,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4AnemoDMGpercent)',
+                                                    'a4%($a4AnemoDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
@@ -11051,7 +11051,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'a3%($a4GeoDMGpercent)',
+                                                    'a4%($a4GeoDMGpercent)',
                                                     style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
