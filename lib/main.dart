@@ -10086,45 +10086,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelGeoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: levelGeoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.red,
-                                              ),
-                                            ],
-                                          ),
-                                        if (weaponGeoDMGpercent != 0)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: weaponGeoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.blue,
-                                              ),
-                                            ],
-                                          ),
-                                        if (artifact4mainstatcat == 11)
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: a4GeoDMGpercent * 2,
-                                                height: 20,
-                                                color: Colors.purple,
-                                              ),
-                                            ],
-                                          ),
+                                        if (levelGeoDMGpercent != 0) buildstatbarpercent(Colors.red, levelGeoDMGpercent),
+                                        if (weaponGeoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponGeoDMGpercent),
+                                        if (artifact4mainstatcat == 11) buildstatbarpercent(Colors.purple, a4GeoDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Elemental Burst Damage Title
