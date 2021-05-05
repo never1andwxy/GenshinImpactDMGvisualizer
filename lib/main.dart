@@ -9596,7 +9596,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On) buildStatRow(Colors.blue, 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                         ],
                                       ),
                                     //ANCHOR statNormalATKDMG:bar
@@ -9626,7 +9626,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   duration: Duration(milliseconds: 500),
                                                   width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
                                                   height: 20,
-                                                  color: Colors.blue,
+                                                  color: Colors.blue[300],
                                                 ),
                                               ],
                                             ),
@@ -9643,7 +9643,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On) buildStatRow(Colors.blue, 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                           if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
                                         ],
                                       ),
@@ -9674,7 +9674,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   duration: Duration(milliseconds: 500),
                                                   width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
                                                   height: 20,
-                                                  color: Colors.blue,
+                                                  color: Colors.blue[300],
                                                 ),
                                               ],
                                             ),
@@ -10898,6 +10898,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           FilterChip(
                                             label: Text('Strong-Willed2: ' + (6 + weaponref * 2).toString() + '% every 0.1s the arrow is in the air for up to 5 times.'),
                                             selected: true,
+                                            selectedColor: Colors.blue[300],
                                             onSelected: (bool value) {
                                               setState(() {});
                                             },
