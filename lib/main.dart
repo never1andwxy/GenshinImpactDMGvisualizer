@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double baseCR = 5;
   Map<int, double> baseCRbylvl = {};
   double weaponCR = 0;
-  Map<int, double> weaponCRbylvl = {};
+  Map<int, double> weapontoCRpercent = {};
   double bonusCR = 0;
   double allCR = 0;
 
@@ -210,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage> {
     90: 88.4
   };
 
-  Map<int, double> weaponCDbyLVL = {};
+  Map<int, double> weapontoCDpercent = {};
 
   int lvlEM = 0;
   Map<int, int> baseEMbylvl = {};
@@ -1367,6 +1367,10 @@ class _MyHomePageState extends State<MyHomePage> {
   double celestialshowerdmgexp = 0;
   double celestialshowerdmgc = 0;
 
+  double echoingballaddmgnc = 0;
+  double echoingballaddmgexp = 0;
+  double echoingballaddmgc = 0;
+
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
   bool constellation1On = false;
@@ -1384,6 +1388,10 @@ class _MyHomePageState extends State<MyHomePage> {
   bool strongWilled1On = true;
   bool strongWilled2On = true;
   int strongWilled2Times = 1;
+
+  bool echoingBalladOn = false;
+
+  bool unreturningOn = false;
 
   bool pyro2On = false;
   bool cryo2On = false;
@@ -1457,6 +1465,135 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  //ANCHOR weaponstatcontrol
+  void weaponstatcontrol(String ws) {
+    weaponselect = ws;
+
+    //reset weapon sub stat
+    weapontoatkpercent = {};
+    weapontodefpercent = {};
+    weapontoERpercent = {};
+    weapontoPhysicalDMGpercent = {};
+    weapontoPyroDMGpercent = {};
+    weapontoHydroDMGpercent = {};
+    weapontoCryoDMGpercent = {};
+    weapontoElectroDMGpercent = {};
+    weapontoAnemoDMGpercent = {};
+    weapontoGeoDMGpercent = {};
+    weapontoHPpercent = {};
+    weapontoEM = {};
+    weapontoCRpercent = {};
+    weapontoCDpercent = {};
+
+    weaponHPpercent = 0;
+    weaponHPpercentstat = 0;
+    weaponatkpercent = 0;
+    weaponatkpercentstat = 0;
+    weapondefpercent = 0;
+    weapondefpercentstat = 0;
+    weaponERpercent = 0;
+    weaponCR = 0;
+    weaponCD = 0;
+    weaponEM = 0;
+
+    weaponPhysicalDMGpercent = 0;
+    weaponPyroDMGpercent = 0;
+    weaponHydroDMGpercent = 0;
+    weaponCryoDMGpercent = 0;
+    weaponElectroDMGpercent = 0;
+    weaponAnemoDMGpercent = 0;
+    weaponGeoDMGpercent = 0;
+
+    weaponBonus1NormalATKDMGpercent = 0;
+    weaponBonus2NormalATKDMGpercent = 0;
+    weaponBonus1ChargedATKDMGpercent = 0;
+    weaponBonus2ChargedATKDMGpercent = 0;
+    bloomWeaponBonus2ChargedATKDMGpercent = 0;
+
+    if (weaponselect == "amos") {
+      strongWilled1On = true;
+      strongWilled2On = true;
+      weapontoatkpercent = {
+        1: 10.8,
+        5: 12.5,
+        10: 14.7,
+        15: 16.9,
+        20: 19.1,
+        25: 21.3,
+        30: 23.4,
+        35: 25.6,
+        40: 27.8,
+        45: 30,
+        50: 32.2,
+        55: 34.4,
+        60: 36.5,
+        65: 38.7,
+        70: 40.9,
+        75: 43.1,
+        80: 45.3,
+        85: 47.4,
+        90: 49.6
+      };
+    } else {
+      strongWilled1On = false;
+      strongWilled2On = false;
+    }
+
+    if (weaponselect == "skywardharp") {
+      echoingBalladOn = true;
+      weapontoCRpercent = {
+        1: 4.8,
+        5: 5.6,
+        10: 6.5,
+        15: 7.5,
+        20: 8.5,
+        25: 9.5,
+        30: 10.4,
+        35: 11.4,
+        40: 12.4,
+        45: 13.3,
+        50: 14.3,
+        55: 15.3,
+        60: 16.2,
+        65: 17.2,
+        70: 18.2,
+        75: 19.1,
+        80: 20.1,
+        85: 21.1,
+        90: 22.1
+      };
+    } else {
+      echoingBalladOn = false;
+    }
+
+    if (weaponselect == "prototypecrescent") {
+      unreturningOn = true;
+      weapontoatkpercent = {
+        1: 9,
+        5: 10.5,
+        10: 12.3,
+        15: 14.1,
+        20: 15.9,
+        25: 17.7,
+        30: 19.5,
+        35: 21.4,
+        40: 23.2,
+        45: 25,
+        50: 26.8,
+        55: 28.6,
+        60: 30.4,
+        65: 32.3,
+        70: 34.1,
+        75: 35.7,
+        80: 37.7,
+        85: 39.5,
+        90: 41.3
+      };
+    } else {
+      unreturningOn = false;
+    }
+  }
+
   //ANCHOR weaponPopup
   Future _showSimpleDialogw() async {
     String result = "";
@@ -1514,7 +1651,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'amos';
+                        weaponstatcontrol('amos');
                       });
 
                       Navigator.pop(
@@ -1569,7 +1706,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'skywardharp';
+                        weaponstatcontrol('skywardharp');
                       });
                       Navigator.pop(
                         context,
@@ -1623,7 +1760,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'elegyfortheend';
+                        weaponstatcontrol('elegyfortheend');
                       });
                       Navigator.pop(
                         context,
@@ -1677,7 +1814,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'favoniuswarbow';
+                        weaponstatcontrol('favoniuswarbow');
                       });
                       Navigator.pop(
                         context,
@@ -1731,7 +1868,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'windblumeode';
+                        weaponstatcontrol('windblumeode');
                       });
                       Navigator.pop(
                         context,
@@ -1785,7 +1922,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'alleyhunter';
+                        weaponstatcontrol('alleyhunter');
                       });
                       Navigator.pop(
                         context,
@@ -1839,7 +1976,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'blackcliffwarbow';
+                        weaponstatcontrol('blackcliffwarbow');
                       });
                       Navigator.pop(
                         context,
@@ -1893,7 +2030,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'theviridescenthunt';
+                        weaponstatcontrol('theviridescenthunt');
                       });
                       Navigator.pop(
                         context,
@@ -1947,7 +2084,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'prototypecrescent';
+                        weaponstatcontrol('prototypecrescent');
                       });
                       Navigator.pop(
                         context,
@@ -2001,7 +2138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'compoundbow';
+                        weaponstatcontrol('compoundbow');
                       });
                       Navigator.pop(
                         context,
@@ -2055,7 +2192,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'thestringless';
+                        weaponstatcontrol('thestringless');
                       });
                       Navigator.pop(
                         context,
@@ -2108,7 +2245,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'rust';
+                        weaponstatcontrol('rust');
                       });
                       Navigator.pop(
                         context,
@@ -2162,7 +2299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'royalbow';
+                        weaponstatcontrol('royalbow');
                       });
                       Navigator.pop(
                         context,
@@ -2216,7 +2353,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'sacrificialbow';
+                        weaponstatcontrol('sacrificialbow');
                       });
                       Navigator.pop(
                         context,
@@ -2270,7 +2407,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'slingshot';
+                        weaponstatcontrol('slingshot');
                       });
                       Navigator.pop(
                         context,
@@ -2324,7 +2461,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'sharpshootersoath';
+                        weaponstatcontrol('sharpshootersoath');
                       });
                       Navigator.pop(
                         context,
@@ -2378,7 +2515,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'messenger';
+                        weaponstatcontrol('messenger');
                       });
                       Navigator.pop(
                         context,
@@ -2432,7 +2569,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'recurvebow';
+                        weaponstatcontrol('recurvebow');
                       });
                       Navigator.pop(
                         context,
@@ -2486,7 +2623,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'ravenbow';
+                        weaponstatcontrol('ravenbow');
                       });
                       Navigator.pop(
                         context,
@@ -2540,7 +2677,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        weaponselect = 'ebonybow';
+                        weaponstatcontrol('ebonybow');
                       });
                       Navigator.pop(
                         context,
@@ -5975,10 +6112,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
 
-    //weaponBonus
+    //bonusNormalATK
     bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
             (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
         as double;
+    //bonusChargedATK
     bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
         (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
         (troupesdawnlight4on ? 35 : 0) as double;
@@ -6008,7 +6146,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     weaponatkpercent = weapontoatkpercent[weaponlv];
 
-    weaponatkpercentstat = basicatk * weaponatkpercent / 100;
+    if (weaponatkpercent != null) {
+      weaponatkpercentstat = basicatk * weaponatkpercent / 100;
+    } else {
+      weaponatkpercent = 0;
+    }
 
     a2atk = a2atkbyLVL[pstar][plv];
     a3atkpercentMain = a3atkpercentbyLVL[sstar][slv];
@@ -6036,6 +6178,7 @@ class _MyHomePageState extends State<MyHomePage> {
         a5percentatkMain +
         a5percentatk +
         stat5atk +
+        (unreturningOn ? basicatk * (27 + weaponref * 9) / 100 : 0) +
         (pyro2On ? basicatk * 25 / 100 : 0) +
         (gladiator2On ? basicatk * 18 / 100 : 0) +
         (royalflora4On ? basicatk * 20 / 100 : 0);
@@ -6175,12 +6318,23 @@ class _MyHomePageState extends State<MyHomePage> {
     allEM = lvlEM + bonusEM;
 
     //CR params
-    if (baseCRbylvl[level] != null) baseCR = baseCRbylvl[level];
-    if (weaponCRbylvl[weaponlv] != null) weaponCR = weaponCRbylvl[weaponlv];
+    if (baseCRbylvl[level] != null) {
+      baseCR = baseCRbylvl[level];
+    } else {
+      baseCR = 5;
+    }
+
+    if (weapontoCRpercent[weaponlv] != null) {
+      weaponCR = weapontoCRpercent[weaponlv];
+    } else {
+      weaponCR = 0;
+    }
+
     a5CRmain = a5CRbyLVL[cstar][clv];
     a5CR = artifact5mainstatcat == 5 ? a5CRmain : 0;
-    baseCR += weaponCR;
-    bonusCR = a5CR +
+    //baseCR += weaponCR;
+    bonusCR = weaponCR +
+        a5CR +
         stat1CRpercent +
         stat2CRpercent +
         stat3CRpercent +
@@ -6194,16 +6348,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //CD params
     if (baseCDbyLVL[level] != null) baseCD = baseCDbyLVL[level];
-    if (weaponCDbyLVL[weaponlv] != null) weaponCD = weaponCDbyLVL[weaponlv];
+    if (weapontoCDpercent[weaponlv] != null)
+      weaponCD = weapontoCDpercent[weaponlv];
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
-    baseCD += weaponCD;
-    bonusCD = a5CD +
+    //baseCD += weaponCD;
+    bonusCD = weaponCD +
+        a5CD +
         stat1CDpercent +
         stat2CDpercent +
         stat3CDpercent +
         stat4CDpercent +
-        stat5CDpercent;
+        stat5CDpercent +
+        (echoingBalladOn ? (15 + weaponref * 5) : 0);
     allCD = baseCD + bonusCD;
 
     //DMG params
@@ -6782,6 +6939,29 @@ class _MyHomePageState extends State<MyHomePage> {
         enemyCryores *
         (1 + allCD / 100 * allCR / 100) *
         (royalflora2On ? (1 + 20 / 100) : 1);
+
+    echoingballaddmgc = allatk *
+        (125 / 100) *
+        (1 + allCD / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        enemyPhysicalres;
+
+    echoingballaddmgnc = allatk *
+        (125 / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        enemyPhysicalres;
+
+    echoingballaddmgexp = allatk *
+        (125 / 100) *
+        (1 + bonusPhysicalDMGpercent / 100) *
+        (100 + level) /
+        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
+        enemyPhysicalres *
+        (1 + allCD / 100 * allCR / 100);
 
     return Scaffold(
       appBar: AppBar(
@@ -8485,12 +8665,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Colors.red, 'level', '$levelatk'),
                                         buildStatRow(Colors.blue, 'weapon',
                                             '$weaponatk'),
-                                        buildStatRow(
-                                            Colors.green,
-                                            'weapon%($weaponatkpercent)',
-                                            double.parse(weaponatkpercentstat
-                                                    .toStringAsFixed(1))
-                                                .toString()),
+                                        if (weaponatkpercent != 0)
+                                          buildStatRow(
+                                              Colors.green,
+                                              'weapon%($weaponatkpercent)',
+                                              double.parse(weaponatkpercentstat
+                                                      .toStringAsFixed(1))
+                                                  .toString()),
                                         if (stat1atkOn == true)
                                           buildStatRow(
                                               Colors.red,
@@ -8595,6 +8776,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                               'Noblesse4(20%)',
                                               (basicatk * 20 / 100)
                                                   .toStringAsFixed(1)),
+                                        if (unreturningOn == true)
+                                          buildStatRow(
+                                              Colors.tealAccent,
+                                              'Unreturning(' +
+                                                  (27 + weaponref * 9)
+                                                      .toStringAsFixed(1) +
+                                                  '%)',
+                                              (basicatk *
+                                                      (27 + weaponref * 9) /
+                                                      100)
+                                                  .toStringAsFixed(1)),
                                       ],
                                     ),
 
@@ -8652,6 +8844,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (royalflora4On == true)
                                           buildstatbar(Colors.purple,
                                               (basicatk * 20 / 100)),
+                                        if (unreturningOn == true)
+                                          buildstatbar(
+                                              Colors.tealAccent,
+                                              (basicatk *
+                                                  (27 + weaponref * 9) /
+                                                  100)),
                                       ],
                                     ),
                                   ],
@@ -10317,7 +10515,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Column(
                                               children: [
                                                 SelectableText(
-                                                  'baseCR%',
+                                                  'chara%',
                                                   style:
                                                       TextStyle(fontSize: 10),
                                                 ),
@@ -10336,7 +10534,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Container(
                                                 width: 10,
                                                 height: 10,
-                                                color: Colors.green,
+                                                color: Colors.blue[700],
                                               ),
                                               Column(
                                                 children: [
@@ -10591,7 +10789,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Duration(milliseconds: 500),
                                                 width: weaponCR * 2,
                                                 height: 20,
-                                                color: Colors.green,
+                                                color: Colors.blue[700],
                                               ),
                                             ],
                                           ),
@@ -10784,7 +10982,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 children: [
                                                   SelectableText(
-                                                    'baseCD%',
+                                                    'chara%',
                                                     style:
                                                         TextStyle(fontSize: 10),
                                                   ),
@@ -10803,7 +11001,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Container(
                                                 width: 10,
                                                 height: 10,
-                                                color: Colors.green,
+                                                color: Colors.blue,
                                               ),
                                               Column(
                                                 children: [
@@ -10930,6 +11128,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (echoingBalladOn == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.tealAccent,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'EchoingBallad%(' +
+                                                        (15 + weaponref * 5)
+                                                            .toString() +
+                                                        ')',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
 
@@ -10963,7 +11183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Duration(milliseconds: 500),
                                                 width: weaponCD * 2,
                                                 height: 20,
-                                                color: Colors.green,
+                                                color: Colors.blue,
                                               ),
                                             ],
                                           ),
@@ -11054,6 +11274,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: stat5CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.teal,
+                                              ),
+                                            ],
+                                          ),
+                                        if (echoingBalladOn == true)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: (15 + weaponref * 5) * 2
+                                                    as double,
+                                                height: 20,
+                                                color: Colors.tealAccent,
                                               ),
                                             ],
                                           ),
@@ -13403,83 +13639,152 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                       ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          label: Text(
-                                              'Strong-Willed1: Normal and Charged Attack DMG + ' +
-                                                  (9 + weaponref * 3)
-                                                      .toString() +
-                                                  '%'),
-                                          selected: true,
-                                          onSelected: (bool value) {
-                                            setState(() {});
-                                          },
-                                        ),
-                                        FilterChip(
-                                          label: Text('Strong-Willed2: ' +
-                                              (6 + weaponref * 2).toString() +
-                                              '% every 0.1s the arrow is in the air for up to 5 times.'),
-                                          selected: true,
-                                          onSelected: (bool value) {
-                                            setState(() {});
-                                          },
-                                        ),
-                                      ]),
-                                  SizedBox(height: 10),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        ChoiceChip(
-                                          label: Text('0.1s'),
-                                          selected: (strongWilled2Times == 1),
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              strongWilled2Times = 1;
-                                            });
-                                          },
-                                        ),
-                                        ChoiceChip(
-                                          label: Text('0.2s'),
-                                          selected: (strongWilled2Times == 2),
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              strongWilled2Times = 2;
-                                            });
-                                          },
-                                        ),
-                                        ChoiceChip(
-                                          label: Text('0.3s'),
-                                          selected: (strongWilled2Times == 3),
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              strongWilled2Times = 3;
-                                            });
-                                          },
-                                        ),
-                                        ChoiceChip(
-                                          label: Text('0.4s'),
-                                          selected: (strongWilled2Times == 4),
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              strongWilled2Times = 4;
-                                            });
-                                          },
-                                        ),
-                                        ChoiceChip(
-                                          label: Text('0.5s'),
-                                          selected: (strongWilled2Times == 5),
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              strongWilled2Times = 5;
-                                            });
-                                          },
-                                        ),
-                                      ]),
-                                  SizedBox(height: 10),
+                                  if (strongWilled1On)
+                                    Column(
+                                      children: [
+                                        Wrap(
+                                            spacing: 10,
+                                            runSpacing: 10,
+                                            children: <Widget>[
+                                              FilterChip(
+                                                label: Text(
+                                                    'Strong-Willed1: Normal and Charged Attack DMG + ' +
+                                                        (9 + weaponref * 3)
+                                                            .toString() +
+                                                        '%'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                              FilterChip(
+                                                label: Text('Strong-Willed2: ' +
+                                                    (6 + weaponref * 2)
+                                                        .toString() +
+                                                    '% every 0.1s the arrow is in the air for up to 5 times.'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                            ]),
+                                        SizedBox(height: 10),
+                                        Wrap(
+                                            spacing: 10,
+                                            runSpacing: 10,
+                                            children: <Widget>[
+                                              ChoiceChip(
+                                                label: Text('0.1s'),
+                                                selected:
+                                                    (strongWilled2Times == 1),
+                                                onSelected: (bool value) {
+                                                  setState(() {
+                                                    strongWilled2Times = 1;
+                                                  });
+                                                },
+                                              ),
+                                              ChoiceChip(
+                                                label: Text('0.2s'),
+                                                selected:
+                                                    (strongWilled2Times == 2),
+                                                onSelected: (bool value) {
+                                                  setState(() {
+                                                    strongWilled2Times = 2;
+                                                  });
+                                                },
+                                              ),
+                                              ChoiceChip(
+                                                label: Text('0.3s'),
+                                                selected:
+                                                    (strongWilled2Times == 3),
+                                                onSelected: (bool value) {
+                                                  setState(() {
+                                                    strongWilled2Times = 3;
+                                                  });
+                                                },
+                                              ),
+                                              ChoiceChip(
+                                                label: Text('0.4s'),
+                                                selected:
+                                                    (strongWilled2Times == 4),
+                                                onSelected: (bool value) {
+                                                  setState(() {
+                                                    strongWilled2Times = 4;
+                                                  });
+                                                },
+                                              ),
+                                              ChoiceChip(
+                                                label: Text('0.5s'),
+                                                selected:
+                                                    (strongWilled2Times == 5),
+                                                onSelected: (bool value) {
+                                                  setState(() {
+                                                    strongWilled2Times = 5;
+                                                  });
+                                                },
+                                              ),
+                                            ]),
+                                        SizedBox(height: 10),
+                                      ],
+                                    ),
+                                  if (echoingBalladOn)
+                                    Column(
+                                      children: [
+                                        Wrap(
+                                            spacing: 10,
+                                            runSpacing: 10,
+                                            children: <Widget>[
+                                              FilterChip(
+                                                label: Text(
+                                                    'Echoing Ballad1: Crit DMG + ' +
+                                                        (15 + weaponref * 5)
+                                                            .toString() +
+                                                        '%'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                              SizedBox(height: 10),
+                                              FilterChip(
+                                                label: Text('Echoing Ballad2: ' +
+                                                    (50 + weaponref * 10)
+                                                        .toString() +
+                                                    '% chance get a 125% Physical ATK AoE DMG every ' +
+                                                    (4.5 - weaponref * 0.5)
+                                                        .toString() +
+                                                    's'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                            ]),
+                                        SizedBox(height: 10),
+                                      ],
+                                    ),
+                                  if (unreturningOn)
+                                    Column(
+                                      children: [
+                                        Wrap(
+                                            spacing: 10,
+                                            runSpacing: 10,
+                                            children: <Widget>[
+                                              FilterChip(
+                                                label: Text(
+                                                    'Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' +
+                                                        (27 + weaponref * 9)
+                                                            .toString() +
+                                                        '% ATK for 10s'),
+                                                selected: true,
+                                                onSelected: (bool value) {
+                                                  setState(() {});
+                                                },
+                                              ),
+                                            ]),
+                                        SizedBox(height: 10),
+                                      ],
+                                    ),
                                 ],
                               ),
 
@@ -15818,6 +16123,120 @@ class _MyHomePageState extends State<MyHomePage> {
                                   SizedBox(height: 10),
                                 ],
                               ),
+                              if (echoingBalladOn)
+                                //ANCHOR Echoing Ballad Physical AoE
+                                Column(
+                                  children: [
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: <Widget>[
+                                          SelectableText(
+                                            'Echoing Ballad Physical AoE:(125%)',
+                                            style: TextStyle(
+                                              //fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ]),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(echoingballaddmgnc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[500],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(echoingballaddmgexp
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[700],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(echoingballaddmgc
+                                                  .toStringAsFixed(1))
+                                              .toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.grey[900],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: echoingballaddmgc / 50,
+                                              height: 20,
+                                              color: Colors.grey[900],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: echoingballaddmgexp / 50,
+                                              height: 20,
+                                              color: Colors.grey[700],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              width: echoingballaddmgnc / 50,
+                                              height: 20,
+                                              color: Colors.grey[500],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                             ],
                           ),
                         ),
