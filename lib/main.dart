@@ -250,6 +250,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double bonusElectroDMGpercent = 0;
   double bonusAnemoDMGpercent = 0;
   double bonusGeoDMGpercent = 0;
+  double bonusBurstDMGpercent = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
@@ -1386,6 +1387,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool pyro2On = false;
   bool cryo2On = false;
+
+  int noblesseBonus = 20;
 
   String _label = '';
 
@@ -2755,7 +2758,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Gladiator Finale',
+                            'Gladiator\'s Finale',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -2986,7 +2989,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Gladiator Finale',
+                            'Gladiator\'s Finale',
                             style: TextStyle(
                               //fontWeight: FontWeight.bold,
                               color: Colors.black,
@@ -5979,6 +5982,8 @@ class _MyHomePageState extends State<MyHomePage> {
     bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
         (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
         (troupesdawnlight4on ? 35 : 0) as double;
+
+    bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
 
     if (strongWilled2Times <= 3) {
       bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
@@ -12247,6 +12252,69 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 width: a4GeoDMGpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR Elemental Burst Damage Title
+                                    if (bonusBurstDMGpercent != 0)
+                                      SelectableText(
+                                        'Elemental Burst Damage:' +
+                                            double.parse(bonusBurstDMGpercent
+                                                    .toStringAsFixed(1))
+                                                .toString() +
+                                            '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statBurstDMG:stats
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (royalflora2On == true)
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 10,
+                                                height: 10,
+                                                color: Colors.red,
+                                              ),
+                                              Column(
+                                                children: [
+                                                  SelectableText(
+                                                    'Noblesse Oblige 2 Set',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  ),
+                                                  SelectableText(
+                                                    '20',
+                                                    style:
+                                                        TextStyle(fontSize: 10),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                      ],
+                                    ),
+                                    //ANCHOR statBurstDMG:bar
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        if (bonusBurstDMGpercent != 0)
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              AnimatedContainer(
+                                                curve: Curves.easeIn,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                                width: bonusBurstDMGpercent * 2,
+                                                height: 20,
+                                                color: Colors.red,
                                               ),
                                             ],
                                           ),
