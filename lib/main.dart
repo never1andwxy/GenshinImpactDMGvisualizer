@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 void main() {
@@ -198,6 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double bonusAnemoDMGpercent = 0;
   double bonusGeoDMGpercent = 0;
   double bonusBurstDMGpercent = 0;
+  double bonusDMGpercent = 0;
 
   int weaponatk = 0;
   int basicatk = 0;
@@ -1000,6 +1002,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool pyro2On = false;
   bool cryo2On = false;
+  bool zhonglieOn = false;
+  bool dragonslayerOn = false;
+  int bennetbasicatk = 500;
+  int bennetqlv = 8;
+  bool bennetqOn = false;
+  var bennetqlvtoratio = {
+    1: 56,
+    2: 60.2,
+    3: 64.4,
+    4: 70,
+    5: 74.2,
+    6: 78.4,
+    7: 84,
+    8: 89.6,
+    9: 95.2,
+    10: 100.8,
+    11: 106.4,
+    12: 112,
+    13: 119,
+    14: 126,
+    15: 133,
+  };
+
+  int monaqlv = 8;
+  bool monaqOn = false;
+  var monaqlvtoratio = {
+    1: 42,
+    2: 44,
+    3: 46,
+    4: 48,
+    5: 50,
+    6: 52,
+    7: 54,
+    8: 56,
+    9: 58,
+    10: 60,
+    11: 60,
+    12: 60,
+    13: 60,
+    14: 60,
+    15: 60,
+  };
 
   int noblesseBonus = 20;
 
@@ -5668,8 +5712,10 @@ class _MyHomePageState extends State<MyHomePage> {
     bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
     //bonusChargedATK
     bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) + (troupesdawnlight4on ? 35 : 0) as double;
-
+//bonusBurstATK
     bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
+//bonusDMG
+    bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) as double;
 
     if (strongWilled2Times <= 3) {
       bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
@@ -5724,7 +5770,9 @@ class _MyHomePageState extends State<MyHomePage> {
         (unreturningOn ? basicatk * (27 + weaponref * 9) / 100 : 0) +
         (pyro2On ? basicatk * 25 / 100 : 0) +
         (gladiator2On ? basicatk * 18 / 100 : 0) +
-        (royalflora4On ? basicatk * 20 / 100 : 0);
+        (royalflora4On ? basicatk * 20 / 100 : 0) +
+        (dragonslayerOn ? basicatk * 48 / 100 : 0) +
+        (bennetqOn ? bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100 : 0);
 
     allatk = basicatk + bonusatk;
 
@@ -5936,7 +5984,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //enemyparams
 
-    enemyPhysicalresv = eneresbytype[enemytype]['physical'];
+    enemyPhysicalresv = eneresbytype[enemytype]['physical'] - (zhonglieOn ? 20 : 0);
     if (enemyPhysicalresv < 0)
       enemyPhysicalres = 1 - enemyPhysicalresv / 2 / 100;
     else if (enemyPhysicalresv < 76)
@@ -5946,7 +5994,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyPhysicalres = 0;
 
-    enemyPyroresv = eneresbytype[enemytype]['pyro'];
+    enemyPyroresv = eneresbytype[enemytype]['pyro'] - (zhonglieOn ? 20 : 0);
     if (enemyPyroresv < 0)
       enemyPyrores = 1 - enemyPyroresv / 2 / 100;
     else if (enemyPyroresv < 76)
@@ -5956,7 +6004,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyPyrores = 0;
 
-    enemyHydroresv = eneresbytype[enemytype]['hydro'];
+    enemyHydroresv = eneresbytype[enemytype]['hydro'] - (zhonglieOn ? 20 : 0);
     if (enemyHydroresv < 0)
       enemyHydrores = 1 - enemyHydroresv / 2 / 100;
     else if (enemyHydroresv < 76)
@@ -5966,7 +6014,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyHydrores = 0;
 
-    enemyDendroresv = eneresbytype[enemytype]['dendro'];
+    enemyDendroresv = eneresbytype[enemytype]['dendro'] - (zhonglieOn ? 20 : 0);
     if (enemyDendroresv < 0)
       enemyDendrores = 1 - enemyDendroresv / 2 / 100;
     else if (enemyDendroresv < 76)
@@ -5976,7 +6024,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyDendrores = 0;
 
-    enemyElectroresv = eneresbytype[enemytype]['electro'];
+    enemyElectroresv = eneresbytype[enemytype]['electro'] - (zhonglieOn ? 20 : 0);
     if (enemyElectroresv < 0)
       enemyElectrores = 1 - enemyElectroresv / 2 / 100;
     else if (enemyElectroresv < 76)
@@ -5986,7 +6034,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyElectrores = 0;
 
-    enemyAnemoresv = eneresbytype[enemytype]['anemo'];
+    enemyAnemoresv = eneresbytype[enemytype]['anemo'] - (zhonglieOn ? 20 : 0);
     if (enemyAnemoresv < 0)
       enemyAnemores = 1 - enemyAnemoresv / 2 / 100;
     else if (enemyAnemoresv < 76)
@@ -5996,7 +6044,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyAnemores = 0;
 
-    enemyCryoresv = eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0);
+    enemyCryoresv = eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0) - (zhonglieOn ? 20 : 0);
     if (enemyCryoresv < 0)
       enemyCryores = 1 - enemyCryoresv / 2 / 100;
     else if (enemyCryoresv < 76)
@@ -6006,7 +6054,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyCryores = 0;
 
-    enemyGeoresv = eneresbytype[enemytype]['geo'];
+    enemyGeoresv = eneresbytype[enemytype]['geo'] - (zhonglieOn ? 20 : 0);
     if (enemyGeoresv < 0)
       enemyGeores = 1 - enemyGeoresv / 2 / 100;
     else if (enemyGeoresv < 76)
@@ -7926,6 +7974,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (royalflora4On == true) buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
                                         if (unreturningOn == true)
                                           buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
+                                        if (dragonslayerOn) buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
+                                        if (bennetqOn) buildStatRow(Colors.red, 'Bennet(burst)', (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
                                       ],
                                     ),
 
@@ -7953,6 +8003,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (gladiator2On == true) buildstatbar(Colors.red, (basicatk * 18 / 100)),
                                         if (royalflora4On == true) buildstatbar(Colors.blue, (basicatk * 20 / 100)),
                                         if (unreturningOn == true) buildstatbar(Colors.tealAccent, (basicatk * (27 + weaponref * 9) / 100)),
+                                        if (dragonslayerOn) buildstatbar(Colors.grey, (basicatk * 48 / 100)),
+                                        if (bennetqOn) buildstatbar(Colors.red, (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100)),
                                       ],
                                     ),
                                   ],
@@ -9883,6 +9935,27 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (royalflora2On) buildstatbarpercent(Colors.blue, 20),
                                       ],
                                     ),
+
+                                    //ANCHOR  Damage Bonus Title
+                                    if (bonusDMGpercent != 0)
+                                      SelectableText(
+                                        'Damage Bonus:' + double.parse(bonusDMGpercent.toStringAsFixed(1)).toString() + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statBonusDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (monaqOn) buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
+                                      ],
+                                    ),
+                                    //ANCHOR statBonusDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (monaqOn) buildstatbarpercent(Colors.purple[300], (monaqlvtoratio[monaqlv] * 1)),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
@@ -11193,6 +11266,327 @@ class _MyHomePageState extends State<MyHomePage> {
                                       },
                                     ),
                                   ]),
+                                  SizedBox(height: 10),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Character Buffs',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    FilterChip(
+                                      selectedColor: Colors.yellow,
+                                      backgroundColor: Colors.yellow[200],
+                                      label: Text('Zhongli(skill):Enemy All res - 20%'),
+                                      selected: zhonglieOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          zhonglieOn = value;
+                                        });
+                                      },
+                                    ),
+                                    FilterChip(
+                                      selectedColor: Colors.grey,
+                                      backgroundColor: Colors.grey[200],
+                                      label: Text('Thrilling Tales of Dragon Slayers(R5): ATK +48%'),
+                                      selected: dragonslayerOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          dragonslayerOn = value;
+                                        });
+                                      },
+                                    ),
+                                  ]),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red,
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('Bennet(burst)'),
+                                        selected: bennetqOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            bennetqOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 150,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bennet Basic atk:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "500",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                bennetbasicatk = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      SelectableText(
+                                        'Bennet Burst lv:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        //height: 50.0,
+                                        width: 50.0,
+                                        child: DropdownButton(
+                                            //isExpanded: true,
+                                            value: bennetqlv,
+                                            iconSize: 20,
+                                            items: [
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "1",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 1,
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "2",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 2,
+                                              ),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "3",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 3),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "4",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 4),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "5",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 5),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "6",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 6,
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "7",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 7,
+                                              ),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "8",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 8),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "9",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 9),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "10",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 10),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "11",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 11),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "12",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 12),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "13",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 13),
+                                            ],
+                                            onChanged: (value) {
+                                              setState(() {
+                                                bennetqlv = value;
+                                              });
+                                            }),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.purple[300],
+                                        backgroundColor: Colors.purple[200],
+                                        label: Text('Mona(burst)'),
+                                        selected: monaqOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            monaqOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      SelectableText(
+                                        'Mona Burst lv:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        //height: 50.0,
+                                        width: 50.0,
+                                        child: DropdownButton(
+                                            //isExpanded: true,
+                                            value: monaqlv,
+                                            iconSize: 20,
+                                            items: [
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "1",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 1,
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "2",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 2,
+                                              ),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "3",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 3),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "4",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 4),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "5",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 5),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "6",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 6,
+                                              ),
+                                              DropdownMenuItem(
+                                                child: Text(
+                                                  "7",
+                                                  style: TextStyle(fontSize: 15),
+                                                ),
+                                                value: 7,
+                                              ),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "8",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 8),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "9",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 9),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "10",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 10),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "11",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 11),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "12",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 12),
+                                              DropdownMenuItem(
+                                                  child: Text(
+                                                    "13",
+                                                    style: TextStyle(fontSize: 15),
+                                                  ),
+                                                  value: 13),
+                                            ],
+                                            onChanged: (value) {
+                                              setState(() {
+                                                monaqlv = value;
+                                              });
+                                            }),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
                                 ],
                               ),
