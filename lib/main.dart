@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Genshin damage calculator'),
     );
@@ -1044,6 +1044,11 @@ class _MyHomePageState extends State<MyHomePage> {
     14: 60,
     15: 60,
   };
+
+  bool manualatkOn = false;
+  int manualatk = 0;
+  bool manualatkpercentOn = false;
+  int manualatkpercent = 0;
 
   int noblesseBonus = 20;
 
@@ -5772,7 +5777,9 @@ class _MyHomePageState extends State<MyHomePage> {
         (gladiator2On ? basicatk * 18 / 100 : 0) +
         (royalflora4On ? basicatk * 20 / 100 : 0) +
         (dragonslayerOn ? basicatk * 48 / 100 : 0) +
-        (bennetqOn ? bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100 : 0);
+        (bennetqOn ? bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100 : 0) +
+        (manualatkOn ? manualatk : 0) +
+        (manualatkpercentOn ? basicatk * manualatkpercent / 100 : 0);
 
     allatk = basicatk + bonusatk;
 
@@ -7976,6 +7983,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                           buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
                                         if (dragonslayerOn) buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
                                         if (bennetqOn) buildStatRow(Colors.red, 'Bennet(burst)', (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
+                                        if (manualatkOn) buildStatRow(Colors.red[300], 'Manual:ATK', (manualatk.toStringAsFixed(1))),
+                                        if (manualatkpercentOn) buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)', ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
                                       ],
                                     ),
 
@@ -8005,6 +8014,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (unreturningOn == true) buildstatbar(Colors.tealAccent, (basicatk * (27 + weaponref * 9) / 100)),
                                         if (dragonslayerOn) buildstatbar(Colors.grey, (basicatk * 48 / 100)),
                                         if (bennetqOn) buildstatbar(Colors.red, (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100)),
+                                        if (manualatkOn) buildstatbar(Colors.red[300], (manualatk)),
+                                        if (manualatkpercentOn) buildstatbar(Colors.red[300], (basicatk * manualatkpercent / 100)),
                                       ],
                                     ),
                                   ],
@@ -11608,29 +11619,99 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ]),
                                 ]),
                                 children: <Widget>[
-                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-                                    SelectableText(
-                                      'Talents',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('ATK(manual)'),
+                                        selected: manualatkOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualatkOn = value;
+                                          });
+                                        },
                                       ),
-                                    ),
-                                  ]),
-                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
-                                    FilterChip(
-                                      selectedColor: Colors.amber,
-                                      backgroundColor: Colors.amber[200],
-                                      label: Text('Undivided Heart: CRIT Rate + 20%'),
-                                      selected: undividedHeartOn,
-                                      onSelected: (bool value) {
-                                        setState(() {
-                                          undividedHeartOn = value;
-                                        });
-                                      },
-                                    ),
-                                  ]),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus atk:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualatk = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('ATK%(manual)'),
+                                        selected: manualatkpercentOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualatkpercentOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus atk%:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualatkpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
                                 ],
                               ),
