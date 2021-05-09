@@ -1084,7 +1084,10 @@ class _MyHomePageState extends State<MyHomePage> {
   double superconductDMG = 0;
   double electrochargedDMG = 0;
   double shatteredDMG = 0;
-  double swirlDMG = 0;
+  double swirlDMGonPyro = 0;
+  double swirlDMGonCryo = 0;
+  double swirlDMGonHydro = 0;
+  double swirlDMGonElectro = 0;
 
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
@@ -6550,8 +6553,22 @@ class _MyHomePageState extends State<MyHomePage> {
     celestialshowerdmgpercent = natklvtoskill['Celestial Shower DMG'][eburstlv];
 
     superconductDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400))) + (thunderbird4On == true ? 0.4 : 0)) * 100;
-
     superconductDMG = electroReactionBaseBYlv[level] * 1 * superconductDMGpercent / 100 * enemyCryores;
+
+    overloadDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400))) + (thunderbird4On == true ? 0.4 : 0)) * 100;
+    overloadDMG = electroReactionBaseBYlv[level] * 4 * overloadDMGpercent / 100 * enemyPyrores;
+
+    electrochargedDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400))) + (thunderbird4On == true ? 0.4 : 0)) * 100;
+    electrochargedDMG = electroReactionBaseBYlv[level] * 2.4 * electrochargedDMGpercent / 100 * enemyElectrores;
+
+    shatteredDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100;
+    shatteredDMG = electroReactionBaseBYlv[level] * 3 * shatteredDMGpercent / 100 * enemyPhysicalres;
+
+    swirlDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100;
+    swirlDMGonHydro = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyHydrores;
+    swirlDMGonPyro = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyPyrores;
+    swirlDMGonElectro = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyElectrores;
+    swirlDMGonCryo = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyCryores;
 
     hit1dmgc = allatk *
         (hit1dmgpercent / 100) *
@@ -10852,6 +10869,90 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
                                       ],
                                     ),
+                                    //ANCHOR Overloaded Damage Title
+                                    if (overloadDMGpercent > 100)
+                                      SelectableText(
+                                        'Overloaded Damage Plus:' + (overloadDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statOverloadedDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
+                                      ],
+                                    ),
+                                    //ANCHOR statOverloadedDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                        if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
+                                      ],
+                                    ),
+                                    //ANCHOR Electro-Charged Damage Title
+                                    if (electrochargedDMGpercent > 100)
+                                      SelectableText(
+                                        'Electro-Charge Damage Plus:' + (electrochargedDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statElectro-ChargedDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
+                                      ],
+                                    ),
+                                    //ANCHOR statElectro-ChargedDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                        if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
+                                      ],
+                                    ),
+                                    //ANCHOR Shattered Damage Title
+                                    if (shatteredDMGpercent > 100)
+                                      SelectableText(
+                                        'Shattered Damage Plus:' + (shatteredDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statShatteredDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                      ],
+                                    ),
+                                    //ANCHOR statShatteredDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                      ],
+                                    ),
+                                    //ANCHOR Swirl Damage Title
+                                    if (shatteredDMGpercent > 100)
+                                      SelectableText(
+                                        'Swirl Damage Plus:' + (swirlDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statShatteredDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                      ],
+                                    ),
+                                    //ANCHOR statShatteredDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
@@ -14695,6 +14796,316 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: superconductDMG / 50,
                                         height: 20,
                                         color: Colors.lightBlue[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              //ANCHOR Overloaded DMG
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Overloaded:(' + (overloadDMGpercent * 4).toStringAsFixed(1) + '%)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(overloadDMG.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.red[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: overloadDMG / 50,
+                                        height: 20,
+                                        color: Colors.red[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              //ANCHOR Electro-Charged DMG
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Electro-Charged:(' + (electrochargedDMGpercent * 2.4).toStringAsFixed(1) + '% * 2)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(electrochargedDMG.toStringAsFixed(1)).toString() + ' * 2',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.purple[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: electrochargedDMG / 50,
+                                        height: 20,
+                                        color: Colors.purple[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              //ANCHOR Shattered DMG
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Shattered:(' + shatteredDMGpercent.toStringAsFixed(1) + '%)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(shatteredDMG.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.grey[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: shatteredDMG / 50,
+                                        height: 20,
+                                        color: Colors.grey[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              //ANCHOR swirl DMG
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Swirl:(' + swirlDMGpercent.toStringAsFixed(1) + '%)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG on Cryo:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(swirlDMGonCryo.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: swirlDMGonCryo / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG on Pyro:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(swirlDMGonPyro.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.red[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: swirlDMGonPyro / 50,
+                                        height: 20,
+                                        color: Colors.red[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG on Hydro:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(swirlDMGonHydro.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.blue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: swirlDMGonHydro / 50,
+                                        height: 20,
+                                        color: Colors.blue[400],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG on Electro:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(swirlDMGonElectro.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.purple[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: swirlDMGonElectro / 50,
+                                        height: 20,
+                                        color: Colors.purple[400],
                                       ),
                                     ],
                                   ),
