@@ -63,18 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String fsub1n = 'HP%';
 
-  Map<int, int> cleveltoatk = {
-    1: 26,
-    10: 26,
-    20: 68,
-    30: 68,
-    40: 135,
-    50: 173,
-    60: 217,
-    70: 256,
-    80: 295,
-    90: 335
-  };
+  Map<int, int> cleveltoatk = {1: 26, 10: 26, 20: 68, 30: 68, 40: 135, 50: 173, 60: 217, 70: 256, 80: 295, 90: 335};
 
   int levelatk = 0;
 
@@ -93,27 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<int, double> cleveltoGeoDMGpercent = {};
   double levelGeoDMGpercent = 0;
 
-  Map<int, int> weapontoatk = {
-    1: 46,
-    5: 62,
-    10: 82,
-    15: 102,
-    20: 122,
-    25: 173,
-    30: 194,
-    35: 214,
-    40: 235,
-    45: 287,
-    50: 308,
-    55: 361,
-    60: 382,
-    65: 435,
-    70: 457,
-    75: 510,
-    80: 532,
-    85: 586,
-    90: 608
-  };
+  Map<int, int> weapontoatk = {1: 46, 5: 62, 10: 82, 15: 102, 20: 122, 25: 173, 30: 194, 35: 214, 40: 235, 45: 287, 50: 308, 55: 361, 60: 382, 65: 435, 70: 457, 75: 510, 80: 532, 85: 586, 90: 608};
 
   Map<int, double> weapontoatkpercent = {
     1: 10.8,
@@ -137,20 +106,102 @@ class _MyHomePageState extends State<MyHomePage> {
     90: 49.6
   };
 
+  Map<int, double> electroReactionBaseBYlv = {
+    1: 8,
+    2: 9,
+    3: 9,
+    4: 10,
+    5: 11,
+    6: 12,
+    7: 12,
+    8: 13,
+    9: 16,
+    10: 17,
+    11: 18,
+    12: 20,
+    13: 22,
+    14: 23,
+    15: 27,
+    16: 29,
+    17: 31,
+    18: 34,
+    19: 37,
+    20: 40,
+    21: 42,
+    22: 46,
+    23: 48,
+    24: 51,
+    25: 53,
+    26: 56,
+    27: 59,
+    28: 61,
+    29: 64,
+    30: 68,
+    31: 71,
+    32: 74,
+    33: 77,
+    34: 80,
+    35: 84,
+    36: 88,
+    37: 91,
+    38: 96,
+    39: 99,
+    40: 103,
+    41: 107,
+    42: 111,
+    43: 117,
+    44: 121,
+    45: 128,
+    46: 133,
+    47: 140,
+    48: 147,
+    49: 154,
+    50: 161,
+    51: 168,
+    52: 174,
+    53: 182,
+    54: 189,
+    55: 199,
+    56: 208,
+    57: 217,
+    58: 226,
+    59: 236,
+    60: 244,
+    61: 254,
+    62: 266,
+    63: 278,
+    64: 290,
+    65: 303,
+    66: 314,
+    67: 326,
+    68: 337,
+    69: 348,
+    70: 360,
+    71: 371,
+    72: 382,
+    73: 391,
+    74: 401,
+    75: 414,
+    76: 427,
+    77: 438,
+    78: 450,
+    79: 461,
+    80: 472,
+    81: 483,
+    82: 494,
+    83: 507,
+    84: 518,
+    85: 532,
+    86: 544,
+    87: 557,
+    88: 570,
+    89: 586,
+    90: 601
+  };
+
   int lvldef = 0;
 
-  Map<int, int> baseDEFbyLV = {
-    1: 49,
-    10: 49,
-    20: 127,
-    30: 169,
-    40: 253,
-    50: 326,
-    60: 409,
-    70: 482,
-    80: 556,
-    90: 630
-  };
+  Map<int, int> baseDEFbyLV = {1: 49, 10: 49, 20: 127, 30: 169, 40: 253, 50: 326, 60: 409, 70: 482, 80: 556, 90: 630};
   Map<int, double> weapontodefpercent = {};
 
   Map<int, double> weapontoERpercent = {};
@@ -198,18 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double bonusCD = 0;
   double allCD = 0;
 
-  Map<int, double> baseCDbyLVL = {
-    1: 50,
-    10: 50,
-    20: 50,
-    30: 50,
-    40: 50,
-    50: 59.6,
-    60: 69.2,
-    70: 69.2,
-    80: 78.8,
-    90: 88.4
-  };
+  Map<int, double> baseCDbyLVL = {1: 50, 10: 50, 20: 50, 30: 50, 40: 50, 50: 59.6, 60: 69.2, 70: 69.2, 80: 78.8, 90: 88.4};
 
   Map<int, double> weapontoCDpercent = {};
 
@@ -632,386 +672,44 @@ class _MyHomePageState extends State<MyHomePage> {
   int enemyGeoresv = 10;
 
   var eneresbytype = {
-    1: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //1 -> Hilichurl
-    2: {
-      'physical': 70,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //2 -> Ruin Guard
-    3: {
-      'physical': -20,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //3 -> Treasure Hoarder
-    4: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 999,
-      'geo': 10
-    }, //4 -> Andrius, Dominator of Wolves
-    5: {
-      'physical': 10,
-      'pyro': 999,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //5 -> Pyro Slime
-    6: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 999,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //6 -> Hydro Slime
-    7: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 999,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //7 -> Dendro Slime
-    8: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 999,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //8 -> Electro Slime
-    9: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 10,
-      'geo': 10
-    }, //9 -> Anemo Slime
-    10: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 999,
-      'geo': 10
-    }, //10-> Cryo Slime
-    11: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 999
-    }, //11-> Geo Slime
-    12: {
-      'physical': 30,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //12-> Mitachurl
-    13: {
-      'physical': 10,
-      'pyro': 50,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //13-> Pyro Samachurl
-    14: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 50,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //14-> Hydro Samachurl
-    15: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 50,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //15-> Dendro Samachurl
-    16: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 50,
-      'cryo': 10,
-      'geo': 10
-    }, //16-> Anemo Samachurl
-    17: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 50
-    }, //17-> Geo Samachurl
-    18: {
-      'physical': 50,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 70
-    }, //18-> Stonehide Lawachurl
-    19: {
-      'physical': 50,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //19-> Ruin Hunter
-    20: {
-      'physical': 35,
-      'pyro': 75,
-      'hydro': 35,
-      'dendro': 35,
-      'electro': 35,
-      'anemo': 35,
-      'cryo': 35,
-      'geo': 35
-    }, //20-> Pyro Flower
-    21: {
-      'physical': 35,
-      'pyro': 35,
-      'hydro': 35,
-      'dendro': 35,
-      'electro': 35,
-      'anemo': 35,
-      'cryo': 75,
-      'geo': 35
-    }, //21-> Cryo Flower
-    22: {
-      'physical': 10,
-      'pyro': 50,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //22-> Pyro Flower(Stunned)
-    23: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 50,
-      'geo': 10
-    }, //23-> Cryo Flower(Stunned)
-    24: {
-      'physical': -20,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //24-> Fatui Skirmisher
-    25: {
-      'physical': 80,
-      'pyro': 110,
-      'hydro': 110,
-      'dendro': 110,
-      'electro': 110,
-      'anemo': 110,
-      'cryo': 110,
-      'geo': 110
-    }, //25-> Fatui Skirmisher(Shielded)
-    26: {
-      'physical': -20,
-      'pyro': 50,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //26-> Fatui Pyro Agent
-    27: {
-      'physical': -20,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 50,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //27-> Fatui Electro Cincin Mage
-    28: {
-      'physical': 30,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 50
-    }, //28-> Geovishap Hatchling
-    29: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //29-> Abyss Mage
-    30: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 999,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //30-> Electro Hypostasis
-    31: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 10,
-      'geo': 10
-    }, //31-> Anemo Hypostasis
-    32: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 999
-    }, //32-> Geo Hypostasis
-    33: {
-      'physical': 130,
-      'pyro': 170,
-      'hydro': 110,
-      'dendro': 110,
-      'electro': 110,
-      'anemo': 110,
-      'cryo': 110,
-      'geo': 110
-    }, //33-> Pyro Regisvine
-    34: {
-      'physical': 130,
-      'pyro': 110,
-      'hydro': 110,
-      'dendro': 110,
-      'electro': 110,
-      'anemo': 110,
-      'cryo': 170,
-      'geo': 110
-    }, //34-> Cryo Regisvine
-    35: {
-      'physical': 30,
-      'pyro': 70,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //35-> Pyro Regisvine(Stunned)
-    36: {
-      'physical': 30,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 70,
-      'geo': 10
-    }, //36-> Cryo Regisvine(Stunned)
-    37: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 10,
-      'cryo': 10,
-      'geo': 10
-    }, //37-> Dvalin
-    38: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 999,
-      'geo': 10
-    } //38-> Andrius
+    1: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //1 -> Hilichurl
+    2: {'physical': 70, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //2 -> Ruin Guard
+    3: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //3 -> Treasure Hoarder
+    4: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 999, 'geo': 10}, //4 -> Andrius, Dominator of Wolves
+    5: {'physical': 10, 'pyro': 999, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //5 -> Pyro Slime
+    6: {'physical': 10, 'pyro': 10, 'hydro': 999, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //6 -> Hydro Slime
+    7: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 999, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //7 -> Dendro Slime
+    8: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 999, 'anemo': 10, 'cryo': 10, 'geo': 10}, //8 -> Electro Slime
+    9: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 10, 'geo': 10}, //9 -> Anemo Slime
+    10: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 999, 'geo': 10}, //10-> Cryo Slime
+    11: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 999}, //11-> Geo Slime
+    12: {'physical': 30, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //12-> Mitachurl
+    13: {'physical': 10, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //13-> Pyro Samachurl
+    14: {'physical': 10, 'pyro': 10, 'hydro': 50, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //14-> Hydro Samachurl
+    15: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 50, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //15-> Dendro Samachurl
+    16: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 50, 'cryo': 10, 'geo': 10}, //16-> Anemo Samachurl
+    17: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 50}, //17-> Geo Samachurl
+    18: {'physical': 50, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 70}, //18-> Stonehide Lawachurl
+    19: {'physical': 50, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //19-> Ruin Hunter
+    20: {'physical': 35, 'pyro': 75, 'hydro': 35, 'dendro': 35, 'electro': 35, 'anemo': 35, 'cryo': 35, 'geo': 35}, //20-> Pyro Flower
+    21: {'physical': 35, 'pyro': 35, 'hydro': 35, 'dendro': 35, 'electro': 35, 'anemo': 35, 'cryo': 75, 'geo': 35}, //21-> Cryo Flower
+    22: {'physical': 10, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //22-> Pyro Flower(Stunned)
+    23: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 50, 'geo': 10}, //23-> Cryo Flower(Stunned)
+    24: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //24-> Fatui Skirmisher
+    25: {'physical': 80, 'pyro': 110, 'hydro': 110, 'dendro': 110, 'electro': 110, 'anemo': 110, 'cryo': 110, 'geo': 110}, //25-> Fatui Skirmisher(Shielded)
+    26: {'physical': -20, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //26-> Fatui Pyro Agent
+    27: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 50, 'anemo': 10, 'cryo': 10, 'geo': 10}, //27-> Fatui Electro Cincin Mage
+    28: {'physical': 30, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 50}, //28-> Geovishap Hatchling
+    29: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //29-> Abyss Mage
+    30: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 999, 'anemo': 10, 'cryo': 10, 'geo': 10}, //30-> Electro Hypostasis
+    31: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 10, 'geo': 10}, //31-> Anemo Hypostasis
+    32: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 999}, //32-> Geo Hypostasis
+    33: {'physical': 130, 'pyro': 170, 'hydro': 110, 'dendro': 110, 'electro': 110, 'anemo': 110, 'cryo': 110, 'geo': 110}, //33-> Pyro Regisvine
+    34: {'physical': 130, 'pyro': 110, 'hydro': 110, 'dendro': 110, 'electro': 110, 'anemo': 110, 'cryo': 170, 'geo': 110}, //34-> Cryo Regisvine
+    35: {'physical': 30, 'pyro': 70, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //35-> Pyro Regisvine(Stunned)
+    36: {'physical': 30, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 70, 'geo': 10}, //36-> Cryo Regisvine(Stunned)
+    37: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //37-> Dvalin
+    38: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 999, 'geo': 10} //38-> Andrius
   };
 
   //ANCHOR skilldamagestat
@@ -1376,6 +1074,18 @@ class _MyHomePageState extends State<MyHomePage> {
   double echoingballaddmgexp = 0;
   double echoingballaddmgc = 0;
 
+  double overloadDMGpercent = 0;
+  double superconductDMGpercent = 0;
+  double electrochargedDMGpercent = 0;
+  double shatteredDMGpercent = 0;
+  double swirlDMGpercent = 0;
+
+  double overloadDMG = 0;
+  double superconductDMG = 0;
+  double electrochargedDMG = 0;
+  double shatteredDMG = 0;
+  double swirlDMG = 0;
+
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
   bool constellation1On = false;
@@ -1475,8 +1185,7 @@ class _MyHomePageState extends State<MyHomePage> {
       blizzardstrayer2On = true;
       blizzardstrayer41On = true;
       blizzardstrayer42On = true;
-    } else if (artifactsetAselect == 'blizzard' ||
-        artifactsetBselect == 'blizzard') {
+    } else if (artifactsetAselect == 'blizzard' || artifactsetBselect == 'blizzard') {
       blizzardstrayer2On = true;
       blizzardstrayer41On = false;
       blizzardstrayer42On = false;
@@ -1489,8 +1198,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (artifactsetAselect == 'troupe' && artifactsetBselect == 'troupe') {
       troupesdawnlight2on = true;
       troupesdawnlight4on = true;
-    } else if (artifactsetAselect == 'troupe' ||
-        artifactsetBselect == 'troupe') {
+    } else if (artifactsetAselect == 'troupe' || artifactsetBselect == 'troupe') {
       troupesdawnlight2on = true;
       troupesdawnlight4on = false;
     } else {
@@ -1509,12 +1217,10 @@ class _MyHomePageState extends State<MyHomePage> {
       royalflora4On = false;
     }
 
-    if (artifactsetAselect == 'gladiator' &&
-        artifactsetBselect == 'gladiator') {
+    if (artifactsetAselect == 'gladiator' && artifactsetBselect == 'gladiator') {
       gladiator2On = true;
       gladiator4On = true;
-    } else if (artifactsetAselect == 'gladiator' ||
-        artifactsetBselect == 'gladiator') {
+    } else if (artifactsetAselect == 'gladiator' || artifactsetBselect == 'gladiator') {
       gladiator2On = true;
       gladiator4On = false;
     } else {
@@ -1525,8 +1231,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (artifactsetAselect == 'maiden' && artifactsetBselect == 'maiden') {
       maiden2On = false;
       maiden4On = false;
-    } else if (artifactsetAselect == 'maiden' ||
-        artifactsetBselect == 'maiden') {
+    } else if (artifactsetAselect == 'maiden' || artifactsetBselect == 'maiden') {
       maiden2On = false;
       maiden4On = false;
     } else {
@@ -1534,12 +1239,10 @@ class _MyHomePageState extends State<MyHomePage> {
       maiden4On = false;
     }
 
-    if (artifactsetAselect == 'thunderbird' &&
-        artifactsetBselect == 'thunderbird') {
+    if (artifactsetAselect == 'thunderbird' && artifactsetBselect == 'thunderbird') {
       thunderbird2On = true;
       thunderbird4On = true;
-    } else if (artifactsetAselect == 'thunderbird' ||
-        artifactsetBselect == 'thunderbird') {
+    } else if (artifactsetAselect == 'thunderbird' || artifactsetBselect == 'thunderbird') {
       thunderbird2On = true;
       thunderbird4On = false;
     } else {
@@ -1547,12 +1250,10 @@ class _MyHomePageState extends State<MyHomePage> {
       thunderbird4On = false;
     }
 
-    if (artifactsetAselect == 'thundersoother' &&
-        artifactsetBselect == 'thundersoother') {
+    if (artifactsetAselect == 'thundersoother' && artifactsetBselect == 'thundersoother') {
       thundersoother2On = false;
       thundersoother4On = true;
-    } else if (artifactsetAselect == 'thundersoother' ||
-        artifactsetBselect == 'thundersoother') {
+    } else if (artifactsetAselect == 'thundersoother' || artifactsetBselect == 'thundersoother') {
       thundersoother2On = false;
       thundersoother4On = false;
     } else {
@@ -1721,8 +1422,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 140,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
                                     image: AssetImage('weapon/Weapon_Amos.png'),
                                     fit: BoxFit.contain,
@@ -1775,11 +1475,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 140,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'weapon/Weapon_Skyward_Harp.png'),
+                                    image: AssetImage('weapon/Weapon_Skyward_Harp.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -2153,11 +1851,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 140,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'weapon/Weapon_Prototype_Crescent.png'),
+                                    image: AssetImage('weapon/Weapon_Prototype_Crescent.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -2821,11 +2517,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image:
-                                        AssetImage('Item_Snowswept_Memory.png'),
+                                    image: AssetImage('Item_Snowswept_Memory.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -2874,11 +2568,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Troupes_Dawnlight.png'),
+                                    image: AssetImage('Item_Troupes_Dawnlight.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -2926,8 +2618,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
                                     image: AssetImage('Item_Royal_Flora.png'),
                                     fit: BoxFit.contain,
@@ -2978,11 +2669,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Gladiator_Nostalgia.png'),
+                                    image: AssetImage('Item_Gladiator_Nostalgia.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3031,11 +2720,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Maiden\'s_Distant_Love.png'),
+                                    image: AssetImage('Item_Maiden\'s_Distant_Love.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3084,11 +2771,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Thunderbird\'s_Mercy.png'),
+                                    image: AssetImage('Item_Thunderbird\'s_Mercy.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3137,11 +2822,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Thundersoother\'s_Heart.png'),
+                                    image: AssetImage('Item_Thundersoother\'s_Heart.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3211,11 +2894,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image:
-                                        AssetImage('Item_Snowswept_Memory.png'),
+                                    image: AssetImage('Item_Snowswept_Memory.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3264,11 +2945,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Troupes_Dawnlight.png'),
+                                    image: AssetImage('Item_Troupes_Dawnlight.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3316,8 +2995,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
                                     image: AssetImage('Item_Royal_Flora.png'),
                                     fit: BoxFit.contain,
@@ -3368,11 +3046,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Gladiator_Nostalgia.png'),
+                                    image: AssetImage('Item_Gladiator_Nostalgia.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3421,11 +3097,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Maiden\'s_Distant_Love.png'),
+                                    image: AssetImage('Item_Maiden\'s_Distant_Love.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3474,11 +3148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Thunderbird\'s_Mercy.png'),
+                                    image: AssetImage('Item_Thunderbird\'s_Mercy.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3527,11 +3199,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 decoration: BoxDecoration(
                                   // color: Colors.lightBlue[50],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                   image: DecorationImage(
-                                    image: AssetImage(
-                                        'Item_Thundersoother\'s_Heart.png'),
+                                    image: AssetImage('Item_Thundersoother\'s_Heart.png'),
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -3626,8 +3296,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1atkpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1atkpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1atkpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -3681,8 +3350,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1hppercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1hppercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1hppercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -3739,8 +3407,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1defpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1defpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1defpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -3797,8 +3464,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1CRpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1CRpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1CRpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -3855,8 +3521,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1CDpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1CDpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1CDpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -3965,8 +3630,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat1ERpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat1ERpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat1ERpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat1atkpercent.toString());
                           });
                         },
@@ -4213,8 +3877,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2atkpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2atkpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2atkpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4268,8 +3931,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2hppercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2hppercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2hppercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4326,8 +3988,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2defpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2defpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2defpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4384,8 +4045,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2CRpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2CRpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2CRpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4442,8 +4102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2CDpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2CDpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2CDpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4552,8 +4211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat2ERpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat2ERpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat2ERpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat2atkpercent.toString());
                           });
                         },
@@ -4800,8 +4458,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3atkpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3atkpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3atkpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -4855,8 +4512,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3hppercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3hppercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3hppercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -4913,8 +4569,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3defpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3defpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3defpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -4971,8 +4626,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3CRpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3CRpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3CRpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -5029,8 +4683,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3CDpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3CDpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3CDpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -5139,8 +4792,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat3ERpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat3ERpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat3ERpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat3atkpercent.toString());
                           });
                         },
@@ -5387,8 +5039,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4atkpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4atkpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4atkpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5442,8 +5093,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4hppercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4hppercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4hppercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5500,8 +5150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4defpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4defpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4defpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5558,8 +5207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4CRpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4CRpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4CRpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5616,8 +5264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4CDpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4CDpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4CDpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5726,8 +5373,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat4ERpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat4ERpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat4ERpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat4atkpercent.toString());
                           });
                         },
@@ -5974,8 +5620,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5atkpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5atkpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5atkpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6029,8 +5674,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5hppercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5hppercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5hppercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6087,8 +5731,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5defpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5defpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5defpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6145,8 +5788,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5CRpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5CRpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5CRpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6203,8 +5845,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5CDpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5CDpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5CDpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6313,8 +5954,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         value: stat5ERpercent.toDouble(),
                         onChanged: (value) {
                           setState(() {
-                            stat5ERpercent =
-                                double.parse((value).toStringAsFixed(1));
+                            stat5ERpercent = double.parse((value).toStringAsFixed(1));
                             _setLabel(stat5atkpercent.toString());
                           });
                         },
@@ -6527,24 +6167,18 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
 
     //bonusNormalATK
-    bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-            (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0)
-        as double;
+    bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
     //bonusChargedATK
-    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-        (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
-        (troupesdawnlight4on ? 35 : 0) as double;
+    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) + (troupesdawnlight4on ? 35 : 0) as double;
 //bonusBurstATK
     bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
 //bonusDMG
-    bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) as double;
+    bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) + (thundersoother4On ? 35 : 0) as double;
 
     if (strongWilled2Times <= 3) {
       bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
     } else {
-      bloomBonusChargedATKDMGpercent =
-          (strongWilled1On ? (9 + weaponref * 3) : 0) +
-              (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) as double;
+      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) as double;
     }
 
     //ATK params
@@ -6573,12 +6207,9 @@ class _MyHomePageState extends State<MyHomePage> {
     a4atkpercentMain = a4atkpercentbyLVL[gstar][glv];
     a5atkpercentMain = a5atkpercentbyLVL[cstar][clv];
 
-    a3percentatkMain =
-        (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
-    a4percentatkMain =
-        artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
-    a5percentatkMain =
-        artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
+    a3percentatkMain = (artifact3mainstatcat == 2) ? basicatk * a3atkpercentMain / 100 : 0;
+    a4percentatkMain = artifact4mainstatcat == 2 ? basicatk * a4atkpercentMain / 100 : 0;
+    a5percentatkMain = artifact5mainstatcat == 2 ? basicatk * a5atkpercentMain / 100 : 0;
 
     bonusatk = weaponatkpercentstat +
         a1percentatk +
@@ -6626,12 +6257,9 @@ class _MyHomePageState extends State<MyHomePage> {
     a4defpercentMain = a4defpercentbyLVL[gstar][glv];
     a5defpercentMain = a5defpercentbyLVL[cstar][clv];
 
-    a3percentdefMain =
-        (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
-    a4percentdefMain =
-        artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
-    a5percentdefMain =
-        artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
+    a3percentdefMain = (artifact3mainstatcat == 3) ? lvldef * a3defpercentMain / 100 : 0;
+    a4percentdefMain = artifact4mainstatcat == 3 ? lvldef * a4defpercentMain / 100 : 0;
+    a5percentdefMain = artifact5mainstatcat == 3 ? lvldef * a5defpercentMain / 100 : 0;
 
     bonusdef = weapondefpercentstat +
         a1percentdef +
@@ -6670,12 +6298,9 @@ class _MyHomePageState extends State<MyHomePage> {
     a4HPpercentMain = a4HPpercentbyLVL[gstar][glv];
     a5HPpercentMain = a5HPpercentbyLVL[cstar][clv];
 
-    a3percentHPMain =
-        (artifact3mainstatcat == 1) ? lvlhp * a3HPpercentMain / 100 : 0;
-    a4percentHPMain =
-        artifact4mainstatcat == 1 ? lvlhp * a4HPpercentMain / 100 : 0;
-    a5percentHPMain =
-        artifact5mainstatcat == 1 ? lvlhp * a5HPpercentMain / 100 : 0;
+    a3percentHPMain = (artifact3mainstatcat == 1) ? lvlhp * a3HPpercentMain / 100 : 0;
+    a4percentHPMain = artifact4mainstatcat == 1 ? lvlhp * a4HPpercentMain / 100 : 0;
+    a5percentHPMain = artifact5mainstatcat == 1 ? lvlhp * a5HPpercentMain / 100 : 0;
 
     bonusHP = weaponHPpercentstat +
         a1percenthp +
@@ -6696,19 +6321,12 @@ class _MyHomePageState extends State<MyHomePage> {
     allHP = lvlhp + bonusHP;
 
     //ER params
-    if (weapontoERpercent[weaponlv] != null)
-      weaponERpercent = weapontoERpercent[weaponlv];
+    if (weapontoERpercent[weaponlv] != null) weaponERpercent = weapontoERpercent[weaponlv];
 
     a3ERpercentMain = a3ERpercentbyLVL[sstar][slv];
     a3percentERMain = artifact3mainstatcat == 5 ? a3ERpercentMain : 0;
 
-    bonusER = weaponERpercent +
-        a3percentERMain +
-        stat1ERpercent +
-        stat2ERpercent +
-        stat3ERpercent +
-        stat4ERpercent +
-        stat5ERpercent;
+    bonusER = weaponERpercent + a3percentERMain + stat1ERpercent + stat2ERpercent + stat3ERpercent + stat4ERpercent + stat5ERpercent;
 
     allER = 100 + bonusER;
 
@@ -6725,15 +6343,7 @@ class _MyHomePageState extends State<MyHomePage> {
     a5EM = artifact5mainstatcat == 4 ? a5EMmain : 0;
 
     lvlEM += weaponEM;
-    bonusEM = a3EM +
-        a4EM +
-        a5EM +
-        stat1EM +
-        stat2EM +
-        stat3EM +
-        stat4EM +
-        stat5EM +
-        (troupesdawnlight2on ? 80 : 0);
+    bonusEM = a3EM + a4EM + a5EM + stat1EM + stat2EM + stat3EM + stat4EM + stat5EM + (troupesdawnlight2on ? 80 : 0);
 
     allEM = lvlEM + bonusEM;
 
@@ -6768,108 +6378,73 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //CD params
     if (baseCDbyLVL[level] != null) baseCD = baseCDbyLVL[level];
-    if (weapontoCDpercent[weaponlv] != null)
-      weaponCD = weapontoCDpercent[weaponlv];
+    if (weapontoCDpercent[weaponlv] != null) weaponCD = weapontoCDpercent[weaponlv];
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
     //baseCD += weaponCD;
-    bonusCD = weaponCD +
-        a5CD +
-        stat1CDpercent +
-        stat2CDpercent +
-        stat3CDpercent +
-        stat4CDpercent +
-        stat5CDpercent +
-        (echoingBalladOn ? (15 + weaponref * 5) : 0);
+    bonusCD = weaponCD + a5CD + stat1CDpercent + stat2CDpercent + stat3CDpercent + stat4CDpercent + stat5CDpercent + (echoingBalladOn ? (15 + weaponref * 5) : 0);
     allCD = baseCD + bonusCD;
 
     //DMG params
-    if (cleveltoPhysicalDMGpercent[level] != null)
-      levelPhysicalDMGpercent = cleveltoPhysicalDMGpercent[level];
-    if (weapontoPhysicalDMGpercent[weaponlv] != null)
-      weaponPhysicalDMGpercent = weapontoPhysicalDMGpercent[weaponlv];
+    if (cleveltoPhysicalDMGpercent[level] != null) levelPhysicalDMGpercent = cleveltoPhysicalDMGpercent[level];
+    if (weapontoPhysicalDMGpercent[weaponlv] != null) weaponPhysicalDMGpercent = weapontoPhysicalDMGpercent[weaponlv];
 
     a4PhysicalDMGpercentMain = a4PhysicalDMGpercentbyLVL[gstar][glv];
-    a4PhysicalDMGpercent =
-        artifact4mainstatcat == 5 ? a4PhysicalDMGpercentMain : 0;
+    a4PhysicalDMGpercent = artifact4mainstatcat == 5 ? a4PhysicalDMGpercentMain : 0;
 
-    bonusPhysicalDMGpercent = levelPhysicalDMGpercent +
-        weaponPhysicalDMGpercent +
-        a4PhysicalDMGpercent;
+    bonusPhysicalDMGpercent = levelPhysicalDMGpercent + weaponPhysicalDMGpercent + a4PhysicalDMGpercent;
 
-    if (cleveltoPyroDMGpercent[level] != null)
-      levelPyroDMGpercent = cleveltoPyroDMGpercent[level];
-    if (weapontoPyroDMGpercent[weaponlv] != null)
-      weaponPyroDMGpercent = weapontoPyroDMGpercent[weaponlv];
+    if (cleveltoPyroDMGpercent[level] != null) levelPyroDMGpercent = cleveltoPyroDMGpercent[level];
+    if (weapontoPyroDMGpercent[weaponlv] != null) weaponPyroDMGpercent = weapontoPyroDMGpercent[weaponlv];
 
     a4PyroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4PyroDMGpercent = artifact4mainstatcat == 6 ? a4PyroDMGpercentMain : 0;
 
-    bonusPyroDMGpercent =
-        levelPyroDMGpercent + weaponPyroDMGpercent + a4PyroDMGpercent;
+    bonusPyroDMGpercent = levelPyroDMGpercent + weaponPyroDMGpercent + a4PyroDMGpercent;
 
-    if (cleveltoHydroDMGpercent[level] != null)
-      levelHydroDMGpercent = cleveltoHydroDMGpercent[level];
-    if (weapontoHydroDMGpercent[weaponlv] != null)
-      weaponHydroDMGpercent = weapontoHydroDMGpercent[weaponlv];
+    if (cleveltoHydroDMGpercent[level] != null) levelHydroDMGpercent = cleveltoHydroDMGpercent[level];
+    if (weapontoHydroDMGpercent[weaponlv] != null) weaponHydroDMGpercent = weapontoHydroDMGpercent[weaponlv];
 
     a4HydroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4HydroDMGpercent = artifact4mainstatcat == 7 ? a4HydroDMGpercentMain : 0;
 
-    bonusHydroDMGpercent =
-        levelHydroDMGpercent + weaponHydroDMGpercent + a4HydroDMGpercent;
+    bonusHydroDMGpercent = levelHydroDMGpercent + weaponHydroDMGpercent + a4HydroDMGpercent;
 
-    if (cleveltoCryoDMGpercent[level] != null)
-      levelCryoDMGpercent = cleveltoCryoDMGpercent[level];
-    if (weapontoCryoDMGpercent[weaponlv] != null)
-      weaponCryoDMGpercent = weapontoCryoDMGpercent[weaponlv];
+    if (cleveltoCryoDMGpercent[level] != null) levelCryoDMGpercent = cleveltoCryoDMGpercent[level];
+    if (weapontoCryoDMGpercent[weaponlv] != null) weaponCryoDMGpercent = weapontoCryoDMGpercent[weaponlv];
 
     a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4CryoDMGpercent = artifact4mainstatcat == 8 ? a4CryoDMGpercentMain : 0;
 
-    bonusCryoDMGpercent = levelCryoDMGpercent +
-        weaponCryoDMGpercent +
-        a4CryoDMGpercent +
-        (blizzardstrayer2On ? 15 : 0);
+    bonusCryoDMGpercent = levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent + (blizzardstrayer2On ? 15 : 0);
 
-    if (cleveltoElectroDMGpercent[level] != null)
-      levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
-    if (weapontoElectroDMGpercent[weaponlv] != null)
-      weaponElectroDMGpercent = weapontoElectroDMGpercent[weaponlv];
+    if (cleveltoElectroDMGpercent[level] != null) levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
+    if (weapontoElectroDMGpercent[weaponlv] != null) weaponElectroDMGpercent = weapontoElectroDMGpercent[weaponlv];
 
     a4ElectroDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
-    a4ElectroDMGpercent =
-        artifact4mainstatcat == 9 ? a4ElectroDMGpercentMain : 0;
+    a4ElectroDMGpercent = artifact4mainstatcat == 9 ? a4ElectroDMGpercentMain : 0;
 
-    bonusElectroDMGpercent =
-        levelElectroDMGpercent + weaponElectroDMGpercent + a4ElectroDMGpercent;
+    bonusElectroDMGpercent = levelElectroDMGpercent + weaponElectroDMGpercent + a4ElectroDMGpercent + (thunderbird2On == true ? 15 : 0);
 
-    if (cleveltoAnemoDMGpercent[level] != null)
-      levelAnemoDMGpercent = cleveltoAnemoDMGpercent[level];
-    if (weapontoAnemoDMGpercent[weaponlv] != null)
-      weaponAnemoDMGpercent = weapontoAnemoDMGpercent[weaponlv];
+    if (cleveltoAnemoDMGpercent[level] != null) levelAnemoDMGpercent = cleveltoAnemoDMGpercent[level];
+    if (weapontoAnemoDMGpercent[weaponlv] != null) weaponAnemoDMGpercent = weapontoAnemoDMGpercent[weaponlv];
 
     a4AnemoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4AnemoDMGpercent = artifact4mainstatcat == 10 ? a4AnemoDMGpercentMain : 0;
 
-    bonusAnemoDMGpercent =
-        levelAnemoDMGpercent + weaponAnemoDMGpercent + a4AnemoDMGpercent;
+    bonusAnemoDMGpercent = levelAnemoDMGpercent + weaponAnemoDMGpercent + a4AnemoDMGpercent;
 
-    if (cleveltoGeoDMGpercent[level] != null)
-      levelGeoDMGpercent = cleveltoGeoDMGpercent[level];
-    if (weapontoGeoDMGpercent[weaponlv] != null)
-      weaponGeoDMGpercent = weapontoGeoDMGpercent[weaponlv];
+    if (cleveltoGeoDMGpercent[level] != null) levelGeoDMGpercent = cleveltoGeoDMGpercent[level];
+    if (weapontoGeoDMGpercent[weaponlv] != null) weaponGeoDMGpercent = weapontoGeoDMGpercent[weaponlv];
 
     a4GeoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4GeoDMGpercent = artifact4mainstatcat == 11 ? a4GeoDMGpercentMain : 0;
 
-    bonusGeoDMGpercent =
-        levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
+    bonusGeoDMGpercent = levelGeoDMGpercent + weaponGeoDMGpercent + a4GeoDMGpercent;
 
     //enemyparams
 
-    enemyPhysicalresv =
-        eneresbytype[enemytype]['physical'] - (zhonglieOn ? 20 : 0);
+    enemyPhysicalresv = eneresbytype[enemytype]['physical'] - (zhonglieOn ? 20 : 0);
     if (enemyPhysicalresv < 0)
       enemyPhysicalres = 1 - enemyPhysicalresv / 2 / 100;
     else if (enemyPhysicalresv < 76)
@@ -6909,8 +6484,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyDendrores = 0;
 
-    enemyElectroresv =
-        eneresbytype[enemytype]['electro'] - (zhonglieOn ? 20 : 0);
+    enemyElectroresv = eneresbytype[enemytype]['electro'] - (zhonglieOn ? 20 : 0);
     if (enemyElectroresv < 0)
       enemyElectrores = 1 - enemyElectroresv / 2 / 100;
     else if (enemyElectroresv < 76)
@@ -6930,9 +6504,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyAnemores = 0;
 
-    enemyCryoresv = eneresbytype[enemytype]['cryo'] -
-        (constellation1On ? 15 : 0) -
-        (zhonglieOn ? 20 : 0);
+    enemyCryoresv = eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0) - (zhonglieOn ? 20 : 0);
     if (enemyCryoresv < 0)
       enemyCryores = 1 - enemyCryoresv / 2 / 100;
     else if (enemyCryoresv < 76)
@@ -6971,41 +6543,34 @@ class _MyHomePageState extends State<MyHomePage> {
     caimdmgpercent = natklvtoskill['ChargedAimShootDMG'][natklv];
 
     frostflakedmgpercent = natklvtoskill['Frostflake Arrow DMG'][natklv];
-    frostflakebloomdmgpercent =
-        natklvtoskill['Frostflake Arrow Bloom DMG'][natklv];
+    frostflakebloomdmgpercent = natklvtoskill['Frostflake Arrow Bloom DMG'][natklv];
 
-    trailoftheqilindmgpercent =
-        natklvtoskill['Trail of the Qilin DMG'][eskilllv];
+    trailoftheqilindmgpercent = natklvtoskill['Trail of the Qilin DMG'][eskilllv];
     trailoftheqilinhppercent = natklvtoskill['Trail of the Qilin HP'][eskilllv];
     celestialshowerdmgpercent = natklvtoskill['Celestial Shower DMG'][eburstlv];
+
+    superconductDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400))) + (thunderbird4On == true ? 0.4 : 0)) * 100;
+
+    superconductDMG = electroReactionBaseBYlv[level] * 1 * superconductDMGpercent / 100 * enemyCryores;
 
     hit1dmgc = allatk *
         (hit1dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit1dmgnc = allatk *
         (hit1dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit1dmgexp = allatk *
         (hit1dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7014,30 +6579,21 @@ class _MyHomePageState extends State<MyHomePage> {
     hit2dmgc = allatk *
         (hit2dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit2dmgnc = allatk *
         (hit2dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit2dmgexp = allatk *
         (hit2dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7046,30 +6602,21 @@ class _MyHomePageState extends State<MyHomePage> {
     hit3dmgc = allatk *
         (hit3dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit3dmgnc = allatk *
         (hit3dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit3dmgexp = allatk *
         (hit3dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7078,30 +6625,21 @@ class _MyHomePageState extends State<MyHomePage> {
     hit4dmgc = allatk *
         (hit4dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit4dmgnc = allatk *
         (hit4dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit4dmgexp = allatk *
         (hit4dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7110,30 +6648,21 @@ class _MyHomePageState extends State<MyHomePage> {
     hit5dmgc = allatk *
         (hit5dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit5dmgnc = allatk *
         (hit5dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit5dmgexp = allatk *
         (hit5dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7142,30 +6671,21 @@ class _MyHomePageState extends State<MyHomePage> {
     hit6dmgc = allatk *
         (hit6dmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit6dmgnc = allatk *
         (hit6dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     hit6dmgexp = allatk *
         (hit6dmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusNormalATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusNormalATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7174,30 +6694,21 @@ class _MyHomePageState extends State<MyHomePage> {
     aimdmgc = allatk *
         (aimdmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     aimdmgnc = allatk *
         (aimdmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
     aimdmgexp = allatk *
         (aimdmgpercent / 100) *
-        (1 +
-            bonusPhysicalDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusPhysicalDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
@@ -7206,30 +6717,21 @@ class _MyHomePageState extends State<MyHomePage> {
     caimdmgc = allatk *
         (caimdmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     caimdmgnc = allatk *
         (caimdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     caimdmgexp = allatk *
         (caimdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -7307,30 +6809,21 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakedmgc = allatk *
         (frostflakedmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     frostflakedmgnc = allatk *
         (frostflakedmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     frostflakedmgexp = allatk *
         (frostflakedmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -7339,30 +6832,21 @@ class _MyHomePageState extends State<MyHomePage> {
     frostflakebloomdmgc = allatk *
         (frostflakebloomdmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bloomBonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bloomBonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     frostflakebloomdmgnc = allatk *
         (frostflakebloomdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bloomBonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bloomBonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     frostflakebloomdmgexp = allatk *
         (frostflakebloomdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bloomBonusChargedATKDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bloomBonusChargedATKDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -7400,30 +6884,21 @@ class _MyHomePageState extends State<MyHomePage> {
     celestialshowerdmgc = allatk *
         (celestialshowerdmgpercent / 100) *
         (1 + allCD / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusBurstDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusBurstDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     celestialshowerdmgnc = allatk *
         (celestialshowerdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusBurstDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusBurstDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores;
 
     celestialshowerdmgexp = allatk *
         (celestialshowerdmgpercent / 100) *
-        (1 +
-            bonusCryoDMGpercent / 100 +
-            bonusBurstDMGpercent / 100 +
-            bonusDMGpercent / 100) *
+        (1 + bonusCryoDMGpercent / 100 + bonusBurstDMGpercent / 100 + bonusDMGpercent / 100) *
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
@@ -7437,12 +6912,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
-    echoingballaddmgnc = allatk *
-        (125 / 100) *
-        (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) *
-        (100 + level) /
-        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        enemyPhysicalres;
+    echoingballaddmgnc =
+        allatk * (125 / 100) * (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) * (100 + level) / ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) * enemyPhysicalres;
 
     echoingballaddmgexp = allatk *
         (125 / 100) *
@@ -7483,10 +6954,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Container(
                         padding: EdgeInsets.all(10.0),
                         margin: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 0.3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.3), borderRadius: BorderRadius.all(Radius.circular(10))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -7510,10 +6978,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 400,
                         padding: EdgeInsets.all(10.0),
                         margin: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 255, 255, 0.8),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -7677,10 +7142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 350,
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
 
                           //ANCHOR weapon
                           child: Column(
@@ -7699,8 +7161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     height: 200,
                                     decoration: BoxDecoration(
                                       // color: Colors.lightBlue[50],
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: BorderRadius.all(Radius.circular(10)),
                                       image: DecorationImage(
                                         image: weapontopng[weaponselect],
                                         fit: BoxFit.contain,
@@ -7771,10 +7232,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 800,
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               Row(
@@ -7786,23 +7244,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 3,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: _showSimpleDialogasA,
                                           child: Container(
                                             width: 150,
                                             height: 150,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: artifactsettopng[
-                                                    artifactsetAselect],
+                                                image: artifactsettopng[artifactsetAselect],
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -7825,23 +7279,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 3,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: _showSimpleDialogasB,
                                           child: Container(
                                             width: 150,
                                             height: 150,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: artifactsettopng[
-                                                    artifactsetBselect],
+                                                image: artifactsettopng[artifactsetBselect],
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -7871,12 +7321,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 1,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: () {
                                             print('Card tapped.');
                                           },
@@ -7885,11 +7333,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Item_Snowswept_Memory.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -7925,8 +7371,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Star: $fstar',
@@ -7943,8 +7388,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 5,
                                               divisions: 1,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: fstar.toString(),
                                               value: fstar.toDouble(),
                                               onChanged: (value) {
@@ -7957,8 +7401,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Lv: $flv',
@@ -7975,8 +7418,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 20,
                                               divisions: 5,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: flv.toString(),
                                               value: flv.toDouble(),
                                               onChanged: (value) {
@@ -7998,12 +7440,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 200,
                                         height: 100,
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 if (!stat1atkpercentOn &&
                                                     !stat1hppercentOn &&
@@ -8015,37 +7455,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     !stat1CDpercentOn &&
                                                     !stat1EMOn &&
                                                     !stat1ERpercentOn)
-                                                  Text(
-                                                      'Please click to set stats'),
-                                                if (stat1atkpercentOn)
-                                                  Text('ATK%:$stat1atkpercent'),
-                                                if (stat1hppercentOn)
-                                                  Text('HP%:$stat1hppercent'),
-                                                if (stat1defpercentOn)
-                                                  Text('DEF%:$stat1defpercent'),
-                                                if (stat1CRpercentOn)
-                                                  Text(
-                                                      'Critial Rate%:$stat1CRpercent'),
-                                                if (stat1CDpercentOn)
-                                                  Text(
-                                                      'Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn)
-                                                  Text(
-                                                      'Elemental Mastery%:$stat1EM'),
-                                                if (stat1ERpercentOn)
-                                                  Text(
-                                                      'Energy Recharge%:$stat1ERpercent'),
-                                                if (stat1atkOn)
-                                                  Text('ATK:$stat1atk'),
-                                                if (stat1hpOn)
-                                                  Text('HP:$stat1hp'),
-                                                if (stat1defOn)
-                                                  Text('DEF:$stat1def'),
+                                                  Text('Please click to set stats'),
+                                                if (stat1atkpercentOn) Text('ATK%:$stat1atkpercent'),
+                                                if (stat1hppercentOn) Text('HP%:$stat1hppercent'),
+                                                if (stat1defpercentOn) Text('DEF%:$stat1defpercent'),
+                                                if (stat1CRpercentOn) Text('Critial Rate%:$stat1CRpercent'),
+                                                if (stat1CDpercentOn) Text('Critial Damage%:$stat1CDpercent'),
+                                                if (stat1EMOn) Text('Elemental Mastery%:$stat1EM'),
+                                                if (stat1ERpercentOn) Text('Energy Recharge%:$stat1ERpercent'),
+                                                if (stat1atkOn) Text('ATK:$stat1atk'),
+                                                if (stat1hpOn) Text('HP:$stat1hp'),
+                                                if (stat1defOn) Text('DEF:$stat1def'),
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 Visibility(
                                                   visible: false,
@@ -8077,12 +7501,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 1,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: () {
                                             print('Card tapped.');
                                           },
@@ -8091,11 +7513,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Item_Snowswept_Memory.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8131,8 +7551,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Star: $pstar',
@@ -8149,8 +7568,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 5,
                                               divisions: 1,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: pstar.toString(),
                                               value: pstar.toDouble(),
                                               onChanged: (value) {
@@ -8163,8 +7581,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Lv: $plv',
@@ -8181,8 +7598,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 20,
                                               divisions: 5,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: plv.toString(),
                                               value: plv.toDouble(),
                                               onChanged: (value) {
@@ -8204,12 +7620,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 200,
                                         height: 100,
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 if (!stat2atkpercentOn &&
                                                     !stat2hppercentOn &&
@@ -8221,37 +7635,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     !stat2CDpercentOn &&
                                                     !stat2EMOn &&
                                                     !stat2ERpercentOn)
-                                                  Text(
-                                                      'Please click to set stats'),
-                                                if (stat2atkpercentOn)
-                                                  Text('ATK%:$stat2atkpercent'),
-                                                if (stat2hppercentOn)
-                                                  Text('HP%:$stat2hppercent'),
-                                                if (stat2defpercentOn)
-                                                  Text('DEF%:$stat2defpercent'),
-                                                if (stat2CRpercentOn)
-                                                  Text(
-                                                      'Critial Rate%:$stat2CRpercent'),
-                                                if (stat2CDpercentOn)
-                                                  Text(
-                                                      'Critial Damage%:$stat2CDpercent'),
-                                                if (stat2EMOn)
-                                                  Text(
-                                                      'Elemental Mastery%:$stat2EM'),
-                                                if (stat2ERpercentOn)
-                                                  Text(
-                                                      'Energy Recharge%:$stat2ERpercent'),
-                                                if (stat2atkOn)
-                                                  Text('ATK:$stat2atk'),
-                                                if (stat2hpOn)
-                                                  Text('HP:$stat2hp'),
-                                                if (stat2defOn)
-                                                  Text('DEF:$stat2def'),
+                                                  Text('Please click to set stats'),
+                                                if (stat2atkpercentOn) Text('ATK%:$stat2atkpercent'),
+                                                if (stat2hppercentOn) Text('HP%:$stat2hppercent'),
+                                                if (stat2defpercentOn) Text('DEF%:$stat2defpercent'),
+                                                if (stat2CRpercentOn) Text('Critial Rate%:$stat2CRpercent'),
+                                                if (stat2CDpercentOn) Text('Critial Damage%:$stat2CDpercent'),
+                                                if (stat2EMOn) Text('Elemental Mastery%:$stat2EM'),
+                                                if (stat2ERpercentOn) Text('Energy Recharge%:$stat2ERpercent'),
+                                                if (stat2atkOn) Text('ATK:$stat2atk'),
+                                                if (stat2hpOn) Text('HP:$stat2hp'),
+                                                if (stat2defOn) Text('DEF:$stat2def'),
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 Visibility(
                                                   visible: false,
@@ -8283,12 +7681,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 1,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: () {
                                             print('Card tapped.');
                                           },
@@ -8297,11 +7693,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Item_Snowswept_Memory.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8335,45 +7729,39 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "HP%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 1,
                                                   ),
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "ATK%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 2,
                                                   ),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "DEF%",
-                                                        style: TextStyle(
-                                                            fontSize: 15),
+                                                        style: TextStyle(fontSize: 15),
                                                       ),
                                                       value: 3),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Elemental Mastery",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 4),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Energy Recharge%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 5)
                                                 ],
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    artifact3mainstatcat =
-                                                        value;
+                                                    artifact3mainstatcat = value;
                                                   });
                                                 }),
                                           ),
@@ -8385,8 +7773,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Star: $sstar',
@@ -8403,8 +7790,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 5,
                                               divisions: 1,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: sstar.toString(),
                                               value: sstar.toDouble(),
                                               onChanged: (value) {
@@ -8417,8 +7803,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Lv: $slv',
@@ -8435,8 +7820,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 20,
                                               divisions: 5,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: slv.toString(),
                                               value: slv.toDouble(),
                                               onChanged: (value) {
@@ -8458,12 +7842,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 200,
                                         height: 100,
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 if (!stat3atkpercentOn &&
                                                     !stat3hppercentOn &&
@@ -8475,37 +7857,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     !stat3CDpercentOn &&
                                                     !stat3EMOn &&
                                                     !stat3ERpercentOn)
-                                                  Text(
-                                                      'Please click to set stats'),
-                                                if (stat3atkpercentOn)
-                                                  Text('ATK%:$stat3atkpercent'),
-                                                if (stat3hppercentOn)
-                                                  Text('HP%:$stat3hppercent'),
-                                                if (stat3defpercentOn)
-                                                  Text('DEF%:$stat3defpercent'),
-                                                if (stat3CRpercentOn)
-                                                  Text(
-                                                      'Critial Rate%:$stat3CRpercent'),
-                                                if (stat3CDpercentOn)
-                                                  Text(
-                                                      'Critial Damage%:$stat3CDpercent'),
-                                                if (stat3EMOn)
-                                                  Text(
-                                                      'Elemental Mastery%:$stat3EM'),
-                                                if (stat3ERpercentOn)
-                                                  Text(
-                                                      'Energy Recharge%:$stat3ERpercent'),
-                                                if (stat3atkOn)
-                                                  Text('ATK:$stat3atk'),
-                                                if (stat3hpOn)
-                                                  Text('HP:$stat3hp'),
-                                                if (stat3defOn)
-                                                  Text('DEF:$stat3def'),
+                                                  Text('Please click to set stats'),
+                                                if (stat3atkpercentOn) Text('ATK%:$stat3atkpercent'),
+                                                if (stat3hppercentOn) Text('HP%:$stat3hppercent'),
+                                                if (stat3defpercentOn) Text('DEF%:$stat3defpercent'),
+                                                if (stat3CRpercentOn) Text('Critial Rate%:$stat3CRpercent'),
+                                                if (stat3CDpercentOn) Text('Critial Damage%:$stat3CDpercent'),
+                                                if (stat3EMOn) Text('Elemental Mastery%:$stat3EM'),
+                                                if (stat3ERpercentOn) Text('Energy Recharge%:$stat3ERpercent'),
+                                                if (stat3atkOn) Text('ATK:$stat3atk'),
+                                                if (stat3hpOn) Text('HP:$stat3hp'),
+                                                if (stat3defOn) Text('DEF:$stat3def'),
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 Visibility(
                                                   visible: false,
@@ -8537,12 +7903,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 1,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: () {
                                             print('Card tapped.');
                                           },
@@ -8551,11 +7915,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Item_Snowswept_Memory.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8581,87 +7943,75 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "HP%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 1,
                                                   ),
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "ATK%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 2,
                                                   ),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "DEF%",
-                                                        style: TextStyle(
-                                                            fontSize: 15),
+                                                        style: TextStyle(fontSize: 15),
                                                       ),
                                                       value: 3),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Elemental Mastery",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 4),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Physical Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 5),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Pyro Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 6),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Hydro Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 7),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Cryo Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 8),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Electro Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 9),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Anemo Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 10),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Geo Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 11),
                                                 ],
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    artifact4mainstatcat =
-                                                        value;
+                                                    artifact4mainstatcat = value;
                                                   });
                                                 }),
                                           ),
@@ -8673,8 +8023,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Star: $gstar',
@@ -8691,8 +8040,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 5,
                                               divisions: 1,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: gstar.toString(),
                                               value: gstar.toDouble(),
                                               onChanged: (value) {
@@ -8705,8 +8053,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Lv: $glv',
@@ -8723,8 +8070,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 20,
                                               divisions: 5,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: glv.toString(),
                                               value: glv.toDouble(),
                                               onChanged: (value) {
@@ -8746,12 +8092,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 200,
                                         height: 100,
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 if (!stat4atkpercentOn &&
                                                     !stat4hppercentOn &&
@@ -8763,37 +8107,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     !stat4CDpercentOn &&
                                                     !stat4EMOn &&
                                                     !stat4ERpercentOn)
-                                                  Text(
-                                                      'Please click to set stats'),
-                                                if (stat4atkpercentOn)
-                                                  Text('ATK%:$stat4atkpercent'),
-                                                if (stat4hppercentOn)
-                                                  Text('HP%:$stat4hppercent'),
-                                                if (stat4defpercentOn)
-                                                  Text('DEF%:$stat4defpercent'),
-                                                if (stat4CRpercentOn)
-                                                  Text(
-                                                      'Critial Rate%:$stat4CRpercent'),
-                                                if (stat4CDpercentOn)
-                                                  Text(
-                                                      'Critial Damage%:$stat4CDpercent'),
-                                                if (stat4EMOn)
-                                                  Text(
-                                                      'Elemental Mastery%:$stat4EM'),
-                                                if (stat4ERpercentOn)
-                                                  Text(
-                                                      'Energy Recharge%:$stat4ERpercent'),
-                                                if (stat4atkOn)
-                                                  Text('ATK:$stat4atk'),
-                                                if (stat4hpOn)
-                                                  Text('HP:$stat4hp'),
-                                                if (stat4defOn)
-                                                  Text('DEF:$stat4def'),
+                                                  Text('Please click to set stats'),
+                                                if (stat4atkpercentOn) Text('ATK%:$stat4atkpercent'),
+                                                if (stat4hppercentOn) Text('HP%:$stat4hppercent'),
+                                                if (stat4defpercentOn) Text('DEF%:$stat4defpercent'),
+                                                if (stat4CRpercentOn) Text('Critial Rate%:$stat4CRpercent'),
+                                                if (stat4CDpercentOn) Text('Critial Damage%:$stat4CDpercent'),
+                                                if (stat4EMOn) Text('Elemental Mastery%:$stat4EM'),
+                                                if (stat4ERpercentOn) Text('Energy Recharge%:$stat4ERpercent'),
+                                                if (stat4atkOn) Text('ATK:$stat4atk'),
+                                                if (stat4hpOn) Text('HP:$stat4hp'),
+                                                if (stat4defOn) Text('DEF:$stat4def'),
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 Visibility(
                                                   visible: false,
@@ -8825,12 +8153,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Card(
                                         elevation: 1,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
                                         child: InkWell(
-                                          splashColor:
-                                              Colors.blue.withAlpha(30),
+                                          splashColor: Colors.blue.withAlpha(30),
                                           onTap: () {
                                             print('Card tapped.');
                                           },
@@ -8839,11 +8165,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               // color: Colors.lightBlue[50],
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10)),
+                                              borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage(
-                                                    'Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Item_Snowswept_Memory.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8869,59 +8193,51 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "HP%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 1,
                                                   ),
                                                   DropdownMenuItem(
                                                     child: Text(
                                                       "ATK%",
-                                                      style: TextStyle(
-                                                          fontSize: 15),
+                                                      style: TextStyle(fontSize: 15),
                                                     ),
                                                     value: 2,
                                                   ),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "DEF%",
-                                                        style: TextStyle(
-                                                            fontSize: 15),
+                                                        style: TextStyle(fontSize: 15),
                                                       ),
                                                       value: 3),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Elemental Mastery",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 4),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Critical Rate%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 5),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Critical Damage%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 6),
                                                   DropdownMenuItem(
                                                       child: Text(
                                                         "Healing Bonus%",
-                                                        style: TextStyle(
-                                                            fontSize: 10),
+                                                        style: TextStyle(fontSize: 10),
                                                       ),
                                                       value: 7),
                                                 ],
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    artifact5mainstatcat =
-                                                        value;
+                                                    artifact5mainstatcat = value;
                                                   });
                                                 }),
                                           ),
@@ -8933,8 +8249,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Star: $cstar',
@@ -8951,8 +8266,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 5,
                                               divisions: 1,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: cstar.toString(),
                                               value: cstar.toDouble(),
                                               onChanged: (value) {
@@ -8965,8 +8279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ],
                                       ),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: <Widget>[
                                           SelectableText(
                                             'Lv: $clv',
@@ -8983,8 +8296,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               max: 20,
                                               divisions: 5,
                                               activeColor: Colors.lightBlue,
-                                              inactiveColor:
-                                                  Colors.lightBlue[50],
+                                              inactiveColor: Colors.lightBlue[50],
                                               label: clv.toString(),
                                               value: clv.toDouble(),
                                               onChanged: (value) {
@@ -9006,12 +8318,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 200,
                                         height: 100,
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 if (!stat5atkpercentOn &&
                                                     !stat5hppercentOn &&
@@ -9023,37 +8333,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     !stat5CDpercentOn &&
                                                     !stat5EMOn &&
                                                     !stat5ERpercentOn)
-                                                  Text(
-                                                      'Please click to set stats'),
-                                                if (stat5atkpercentOn)
-                                                  Text('ATK%:$stat5atkpercent'),
-                                                if (stat5hppercentOn)
-                                                  Text('HP%:$stat5hppercent'),
-                                                if (stat5defpercentOn)
-                                                  Text('DEF%:$stat5defpercent'),
-                                                if (stat5CRpercentOn)
-                                                  Text(
-                                                      'Critial Rate%:$stat5CRpercent'),
-                                                if (stat5CDpercentOn)
-                                                  Text(
-                                                      'Critial Damage%:$stat5CDpercent'),
-                                                if (stat5EMOn)
-                                                  Text(
-                                                      'Elemental Mastery%:$stat5EM'),
-                                                if (stat5ERpercentOn)
-                                                  Text(
-                                                      'Energy Recharge%:$stat5ERpercent'),
-                                                if (stat5atkOn)
-                                                  Text('ATK:$stat5atk'),
-                                                if (stat5hpOn)
-                                                  Text('HP:$stat5hp'),
-                                                if (stat5defOn)
-                                                  Text('DEF:$stat5def'),
+                                                  Text('Please click to set stats'),
+                                                if (stat5atkpercentOn) Text('ATK%:$stat5atkpercent'),
+                                                if (stat5hppercentOn) Text('HP%:$stat5hppercent'),
+                                                if (stat5defpercentOn) Text('DEF%:$stat5defpercent'),
+                                                if (stat5CRpercentOn) Text('Critial Rate%:$stat5CRpercent'),
+                                                if (stat5CDpercentOn) Text('Critial Damage%:$stat5CDpercent'),
+                                                if (stat5EMOn) Text('Elemental Mastery%:$stat5EM'),
+                                                if (stat5ERpercentOn) Text('Energy Recharge%:$stat5ERpercent'),
+                                                if (stat5atkOn) Text('ATK:$stat5atk'),
+                                                if (stat5hpOn) Text('HP:$stat5hp'),
+                                                if (stat5defOn) Text('DEF:$stat5def'),
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: <Widget>[
                                                 Visibility(
                                                   visible: false,
@@ -9102,10 +8396,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -9117,12 +8408,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'ATK:$basicatk + ' +
-                                    double.parse(bonusatk.toStringAsFixed(1))
-                                        .toString() +
-                                    ' = ' +
-                                    double.parse(allatk.toStringAsFixed(1))
-                                        .toString(),
+                                'ATK:$basicatk + ' + double.parse(bonusatk.toStringAsFixed(1)).toString() + ' = ' + double.parse(allatk.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9147,244 +8433,64 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //gladiator2On:Colors.purple
                                     //royalflora4On:Colors.purple
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        buildStatRow(
-                                            Colors.red, 'level', '$levelatk'),
-                                        buildStatRow(Colors.blue, 'weapon',
-                                            '$weaponatk'),
-                                        if (weaponatkpercent != 0)
-                                          buildStatRow(
-                                              Colors.green,
-                                              'weapon%($weaponatkpercent)',
-                                              double.parse(weaponatkpercentstat
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat1atkOn == true)
-                                          buildStatRow(
-                                              Colors.red,
-                                              'a1',
-                                              double.parse(stat1atk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat1atkpercentOn == true)
-                                          buildStatRow(
-                                              Colors.yellow[700],
-                                              'a1%($stat1atkpercent)',
-                                              double.parse(a1percentatk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        buildStatRow(Colors.pink, 'a2',
-                                            a2atk.toString()),
-                                        if (stat2atkpercentOn == true)
-                                          buildStatRow(
-                                              Colors.pink[700],
-                                              'a2%($stat2atkpercent)',
-                                              double.parse(a2percentatk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (artifact3mainstatcat == 2)
-                                          buildStatRow(
-                                              Colors.blueGrey,
-                                              'a3%($a3atkpercentMain)',
-                                              double.parse(a3percentatkMain
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat3atkpercentOn == true)
-                                          buildStatRow(
-                                              Colors.blueGrey,
-                                              'a3%($stat3atkpercent)',
-                                              double.parse(a3percentatk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat3atkOn == true)
-                                          buildStatRow(
-                                              Colors.blueGrey[700],
-                                              'a3',
-                                              double.parse(stat3atk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (artifact4mainstatcat == 2)
-                                          buildStatRow(
-                                              Colors.purple,
-                                              'a4%($a4atkpercentMain)',
-                                              double.parse(a4percentatkMain
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat4atkpercentOn == true)
-                                          buildStatRow(
-                                              Colors.purple,
-                                              'a4%($stat4atkpercent)',
-                                              double.parse(a4percentatk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat4atkOn == true)
-                                          buildStatRow(
-                                              Colors.purple[700],
-                                              'a4',
-                                              double.parse(stat4atk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (artifact5mainstatcat == 2)
-                                          buildStatRow(
-                                              Colors.teal,
-                                              'a5%($a5atkpercentMain)',
-                                              double.parse(a5percentatkMain
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat5atkpercentOn == true)
-                                          buildStatRow(
-                                              Colors.teal,
-                                              'a5%($stat5atkpercent)',
-                                              double.parse(a5percentatk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (stat5atkOn == true)
-                                          buildStatRow(
-                                              Colors.teal[700],
-                                              'a5',
-                                              double.parse(stat5atk
-                                                      .toStringAsFixed(1))
-                                                  .toString()),
-                                        if (pyro2On == true)
-                                          buildStatRow(
-                                              Colors.red,
-                                              '2 pyro(25%)',
-                                              (basicatk * 25 / 100)
-                                                  .toStringAsFixed(1)),
-                                        if (gladiator2On == true)
-                                          buildStatRow(
-                                              Colors.red,
-                                              'Gladiator2(18%)',
-                                              (basicatk * 18 / 100)
-                                                  .toStringAsFixed(1)),
-                                        if (royalflora4On == true)
-                                          buildStatRow(
-                                              Colors.blue,
-                                              'Noblesse4(20%)',
-                                              (basicatk * 20 / 100)
-                                                  .toStringAsFixed(1)),
+                                        buildStatRow(Colors.red, 'level', '$levelatk'),
+                                        buildStatRow(Colors.blue, 'weapon', '$weaponatk'),
+                                        if (weaponatkpercent != 0) buildStatRow(Colors.green, 'weapon%($weaponatkpercent)', double.parse(weaponatkpercentstat.toStringAsFixed(1)).toString()),
+                                        if (stat1atkOn == true) buildStatRow(Colors.red, 'a1', double.parse(stat1atk.toStringAsFixed(1)).toString()),
+                                        if (stat1atkpercentOn == true) buildStatRow(Colors.yellow[700], 'a1%($stat1atkpercent)', double.parse(a1percentatk.toStringAsFixed(1)).toString()),
+                                        buildStatRow(Colors.pink, 'a2', a2atk.toString()),
+                                        if (stat2atkpercentOn == true) buildStatRow(Colors.pink[700], 'a2%($stat2atkpercent)', double.parse(a2percentatk.toStringAsFixed(1)).toString()),
+                                        if (artifact3mainstatcat == 2) buildStatRow(Colors.blueGrey, 'a3%($a3atkpercentMain)', double.parse(a3percentatkMain.toStringAsFixed(1)).toString()),
+                                        if (stat3atkpercentOn == true) buildStatRow(Colors.blueGrey, 'a3%($stat3atkpercent)', double.parse(a3percentatk.toStringAsFixed(1)).toString()),
+                                        if (stat3atkOn == true) buildStatRow(Colors.blueGrey[700], 'a3', double.parse(stat3atk.toStringAsFixed(1)).toString()),
+                                        if (artifact4mainstatcat == 2) buildStatRow(Colors.purple, 'a4%($a4atkpercentMain)', double.parse(a4percentatkMain.toStringAsFixed(1)).toString()),
+                                        if (stat4atkpercentOn == true) buildStatRow(Colors.purple, 'a4%($stat4atkpercent)', double.parse(a4percentatk.toStringAsFixed(1)).toString()),
+                                        if (stat4atkOn == true) buildStatRow(Colors.purple[700], 'a4', double.parse(stat4atk.toStringAsFixed(1)).toString()),
+                                        if (artifact5mainstatcat == 2) buildStatRow(Colors.teal, 'a5%($a5atkpercentMain)', double.parse(a5percentatkMain.toStringAsFixed(1)).toString()),
+                                        if (stat5atkpercentOn == true) buildStatRow(Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
+                                        if (stat5atkOn == true) buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
+                                        if (pyro2On == true) buildStatRow(Colors.red, '2 pyro(25%)', (basicatk * 25 / 100).toStringAsFixed(1)),
+                                        if (gladiator2On == true) buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
+                                        if (royalflora4On == true) buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
                                         if (unreturningOn == true)
-                                          buildStatRow(
-                                              Colors.tealAccent,
-                                              'Unreturning(' +
-                                                  (27 + weaponref * 9)
-                                                      .toStringAsFixed(1) +
-                                                  '%)',
-                                              (basicatk *
-                                                      (27 + weaponref * 9) /
-                                                      100)
-                                                  .toStringAsFixed(1)),
-                                        if (dragonslayerOn)
-                                          buildStatRow(
-                                              Colors.grey,
-                                              'Dragon Slayers(48%)',
-                                              (basicatk * 48 / 100)
-                                                  .toStringAsFixed(1)),
-                                        if (bennetqOn)
-                                          buildStatRow(
-                                              Colors.red,
-                                              'Bennet(burst)',
-                                              (bennetbasicatk *
-                                                      bennetqlvtoratio[
-                                                          bennetqlv] /
-                                                      100)
-                                                  .toStringAsFixed(1)),
-                                        if (manualatkOn)
-                                          buildStatRow(
-                                              Colors.red[300],
-                                              'Manual:ATK',
-                                              (manualatk.toStringAsFixed(1))),
-                                        if (manualatkpercentOn)
-                                          buildStatRow(
-                                              Colors.red[300],
-                                              'Manual:ATK%($manualatkpercent)',
-                                              ((basicatk *
-                                                      manualatkpercent /
-                                                      100)
-                                                  .toStringAsFixed(1))),
+                                          buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
+                                        if (dragonslayerOn) buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
+                                        if (bennetqOn) buildStatRow(Colors.red, 'Bennet(burst)', (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
+                                        if (manualatkOn) buildStatRow(Colors.red[300], 'Manual:ATK', (manualatk.toStringAsFixed(1))),
+                                        if (manualatkpercentOn) buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)', ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
                                       ],
                                     ),
 
                                     //ANCHOR statATK:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         buildstatbar(Colors.red, levelatk),
                                         buildstatbar(Colors.blue, weaponatk),
-                                        buildstatbar(
-                                            Colors.green, weaponatkpercentstat),
-                                        if (stat1atkOn == true)
-                                          buildstatbar(Colors.yellow, stat1atk),
-                                        if (stat1atkpercentOn == true)
-                                          buildstatbar(
-                                              Colors.yellow[700], a1percentatk),
+                                        buildstatbar(Colors.green, weaponatkpercentstat),
+                                        if (stat1atkOn == true) buildstatbar(Colors.yellow, stat1atk),
+                                        if (stat1atkpercentOn == true) buildstatbar(Colors.yellow[700], a1percentatk),
                                         buildstatbar(Colors.pink, a2atk),
-                                        if (stat2atkpercentOn == true)
-                                          buildstatbar(
-                                              Colors.pink[700], a2percentatk),
-                                        if (artifact3mainstatcat == 2)
-                                          buildstatbar(Colors.blueGrey,
-                                              a3percentatkMain),
-                                        if (stat3atkpercentOn == true)
-                                          buildstatbar(
-                                              Colors.blueGrey, a3percentatk),
-                                        if (stat3atkOn == true)
-                                          buildstatbar(
-                                              Colors.blueGrey[700], stat3atk),
-                                        if (artifact4mainstatcat == 2)
-                                          buildstatbar(
-                                              Colors.purple, a4percentatkMain),
-                                        if (stat4atkpercentOn == true)
-                                          buildstatbar(
-                                              Colors.purple, a4percentatk),
-                                        if (stat4atkOn == true)
-                                          buildstatbar(
-                                              Colors.purple[700], stat4atk),
-                                        if (artifact5mainstatcat == 2)
-                                          buildstatbar(
-                                              Colors.teal, a5percentatkMain),
-                                        if (stat5atkpercentOn == true)
-                                          buildstatbar(
-                                              Colors.teal, a5percentatk),
-                                        if (stat5atkOn == true)
-                                          buildstatbar(
-                                              Colors.teal[700], stat5atk),
-                                        if (pyro2On == true)
-                                          buildstatbar(Colors.red,
-                                              (basicatk * 25 / 100)),
-                                        if (gladiator2On == true)
-                                          buildstatbar(Colors.red,
-                                              (basicatk * 18 / 100)),
-                                        if (royalflora4On == true)
-                                          buildstatbar(Colors.blue,
-                                              (basicatk * 20 / 100)),
-                                        if (unreturningOn == true)
-                                          buildstatbar(
-                                              Colors.tealAccent,
-                                              (basicatk *
-                                                  (27 + weaponref * 9) /
-                                                  100)),
-                                        if (dragonslayerOn)
-                                          buildstatbar(Colors.grey,
-                                              (basicatk * 48 / 100)),
-                                        if (bennetqOn)
-                                          buildstatbar(
-                                              Colors.red,
-                                              (bennetbasicatk *
-                                                  bennetqlvtoratio[bennetqlv] /
-                                                  100)),
-                                        if (manualatkOn)
-                                          buildstatbar(
-                                              Colors.red[300], (manualatk)),
-                                        if (manualatkpercentOn)
-                                          buildstatbar(
-                                              Colors.red[300],
-                                              (basicatk *
-                                                  manualatkpercent /
-                                                  100)),
+                                        if (stat2atkpercentOn == true) buildstatbar(Colors.pink[700], a2percentatk),
+                                        if (artifact3mainstatcat == 2) buildstatbar(Colors.blueGrey, a3percentatkMain),
+                                        if (stat3atkpercentOn == true) buildstatbar(Colors.blueGrey, a3percentatk),
+                                        if (stat3atkOn == true) buildstatbar(Colors.blueGrey[700], stat3atk),
+                                        if (artifact4mainstatcat == 2) buildstatbar(Colors.purple, a4percentatkMain),
+                                        if (stat4atkpercentOn == true) buildstatbar(Colors.purple, a4percentatk),
+                                        if (stat4atkOn == true) buildstatbar(Colors.purple[700], stat4atk),
+                                        if (artifact5mainstatcat == 2) buildstatbar(Colors.teal, a5percentatkMain),
+                                        if (stat5atkpercentOn == true) buildstatbar(Colors.teal, a5percentatk),
+                                        if (stat5atkOn == true) buildstatbar(Colors.teal[700], stat5atk),
+                                        if (pyro2On == true) buildstatbar(Colors.red, (basicatk * 25 / 100)),
+                                        if (gladiator2On == true) buildstatbar(Colors.red, (basicatk * 18 / 100)),
+                                        if (royalflora4On == true) buildstatbar(Colors.blue, (basicatk * 20 / 100)),
+                                        if (unreturningOn == true) buildstatbar(Colors.tealAccent, (basicatk * (27 + weaponref * 9) / 100)),
+                                        if (dragonslayerOn) buildstatbar(Colors.grey, (basicatk * 48 / 100)),
+                                        if (bennetqOn) buildstatbar(Colors.red, (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100)),
+                                        if (manualatkOn) buildstatbar(Colors.red[300], (manualatk)),
+                                        if (manualatkpercentOn) buildstatbar(Colors.red[300], (basicatk * manualatkpercent / 100)),
                                       ],
                                     ),
                                   ],
@@ -9394,12 +8500,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'HP:$lvlhp + ' +
-                                    double.parse(bonusHP.toStringAsFixed(1))
-                                        .toString() +
-                                    ' = ' +
-                                    double.parse(allHP.toStringAsFixed(1))
-                                        .toString(),
+                                'HP:$lvlhp + ' + double.parse(bonusHP.toStringAsFixed(1)).toString() + ' = ' + double.parse(allHP.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9421,8 +8522,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //a5%:Colors.teal
                                     //a5:Colors.teal[700]
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
@@ -9435,13 +8535,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               children: [
                                                 SelectableText(
                                                   'level',
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                                 SelectableText(
                                                   '$lvlhp',
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                               ],
                                             ),
@@ -9459,17 +8557,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'weapon%($weaponHPpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(
-                                                            weaponHPpercentstat
-                                                                .toStringAsFixed(
-                                                                    1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(weaponHPpercentstat.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9487,15 +8579,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a1',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat1hp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat1hp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9513,15 +8601,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a1%($stat1hppercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a1percenthp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a1percenthp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9538,13 +8622,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               children: [
                                                 SelectableText(
                                                   'a1',
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                                 SelectableText(
                                                   a1hp.toString(),
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                               ],
                                             ),
@@ -9562,15 +8644,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a2',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat2hp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat2hp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9588,15 +8666,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a2%($stat2hppercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a2percenthp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a2percenthp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9614,15 +8688,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3%($a3HPpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a3percentHPMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a3percentHPMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9640,15 +8710,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3%($stat3hppercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a3percentHP
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a3percentHP.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9666,15 +8732,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat3hp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat3hp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9692,15 +8754,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4%($a4HPpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a4percentHPMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a4percentHPMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9718,15 +8776,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4%($stat4hppercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a4percentHP
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a4percentHP.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9744,15 +8798,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat4hp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat4hp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9770,15 +8820,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5%($a5HPpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a5percentHPMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a5percentHPMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9796,15 +8842,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5%($stat5hppercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a5percentHP
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a5percentHP.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9822,15 +8864,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat5hp
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat5hp.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -9841,17 +8879,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                     //ANCHOR statHP:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: lvlhp / 75,
                                               height: 20,
                                               color: Colors.red,
@@ -9860,13 +8895,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         if (weaponHPpercent != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weaponHPpercentstat / 75,
                                                 height: 20,
                                                 color: Colors.blue,
@@ -9875,13 +8908,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1hpOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1hp / 75,
                                                 height: 20,
                                                 color: Colors.yellow,
@@ -9890,13 +8921,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1hppercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a1percenthp / 75,
                                                 height: 20,
                                                 color: Colors.yellow[700],
@@ -9904,13 +8933,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ],
                                           ),
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: a1hp / 75,
                                               height: 20,
                                               color: Colors.yellow,
@@ -9919,13 +8946,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         if (stat2hpOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat2hp / 75,
                                                 height: 20,
                                                 color: Colors.pink,
@@ -9934,13 +8959,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2hppercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a2percenthp / 50,
                                                 height: 20,
                                                 color: Colors.pink[700],
@@ -9949,13 +8972,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact3mainstatcat == 1)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3percentHPMain / 75,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -9964,13 +8985,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3hppercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3percentHP / 75,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -9979,13 +8998,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3hpOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3hp / 75,
                                                 height: 20,
                                                 color: Colors.blueGrey[700],
@@ -9994,13 +9011,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact4mainstatcat == 1)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a4percentHPMain / 75,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -10009,13 +9024,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4hppercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a4percentHP / 50,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -10024,13 +9037,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4hpOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4hp / 75,
                                                 height: 20,
                                                 color: Colors.purple[700],
@@ -10039,13 +9050,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact5mainstatcat == 1)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5percentHPMain / 75,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -10054,13 +9063,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5hppercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5percentHP / 75,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -10069,13 +9076,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5hpOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5hp / 75,
                                                 height: 20,
                                                 color: Colors.teal[700],
@@ -10090,12 +9095,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR DEF
                               SelectableText(
-                                'DEF:$lvldef + ' +
-                                    double.parse(bonusdef.toStringAsFixed(1))
-                                        .toString() +
-                                    ' = ' +
-                                    double.parse(alldef.toStringAsFixed(1))
-                                        .toString(),
+                                'DEF:$lvldef + ' + double.parse(bonusdef.toStringAsFixed(1)).toString() + ' = ' + double.parse(alldef.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -10104,8 +9104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     //ANCHOR statDEF:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
@@ -10118,13 +9117,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               children: [
                                                 SelectableText(
                                                   'level',
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                                 SelectableText(
                                                   '$lvldef',
-                                                  style:
-                                                      TextStyle(fontSize: 10),
+                                                  style: TextStyle(fontSize: 10),
                                                 ),
                                               ],
                                             ),
@@ -10142,17 +9139,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'weapon%($weapondefpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(
-                                                            weapondefpercentstat
-                                                                .toStringAsFixed(
-                                                                    1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(weapondefpercentstat.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10170,15 +9161,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a1',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat1def
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat1def.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10196,15 +9183,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a1%($stat1defpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a1percentdef
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a1percentdef.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10222,15 +9205,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a2%($stat2defpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a2percentdef
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a2percentdef.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10248,15 +9227,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3%($a3defpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a3percentdefMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a3percentdefMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10274,15 +9249,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3%($stat3defpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a3percentdef
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a3percentdef.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10300,15 +9271,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat3def
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat3def.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10326,15 +9293,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4%($a4defpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a4percentdefMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a4percentdefMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10352,15 +9315,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4%($stat4defpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a4percentdef
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a4percentdef.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10378,15 +9337,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat4def
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat4def.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10404,15 +9359,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5%($a5defpercentMain)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a5percentdefMain
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a5percentdefMain.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10430,15 +9381,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5%($stat5defpercent)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(a5percentdef
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(a5percentdef.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10456,15 +9403,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
-                                                    double.parse(stat5def
-                                                            .toStringAsFixed(1))
-                                                        .toString(),
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    double.parse(stat5def.toStringAsFixed(1)).toString(),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -10475,17 +9418,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                     //ANCHOR statDEF:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: lvldef / 7,
                                               height: 20,
                                               color: Colors.red,
@@ -10494,13 +9434,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         if (weapondefpercentstat != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weapondefpercentstat / 7,
                                                 height: 20,
                                                 color: Colors.blue,
@@ -10509,13 +9447,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1defOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1def / 7,
                                                 height: 20,
                                                 color: Colors.yellow,
@@ -10524,13 +9460,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1defpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a1percentdef / 7,
                                                 height: 20,
                                                 color: Colors.yellow[700],
@@ -10539,13 +9473,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2defpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a2percentdef / 7,
                                                 height: 20,
                                                 color: Colors.pink[700],
@@ -10554,13 +9486,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact3mainstatcat == 3)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3percentdefMain / 7,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -10569,13 +9499,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3defpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3percentdef / 7,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -10584,13 +9512,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3defOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3def / 7,
                                                 height: 20,
                                                 color: Colors.blueGrey[700],
@@ -10599,13 +9525,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact4mainstatcat == 3)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a4percentdefMain / 7,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -10614,13 +9538,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4defpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a4percentdef / 7,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -10629,13 +9551,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4defOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4def / 7,
                                                 height: 20,
                                                 color: Colors.purple[700],
@@ -10644,13 +9564,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact5mainstatcat == 3)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5percentdefMain / 7,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -10659,13 +9577,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5defpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5percentdef / 7,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -10674,13 +9590,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5defOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5def / 7,
                                                 height: 20,
                                                 color: Colors.teal[700],
@@ -10695,13 +9609,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR ER
                               SelectableText(
-                                'Energy Recharge:100% + ' +
-                                    double.parse(bonusER.toStringAsFixed(1))
-                                        .toString() +
-                                    '% = ' +
-                                    double.parse(allER.toStringAsFixed(1))
-                                        .toString() +
-                                    '%',
+                                'Energy Recharge:100% + ' + double.parse(bonusER.toStringAsFixed(1)).toString() + '% = ' + double.parse(allER.toStringAsFixed(1)).toString() + '%',
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -10710,48 +9618,29 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     //ANCHOR statER:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        buildStatRow(
-                                            Colors.red, 'baseER%', '100'),
-                                        if (weaponERpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon%',
-                                              '$weaponERpercent'),
-                                        if (stat1ERpercentOn == true)
-                                          buildStatRow(Colors.yellow[700],
-                                              'a1%', '$stat1ERpercent'),
-                                        if (stat2ERpercentOn == true)
-                                          buildStatRow(Colors.pink[700], 'a2%',
-                                              '$stat2ERpercent'),
-                                        if (artifact3mainstatcat == 5)
-                                          buildStatRow(Colors.blueGrey, 'a3%',
-                                              '$a3ERpercentMain'),
-                                        if (stat3ERpercentOn == true)
-                                          buildStatRow(Colors.blueGrey, 'a3%',
-                                              '$stat3ERpercent'),
-                                        if (stat4ERpercentOn == true)
-                                          buildStatRow(Colors.purple, 'a4%',
-                                              '$stat4ERpercent'),
-                                        if (stat5ERpercentOn == true)
-                                          buildStatRow(Colors.teal, 'a5%',
-                                              '$stat5ERpercent'),
+                                        buildStatRow(Colors.red, 'baseER%', '100'),
+                                        if (weaponERpercent != 0) buildStatRow(Colors.green, 'weapon%', '$weaponERpercent'),
+                                        if (stat1ERpercentOn == true) buildStatRow(Colors.yellow[700], 'a1%', '$stat1ERpercent'),
+                                        if (stat2ERpercentOn == true) buildStatRow(Colors.pink[700], 'a2%', '$stat2ERpercent'),
+                                        if (artifact3mainstatcat == 5) buildStatRow(Colors.blueGrey, 'a3%', '$a3ERpercentMain'),
+                                        if (stat3ERpercentOn == true) buildStatRow(Colors.blueGrey, 'a3%', '$stat3ERpercent'),
+                                        if (stat4ERpercentOn == true) buildStatRow(Colors.purple, 'a4%', '$stat4ERpercent'),
+                                        if (stat5ERpercentOn == true) buildStatRow(Colors.teal, 'a5%', '$stat5ERpercent'),
                                       ],
                                     ),
 
                                     //ANCHOR statER:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: 100,
                                               height: 20,
                                               color: Colors.red,
@@ -10760,13 +9649,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                         if (weaponERpercent != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weaponERpercent,
                                                 height: 20,
                                                 color: Colors.blue,
@@ -10775,13 +9662,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1ERpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1ERpercent,
                                                 height: 20,
                                                 color: Colors.yellow[700],
@@ -10790,13 +9675,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2ERpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat2ERpercent,
                                                 height: 20,
                                                 color: Colors.pink[700],
@@ -10805,13 +9688,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact3mainstatcat == 5)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3ERpercentMain,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -10820,13 +9701,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3ERpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3ERpercent,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -10835,13 +9714,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4ERpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4ERpercent,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -10850,13 +9727,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5ERpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5ERpercent,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -10876,10 +9751,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             //ANCHOR CR
 
@@ -10892,14 +9764,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SelectableText(
                                 'Critical Rate:' +
-                                    double.parse(baseCR.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(baseCR.toStringAsFixed(1)).toString() +
                                     '% + ' +
-                                    double.parse(bonusCR.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(bonusCR.toStringAsFixed(1)).toString() +
                                     '% = ' +
-                                    double.parse(allCR.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(allCR.toStringAsFixed(1)).toString() +
                                     '%',
                                 style: TextStyle(fontSize: 15),
                               ),
@@ -10909,78 +9778,40 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     //ANCHOR statCR:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        buildStatRow(
-                                            Colors.red, 'character', '$baseCR'),
-                                        if (weaponCR != 0)
-                                          buildStatRow(Colors.blue[700],
-                                              'weapon', '$weaponCR'),
-                                        if (stat1CRpercentOn == true)
-                                          buildStatRow(Colors.yellow[700], 'a1',
-                                              '$stat1CRpercent'),
-                                        if (stat2CRpercentOn == true)
-                                          buildStatRow(Colors.pink[700], 'a2',
-                                              '$stat2CRpercent'),
-                                        if (stat3CRpercentOn == true)
-                                          buildStatRow(Colors.blueGrey, 'a3',
-                                              '$stat3CRpercent'),
-                                        if (stat4CRpercentOn == true)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$stat4CRpercent'),
-                                        if (artifact5mainstatcat == 5)
-                                          buildStatRow(
-                                              Colors.purple, 'a5', '$a5CR'),
-                                        if (stat5CRpercentOn == true)
-                                          buildStatRow(Colors.teal, 'a5',
-                                              '$stat5CRpercent'),
-                                        if (undividedHeartOn == true)
-                                          buildStatRow(Colors.amber,
-                                              'Undevided Heart', '20'),
-                                        if (blizzardstrayer41On == true)
-                                          buildStatRow(
-                                              Colors.blue[300],
-                                              'Blizzard Strayer 4 set(cryo)',
-                                              '20'),
-                                        if (blizzardstrayer42On == true)
-                                          buildStatRow(
-                                              Colors.blue[400],
-                                              'Blizzard Strayer 4 set(frozen)',
-                                              '20'),
-                                        if (cryo2On == true)
-                                          buildStatRow(
-                                              Colors.blue[200], '2 Cryo', '15'),
+                                        buildStatRow(Colors.red, 'character', '$baseCR'),
+                                        if (weaponCR != 0) buildStatRow(Colors.blue[700], 'weapon', '$weaponCR'),
+                                        if (stat1CRpercentOn == true) buildStatRow(Colors.yellow[700], 'a1', '$stat1CRpercent'),
+                                        if (stat2CRpercentOn == true) buildStatRow(Colors.pink[700], 'a2', '$stat2CRpercent'),
+                                        if (stat3CRpercentOn == true) buildStatRow(Colors.blueGrey, 'a3', '$stat3CRpercent'),
+                                        if (stat4CRpercentOn == true) buildStatRow(Colors.purple, 'a4', '$stat4CRpercent'),
+                                        if (artifact5mainstatcat == 5) buildStatRow(Colors.purple, 'a5', '$a5CR'),
+                                        if (stat5CRpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CRpercent'),
+                                        if (undividedHeartOn == true) buildStatRow(Colors.amber, 'Undevided Heart', '20'),
+                                        if (blizzardstrayer41On == true) buildStatRow(Colors.blue[300], 'Blizzard Strayer 4 set(cryo)', '20'),
+                                        if (blizzardstrayer42On == true) buildStatRow(Colors.blue[400], 'Blizzard Strayer 4 set(frozen)', '20'),
+                                        if (cryo2On == true) buildStatRow(Colors.blue[200], '2 Cryo', '15'),
                                       ],
                                     ),
 
                                     //ANCHOR statCR:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
-                                                width: baseCR * 2,
-                                                height: 20,
-                                                color: Colors.red),
+                                            AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCR * 2, height: 20, color: Colors.red),
                                           ],
                                         ),
                                         if (weaponCR != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weaponCR * 2,
                                                 height: 20,
                                                 color: Colors.blue[700],
@@ -10989,13 +9820,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1CRpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.yellow[700],
@@ -11004,13 +9833,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2CRpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat2CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.pink[700],
@@ -11019,13 +9846,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3CRpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -11034,13 +9859,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4CRpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -11049,13 +9872,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact5mainstatcat == 5)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5CR * 2,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -11064,13 +9885,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5CRpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5CRpercent * 2,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -11079,13 +9898,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (undividedHeartOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: 40,
                                                 height: 20,
                                                 color: Colors.amber,
@@ -11094,13 +9911,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (blizzardstrayer41On == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: 40,
                                                 height: 20,
                                                 color: Colors.blue[300],
@@ -11109,13 +9924,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (blizzardstrayer42On == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: 40,
                                                 height: 20,
                                                 color: Colors.blue[400],
@@ -11124,13 +9937,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (cryo2On == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: 30,
                                                 height: 20,
                                                 color: Colors.blue[200],
@@ -11145,14 +9956,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               //ANCHOR CD
                               SelectableText(
                                 'Critical Damage:' +
-                                    double.parse(baseCD.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(baseCD.toStringAsFixed(1)).toString() +
                                     '% + ' +
-                                    double.parse(bonusCD.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(bonusCD.toStringAsFixed(1)).toString() +
                                     '% = ' +
-                                    double.parse(allCD.toStringAsFixed(1))
-                                        .toString() +
+                                    double.parse(allCD.toStringAsFixed(1)).toString() +
                                     '%',
                                 style: TextStyle(fontSize: 15),
                               ),
@@ -11162,68 +9970,38 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     //ANCHOR statCD:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        buildStatRow(
-                                            Colors.red, 'character', '$baseCD'),
-                                        if (weaponCD != 0)
-                                          buildStatRow(Colors.blue, 'weapon',
-                                              '$weaponCD'),
-                                        if (stat1CDpercentOn == true)
-                                          buildStatRow(Colors.yellow[700], 'a1',
-                                              '$stat1CDpercent'),
-                                        if (stat2CDpercentOn == true)
-                                          buildStatRow(Colors.pink[700], 'a2',
-                                              '$stat2CDpercent'),
-                                        if (stat3CDpercentOn == true)
-                                          buildStatRow(Colors.blueGrey, 'a3',
-                                              '$stat3CDpercent'),
-                                        if (stat4CDpercentOn == true)
-                                          buildStatRow(Colors.blueGrey, 'a4',
-                                              '$stat4CDpercent'),
-                                        if (artifact5mainstatcat == 6)
-                                          buildStatRow(
-                                              Colors.teal, 'a5', '$a5CD'),
-                                        if (stat5CDpercentOn == true)
-                                          buildStatRow(Colors.teal, 'a5',
-                                              '$stat5CDpercent'),
-                                        if (echoingBalladOn == true)
-                                          buildStatRow(
-                                              Colors.tealAccent,
-                                              'Echoing Ballad1',
-                                              (15 + weaponref * 5).toString()),
+                                        buildStatRow(Colors.red, 'character', '$baseCD'),
+                                        if (weaponCD != 0) buildStatRow(Colors.blue, 'weapon', '$weaponCD'),
+                                        if (stat1CDpercentOn == true) buildStatRow(Colors.yellow[700], 'a1', '$stat1CDpercent'),
+                                        if (stat2CDpercentOn == true) buildStatRow(Colors.pink[700], 'a2', '$stat2CDpercent'),
+                                        if (stat3CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a3', '$stat3CDpercent'),
+                                        if (stat4CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a4', '$stat4CDpercent'),
+                                        if (artifact5mainstatcat == 6) buildStatRow(Colors.teal, 'a5', '$a5CD'),
+                                        if (stat5CDpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CDpercent'),
+                                        if (echoingBalladOn == true) buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
                                       ],
                                     ),
 
                                     //ANCHOR statCD:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         if ((baseCD - weaponCD) != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              AnimatedContainer(
-                                                  curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
-                                                  width: baseCD * 2,
-                                                  height: 20,
-                                                  color: Colors.red),
+                                              AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCD * 2, height: 20, color: Colors.red),
                                             ],
                                           ),
                                         if (weaponCD != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weaponCD * 2,
                                                 height: 20,
                                                 color: Colors.blue,
@@ -11232,13 +10010,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1CDpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.yellow[700],
@@ -11247,13 +10023,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2CDpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat2CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.pink[700],
@@ -11262,13 +10036,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3CDpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -11277,13 +10049,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4CDpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -11292,13 +10062,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact5mainstatcat == 6)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5CD * 2,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -11307,13 +10075,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5CDpercentOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5CDpercent * 2,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -11322,15 +10088,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (echoingBalladOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
-                                                width: (15 + weaponref * 5) * 2
-                                                    as double,
+                                                duration: Duration(milliseconds: 500),
+                                                width: (15 + weaponref * 5) * 2 as double,
                                                 height: 20,
                                                 color: Colors.tealAccent,
                                               ),
@@ -11348,10 +10111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -11365,51 +10125,31 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     if (bonusNormalATKDMGpercent != 0)
                                       SelectableText(
-                                        'Normal Attack Damage:' +
-                                            double.parse(
-                                                    bonusNormalATKDMGpercent
-                                                        .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Normal Attack Damage:' + double.parse(bonusNormalATKDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statNormalATKDMG:stats
                                     if (bonusNormalATKDMGpercent != 0)
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          if (strongWilled1On)
-                                            buildStatRow(
-                                                Colors.purple[300],
-                                                'strong Willed1',
-                                                (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(
-                                                Colors.blue[300],
-                                                'strong Willed2',
-                                                ((6 + weaponref * 2) *
-                                                        strongWilled2Times)
-                                                    .toString()),
+                                          if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                         ],
                                       ),
                                     //ANCHOR statNormalATKDMG:bar
                                     if (bonusNormalATKDMGpercent != 0)
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On)
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 AnimatedContainer(
                                                   curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
-                                                  width: (9 + weaponref * 3) * 2
-                                                      as double,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: (9 + weaponref * 3) * 2 as double,
                                                   height: 20,
                                                   color: Colors.purple[300],
                                                 ),
@@ -11417,17 +10157,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           if (strongWilled2On)
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 AnimatedContainer(
                                                   curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
-                                                  width: ((6 + weaponref * 2) *
-                                                          strongWilled2Times) *
-                                                      2 *
-                                                      2 as double,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
                                                   height: 20,
                                                   color: Colors.blue[300],
                                                 ),
@@ -11437,56 +10172,32 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     if (bonusChargedATKDMGpercent != 0)
                                       SelectableText(
-                                        'Charged Attack Damage:' +
-                                            double.parse(
-                                                    bonusChargedATKDMGpercent
-                                                        .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Charged Attack Damage:' + double.parse(bonusChargedATKDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statChargedATKDMG:stats
                                     if (bonusChargedATKDMGpercent != 0)
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          if (strongWilled1On)
-                                            buildStatRow(
-                                                Colors.purple[300],
-                                                'strong Willed1',
-                                                (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(
-                                                Colors.blue[300],
-                                                'strong Willed2',
-                                                ((6 + weaponref * 2) *
-                                                        strongWilled2Times)
-                                                    .toString()),
-                                          if (troupesdawnlight4on)
-                                            buildStatRow(
-                                                Colors.green[400],
-                                                "Troupe's Dawnlight 4 set",
-                                                "35"),
+                                          if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
                                         ],
                                       ),
                                     //ANCHOR statChargedATKDMG:bar
                                     if (bonusChargedATKDMGpercent != 0)
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On)
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 AnimatedContainer(
                                                   curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
-                                                  width: (9 + weaponref * 3) * 2
-                                                      as double,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: (9 + weaponref * 3) * 2 as double,
                                                   height: 20,
                                                   color: Colors.purple[300],
                                                 ),
@@ -11494,17 +10205,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           if (strongWilled2On)
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 AnimatedContainer(
                                                   curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
-                                                  width: ((6 + weaponref * 2) *
-                                                          strongWilled2Times) *
-                                                      2 *
-                                                      2 as double,
+                                                  duration: Duration(milliseconds: 500),
+                                                  width: ((6 + weaponref * 2) * strongWilled2Times) * 2 * 2 as double,
                                                   height: 20,
                                                   color: Colors.blue[300],
                                                 ),
@@ -11512,13 +10218,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           if (troupesdawnlight4on)
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 AnimatedContainer(
                                                   curve: Curves.easeIn,
-                                                  duration: Duration(
-                                                      milliseconds: 500),
+                                                  duration: Duration(milliseconds: 500),
                                                   width: 35 * 2 as double,
                                                   height: 20,
                                                   color: Colors.green[400],
@@ -11530,365 +10234,243 @@ class _MyHomePageState extends State<MyHomePage> {
                                     //ANCHOR Physical Damage Title
                                     if (bonusPhysicalDMGpercent != 0)
                                       SelectableText(
-                                        'Physical Damage:' +
-                                            double.parse(bonusPhysicalDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Physical Damage:' + double.parse(bonusPhysicalDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statPhysicalDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPhysicalDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelPhysicalDMGpercent'),
-                                        if (weaponPhysicalDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponPhysicalDMGpercent'),
-                                        if (artifact4mainstatcat == 5)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4PhysicalDMGpercent'),
+                                        if (levelPhysicalDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelPhysicalDMGpercent'),
+                                        if (weaponPhysicalDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponPhysicalDMGpercent'),
+                                        if (artifact4mainstatcat == 5) buildStatRow(Colors.purple, 'a4', '$a4PhysicalDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statPhysicalDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPhysicalDMGpercent != 0)
-                                          buildstatbarpercent(Colors.red,
-                                              levelPhysicalDMGpercent),
-                                        if (weaponPhysicalDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponPhysicalDMGpercent),
-                                        if (artifact4mainstatcat == 5)
-                                          buildstatbarpercent(Colors.purple,
-                                              a4PhysicalDMGpercent),
+                                        if (levelPhysicalDMGpercent != 0) buildstatbarpercent(Colors.red, levelPhysicalDMGpercent),
+                                        if (weaponPhysicalDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponPhysicalDMGpercent),
+                                        if (artifact4mainstatcat == 5) buildstatbarpercent(Colors.purple, a4PhysicalDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Pyro Damage Title
                                     if (bonusPyroDMGpercent != 0)
                                       SelectableText(
-                                        'Pyro Damage:' +
-                                            double.parse(bonusPyroDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Pyro Damage:' + double.parse(bonusPyroDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statPyroDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPyroDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelPyroDMGpercent'),
-                                        if (weaponPyroDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponPyroDMGpercent'),
-                                        if (artifact4mainstatcat == 6)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4PyroDMGpercent'),
+                                        if (levelPyroDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelPyroDMGpercent'),
+                                        if (weaponPyroDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponPyroDMGpercent'),
+                                        if (artifact4mainstatcat == 6) buildStatRow(Colors.purple, 'a4', '$a4PyroDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statPyroDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelPyroDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.red, levelPyroDMGpercent),
-                                        if (weaponPyroDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponPyroDMGpercent),
-                                        if (artifact4mainstatcat == 6)
-                                          buildstatbarpercent(
-                                              Colors.purple, a4PyroDMGpercent),
+                                        if (levelPyroDMGpercent != 0) buildstatbarpercent(Colors.red, levelPyroDMGpercent),
+                                        if (weaponPyroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponPyroDMGpercent),
+                                        if (artifact4mainstatcat == 6) buildstatbarpercent(Colors.purple, a4PyroDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Hydro Damage Title
                                     if (bonusHydroDMGpercent != 0)
                                       SelectableText(
-                                        'Hydro Damage:' +
-                                            double.parse(bonusHydroDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Hydro Damage:' + double.parse(bonusHydroDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statHydroDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelHydroDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelHydroDMGpercent'),
-                                        if (weaponHydroDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponHydroDMGpercent'),
-                                        if (artifact4mainstatcat == 7)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4HydroDMGpercent'),
+                                        if (levelHydroDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelHydroDMGpercent'),
+                                        if (weaponHydroDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponHydroDMGpercent'),
+                                        if (artifact4mainstatcat == 7) buildStatRow(Colors.purple, 'a4', '$a4HydroDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statHydroDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelHydroDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.red, levelHydroDMGpercent),
-                                        if (weaponHydroDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponHydroDMGpercent),
-                                        if (artifact4mainstatcat == 7)
-                                          buildstatbarpercent(
-                                              Colors.purple, a4HydroDMGpercent),
+                                        if (levelHydroDMGpercent != 0) buildstatbarpercent(Colors.red, levelHydroDMGpercent),
+                                        if (weaponHydroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponHydroDMGpercent),
+                                        if (artifact4mainstatcat == 7) buildstatbarpercent(Colors.purple, a4HydroDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Cryo Damage Title
                                     if (bonusCryoDMGpercent != 0)
                                       SelectableText(
-                                        'Cryo Damage:' +
-                                            double.parse(bonusCryoDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Cryo Damage:' + double.parse(bonusCryoDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statCryoDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelCryoDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelCryoDMGpercent'),
-                                        if (weaponCryoDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponCryoDMGpercent'),
-                                        if (artifact4mainstatcat == 8)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4CryoDMGpercent'),
-                                        if (blizzardstrayer2On)
-                                          buildStatRow(Colors.blue[300],
-                                              'Blizzard Strayer 2 Set', '15'),
+                                        if (levelCryoDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelCryoDMGpercent'),
+                                        if (weaponCryoDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponCryoDMGpercent'),
+                                        if (artifact4mainstatcat == 8) buildStatRow(Colors.purple, 'a4', '$a4CryoDMGpercent'),
+                                        if (blizzardstrayer2On) buildStatRow(Colors.blue[300], 'Blizzard Strayer 2 Set', '15'),
                                       ],
                                     ),
                                     //ANCHOR statCryoDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelCryoDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.red, levelCryoDMGpercent),
-                                        if (weaponCryoDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponCryoDMGpercent),
-                                        if (artifact4mainstatcat == 8)
-                                          buildstatbarpercent(
-                                              Colors.purple, a4CryoDMGpercent),
-                                        if (blizzardstrayer2On)
-                                          buildstatbarpercent(
-                                              Colors.blue[300], 15),
+                                        if (levelCryoDMGpercent != 0) buildstatbarpercent(Colors.red, levelCryoDMGpercent),
+                                        if (weaponCryoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponCryoDMGpercent),
+                                        if (artifact4mainstatcat == 8) buildstatbarpercent(Colors.purple, a4CryoDMGpercent),
+                                        if (blizzardstrayer2On) buildstatbarpercent(Colors.blue[300], 15),
                                       ],
                                     ),
                                     //ANCHOR Electro Damage Title
                                     if (bonusElectroDMGpercent != 0)
                                       SelectableText(
-                                        'Electro Damage:' +
-                                            double.parse(bonusElectroDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Electro Damage:' + double.parse(bonusElectroDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statElectroDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelElectroDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelElectroDMGpercent'),
-                                        if (weaponElectroDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponElectroDMGpercent'),
-                                        if (artifact4mainstatcat == 9)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4ElectroDMGpercent'),
+                                        if (levelElectroDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelElectroDMGpercent'),
+                                        if (weaponElectroDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponElectroDMGpercent'),
+                                        if (artifact4mainstatcat == 9) buildStatRow(Colors.purple, 'a4', '$a4ElectroDMGpercent'),
+                                        if (thunderbird2On) buildStatRow(Colors.purple[400], 'Thundering Fury 2 Set', '15'),
                                       ],
                                     ),
                                     //ANCHOR statElectroDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelElectroDMGpercent != 0)
-                                          buildstatbarpercent(Colors.red,
-                                              levelElectroDMGpercent),
-                                        if (weaponElectroDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponElectroDMGpercent),
-                                        if (artifact4mainstatcat == 9)
-                                          buildstatbarpercent(Colors.purple,
-                                              a4ElectroDMGpercent),
+                                        if (levelElectroDMGpercent != 0) buildstatbarpercent(Colors.red, levelElectroDMGpercent),
+                                        if (weaponElectroDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponElectroDMGpercent),
+                                        if (artifact4mainstatcat == 9) buildstatbarpercent(Colors.purple, a4ElectroDMGpercent),
+                                        if (thunderbird2On) buildstatbarpercent(Colors.purple[400], 15)
                                       ],
                                     ),
                                     //ANCHOR Anemo Damage Title
                                     if (bonusAnemoDMGpercent != 0)
                                       SelectableText(
-                                        'Anemo Damage:' +
-                                            double.parse(bonusAnemoDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Anemo Damage:' + double.parse(bonusAnemoDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statAnemoDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelAnemoDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelAnemoDMGpercent'),
-                                        if (weaponAnemoDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponAnemoDMGpercent'),
-                                        if (artifact4mainstatcat == 10)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4AnemoDMGpercent'),
+                                        if (levelAnemoDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelAnemoDMGpercent'),
+                                        if (weaponAnemoDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponAnemoDMGpercent'),
+                                        if (artifact4mainstatcat == 10) buildStatRow(Colors.purple, 'a4', '$a4AnemoDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statAnemoDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelAnemoDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.red, levelAnemoDMGpercent),
-                                        if (weaponAnemoDMGpercent != 0)
-                                          buildstatbarpercent(Colors.blue,
-                                              weaponAnemoDMGpercent),
-                                        if (artifact4mainstatcat == 10)
-                                          buildstatbarpercent(
-                                              Colors.purple, a4AnemoDMGpercent),
+                                        if (levelAnemoDMGpercent != 0) buildstatbarpercent(Colors.red, levelAnemoDMGpercent),
+                                        if (weaponAnemoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponAnemoDMGpercent),
+                                        if (artifact4mainstatcat == 10) buildstatbarpercent(Colors.purple, a4AnemoDMGpercent),
                                       ],
                                     ),
                                     //ANCHOR Geo Damage Title
                                     if (bonusGeoDMGpercent != 0)
                                       SelectableText(
-                                        'Geo Damage:' +
-                                            double.parse(bonusGeoDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Geo Damage:' + double.parse(bonusGeoDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statGeoDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelGeoDMGpercent != 0)
-                                          buildStatRow(Colors.red, 'character',
-                                              '$levelGeoDMGpercent'),
-                                        if (weaponGeoDMGpercent != 0)
-                                          buildStatRow(Colors.green, 'weapon',
-                                              '$weaponGeoDMGpercent'),
-                                        if (artifact4mainstatcat == 11)
-                                          buildStatRow(Colors.purple, 'a4',
-                                              '$a4GeoDMGpercent'),
+                                        if (levelGeoDMGpercent != 0) buildStatRow(Colors.red, 'character', '$levelGeoDMGpercent'),
+                                        if (weaponGeoDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponGeoDMGpercent'),
+                                        if (artifact4mainstatcat == 11) buildStatRow(Colors.purple, 'a4', '$a4GeoDMGpercent'),
                                       ],
                                     ),
                                     //ANCHOR statGeoDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (levelGeoDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.red, levelGeoDMGpercent),
-                                        if (weaponGeoDMGpercent != 0)
-                                          buildstatbarpercent(
-                                              Colors.blue, weaponGeoDMGpercent),
-                                        if (artifact4mainstatcat == 11)
-                                          buildstatbarpercent(
-                                              Colors.purple, a4GeoDMGpercent),
+                                        if (levelGeoDMGpercent != 0) buildstatbarpercent(Colors.red, levelGeoDMGpercent),
+                                        if (weaponGeoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponGeoDMGpercent),
+                                        if (artifact4mainstatcat == 11) buildstatbarpercent(Colors.purple, a4GeoDMGpercent),
+                                      ],
+                                    ),
+                                    //ANCHOR Superconduct Damage Title
+                                    if (superconductDMGpercent > 100)
+                                      SelectableText(
+                                        'Superconduct Damage:' + (superconductDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statSuperconductDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (a3EM > 0 || stat3EM > 0) buildStatRow(Colors.blueGrey, 'a3', (2.4 * 25 * (a3EM + stat3EM) / (9 * (a3EM + stat3EM + 1400)) * 100).toStringAsFixed(1)),
+                                        if (a4EM > 0 || stat4EM > 0) buildStatRow(Colors.purple, 'a4', (2.4 * 25 * (a4EM + stat4EM) / (9 * (a4EM + stat4EM + 1400)) * 100).toStringAsFixed(1)),
+                                        if (a5EM > 0 || stat5EM > 0) buildStatRow(Colors.teal, 'a5', (2.4 * 25 * (a5EM + stat5EM) / (9 * (a5EM + stat5EM + 1400)) * 100).toStringAsFixed(1)),
+                                        if (troupesdawnlight2on) buildStatRow(Colors.green[400], 'Troupe\'s Dawnlight 2 set', 36.036.toStringAsFixed(1)),
+                                        if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
+                                      ],
+                                    ),
+                                    //ANCHOR statSuperconductDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (a3EM > 0 || stat3EM > 0) buildstatbarpercent(Colors.blueGrey, (2.4 * 25 * (a3EM + stat3EM) / (9 * (a3EM + stat3EM + 1400)) * 100)),
+                                        if (a4EM > 0 || stat4EM > 0) buildstatbarpercent(Colors.purple, (2.4 * 25 * (a4EM + stat4EM) / (9 * (a4EM + stat4EM + 1400)) * 100)),
+                                        if (a5EM > 0 || stat5EM > 0) buildstatbarpercent(Colors.teal, (2.4 * 25 * (a5EM + stat5EM) / (9 * (a5EM + stat5EM + 1400)) * 100)),
+                                        if (troupesdawnlight2on) buildstatbarpercent(Colors.green[400], 36.036),
+                                        if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
                                       ],
                                     ),
                                     //ANCHOR Elemental Burst Damage Title
                                     if (bonusBurstDMGpercent != 0)
                                       SelectableText(
-                                        'Elemental Burst Damage:' +
-                                            double.parse(bonusBurstDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Elemental Burst Damage:' + double.parse(bonusBurstDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statBurstDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (royalflora2On)
-                                          buildStatRow(Colors.blue,
-                                              'Noblesse Oblige 2 Set', '20'),
+                                        if (royalflora2On) buildStatRow(Colors.blue, 'Noblesse Oblige 2 Set', '20'),
                                       ],
                                     ),
                                     //ANCHOR statBurstDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (royalflora2On)
-                                          buildstatbarpercent(Colors.blue, 20),
+                                        if (royalflora2On) buildstatbarpercent(Colors.blue, 20),
                                       ],
                                     ),
-
                                     //ANCHOR  Damage Bonus Title
                                     if (bonusDMGpercent != 0)
                                       SelectableText(
-                                        'Damage Bonus:' +
-                                            double.parse(bonusDMGpercent
-                                                    .toStringAsFixed(1))
-                                                .toString() +
-                                            '%',
+                                        'Damage Bonus:' + double.parse(bonusDMGpercent.toStringAsFixed(1)).toString() + '%',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     //ANCHOR statBonusDMG:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (monaqOn)
-                                          buildStatRow(
-                                              Colors.purple[300],
-                                              'Mona(burst)',
-                                              (monaqlvtoratio[monaqlv] * 1)
-                                                  .toStringAsFixed(1)),
+                                        if (monaqOn) buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
+                                        if (thundersoother4On) buildStatRow(Color(0xFF6480FF), 'Thundersoother 4 Set', '35'),
                                       ],
                                     ),
                                     //ANCHOR statBonusDMG:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (monaqOn)
-                                          buildstatbarpercent(
-                                              Colors.purple[300],
-                                              (monaqlvtoratio[monaqlv] * 1)),
+                                        if (monaqOn) buildstatbarpercent(Colors.purple[300], (monaqlvtoratio[monaqlv] * 1)),
+                                        if (thundersoother4On) buildstatbarpercent(Color(0xFF6480FF), 35),
                                       ],
                                     ),
                                   ],
@@ -11902,10 +10484,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -11916,12 +10495,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR EM
                               SelectableText(
-                                'Elemental Mastery:$lvlEM + ' +
-                                    double.parse(bonusEM.toStringAsFixed(1))
-                                        .toString() +
-                                    ' = ' +
-                                    double.parse(allEM.toStringAsFixed(1))
-                                        .toString(),
+                                'Elemental Mastery:$lvlEM + ' + double.parse(bonusEM.toStringAsFixed(1)).toString() + ' = ' + double.parse(allEM.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -11930,8 +10504,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   children: [
                                     //ANCHOR statEM:stats
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         if (lvlEM != 0)
                                           Row(
@@ -11945,13 +10518,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'baseEM',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
                                                     '$lvlEM',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -11969,8 +10540,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'weapon($weaponEM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -11988,8 +10558,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a1($stat1EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12007,8 +10576,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a2($stat2EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12026,8 +10594,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3($a3EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12045,8 +10612,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a3($stat3EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12064,8 +10630,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4($a4EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12083,8 +10648,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a4($stat4EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12102,8 +10666,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5($a5EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12121,8 +10684,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     'a5($stat5EM)',
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12140,13 +10702,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: [
                                                   SelectableText(
                                                     "Troupe's Dawnlight 2 set",
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                   SelectableText(
                                                     "80",
-                                                    style:
-                                                        TextStyle(fontSize: 10),
+                                                    style: TextStyle(fontSize: 10),
                                                   ),
                                                 ],
                                               ),
@@ -12157,31 +10717,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                     //ANCHOR statEM:bar
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
-                                                width: lvlEM / 7,
-                                                height: 20,
-                                                color: Colors.red),
+                                            AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: lvlEM / 7, height: 20, color: Colors.red),
                                           ],
                                         ),
                                         if (weaponEM != 0)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: weaponEM / 7,
                                                 height: 20,
                                                 color: Colors.blue,
@@ -12190,13 +10740,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat1EMOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat1EM / 7,
                                                 height: 20,
                                                 color: Colors.yellow,
@@ -12205,13 +10753,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat2EMOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat2EM / 7,
                                                 height: 20,
                                                 color: Colors.pink,
@@ -12220,13 +10766,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact3mainstatcat == 4)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a3EM / 7,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -12235,13 +10779,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat3EMOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat3EM / 7,
                                                 height: 20,
                                                 color: Colors.blueGrey,
@@ -12250,13 +10792,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact4mainstatcat == 4)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a4EM / 7,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -12265,13 +10805,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat4EMOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat4EM / 7,
                                                 height: 20,
                                                 color: Colors.purple,
@@ -12280,13 +10818,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (artifact5mainstatcat == 4)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: a5EM / 7,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -12295,13 +10831,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (stat5EMOn == true)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: stat5EM / 7,
                                                 height: 20,
                                                 color: Colors.teal,
@@ -12310,13 +10844,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         if (troupesdawnlight2on)
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                               AnimatedContainer(
                                                 curve: Curves.easeIn,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: Duration(milliseconds: 500),
                                                 width: 80 / 7,
                                                 height: 20,
                                                 color: Colors.green[400],
@@ -12336,10 +10868,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -12603,8 +11132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Column(
                                     children: [
@@ -12776,10 +11304,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -12846,10 +11371,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -12863,79 +11385,62 @@ class _MyHomePageState extends State<MyHomePage> {
                                 childrenPadding: EdgeInsets.all(0),
                                 initiallyExpanded: true,
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Character',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Character',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Talents',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          selectedColor: Colors.amber,
-                                          backgroundColor: Colors.amber[200],
-                                          label: Text(
-                                              'Undivided Heart: CRIT Rate + 20%'),
-                                          selected: undividedHeartOn,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              undividedHeartOn = value;
-                                            });
-                                          },
-                                        ),
-                                      ]),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Constellation',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          label: Text(
-                                              'Constellation1: Enemy Cryo Res -15%'),
-                                          selected: constellation1On,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              constellation1On = value;
-                                            });
-                                          },
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Talents',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    FilterChip(
+                                      selectedColor: Colors.amber,
+                                      backgroundColor: Colors.amber[200],
+                                      label: Text('Undivided Heart: CRIT Rate + 20%'),
+                                      selected: undividedHeartOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          undividedHeartOn = value;
+                                        });
+                                      },
+                                    ),
+                                  ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Constellation',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    FilterChip(
+                                      label: Text('Constellation1: Enemy Cryo Res -15%'),
+                                      selected: constellation1On,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          constellation1On = value;
+                                        });
+                                      },
+                                    ),
+                                  ]),
                                   SizedBox(height: 10),
                                 ],
                               ),
@@ -12946,186 +11451,140 @@ class _MyHomePageState extends State<MyHomePage> {
                                 initiallyExpanded: true,
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Weapon',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Weapon',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Weapon bonus',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Weapon bonus',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   if (strongWilled1On)
                                     Column(
                                       children: [
-                                        Wrap(
-                                            spacing: 10,
-                                            runSpacing: 10,
-                                            children: <Widget>[
-                                              FilterChip(
-                                                label: Text(
-                                                    'Strong-Willed1: Normal and Charged Attack DMG + ' +
-                                                        (9 + weaponref * 3)
-                                                            .toString() +
-                                                        '%'),
-                                                selected: true,
-                                                selectedColor:
-                                                    Colors.purple[300],
-                                                onSelected: (bool value) {
-                                                  setState(() {});
-                                                },
-                                              ),
-                                              FilterChip(
-                                                label: Text('Strong-Willed2: ' +
-                                                    (6 + weaponref * 2)
-                                                        .toString() +
-                                                    '% every 0.1s the arrow is in the air for up to 5 times.'),
-                                                selected: true,
-                                                selectedColor: Colors.blue[300],
-                                                onSelected: (bool value) {
-                                                  setState(() {});
-                                                },
-                                              ),
-                                            ]),
+                                        Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                          FilterChip(
+                                            label: Text('Strong-Willed1: Normal and Charged Attack DMG + ' + (9 + weaponref * 3).toString() + '%'),
+                                            selected: true,
+                                            selectedColor: Colors.purple[300],
+                                            onSelected: (bool value) {
+                                              setState(() {});
+                                            },
+                                          ),
+                                          FilterChip(
+                                            label: Text('Strong-Willed2: ' + (6 + weaponref * 2).toString() + '% every 0.1s the arrow is in the air for up to 5 times.'),
+                                            selected: true,
+                                            selectedColor: Colors.blue[300],
+                                            onSelected: (bool value) {
+                                              setState(() {});
+                                            },
+                                          ),
+                                        ]),
                                         SizedBox(height: 10),
-                                        Wrap(
-                                            spacing: 10,
-                                            runSpacing: 10,
-                                            children: <Widget>[
-                                              ChoiceChip(
-                                                label: Text('0.1s'),
-                                                selected:
-                                                    (strongWilled2Times == 1),
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    strongWilled2Times = 1;
-                                                  });
-                                                },
-                                              ),
-                                              ChoiceChip(
-                                                label: Text('0.2s'),
-                                                selected:
-                                                    (strongWilled2Times == 2),
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    strongWilled2Times = 2;
-                                                  });
-                                                },
-                                              ),
-                                              ChoiceChip(
-                                                label: Text('0.3s'),
-                                                selected:
-                                                    (strongWilled2Times == 3),
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    strongWilled2Times = 3;
-                                                  });
-                                                },
-                                              ),
-                                              ChoiceChip(
-                                                label: Text('0.4s'),
-                                                selected:
-                                                    (strongWilled2Times == 4),
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    strongWilled2Times = 4;
-                                                  });
-                                                },
-                                              ),
-                                              ChoiceChip(
-                                                label: Text('0.5s'),
-                                                selected:
-                                                    (strongWilled2Times == 5),
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    strongWilled2Times = 5;
-                                                  });
-                                                },
-                                              ),
-                                            ]),
+                                        Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                          ChoiceChip(
+                                            label: Text('0.1s'),
+                                            selected: (strongWilled2Times == 1),
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                strongWilled2Times = 1;
+                                              });
+                                            },
+                                          ),
+                                          ChoiceChip(
+                                            label: Text('0.2s'),
+                                            selected: (strongWilled2Times == 2),
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                strongWilled2Times = 2;
+                                              });
+                                            },
+                                          ),
+                                          ChoiceChip(
+                                            label: Text('0.3s'),
+                                            selected: (strongWilled2Times == 3),
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                strongWilled2Times = 3;
+                                              });
+                                            },
+                                          ),
+                                          ChoiceChip(
+                                            label: Text('0.4s'),
+                                            selected: (strongWilled2Times == 4),
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                strongWilled2Times = 4;
+                                              });
+                                            },
+                                          ),
+                                          ChoiceChip(
+                                            label: Text('0.5s'),
+                                            selected: (strongWilled2Times == 5),
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                strongWilled2Times = 5;
+                                              });
+                                            },
+                                          ),
+                                        ]),
                                         SizedBox(height: 10),
                                       ],
                                     ),
                                   if (echoingBalladOn)
                                     Column(
                                       children: [
-                                        Wrap(
-                                            spacing: 10,
-                                            runSpacing: 10,
-                                            children: <Widget>[
-                                              FilterChip(
-                                                label: Text(
-                                                    'Echoing Ballad1: Crit DMG + ' +
-                                                        (15 + weaponref * 5)
-                                                            .toString() +
-                                                        '%'),
-                                                selected: true,
-                                                selectedColor:
-                                                    Colors.tealAccent,
-                                                onSelected: (bool value) {
-                                                  setState(() {});
-                                                },
-                                              ),
-                                              SizedBox(height: 10),
-                                              FilterChip(
-                                                label: Text('Echoing Ballad2: ' +
-                                                    (50 + weaponref * 10)
-                                                        .toString() +
-                                                    '% chance get a 125% Physical ATK AoE DMG every ' +
-                                                    (4.5 - weaponref * 0.5)
-                                                        .toString() +
-                                                    's'),
-                                                selected: true,
-                                                onSelected: (bool value) {
-                                                  setState(() {});
-                                                },
-                                              ),
-                                            ]),
+                                        Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                          FilterChip(
+                                            label: Text('Echoing Ballad1: Crit DMG + ' + (15 + weaponref * 5).toString() + '%'),
+                                            selected: true,
+                                            selectedColor: Colors.tealAccent,
+                                            onSelected: (bool value) {
+                                              setState(() {});
+                                            },
+                                          ),
+                                          SizedBox(height: 10),
+                                          FilterChip(
+                                            label: Text(
+                                                'Echoing Ballad2: ' + (50 + weaponref * 10).toString() + '% chance get a 125% Physical ATK AoE DMG every ' + (4.5 - weaponref * 0.5).toString() + 's'),
+                                            selected: true,
+                                            onSelected: (bool value) {
+                                              setState(() {});
+                                            },
+                                          ),
+                                        ]),
                                         SizedBox(height: 10),
                                       ],
                                     ),
                                   if (weaponselect == 'prototypecrescent')
                                     Column(
                                       children: [
-                                        Wrap(
-                                            spacing: 10,
-                                            runSpacing: 10,
-                                            children: <Widget>[
-                                              FilterChip(
-                                                label: Text(
-                                                    'Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' +
-                                                        (27 + weaponref * 9)
-                                                            .toString() +
-                                                        '% ATK for 10s'),
-                                                selected: unreturningOn,
-                                                selectedColor:
-                                                    Colors.tealAccent,
-                                                onSelected: (bool value) {
-                                                  setState(() {
-                                                    unreturningOn = value;
-                                                  });
-                                                },
-                                              ),
-                                            ]),
+                                        Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                          FilterChip(
+                                            label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' + (27 + weaponref * 9).toString() + '% ATK for 10s'),
+                                            selected: unreturningOn,
+                                            selectedColor: Colors.tealAccent,
+                                            onSelected: (bool value) {
+                                              setState(() {
+                                                unreturningOn = value;
+                                              });
+                                            },
+                                          ),
+                                        ]),
                                         SizedBox(height: 10),
                                       ],
                                     ),
@@ -13139,38 +11598,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                 initiallyExpanded: true,
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Artifact',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Artifact',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Artifact Bonus',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
-                                  Wrap(spacing: 10, runSpacing: 10, children: <
-                                      Widget>[
-                                    if (artifactsetAselect == 'blizzard' ||
-                                        artifactsetBselect == 'blizzard')
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Artifact Bonus',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    if (artifactsetAselect == 'blizzard' || artifactsetBselect == 'blizzard')
                                       FilterChip(
                                         label: Text('2 set: Cryo DMG +15%'),
                                         selectedColor: Colors.blue[300],
@@ -13182,11 +11633,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'blizzard' &&
-                                        artifactsetBselect == 'blizzard')
+                                    if (artifactsetAselect == 'blizzard' && artifactsetBselect == 'blizzard')
                                       FilterChip(
-                                        label:
-                                            Text('4 set: Crit Rate +20%(cryo)'),
+                                        label: Text('4 set: Crit Rate +20%(cryo)'),
                                         selectedColor: Colors.blue[300],
                                         backgroundColor: Colors.blue[200],
                                         selected: blizzardstrayer41On,
@@ -13196,11 +11645,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'blizzard' &&
-                                        artifactsetBselect == 'blizzard')
+                                    if (artifactsetAselect == 'blizzard' && artifactsetBselect == 'blizzard')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: Crit Rate +20%(frozen)'),
+                                        label: Text('4 set: Crit Rate +20%(frozen)'),
                                         selectedColor: Colors.blue[400],
                                         backgroundColor: Colors.blue[300],
                                         selected: blizzardstrayer42On,
@@ -13210,8 +11657,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'troupe' ||
-                                        artifactsetBselect == 'troupe')
+                                    if (artifactsetAselect == 'troupe' || artifactsetBselect == 'troupe')
                                       FilterChip(
                                         label: Text('2 set: em +80 '),
                                         selectedColor: Colors.green[400],
@@ -13223,8 +11669,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'troupe' &&
-                                        artifactsetBselect == 'troupe')
+                                    if (artifactsetAselect == 'troupe' && artifactsetBselect == 'troupe')
                                       FilterChip(
                                         label: Text('4 set: Charged Atk +35% '),
                                         selectedColor: Colors.green[400],
@@ -13236,11 +11681,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'royal' ||
-                                        artifactsetBselect == 'royal')
+                                    if (artifactsetAselect == 'royal' || artifactsetBselect == 'royal')
                                       FilterChip(
-                                        label: Text(
-                                            '2 set: Elemental Burst DMG +20% '),
+                                        label: Text('2 set: Elemental Burst DMG +20% '),
                                         selectedColor: Colors.blue,
                                         backgroundColor: Colors.blue[200],
                                         selected: royalflora2On,
@@ -13250,11 +11693,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'royal' &&
-                                        artifactsetBselect == 'royal')
+                                    if (artifactsetAselect == 'royal' && artifactsetBselect == 'royal')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: Using an Elemental Burst increases all party members\' ATK by 20% for 12s '),
+                                        label: Text('4 set: Using an Elemental Burst increases all party members\' ATK by 20% for 12s '),
                                         selectedColor: Colors.blue,
                                         backgroundColor: Colors.blue[200],
                                         selected: royalflora4On,
@@ -13264,8 +11705,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'gladiator' ||
-                                        artifactsetBselect == 'gladiator')
+                                    if (artifactsetAselect == 'gladiator' || artifactsetBselect == 'gladiator')
                                       FilterChip(
                                         label: Text('2 set: ATK +18% '),
                                         selectedColor: Colors.red[400],
@@ -13277,11 +11717,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'gladiator' &&
-                                        artifactsetBselect == 'gladiator')
+                                    if (artifactsetAselect == 'gladiator' && artifactsetBselect == 'gladiator')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: Increase Normal Attack DMG by 35% (Using sword/claymore/poleram) '),
+                                        label: Text('4 set: Increase Normal Attack DMG by 35% (Using sword/claymore/poleram) '),
                                         selectedColor: Colors.red[400],
                                         backgroundColor: Colors.red[300],
                                         selected: gladiator4On,
@@ -13291,31 +11729,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'maiden' ||
-                                        artifactsetBselect == 'maiden')
+                                    if (artifactsetAselect == 'maiden' || artifactsetBselect == 'maiden')
                                       FilterChip(
-                                        label: Text(
-                                            '2 set: Character Healing Effectiveness +15% '),
+                                        label: Text('2 set: Character Healing Effectiveness +15% '),
                                         selectedColor: Colors.grey,
                                         backgroundColor: Colors.grey,
                                         selected: maiden2On,
                                         onSelected: (bool value) {},
                                       ),
-                                    if (artifactsetAselect == 'maiden' &&
-                                        artifactsetBselect == 'maiden')
+                                    if (artifactsetAselect == 'maiden' && artifactsetBselect == 'maiden')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: Healing Received +20% '),
+                                        label: Text('4 set: Healing Received +20% '),
                                         selectedColor: Colors.grey,
                                         backgroundColor: Colors.grey,
                                         selected: maiden4On,
                                         onSelected: (bool value) {},
                                       ),
-                                    if (artifactsetAselect == 'thunderbird' ||
-                                        artifactsetBselect == 'thunderbird')
+                                    if (artifactsetAselect == 'thunderbird' || artifactsetBselect == 'thunderbird')
                                       FilterChip(
-                                        label: Text(
-                                            '2 set: Electro DMG Bonus +15% '),
+                                        label: Text('2 set: Electro DMG Bonus +15% '),
                                         selectedColor: Colors.purple[400],
                                         backgroundColor: Colors.purple[300],
                                         selected: thunderbird2On,
@@ -13325,11 +11757,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect == 'thunderbird' &&
-                                        artifactsetBselect == 'thunderbird')
+                                    if (artifactsetAselect == 'thunderbird' && artifactsetBselect == 'thunderbird')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: Superconduct DMG  +40% '),
+                                        label: Text('4 set: Superconduct DMG  +40% '),
                                         selectedColor: Colors.purple[400],
                                         backgroundColor: Colors.purple[300],
                                         selected: thunderbird4On,
@@ -13339,9 +11769,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           });
                                         },
                                       ),
-                                    if (artifactsetAselect ==
-                                            'thundersoother' ||
-                                        artifactsetBselect == 'thundersoother')
+                                    if (artifactsetAselect == 'thundersoother' || artifactsetBselect == 'thundersoother')
                                       FilterChip(
                                         label: Text('2 set: Electro RES +40% '),
                                         selectedColor: Colors.grey,
@@ -13349,12 +11777,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         selected: thundersoother2On,
                                         onSelected: (bool value) {},
                                       ),
-                                    if (artifactsetAselect ==
-                                            'thundersoother' &&
-                                        artifactsetBselect == 'thundersoother')
+                                    if (artifactsetAselect == 'thundersoother' && artifactsetBselect == 'thundersoother')
                                       FilterChip(
-                                        label: Text(
-                                            '4 set: DMG Against Opponents Affected By Electro +35% '),
+                                        label: Text('4 set: DMG Against Opponents Affected By Electro +35% '),
                                         selectedColor: Color(0xFF6446E6),
                                         backgroundColor: Color(0xFF6480FF),
                                         selected: thundersoother4On,
@@ -13374,108 +11799,90 @@ class _MyHomePageState extends State<MyHomePage> {
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Usual Buffs',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Usual Buffs',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Elemental Resonance',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          selectedColor: Colors.red,
-                                          backgroundColor: Colors.red[200],
-                                          label: Text('2 Pyro: ATK + 25%'),
-                                          selected: pyro2On,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              pyro2On = value;
-                                            });
-                                          },
-                                        ),
-                                        FilterChip(
-                                          selectedColor: Colors.blue[200],
-                                          backgroundColor: Colors.blue[50],
-                                          label: Text('2 Cryo: Crit Rate +15%'),
-                                          selected: cryo2On,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              cryo2On = value;
-                                            });
-                                          },
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Elemental Resonance',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    FilterChip(
+                                      selectedColor: Colors.red,
+                                      backgroundColor: Colors.red[200],
+                                      label: Text('2 Pyro: ATK + 25%'),
+                                      selected: pyro2On,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          pyro2On = value;
+                                        });
+                                      },
+                                    ),
+                                    FilterChip(
+                                      selectedColor: Colors.blue[200],
+                                      backgroundColor: Colors.blue[50],
+                                      label: Text('2 Cryo: Crit Rate +15%'),
+                                      selected: cryo2On,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          cryo2On = value;
+                                        });
+                                      },
+                                    ),
+                                  ]),
+                                  SizedBox(height: 10),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Character Buffs',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
+                                    FilterChip(
+                                      selectedColor: Colors.yellow,
+                                      backgroundColor: Colors.yellow[200],
+                                      label: Text('Zhongli(skill):Enemy All res - 20%'),
+                                      selected: zhonglieOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          zhonglieOn = value;
+                                        });
+                                      },
+                                    ),
+                                    FilterChip(
+                                      selectedColor: Colors.grey,
+                                      backgroundColor: Colors.grey[200],
+                                      label: Text('Thrilling Tales of Dragon Slayers(R5): ATK +48%'),
+                                      selected: dragonslayerOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          dragonslayerOn = value;
+                                        });
+                                      },
+                                    ),
+                                  ]),
                                   SizedBox(height: 10),
                                   Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Character Buffs',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
-                                  Wrap(
-                                      spacing: 10,
-                                      runSpacing: 10,
-                                      children: <Widget>[
-                                        FilterChip(
-                                          selectedColor: Colors.yellow,
-                                          backgroundColor: Colors.yellow[200],
-                                          label: Text(
-                                              'Zhongli(skill):Enemy All res - 20%'),
-                                          selected: zhonglieOn,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              zhonglieOn = value;
-                                            });
-                                          },
-                                        ),
-                                        FilterChip(
-                                          selectedColor: Colors.grey,
-                                          backgroundColor: Colors.grey[200],
-                                          label: Text(
-                                              'Thrilling Tales of Dragon Slayers(R5): ATK +48%'),
-                                          selected: dragonslayerOn,
-                                          onSelected: (bool value) {
-                                            setState(() {
-                                              dragonslayerOn = value;
-                                            });
-                                          },
-                                        ),
-                                      ]),
-                                  SizedBox(height: 10),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       FilterChip(
                                         selectedColor: Colors.red,
@@ -13496,16 +11903,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         height: 50,
                                         alignment: Alignment.center,
                                         child: TextFormField(
-                                            textAlignVertical:
-                                                TextAlignVertical.center,
+                                            textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <
-                                                TextInputFormatter>[
-                                              FilteringTextInputFormatter
-                                                  .digitsOnly,
-                                              LengthLimitingTextInputFormatter(
-                                                  3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bennet Basic atk:',
@@ -13521,8 +11921,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             // onSaved: (input) => bennetbasicatk = num.tryParse(input),
                                             onChanged: (value) {
                                               setState(() {
-                                                bennetbasicatk =
-                                                    num.tryParse(value) ?? 0;
+                                                bennetbasicatk = num.tryParse(value) ?? 0;
                                               });
                                             }),
                                       ),
@@ -13551,96 +11950,83 @@ class _MyHomePageState extends State<MyHomePage> {
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "1",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 1,
                                               ),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "2",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 2,
                                               ),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "3",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 3),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "4",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 4),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "5",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 5),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "6",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 6,
                                               ),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "7",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 7,
                                               ),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "8",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 8),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "9",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 9),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "10",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 10),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "11",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 11),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "12",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 12),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "13",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 13),
                                             ],
@@ -13654,8 +12040,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   SizedBox(height: 10),
                                   Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       FilterChip(
                                         selectedColor: Colors.purple[300],
@@ -13693,96 +12078,83 @@ class _MyHomePageState extends State<MyHomePage> {
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "1",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 1,
                                               ),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "2",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 2,
                                               ),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "3",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 3),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "4",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 4),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "5",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 5),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "6",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 6,
                                               ),
                                               DropdownMenuItem(
                                                 child: Text(
                                                   "7",
-                                                  style:
-                                                      TextStyle(fontSize: 15),
+                                                  style: TextStyle(fontSize: 15),
                                                 ),
                                                 value: 7,
                                               ),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "8",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 8),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "9",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 9),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "10",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 10),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "11",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 11),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "12",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 12),
                                               DropdownMenuItem(
                                                   child: Text(
                                                     "13",
-                                                    style:
-                                                        TextStyle(fontSize: 15),
+                                                    style: TextStyle(fontSize: 15),
                                                   ),
                                                   value: 13),
                                             ],
@@ -13798,29 +12170,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
 
-                              //ANCHOR Manual adjusts
+                              //ANCHOR Manual Adjusts
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Manual adjusts',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Manual Adjusts',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                 ]),
                                 children: <Widget>[
                                   Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       FilterChip(
                                         selectedColor: Colors.red[300],
@@ -13841,16 +12209,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         height: 50,
                                         alignment: Alignment.center,
                                         child: TextFormField(
-                                            textAlignVertical:
-                                                TextAlignVertical.center,
+                                            textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <
-                                                TextInputFormatter>[
-                                              FilteringTextInputFormatter
-                                                  .digitsOnly,
-                                              LengthLimitingTextInputFormatter(
-                                                  4)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk:',
@@ -13866,8 +12227,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             // onSaved: (input) => bennetbasicatk = num.tryParse(input),
                                             onChanged: (value) {
                                               setState(() {
-                                                manualatk =
-                                                    num.tryParse(value) ?? 0;
+                                                manualatk = num.tryParse(value) ?? 0;
                                               });
                                             }),
                                       ),
@@ -13893,16 +12253,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         height: 50,
                                         alignment: Alignment.center,
                                         child: TextFormField(
-                                            textAlignVertical:
-                                                TextAlignVertical.center,
+                                            textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <
-                                                TextInputFormatter>[
-                                              FilteringTextInputFormatter
-                                                  .digitsOnly,
-                                              LengthLimitingTextInputFormatter(
-                                                  3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk%:',
@@ -13918,8 +12271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             // onSaved: (input) => bennetbasicatk = num.tryParse(input),
                                             onChanged: (value) {
                                               setState(() {
-                                                manualatkpercent =
-                                                    num.tryParse(value) ?? 0;
+                                                manualatkpercent = num.tryParse(value) ?? 0;
                                               });
                                             }),
                                       ),
@@ -13956,10 +12308,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -13973,22 +12322,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(
                                   children: [
+                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                      SelectableText(
+                                        'Charged Aim Shoot Damage:($caimdmgpercent%)',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ]),
                                     Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          SelectableText(
-                                            'Charged Aim Shoot Damage:($caimdmgpercent%)',
-                                            style: TextStyle(
-                                              //fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ]),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Non-Crit:',
@@ -13999,9 +12344,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(
-                                                  caimdmgnc.toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(caimdmgnc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[200],
@@ -14017,9 +12360,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(
-                                                  caimdmgexp.toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(caimdmgexp.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[400],
@@ -14035,9 +12376,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(
-                                                  caimdmgc.toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(caimdmgc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[600],
@@ -14047,32 +12386,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Stack(
                                           alignment: Alignment.topLeft,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: caimdmgc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[600],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: caimdmgexp / 50,
                                               height: 20,
                                               color: Colors.lightBlue[400],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: caimdmgnc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[200],
@@ -14093,8 +12428,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(
                                       //ANCHOR 1-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '1-Hit Damage:($hit1dmgpercent%)',
@@ -14117,9 +12451,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit1dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit1dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14135,9 +12467,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit1dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit1dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14153,9 +12483,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit1dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit1dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14172,24 +12500,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit1dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit1dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit1dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14200,8 +12525,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR 2-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '2-Hit Damage:($hit2dmgpercent%)',
@@ -14224,9 +12548,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit2dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit2dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14242,9 +12564,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit2dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit2dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14260,9 +12580,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit2dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit2dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14279,24 +12597,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit2dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit2dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit2dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14307,8 +12622,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR 3-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '3-Hit Damage:($hit3dmgpercent%)',
@@ -14331,9 +12645,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit3dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit3dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14349,9 +12661,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit3dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit3dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14367,9 +12677,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit3dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit3dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14386,24 +12694,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit3dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit3dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit3dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14414,8 +12719,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR 4-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '4-Hit Damage:($hit4dmgpercent%)',
@@ -14438,9 +12742,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit4dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit4dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14456,9 +12758,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit4dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit4dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14474,9 +12774,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit4dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit4dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14493,24 +12791,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit4dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit4dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit4dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14521,8 +12816,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR 5-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '5-Hit Damage:($hit5dmgpercent%)',
@@ -14545,9 +12839,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit5dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit5dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14563,9 +12855,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit5dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit5dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14581,9 +12871,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit5dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit5dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14600,24 +12888,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit5dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit5dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit5dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14628,8 +12913,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR 6-Hit Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           '6-Hit Damage:($hit6dmgpercent%)',
@@ -14652,9 +12936,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit6dmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit6dmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14670,9 +12952,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit6dmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit6dmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14688,9 +12968,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hit6dmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hit6dmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14707,24 +12985,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit6dmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit6dmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hit6dmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14735,8 +13010,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR Aim Shoot Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Aim Shoot Damage:($aimdmgpercent%)',
@@ -14759,9 +13033,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                aimdmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(aimdmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14777,9 +13049,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                aimdmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(aimdmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14795,8 +13065,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(aimdmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(aimdmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14813,24 +13082,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: aimdmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: aimdmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: aimdmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14841,8 +13107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR Plunge Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Plunge Damage:($plungedmgpercent%)',
@@ -14865,9 +13130,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                plungedmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(plungedmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14883,9 +13146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                plungedmgexp.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(plungedmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -14901,9 +13162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                plungedmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(plungedmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -14920,24 +13179,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: plungedmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: plungedmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: plungedmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -14948,8 +13204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR Low Plunge Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Low Plunge Damage:($lplungedmgpercent%)',
@@ -14972,9 +13227,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                lplungedmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(lplungedmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -14990,9 +13243,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(lplungedmgexp
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(lplungedmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -15008,9 +13259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                lplungedmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(lplungedmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -15027,24 +13276,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: lplungedmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: lplungedmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: lplungedmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -15055,8 +13301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(
                                       //ANCHOR High Plunge Damage
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'High Plunge Damage:($hplungedmgpercent%)',
@@ -15079,9 +13324,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hplungedmgnc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hplungedmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[500],
@@ -15097,9 +13340,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(hplungedmgexp
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hplungedmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[700],
@@ -15115,9 +13356,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(
-                                                hplungedmgc.toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(hplungedmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.grey[900],
@@ -15134,24 +13373,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hplungedmgc / 50,
                                             height: 20,
                                             color: Colors.grey[900],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hplungedmgexp / 50,
                                             height: 20,
                                             color: Colors.grey[700],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: hplungedmgnc / 50,
                                             height: 20,
                                             color: Colors.grey[500],
@@ -15160,149 +13396,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 10),
-                                ],
-                              ),
-                              //ANCHOR Frostflake Arrow
-                              ExpansionTile(
-                                tilePadding: EdgeInsets.all(0),
-                                childrenPadding: EdgeInsets.all(0),
-                                title: Column(
-                                  children: [
-                                    Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          SelectableText(
-                                            'Frostflake Arrow:($frostflakedmgpercent%)',
-                                            style: TextStyle(
-                                              //fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ]),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Non-Crit:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(frostflakedmgnc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.lightBlue[200],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          'Expectation:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(frostflakedmgexp
-                                                  .toStringAsFixed(1))
-                                              .toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.lightBlue[400],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          'Crit:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(frostflakedmgc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.lightBlue[600],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ],
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Stack(
-                                          alignment: Alignment.topLeft,
-                                          children: [
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                              width: frostflakedmgc / 50,
-                                              height: 20,
-                                              color: Colors.lightBlue[600],
-                                            ),
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                              width: frostflakedmgexp / 50,
-                                              height: 20,
-                                              color: Colors.lightBlue[400],
-                                            ),
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                              width: frostflakedmgnc / 50,
-                                              height: 20,
-                                              color: Colors.lightBlue[200],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Melt:(' +
-                                              double.parse((100 *
-                                                          1.5 *
-                                                          (1 +
-                                                              (1 * 25 * allEM) /
-                                                                  (9 *
-                                                                      (allEM +
-                                                                          1400))))
-                                                      .toStringAsFixed(1))
-                                                  .toString() +
-                                              '%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -15315,15 +13418,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((caimdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -15339,15 +13434,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((caimdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -15363,15 +13450,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((caimdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -15388,46 +13467,222 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakedmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (caimdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakedmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (caimdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakedmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (caimdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[200],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
+                              //ANCHOR Frostflake Arrow
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.all(0),
+                                childrenPadding: EdgeInsets.all(0),
+                                title: Column(
+                                  children: [
+                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                      SelectableText(
+                                        'Frostflake Arrow:($frostflakedmgpercent%)',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ]),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        SelectableText(
+                                          'Non-Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgnc.toStringAsFixed(1)).toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[200],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Expectation:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgexp.toStringAsFixed(1)).toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[400],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          'Crit:',
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SelectableText(
+                                          double.parse(frostflakedmgc.toStringAsFixed(1)).toString(),
+                                          style: TextStyle(
+                                            //fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlue[600],
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration: Duration(milliseconds: 500),
+                                              width: frostflakedmgc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[600],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration: Duration(milliseconds: 500),
+                                              width: frostflakedmgexp / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[400],
+                                            ),
+                                            AnimatedContainer(
+                                              curve: Curves.easeIn,
+                                              duration: Duration(milliseconds: 500),
+                                              width: frostflakedmgnc / 50,
+                                              height: 20,
+                                              color: Colors.lightBlue[200],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                children: <Widget>[
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      SelectableText(
+                                        'Non-Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakedmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[200],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Expectation:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakedmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[400],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        'Crit:',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SelectableText(
+                                        double.parse((frostflakedmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.lightBlue[600],
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        //alignment: Alignment.bottomRight,
+                                        children: [
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakedmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[600],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakedmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            height: 20,
+                                            color: Colors.lightBlue[400],
+                                          ),
+                                          AnimatedContainer(
+                                            curve: Curves.easeIn,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakedmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -15444,22 +13699,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(
                                   children: [
+                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                      SelectableText(
+                                        'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ]),
                                     Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          SelectableText(
-                                            'Frostflake Arrow Bloom:($frostflakebloomdmgpercent%)',
-                                            style: TextStyle(
-                                              //fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ]),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Non-Crit:',
@@ -15470,9 +13721,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(frostflakebloomdmgnc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(frostflakebloomdmgnc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[200],
@@ -15488,9 +13737,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(frostflakebloomdmgexp
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(frostflakebloomdmgexp.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[400],
@@ -15506,9 +13753,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(frostflakebloomdmgc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(frostflakebloomdmgc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[600],
@@ -15518,32 +13763,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Stack(
                                           alignment: Alignment.topLeft,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakebloomdmgc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[600],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakebloomdmgexp / 50,
                                               height: 20,
                                               color: Colors.lightBlue[400],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakebloomdmgnc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[200],
@@ -15555,29 +13796,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 ),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Melt:(' +
-                                              double.parse((100 *
-                                                          1.5 *
-                                                          (1 +
-                                                              (1 * 25 * allEM) /
-                                                                  (9 *
-                                                                      (allEM +
-                                                                          1400))))
-                                                      .toStringAsFixed(1))
-                                                  .toString() +
-                                              '%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     children: <Widget>[
                                       SelectableText(
@@ -15589,15 +13817,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakebloomdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -15613,15 +13833,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakebloomdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -15637,15 +13849,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakebloomdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -15661,46 +13865,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakebloomdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -15717,22 +13897,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(
                                   children: [
+                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                      SelectableText(
+                                        'Frostflake Arrow All',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ]),
                                     Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          SelectableText(
-                                            'Frostflake Arrow All',
-                                            style: TextStyle(
-                                              //fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ]),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Non-Crit:',
@@ -15743,9 +13919,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse((frostflakealldmgnc)
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse((frostflakealldmgnc).toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[200],
@@ -15761,9 +13935,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(frostflakealldmgexp
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(frostflakealldmgexp.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[400],
@@ -15779,9 +13951,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(frostflakealldmgc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(frostflakealldmgc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.lightBlue[600],
@@ -15791,32 +13961,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Stack(
                                           alignment: Alignment.topLeft,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakealldmgc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[600],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakealldmgexp / 50,
                                               height: 20,
                                               color: Colors.lightBlue[400],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: frostflakealldmgnc / 50,
                                               height: 20,
                                               color: Colors.lightBlue[200],
@@ -15828,29 +13994,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 ),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Melt:(' +
-                                              double.parse((100 *
-                                                          1.5 *
-                                                          (1 +
-                                                              (1 * 25 * allEM) /
-                                                                  (9 *
-                                                                      (allEM +
-                                                                          1400))))
-                                                      .toStringAsFixed(1))
-                                                  .toString() +
-                                              '%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -15863,15 +14016,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakealldmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -15887,15 +14032,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakealldmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -15911,15 +14048,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((frostflakealldmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -15935,46 +14064,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakealldmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakealldmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakealldmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakealldmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (frostflakealldmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (frostflakealldmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -15989,22 +14094,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                 //ANCHOR Echoing Ballad Physical AoE
                                 Column(
                                   children: [
+                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                      SelectableText(
+                                        'Echoing Ballad Physical AoE:(125%)',
+                                        style: TextStyle(
+                                          //fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ]),
                                     Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          SelectableText(
-                                            'Echoing Ballad Physical AoE:(125%)',
-                                            style: TextStyle(
-                                              //fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ]),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
                                         SelectableText(
                                           'Non-Crit:',
@@ -16015,9 +14116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(echoingballaddmgnc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(echoingballaddmgnc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.grey[500],
@@ -16033,9 +14132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(echoingballaddmgexp
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(echoingballaddmgexp.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.grey[700],
@@ -16051,9 +14148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                         ),
                                         SelectableText(
-                                          double.parse(echoingballaddmgc
-                                                  .toStringAsFixed(1))
-                                              .toString(),
+                                          double.parse(echoingballaddmgc.toStringAsFixed(1)).toString(),
                                           style: TextStyle(
                                             //fontWeight: FontWeight.bold,
                                             color: Colors.grey[900],
@@ -16063,32 +14158,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Stack(
                                           alignment: Alignment.topLeft,
                                           children: [
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: echoingballaddmgc / 50,
                                               height: 20,
                                               color: Colors.grey[900],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: echoingballaddmgexp / 50,
                                               height: 20,
                                               color: Colors.grey[700],
                                             ),
                                             AnimatedContainer(
                                               curve: Curves.easeIn,
-                                              duration:
-                                                  Duration(milliseconds: 500),
+                                              duration: Duration(milliseconds: 500),
                                               width: echoingballaddmgnc / 50,
                                               height: 20,
                                               color: Colors.grey[500],
@@ -16105,10 +14196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -16118,18 +14206,16 @@ class _MyHomePageState extends State<MyHomePage> {
                               SizedBox(height: 10),
 
                               //ANCHOR Trail of the Qilin HP
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    SelectableText(
-                                      'Trail of the Qilin HP:($trailoftheqilinhp)',
-                                      style: TextStyle(
-                                        //fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                  ]),
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Trail of the Qilin HP:($trailoftheqilinhp)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ]),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -16153,19 +14239,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Trail of the Qilin DMG:($trailoftheqilindmgpercent%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Trail of the Qilin DMG:($trailoftheqilindmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -16178,9 +14261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(trailoftheqilindmgnc
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(trailoftheqilindmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -16196,9 +14277,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(trailoftheqilindmgexp
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(trailoftheqilindmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -16214,9 +14293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(trailoftheqilindmgc
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(trailoftheqilindmgc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -16233,24 +14310,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: trailoftheqilindmgc / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: trailoftheqilindmgexp / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: trailoftheqilindmgnc / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
@@ -16261,29 +14335,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Melt:(' +
-                                              double.parse((100 *
-                                                          1.5 *
-                                                          (1 +
-                                                              (1 * 25 * allEM) /
-                                                                  (9 *
-                                                                      (allEM +
-                                                                          1400))))
-                                                      .toStringAsFixed(1))
-                                                  .toString() +
-                                              '%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -16296,15 +14357,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((trailoftheqilindmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -16320,15 +14373,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((trailoftheqilindmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -16344,15 +14389,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((trailoftheqilindmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -16368,46 +14405,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (trailoftheqilindmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -16424,10 +14437,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.all(10.0),
                           margin: EdgeInsets.all(10.0),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 0.8),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: Column(
                             children: [
                               SelectableText(
@@ -16440,19 +14450,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
                                 title: Column(children: [
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -16465,9 +14472,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(celestialshowerdmgnc
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(celestialshowerdmgnc.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -16483,9 +14488,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse(celestialshowerdmgexp
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse(celestialshowerdmgexp.toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -16501,9 +14504,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgc)
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((celestialshowerdmgc).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -16520,24 +14521,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: celestialshowerdmgc / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: celestialshowerdmgexp / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
+                                            duration: Duration(milliseconds: 500),
                                             width: celestialshowerdmgnc / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
@@ -16548,29 +14546,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ]),
                                 children: <Widget>[
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Melt:(' +
-                                              double.parse((100 *
-                                                          1.5 *
-                                                          (1 +
-                                                              (1 * 25 * allEM) /
-                                                                  (9 *
-                                                                      (allEM +
-                                                                          1400))))
-                                                      .toStringAsFixed(1))
-                                                  .toString() +
-                                              '%)',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.red,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ]),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                    SelectableText(
+                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      style: TextStyle(
+                                        //fontWeight: FontWeight.bold,
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
@@ -16583,15 +14568,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((celestialshowerdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -16607,15 +14584,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((celestialshowerdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -16631,15 +14600,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400))))
-                                                .toStringAsFixed(1))
-                                            .toString(),
+                                        double.parse((celestialshowerdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -16655,46 +14616,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         children: [
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgexp *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgnc *
-                                                    1.5 *
-                                                    (1 +
-                                                        (1 * 25 * allEM) /
-                                                            (9 *
-                                                                (allEM +
-                                                                    1400)))) /
-                                                50,
+                                            duration: Duration(milliseconds: 500),
+                                            width: (celestialshowerdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -16703,6 +14640,69 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ],
                                   ),
                                   SizedBox(height: 10),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 0.8), borderRadius: BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: [
+                              SelectableText(
+                                'Elemental Reactions Panel',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(height: 10),
+                              //ANCHOR Superconduct DMG
+                              Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+                                SelectableText(
+                                  'Superconduct DMG:(' + superconductDMGpercent.toStringAsFixed(1) + '%)',
+                                  style: TextStyle(
+                                    //fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ]),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  SelectableText(
+                                    'DMG:',
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SelectableText(
+                                    double.parse(superconductDMG.toStringAsFixed(1)).toString(),
+                                    style: TextStyle(
+                                      //fontWeight: FontWeight.bold,
+                                      color: Colors.lightBlue[400],
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.topLeft,
+                                    children: [
+                                      AnimatedContainer(
+                                        curve: Curves.easeIn,
+                                        duration: Duration(milliseconds: 500),
+                                        width: superconductDMG / 50,
+                                        height: 20,
+                                        color: Colors.lightBlue[400],
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ],
