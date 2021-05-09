@@ -10403,34 +10403,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (artifact4mainstatcat == 11) buildstatbarpercent(Colors.purple, a4GeoDMGpercent),
                                       ],
                                     ),
-                                    //ANCHOR Superconduct Damage Title
-                                    if (superconductDMGpercent > 100)
-                                      SelectableText(
-                                        'Superconduct Damage:' + (superconductDMGpercent - 100).toStringAsFixed(1) + '%',
-                                        style: TextStyle(fontSize: 15),
-                                      ),
-                                    //ANCHOR statSuperconductDMG:stats
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        if (a3EM > 0 || stat3EM > 0) buildStatRow(Colors.blueGrey, 'a3', (2.4 * 25 * (a3EM + stat3EM) / (9 * (a3EM + stat3EM + 1400)) * 100).toStringAsFixed(1)),
-                                        if (a4EM > 0 || stat4EM > 0) buildStatRow(Colors.purple, 'a4', (2.4 * 25 * (a4EM + stat4EM) / (9 * (a4EM + stat4EM + 1400)) * 100).toStringAsFixed(1)),
-                                        if (a5EM > 0 || stat5EM > 0) buildStatRow(Colors.teal, 'a5', (2.4 * 25 * (a5EM + stat5EM) / (9 * (a5EM + stat5EM + 1400)) * 100).toStringAsFixed(1)),
-                                        if (troupesdawnlight2on) buildStatRow(Colors.green[400], 'Troupe\'s Dawnlight 2 set', 36.036.toStringAsFixed(1)),
-                                        if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
-                                      ],
-                                    ),
-                                    //ANCHOR statSuperconductDMG:bar
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        if (a3EM > 0 || stat3EM > 0) buildstatbarpercent(Colors.blueGrey, (2.4 * 25 * (a3EM + stat3EM) / (9 * (a3EM + stat3EM + 1400)) * 100)),
-                                        if (a4EM > 0 || stat4EM > 0) buildstatbarpercent(Colors.purple, (2.4 * 25 * (a4EM + stat4EM) / (9 * (a4EM + stat4EM + 1400)) * 100)),
-                                        if (a5EM > 0 || stat5EM > 0) buildstatbarpercent(Colors.teal, (2.4 * 25 * (a5EM + stat5EM) / (9 * (a5EM + stat5EM + 1400)) * 100)),
-                                        if (troupesdawnlight2on) buildstatbarpercent(Colors.green[400], 36.036),
-                                        if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
-                                      ],
-                                    ),
+
                                     //ANCHOR Elemental Burst Damage Title
                                     if (bonusBurstDMGpercent != 0)
                                       SelectableText(
@@ -10855,6 +10828,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                      ],
+                                    ),
+                                    //ANCHOR Superconduct Damage Title
+                                    if (superconductDMGpercent > 100)
+                                      SelectableText(
+                                        'Superconduct Damage Plus:' + (superconductDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statSuperconductDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
+                                      ],
+                                    ),
+                                    //ANCHOR statSuperconductDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                        if (thunderbird4On) buildstatbarpercent(Colors.purple[400], 40),
                                       ],
                                     ),
                                   ],
@@ -14659,7 +14654,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               //ANCHOR Superconduct DMG
                               Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                 SelectableText(
-                                  'Superconduct DMG:(' + superconductDMGpercent.toStringAsFixed(1) + '%)',
+                                  'Superconduct:(' + superconductDMGpercent.toStringAsFixed(1) + '%)',
                                   style: TextStyle(
                                     //fontWeight: FontWeight.bold,
                                     color: Colors.black,
