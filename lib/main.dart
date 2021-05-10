@@ -1079,6 +1079,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double electrochargedDMGpercent = 0;
   double shatteredDMGpercent = 0;
   double swirlDMGpercent = 0;
+  double vaporizeDMGpercent = 0;
+  double meltDMGpercent = 0;
 
   double overloadDMG = 0;
   double superconductDMG = 0;
@@ -6564,6 +6566,9 @@ class _MyHomePageState extends State<MyHomePage> {
     shatteredDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100;
     shatteredDMG = electroReactionBaseBYlv[level] * 3 * shatteredDMGpercent / 100 * enemyPhysicalres;
 
+    vaporizeDMGpercent = 100 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)));
+    meltDMGpercent = 100 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)));
+
     swirlDMGpercent = (1 + (2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100;
     swirlDMGonHydro = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyHydrores;
     swirlDMGonPyro = electroReactionBaseBYlv[level] * 1.2 * swirlDMGpercent / 100 * enemyPyrores;
@@ -7478,7 +7483,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 if (stat1defpercentOn) Text('DEF%:$stat1defpercent'),
                                                 if (stat1CRpercentOn) Text('Critial Rate%:$stat1CRpercent'),
                                                 if (stat1CDpercentOn) Text('Critial Damage%:$stat1CDpercent'),
-                                                if (stat1EMOn) Text('Elemental Mastery%:$stat1EM'),
+                                                if (stat1EMOn) Text('Elemental Mastery:$stat1EM'),
                                                 if (stat1ERpercentOn) Text('Energy Recharge%:$stat1ERpercent'),
                                                 if (stat1atkOn) Text('ATK:$stat1atk'),
                                                 if (stat1hpOn) Text('HP:$stat1hp'),
@@ -7658,7 +7663,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 if (stat2defpercentOn) Text('DEF%:$stat2defpercent'),
                                                 if (stat2CRpercentOn) Text('Critial Rate%:$stat2CRpercent'),
                                                 if (stat2CDpercentOn) Text('Critial Damage%:$stat2CDpercent'),
-                                                if (stat2EMOn) Text('Elemental Mastery%:$stat2EM'),
+                                                if (stat2EMOn) Text('Elemental Mastery:$stat2EM'),
                                                 if (stat2ERpercentOn) Text('Energy Recharge%:$stat2ERpercent'),
                                                 if (stat2atkOn) Text('ATK:$stat2atk'),
                                                 if (stat2hpOn) Text('HP:$stat2hp'),
@@ -7880,7 +7885,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 if (stat3defpercentOn) Text('DEF%:$stat3defpercent'),
                                                 if (stat3CRpercentOn) Text('Critial Rate%:$stat3CRpercent'),
                                                 if (stat3CDpercentOn) Text('Critial Damage%:$stat3CDpercent'),
-                                                if (stat3EMOn) Text('Elemental Mastery%:$stat3EM'),
+                                                if (stat3EMOn) Text('Elemental Mastery:$stat3EM'),
                                                 if (stat3ERpercentOn) Text('Energy Recharge%:$stat3ERpercent'),
                                                 if (stat3atkOn) Text('ATK:$stat3atk'),
                                                 if (stat3hpOn) Text('HP:$stat3hp'),
@@ -8130,7 +8135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 if (stat4defpercentOn) Text('DEF%:$stat4defpercent'),
                                                 if (stat4CRpercentOn) Text('Critial Rate%:$stat4CRpercent'),
                                                 if (stat4CDpercentOn) Text('Critial Damage%:$stat4CDpercent'),
-                                                if (stat4EMOn) Text('Elemental Mastery%:$stat4EM'),
+                                                if (stat4EMOn) Text('Elemental Mastery:$stat4EM'),
                                                 if (stat4ERpercentOn) Text('Energy Recharge%:$stat4ERpercent'),
                                                 if (stat4atkOn) Text('ATK:$stat4atk'),
                                                 if (stat4hpOn) Text('HP:$stat4hp'),
@@ -8356,7 +8361,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 if (stat5defpercentOn) Text('DEF%:$stat5defpercent'),
                                                 if (stat5CRpercentOn) Text('Critial Rate%:$stat5CRpercent'),
                                                 if (stat5CDpercentOn) Text('Critial Damage%:$stat5CDpercent'),
-                                                if (stat5EMOn) Text('Elemental Mastery%:$stat5EM'),
+                                                if (stat5EMOn) Text('Elemental Mastery:$stat5EM'),
                                                 if (stat5ERpercentOn) Text('Energy Recharge%:$stat5ERpercent'),
                                                 if (stat5atkOn) Text('ATK:$stat5atk'),
                                                 if (stat5hpOn) Text('HP:$stat5hp'),
@@ -10847,6 +10852,47 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                       ],
                                     ),
+                                    //ANCHOR Vaporize Damage Title
+                                    if (vaporizeDMGpercent > 100)
+                                      SelectableText(
+                                        'Vaporize Damage Plus:' + (vaporizeDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statVaporizeDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                      ],
+                                    ),
+                                    //ANCHOR statVaporizeDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                      ],
+                                    ),
+                                    //ANCHOR Melt Damage Title
+                                    if (meltDMGpercent > 100)
+                                      SelectableText(
+                                        'Melt Damage Plus:' + (meltDMGpercent - 100).toStringAsFixed(1) + '%',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    //ANCHOR statMeltDMG:stats
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                      ],
+                                    ),
+                                    //ANCHOR statMeltDMG:bar
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        if (allEM != 0) buildstatbarpercent(Colors.amber[400], (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100)),
+                                      ],
+                                    ),
+
                                     //ANCHOR Superconduct Damage Title
                                     if (superconductDMGpercent > 100)
                                       SelectableText(
@@ -13494,7 +13540,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -13514,7 +13560,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((caimdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((caimdmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -13530,7 +13576,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((caimdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((caimdmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -13546,7 +13592,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((caimdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((caimdmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -13564,21 +13610,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (caimdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (caimdmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (caimdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (caimdmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (caimdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (caimdmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -13694,7 +13740,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -13714,7 +13760,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakedmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -13730,7 +13776,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakedmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -13746,7 +13792,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakedmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakedmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -13764,21 +13810,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakedmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakedmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakedmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakedmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakedmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakedmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -13894,7 +13940,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -13913,7 +13959,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakebloomdmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -13929,7 +13975,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakebloomdmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -13945,7 +13991,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakebloomdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakebloomdmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -13962,21 +14008,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakebloomdmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakebloomdmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakebloomdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakebloomdmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -14092,7 +14138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -14112,7 +14158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakealldmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -14128,7 +14174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakealldmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -14144,7 +14190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((frostflakealldmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((frostflakealldmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -14161,21 +14207,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakealldmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakealldmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakealldmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakealldmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (frostflakealldmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (frostflakealldmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -14433,7 +14479,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -14453,7 +14499,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((trailoftheqilindmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -14469,7 +14515,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((trailoftheqilindmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -14485,7 +14531,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((trailoftheqilindmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((trailoftheqilindmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -14502,21 +14548,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (trailoftheqilindmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (trailoftheqilindmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (trailoftheqilindmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (trailoftheqilindmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
@@ -14644,7 +14690,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 children: <Widget>[
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
-                                      'Melt:(' + double.parse((100 * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString() + '%)',
+                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
                                       style: TextStyle(
                                         //fontWeight: FontWeight.bold,
                                         color: Colors.red,
@@ -14664,7 +14710,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((celestialshowerdmgnc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[200],
@@ -14680,7 +14726,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((celestialshowerdmgexp * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[400],
@@ -14696,7 +14742,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SelectableText(
-                                        double.parse((celestialshowerdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))).toStringAsFixed(1)).toString(),
+                                        double.parse((celestialshowerdmgc * 1.5 * meltDMGpercent / 100).toStringAsFixed(1)).toString(),
                                         style: TextStyle(
                                           //fontWeight: FontWeight.bold,
                                           color: Colors.lightBlue[600],
@@ -14713,21 +14759,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (celestialshowerdmgc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[600],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgexp * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (celestialshowerdmgexp * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[400],
                                           ),
                                           AnimatedContainer(
                                             curve: Curves.easeIn,
                                             duration: Duration(milliseconds: 500),
-                                            width: (celestialshowerdmgnc * 1.5 * (1 + (1 * 25 * allEM) / (9 * (allEM + 1400)))) / 50,
+                                            width: (celestialshowerdmgnc * 1.5 * meltDMGpercent / 100) / 50,
                                             height: 20,
                                             color: Colors.lightBlue[200],
                                           ),
