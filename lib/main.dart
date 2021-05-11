@@ -1169,6 +1169,20 @@ class _MyHomePageState extends State<MyHomePage> {
   bool manualatkpercentOn = false;
   int manualatkpercent = 0;
 
+  bool manualCRpercentOn = false;
+  int manualCRpercent = 0;
+  bool manualCDpercentOn = false;
+  int manualCDpercent = 0;
+
+  bool manualEMOn = false;
+  int manualEM = 0;
+
+  bool manualDMGpercentOn = false;
+  int manualDMGpercent = 0;
+
+  bool manualresdebuffOn = false;
+  int manualresdebuff = 0;
+
   int noblesseBonus = 20;
 
   String _label = '';
@@ -6178,7 +6192,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //bonusBurstATK
     bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
 //bonusDMG
-    bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) + (thundersoother4On ? 35 : 0) as double;
+    bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) + (thundersoother4On ? 35 : 0) + (manualDMGpercentOn ? manualDMGpercent : 0) as double;
 
     if (strongWilled2Times <= 3) {
       bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
@@ -6348,7 +6362,7 @@ class _MyHomePageState extends State<MyHomePage> {
     a5EM = artifact5mainstatcat == 4 ? a5EMmain : 0;
 
     lvlEM += weaponEM;
-    bonusEM = a3EM + a4EM + a5EM + stat1EM + stat2EM + stat3EM + stat4EM + stat5EM + (troupesdawnlight2on ? 80 : 0);
+    bonusEM = a3EM + a4EM + a5EM + stat1EM + stat2EM + stat3EM + stat4EM + stat5EM + (troupesdawnlight2on ? 80 : 0) + (manualEMOn ? manualEM : 0);
 
     allEM = lvlEM + bonusEM;
 
@@ -6378,7 +6392,8 @@ class _MyHomePageState extends State<MyHomePage> {
         (undividedHeartOn ? 20 : 0) +
         (blizzardstrayer41On ? 20 : 0) +
         (blizzardstrayer42On ? 20 : 0) +
-        (cryo2On ? 15 : 0);
+        (cryo2On ? 15 : 0) +
+        (manualCRpercentOn ? manualCRpercent : 0);
     allCR = baseCR + bonusCR;
 
     //CD params
@@ -6387,7 +6402,8 @@ class _MyHomePageState extends State<MyHomePage> {
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
     //baseCD += weaponCD;
-    bonusCD = weaponCD + a5CD + stat1CDpercent + stat2CDpercent + stat3CDpercent + stat4CDpercent + stat5CDpercent + (echoingBalladOn ? (15 + weaponref * 5) : 0);
+    bonusCD =
+        weaponCD + a5CD + stat1CDpercent + stat2CDpercent + stat3CDpercent + stat4CDpercent + stat5CDpercent + (echoingBalladOn ? (15 + weaponref * 5) : 0) + (manualCDpercentOn ? manualCDpercent : 0);
     allCD = baseCD + bonusCD;
 
     //DMG params
@@ -6449,7 +6465,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //enemyparams
 
-    enemyPhysicalresv = eneresbytype[enemytype]['physical'] - (zhonglieOn ? 20 : 0);
+    enemyPhysicalresv = eneresbytype[enemytype]['physical'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyPhysicalresv < 0)
       enemyPhysicalres = 1 - enemyPhysicalresv / 2 / 100;
     else if (enemyPhysicalresv < 76)
@@ -6459,7 +6475,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyPhysicalres = 0;
 
-    enemyPyroresv = eneresbytype[enemytype]['pyro'] - (zhonglieOn ? 20 : 0);
+    enemyPyroresv = eneresbytype[enemytype]['pyro'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyPyroresv < 0)
       enemyPyrores = 1 - enemyPyroresv / 2 / 100;
     else if (enemyPyroresv < 76)
@@ -6469,7 +6485,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyPyrores = 0;
 
-    enemyHydroresv = eneresbytype[enemytype]['hydro'] - (zhonglieOn ? 20 : 0);
+    enemyHydroresv = eneresbytype[enemytype]['hydro'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyHydroresv < 0)
       enemyHydrores = 1 - enemyHydroresv / 2 / 100;
     else if (enemyHydroresv < 76)
@@ -6479,7 +6495,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyHydrores = 0;
 
-    enemyDendroresv = eneresbytype[enemytype]['dendro'] - (zhonglieOn ? 20 : 0);
+    enemyDendroresv = eneresbytype[enemytype]['dendro'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyDendroresv < 0)
       enemyDendrores = 1 - enemyDendroresv / 2 / 100;
     else if (enemyDendroresv < 76)
@@ -6489,7 +6505,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyDendrores = 0;
 
-    enemyElectroresv = eneresbytype[enemytype]['electro'] - (zhonglieOn ? 20 : 0);
+    enemyElectroresv = eneresbytype[enemytype]['electro'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyElectroresv < 0)
       enemyElectrores = 1 - enemyElectroresv / 2 / 100;
     else if (enemyElectroresv < 76)
@@ -6499,7 +6515,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyElectrores = 0;
 
-    enemyAnemoresv = eneresbytype[enemytype]['anemo'] - (zhonglieOn ? 20 : 0);
+    enemyAnemoresv = eneresbytype[enemytype]['anemo'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyAnemoresv < 0)
       enemyAnemores = 1 - enemyAnemoresv / 2 / 100;
     else if (enemyAnemoresv < 76)
@@ -6509,7 +6525,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyAnemores = 0;
 
-    enemyCryoresv = eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0) - (zhonglieOn ? 20 : 0);
+    enemyCryoresv = eneresbytype[enemytype]['cryo'] - (constellation1On ? 15 : 0) - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyCryoresv < 0)
       enemyCryores = 1 - enemyCryoresv / 2 / 100;
     else if (enemyCryoresv < 76)
@@ -6519,7 +6535,7 @@ class _MyHomePageState extends State<MyHomePage> {
     else
       enemyCryores = 0;
 
-    enemyGeoresv = eneresbytype[enemytype]['geo'] - (zhonglieOn ? 20 : 0);
+    enemyGeoresv = eneresbytype[enemytype]['geo'] - (zhonglieOn ? 20 : 0) - (manualresdebuffOn ? manualresdebuff : 0);
     if (enemyGeoresv < 0)
       enemyGeores = 1 - enemyGeoresv / 2 / 100;
     else if (enemyGeoresv < 76)
@@ -9814,6 +9830,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (blizzardstrayer41On == true) buildStatRow(Colors.blue[300], 'Blizzard Strayer 4 set(cryo)', '20'),
                                         if (blizzardstrayer42On == true) buildStatRow(Colors.blue[400], 'Blizzard Strayer 4 set(frozen)', '20'),
                                         if (cryo2On == true) buildStatRow(Colors.blue[200], '2 Cryo', '15'),
+                                        if (manualCRpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualCRpercent).toStringAsFixed(1))),
                                       ],
                                     ),
 
@@ -9970,6 +9987,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (manualCRpercentOn) buildstatbarpercent(Colors.red[300], manualCRpercent),
                                       ],
                                     ),
                                   ],
@@ -10003,6 +10021,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (artifact5mainstatcat == 6) buildStatRow(Colors.teal, 'a5', '$a5CD'),
                                         if (stat5CDpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CDpercent'),
                                         if (echoingBalladOn == true) buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
+                                        if (manualCDpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualCDpercent).toStringAsFixed(1))),
                                       ],
                                     ),
 
@@ -10121,6 +10140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (manualCDpercentOn) buildstatbarpercent(Colors.red[300], manualCDpercent),
                                       ],
                                     ),
                                   ],
@@ -10458,6 +10478,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: [
                                         if (monaqOn) buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
                                         if (thundersoother4On) buildStatRow(Color(0xFF6480FF), 'Thundersoother 4 Set', '35'),
+                                        if (manualDMGpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualDMGpercent).toStringAsFixed(1))),
                                       ],
                                     ),
                                     //ANCHOR statBonusDMG:bar
@@ -10466,6 +10487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: [
                                         if (monaqOn) buildstatbarpercent(Colors.purple[300], (monaqlvtoratio[monaqlv] * 1)),
                                         if (thundersoother4On) buildstatbarpercent(Color(0xFF6480FF), 35),
+                                        if (manualDMGpercentOn) buildstatbarpercent(Colors.red[300], manualDMGpercent),
                                       ],
                                     ),
                                   ],
@@ -10707,6 +10729,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (manualEMOn) buildStatRow(Colors.red[300], 'Manual', ((manualEM).toStringAsFixed(1))),
                                       ],
                                     ),
 
@@ -10850,6 +10873,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ],
                                           ),
+                                        if (manualEMOn) buildstatbar(Colors.red[300], manualEM),
                                       ],
                                     ),
                                     //ANCHOR Vaporize Damage Title
@@ -12414,6 +12438,241 @@ class _MyHomePageState extends State<MyHomePage> {
                                             onChanged: (value) {
                                               setState(() {
                                                 manualatkpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('Crit Rate%(manual)'),
+                                        selected: manualCRpercentOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualCRpercentOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus Crit Rate%:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualCRpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('Crit Damage%(manual)'),
+                                        selected: manualCDpercentOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualCDpercentOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 120,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus Crit Damage%:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualCDpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('EM(manual)'),
+                                        selected: manualEMOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualEMOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus EM:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualEM = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('Damage Bonus%(manual)'),
+                                        selected: manualDMGpercentOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualDMGpercentOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Damage Bonus%:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualDMGpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('RES debuff(manual)'),
+                                        selected: manualresdebuffOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualresdebuffOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 120,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Enemy Res Decrease:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualresdebuff = num.tryParse(value) ?? 0;
                                               });
                                             }),
                                       ),
