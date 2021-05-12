@@ -12260,7 +12260,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         width: 10,
                                       ),
                                       Container(
-                                        width: 150,
+                                        width: 100,
                                         height: 50,
                                         alignment: Alignment.center,
                                         child: TextFormField(
