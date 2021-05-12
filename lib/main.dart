@@ -82,27 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<int, double> cleveltoGeoDMGpercent = {};
   double levelGeoDMGpercent = 0;
 
-  Map<int, int> weapontoatk = {
-    1: 46,
-    5: 62,
-    10: 82,
-    15: 102,
-    20: 122,
-    25: 173,
-    30: 194,
-    35: 214,
-    40: 235,
-    45: 287,
-    50: 308,
-    55: 361,
-    60: 382,
-    65: 435,
-    70: 457,
-    75: 510,
-    80: 532,
-    85: 586,
-    90: 608
-  };
+  Map<int, int> weapontoatk = {1: 46, 5: 62, 10: 82, 15: 102, 20: 122, 25: 173, 30: 194, 35: 214, 40: 235, 45: 287, 50: 308, 55: 361, 60: 382, 65: 435, 70: 457, 75: 510, 80: 532, 85: 586, 90: 608};
 
   Map<int, double> weapontoatkpercent = {
     1: 10.8,
@@ -695,16 +675,7 @@ class _MyHomePageState extends State<MyHomePage> {
     1: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //1 -> Hilichurl
     2: {'physical': 70, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //2 -> Ruin Guard
     3: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //3 -> Treasure Hoarder
-    4: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 999,
-      'geo': 10
-    }, //4 -> Andrius, Dominator of Wolves
+    4: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 999, 'geo': 10}, //4 -> Andrius, Dominator of Wolves
     5: {'physical': 10, 'pyro': 999, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //5 -> Pyro Slime
     6: {'physical': 10, 'pyro': 10, 'hydro': 999, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //6 -> Hydro Slime
     7: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 999, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //7 -> Dendro Slime
@@ -725,16 +696,7 @@ class _MyHomePageState extends State<MyHomePage> {
     22: {'physical': 10, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //22-> Pyro Flower(Stunned)
     23: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 50, 'geo': 10}, //23-> Cryo Flower(Stunned)
     24: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //24-> Fatui Skirmisher
-    25: {
-      'physical': 80,
-      'pyro': 110,
-      'hydro': 110,
-      'dendro': 110,
-      'electro': 110,
-      'anemo': 110,
-      'cryo': 110,
-      'geo': 110
-    }, //25-> Fatui Skirmisher(Shielded)
+    25: {'physical': 80, 'pyro': 110, 'hydro': 110, 'dendro': 110, 'electro': 110, 'anemo': 110, 'cryo': 110, 'geo': 110}, //25-> Fatui Skirmisher(Shielded)
     26: {'physical': -20, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //26-> Fatui Pyro Agent
     27: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 50, 'anemo': 10, 'cryo': 10, 'geo': 10}, //27-> Fatui Electro Cincin Mage
     28: {'physical': 30, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 50}, //28-> Geovishap Hatchling
@@ -6228,12 +6190,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
 
     //bonusNormalATK
-    bonusNormalATKDMGpercent =
-        (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
+    bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
     //bonusChargedATK
-    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-        (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
-        (troupesdawnlight4on ? 35 : 0) as double;
+    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) + (troupesdawnlight4on ? 35 : 0) as double;
 //bonusBurstATK
     bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
 //bonusDMG
@@ -6447,15 +6406,8 @@ class _MyHomePageState extends State<MyHomePage> {
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
     //baseCD += weaponCD;
-    bonusCD = weaponCD +
-        a5CD +
-        stat1CDpercent +
-        stat2CDpercent +
-        stat3CDpercent +
-        stat4CDpercent +
-        stat5CDpercent +
-        (echoingBalladOn ? (15 + weaponref * 5) : 0) +
-        (manualCDpercentOn ? manualCDpercent : 0);
+    bonusCD =
+        weaponCD + a5CD + stat1CDpercent + stat2CDpercent + stat3CDpercent + stat4CDpercent + stat5CDpercent + (echoingBalladOn ? (15 + weaponref * 5) : 0) + (manualCDpercentOn ? manualCDpercent : 0);
     allCD = baseCD + bonusCD;
 
     //DMG params
@@ -7002,12 +6954,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
-    echoingballaddmgnc = allatk *
-        (125 / 100) *
-        (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) *
-        (100 + level) /
-        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        enemyPhysicalres;
+    echoingballaddmgnc =
+        allatk * (125 / 100) * (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) * (100 + level) / ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) * enemyPhysicalres;
 
     echoingballaddmgexp = allatk *
         (125 / 100) *
@@ -8502,10 +8450,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'ATK:$basicatk + ' +
-                                    double.parse(bonusatk.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allatk.toStringAsFixed(1)).toString(),
+                                'ATK:$basicatk + ' + double.parse(bonusatk.toStringAsFixed(1)).toString() + ' = ' + double.parse(allatk.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -8542,59 +8487,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                             children: [
                                               buildStatRow(Colors.red, 'level', '$levelatk'),
                                               buildStatRow(Colors.blue, 'weapon', '$weaponatk'),
-                                              if (weaponatkpercent != 0)
-                                                buildStatRow(Colors.green, 'weapon%($weaponatkpercent)',
-                                                    double.parse(weaponatkpercentstat.toStringAsFixed(1)).toString()),
-                                              if (stat1atkOn == true)
-                                                buildStatRow(Colors.red, 'a1', double.parse(stat1atk.toStringAsFixed(1)).toString()),
-                                              if (stat1atkpercentOn == true)
-                                                buildStatRow(Colors.yellow[700], 'a1%($stat1atkpercent)',
-                                                    double.parse(a1percentatk.toStringAsFixed(1)).toString()),
+                                              if (weaponatkpercent != 0) buildStatRow(Colors.green, 'weapon%($weaponatkpercent)', double.parse(weaponatkpercentstat.toStringAsFixed(1)).toString()),
+                                              if (stat1atkOn == true) buildStatRow(Colors.red, 'a1', double.parse(stat1atk.toStringAsFixed(1)).toString()),
+                                              if (stat1atkpercentOn == true) buildStatRow(Colors.yellow[700], 'a1%($stat1atkpercent)', double.parse(a1percentatk.toStringAsFixed(1)).toString()),
                                               buildStatRow(Colors.pink, 'a2', a2atk.toString()),
-                                              if (stat2atkpercentOn == true)
-                                                buildStatRow(Colors.pink[700], 'a2%($stat2atkpercent)',
-                                                    double.parse(a2percentatk.toStringAsFixed(1)).toString()),
-                                              if (artifact3mainstatcat == 2)
-                                                buildStatRow(Colors.blueGrey, 'a3%($a3atkpercentMain)',
-                                                    double.parse(a3percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat3atkpercentOn == true)
-                                                buildStatRow(Colors.blueGrey, 'a3%($stat3atkpercent)',
-                                                    double.parse(a3percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat3atkOn == true)
-                                                buildStatRow(Colors.blueGrey[700], 'a3', double.parse(stat3atk.toStringAsFixed(1)).toString()),
-                                              if (artifact4mainstatcat == 2)
-                                                buildStatRow(Colors.purple, 'a4%($a4atkpercentMain)',
-                                                    double.parse(a4percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat4atkpercentOn == true)
-                                                buildStatRow(
-                                                    Colors.purple, 'a4%($stat4atkpercent)', double.parse(a4percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat4atkOn == true)
-                                                buildStatRow(Colors.purple[700], 'a4', double.parse(stat4atk.toStringAsFixed(1)).toString()),
-                                              if (artifact5mainstatcat == 2)
-                                                buildStatRow(Colors.teal, 'a5%($a5atkpercentMain)',
-                                                    double.parse(a5percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat5atkpercentOn == true)
-                                                buildStatRow(
-                                                    Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat5atkOn == true)
-                                                buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
+                                              if (stat2atkpercentOn == true) buildStatRow(Colors.pink[700], 'a2%($stat2atkpercent)', double.parse(a2percentatk.toStringAsFixed(1)).toString()),
+                                              if (artifact3mainstatcat == 2) buildStatRow(Colors.blueGrey, 'a3%($a3atkpercentMain)', double.parse(a3percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat3atkpercentOn == true) buildStatRow(Colors.blueGrey, 'a3%($stat3atkpercent)', double.parse(a3percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat3atkOn == true) buildStatRow(Colors.blueGrey[700], 'a3', double.parse(stat3atk.toStringAsFixed(1)).toString()),
+                                              if (artifact4mainstatcat == 2) buildStatRow(Colors.purple, 'a4%($a4atkpercentMain)', double.parse(a4percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat4atkpercentOn == true) buildStatRow(Colors.purple, 'a4%($stat4atkpercent)', double.parse(a4percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat4atkOn == true) buildStatRow(Colors.purple[700], 'a4', double.parse(stat4atk.toStringAsFixed(1)).toString()),
+                                              if (artifact5mainstatcat == 2) buildStatRow(Colors.teal, 'a5%($a5atkpercentMain)', double.parse(a5percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat5atkpercentOn == true) buildStatRow(Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat5atkOn == true) buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
                                               if (pyro2On == true) buildStatRow(Colors.red, '2 pyro(25%)', (basicatk * 25 / 100).toStringAsFixed(1)),
-                                              if (gladiator2On == true)
-                                                buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
-                                              if (royalflora4On == true)
-                                                buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
+                                              if (gladiator2On == true) buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
+                                              if (royalflora4On == true) buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
                                               if (unreturningOn == true)
-                                                buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)',
-                                                    (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
-                                              if (dragonslayerOn)
-                                                buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
-                                              if (bennetqOn)
-                                                buildStatRow(Colors.red, 'Bennet(burst)',
-                                                    (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
+                                                buildStatRow(
+                                                    Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
+                                              if (dragonslayerOn) buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
+                                              if (bennetqOn) buildStatRow(Colors.red, 'Bennet(burst)', (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
                                               if (manualatkOn) buildStatRow(Colors.red[300], 'Manual:ATK', (manualatk.toStringAsFixed(1))),
-                                              if (manualatkpercentOn)
-                                                buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)',
-                                                    ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
+                                              if (manualatkpercentOn) buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)', ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
                                             ],
                                           ),
                                           //ANCHOR statATK:bar
@@ -8637,10 +8553,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'HP:$lvlhp + ' +
-                                    double.parse(bonusHP.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allHP.toStringAsFixed(1)).toString(),
+                                'HP:$lvlhp + ' + double.parse(bonusHP.toStringAsFixed(1)).toString() + ' = ' + double.parse(allHP.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9027,212 +8940,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  AnimatedContainer(
-                                                    curve: Curves.easeIn,
-                                                    duration: Duration(milliseconds: 500),
-                                                    width: lvlhp / 75,
-                                                    height: 20,
-                                                    color: Colors.red,
-                                                  ),
-                                                ],
-                                              ),
-                                              if (weaponHPpercent != 0)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: weaponHPpercentstat / 75,
-                                                      height: 20,
-                                                      color: Colors.blue,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat1hpOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat1hp / 75,
-                                                      height: 20,
-                                                      color: Colors.yellow,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat1hppercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a1percenthp / 75,
-                                                      height: 20,
-                                                      color: Colors.yellow[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  AnimatedContainer(
-                                                    curve: Curves.easeIn,
-                                                    duration: Duration(milliseconds: 500),
-                                                    width: a1hp / 75,
-                                                    height: 20,
-                                                    color: Colors.yellow,
-                                                  ),
-                                                ],
-                                              ),
-                                              if (stat2hpOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat2hp / 75,
-                                                      height: 20,
-                                                      color: Colors.pink,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat2hppercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a2percenthp / 50,
-                                                      height: 20,
-                                                      color: Colors.pink[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact3mainstatcat == 1)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a3percentHPMain / 75,
-                                                      height: 20,
-                                                      color: Colors.blueGrey,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat3hppercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a3percentHP / 75,
-                                                      height: 20,
-                                                      color: Colors.blueGrey,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat3hpOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat3hp / 75,
-                                                      height: 20,
-                                                      color: Colors.blueGrey[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact4mainstatcat == 1)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a4percentHPMain / 75,
-                                                      height: 20,
-                                                      color: Colors.purple,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat4hppercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a4percentHP / 50,
-                                                      height: 20,
-                                                      color: Colors.purple,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat4hpOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat4hp / 75,
-                                                      height: 20,
-                                                      color: Colors.purple[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact5mainstatcat == 1)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a5percentHPMain / 75,
-                                                      height: 20,
-                                                      color: Colors.teal,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat5hppercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a5percentHP / 75,
-                                                      height: 20,
-                                                      color: Colors.teal,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat5hpOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat5hp / 75,
-                                                      height: 20,
-                                                      color: Colors.teal[700],
-                                                    ),
-                                                  ],
-                                                ),
+                                              buildstatbarhp(Colors.red, lvlhp),
+                                              if (weaponHPpercent != 0) buildstatbarhp(Colors.blue, weaponHPpercentstat),
+                                              if (stat1hpOn == true) buildstatbarhp(Colors.yellow, stat1hp),
+                                              if (stat1hppercentOn == true) buildstatbarhp(Colors.yellow[700], a1percenthp),
+                                              buildstatbarhp(Colors.yellow, a1hp),
+                                              if (stat2hpOn == true) buildstatbarhp(Colors.pink, stat2hp),
+                                              if (stat2hppercentOn == true) buildstatbarhp(Colors.pink[700], a2percenthp),
+                                              if (artifact3mainstatcat == 1) buildstatbarhp(Colors.blueGrey, a3percentHPMain),
+                                              if (stat3hppercentOn == true) buildstatbarhp(Colors.blueGrey, a3percentHP),
+                                              if (stat3hpOn == true) buildstatbarhp(Colors.blueGrey[700], stat3hp),
+                                              if (artifact4mainstatcat == 1) buildstatbarhp(Colors.purple, a4percentHPMain),
+                                              if (stat4hppercentOn == true) buildstatbarhp(Colors.purple, a4percentHP),
+                                              if (stat4hpOn == true) buildstatbarhp(Colors.purple[700], stat4hp),
+                                              if (artifact5mainstatcat == 1) buildstatbarhp(Colors.teal, a5percentHPMain),
+                                              if (stat5hppercentOn == true) buildstatbarhp(Colors.teal, a5percentHP),
+                                              if (stat5hpOn == true) buildstatbarhp(Colors.teal[700], stat5hp),
                                             ],
                                           ),
                                         ],
@@ -9244,10 +8967,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR DEF
                               SelectableText(
-                                'DEF:$lvldef + ' +
-                                    double.parse(bonusdef.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(alldef.toStringAsFixed(1)).toString(),
+                                'DEF:$lvldef + ' + double.parse(bonusdef.toStringAsFixed(1)).toString() + ' = ' + double.parse(alldef.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9578,187 +9298,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  AnimatedContainer(
-                                                    curve: Curves.easeIn,
-                                                    duration: Duration(milliseconds: 500),
-                                                    width: lvldef / 7,
-                                                    height: 20,
-                                                    color: Colors.red,
-                                                  ),
-                                                ],
-                                              ),
-                                              if (weapondefpercentstat != 0)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: weapondefpercentstat / 7,
-                                                      height: 20,
-                                                      color: Colors.blue,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat1defOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat1def / 7,
-                                                      height: 20,
-                                                      color: Colors.yellow,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat1defpercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a1percentdef / 7,
-                                                      height: 20,
-                                                      color: Colors.yellow[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat2defpercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a2percentdef / 7,
-                                                      height: 20,
-                                                      color: Colors.pink[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact3mainstatcat == 3)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a3percentdefMain / 7,
-                                                      height: 20,
-                                                      color: Colors.blueGrey,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat3defpercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a3percentdef / 7,
-                                                      height: 20,
-                                                      color: Colors.blueGrey,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat3defOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat3def / 7,
-                                                      height: 20,
-                                                      color: Colors.blueGrey[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact4mainstatcat == 3)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a4percentdefMain / 7,
-                                                      height: 20,
-                                                      color: Colors.purple,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat4defpercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a4percentdef / 7,
-                                                      height: 20,
-                                                      color: Colors.purple,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat4defOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat4def / 7,
-                                                      height: 20,
-                                                      color: Colors.purple[700],
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (artifact5mainstatcat == 3)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a5percentdefMain / 7,
-                                                      height: 20,
-                                                      color: Colors.teal,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat5defpercentOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: a5percentdef / 7,
-                                                      height: 20,
-                                                      color: Colors.teal,
-                                                    ),
-                                                  ],
-                                                ),
-                                              if (stat5defOn == true)
-                                                Column(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: stat5def / 7,
-                                                      height: 20,
-                                                      color: Colors.teal[700],
-                                                    ),
-                                                  ],
-                                                ),
+                                              buildstatbar(Colors.red, lvldef),
+                                              if (weapondefpercentstat != 0) buildstatbar(Colors.blue, weapondefpercentstat),
+                                              if (stat1defOn == true) buildstatbar(Colors.yellow, stat1def),
+                                              if (stat1defpercentOn == true) buildstatbar(Colors.yellow[700], a1percentdef),
+                                              if (stat2defpercentOn == true) buildstatbar(Colors.pink[700], a2percentdef),
+                                              if (artifact3mainstatcat == 3) buildstatbar(Colors.blueGrey, a3percentdefMain),
+                                              if (stat3defpercentOn == true) buildstatbar(Colors.blueGrey, a3percentdef),
+                                              if (stat3defOn == true) buildstatbar(Colors.blueGrey[700], stat3def),
+                                              if (artifact4mainstatcat == 3) buildstatbar(Colors.purple, a4percentdefMain),
+                                              if (stat4defpercentOn == true) buildstatbar(Colors.purple, a4percentdef),
+                                              if (stat4defOn == true) buildstatbar(Colors.purple[700], stat4def),
+                                              if (artifact5mainstatcat == 3) buildstatbar(Colors.teal, a5percentdefMain),
+                                              if (stat5defpercentOn == true) buildstatbar(Colors.teal, a5percentdef),
+                                              if (stat5defOn == true) buildstatbar(Colors.teal[700], stat5def),
                                             ],
                                           ),
                                         ],
@@ -9770,11 +9323,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR ER
                               SelectableText(
-                                'Energy Recharge:100% + ' +
-                                    double.parse(bonusER.toStringAsFixed(1)).toString() +
-                                    '% = ' +
-                                    double.parse(allER.toStringAsFixed(1)).toString() +
-                                    '%',
+                                'Energy Recharge:100% + ' + double.parse(bonusER.toStringAsFixed(1)).toString() + '% = ' + double.parse(allER.toStringAsFixed(1)).toString() + '%',
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9983,12 +9532,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
-                                                  AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: baseCR * 2,
-                                                      height: 20,
-                                                      color: Colors.red),
+                                                  AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCR * 2, height: 20, color: Colors.red),
                                                 ],
                                               ),
                                               if (weaponCR != 0)
@@ -10176,8 +9720,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               if (stat4CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a4', '$stat4CDpercent'),
                                               if (artifact5mainstatcat == 6) buildStatRow(Colors.teal, 'a5', '$a5CD'),
                                               if (stat5CDpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CDpercent'),
-                                              if (echoingBalladOn == true)
-                                                buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
+                                              if (echoingBalladOn == true) buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
                                               if (manualCDpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualCDpercent).toStringAsFixed(1))),
                                             ],
                                           ),
@@ -10190,12 +9733,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 Column(
                                                   mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
-                                                    AnimatedContainer(
-                                                        curve: Curves.easeIn,
-                                                        duration: Duration(milliseconds: 500),
-                                                        width: baseCD * 2,
-                                                        height: 20,
-                                                        color: Colors.red),
+                                                    AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCD * 2, height: 20, color: Colors.red),
                                                   ],
                                                 ),
                                               if (weaponCD != 0)
@@ -10341,8 +9879,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                         ],
                                       ),
                                     //ANCHOR statNormalATKDMG:bar
@@ -10389,8 +9926,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                           if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
                                         ],
                                       ),
@@ -10643,8 +10179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (monaqOn)
-                                          buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
+                                        if (monaqOn) buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
                                         if (thundersoother4On) buildStatRow(Color(0xFF6480FF), 'Thundersoother 4 Set', '35'),
                                         if (manualDMGpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualDMGpercent).toStringAsFixed(1))),
                                       ],
@@ -10680,10 +10215,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR EM
                               SelectableText(
-                                'Elemental Mastery:$lvlEM + ' +
-                                    double.parse(bonusEM.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allEM.toStringAsFixed(1)).toString(),
+                                'Elemental Mastery:$lvlEM + ' + double.parse(bonusEM.toStringAsFixed(1)).toString() + ' = ' + double.parse(allEM.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -10911,12 +10443,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Column(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: lvlEM / 7,
-                                                height: 20,
-                                                color: Colors.red),
+                                            AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: lvlEM / 7, height: 20, color: Colors.red),
                                           ],
                                         ),
                                         if (weaponEM != 0)
@@ -11062,8 +10589,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statVaporizeDMG:bar
@@ -11083,8 +10609,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statMeltDMG:bar
@@ -11105,9 +10630,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -11129,9 +10652,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -11153,9 +10674,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -11177,9 +10696,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statShatteredDMG:bar
@@ -11199,9 +10716,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statShatteredDMG:bar
@@ -11840,9 +11355,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             },
                                           ),
                                           FilterChip(
-                                            label: Text('Strong-Willed2: ' +
-                                                (6 + weaponref * 2).toString() +
-                                                '% every 0.1s the arrow is in the air for up to 5 times.'),
+                                            label: Text('Strong-Willed2: ' + (6 + weaponref * 2).toString() + '% every 0.1s the arrow is in the air for up to 5 times.'),
                                             selected: true,
                                             selectedColor: Colors.blue[300],
                                             onSelected: (bool value) {
@@ -11915,11 +11428,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                           SizedBox(height: 10),
                                           FilterChip(
-                                            label: Text('Echoing Ballad2: ' +
-                                                (50 + weaponref * 10).toString() +
-                                                '% chance get a 125% Physical ATK AoE DMG every ' +
-                                                (4.5 - weaponref * 0.5).toString() +
-                                                's'),
+                                            label: Text(
+                                                'Echoing Ballad2: ' + (50 + weaponref * 10).toString() + '% chance get a 125% Physical ATK AoE DMG every ' + (4.5 - weaponref * 0.5).toString() + 's'),
                                             selected: true,
                                             onSelected: (bool value) {
                                               setState(() {});
@@ -11934,9 +11444,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: [
                                         Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
                                           FilterChip(
-                                            label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' +
-                                                (27 + weaponref * 9).toString() +
-                                                '% ATK for 10s'),
+                                            label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' + (27 + weaponref * 9).toString() + '% ATK for 10s'),
                                             selected: unreturningOn,
                                             selectedColor: Colors.tealAccent,
                                             onSelected: (bool value) {
@@ -12266,10 +11774,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bennet Basic atk:',
@@ -12575,10 +12080,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(4)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk:',
@@ -12622,10 +12124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(2)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus Crit Rate%:',
@@ -12674,10 +12173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk%:',
@@ -12721,10 +12217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus Crit Damage%:',
@@ -12773,10 +12266,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus EM:',
@@ -12820,10 +12310,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Damage Bonus%:',
@@ -12872,10 +12359,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(2)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Enemy Res Decrease:',
@@ -12940,48 +12424,34 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(Colors.black, 'Charged Aim Shoot Damage:($caimdmgpercent%)', Colors.lightBlue[200],
-                                    Colors.lightBlue[400], Colors.lightBlue[600], caimdmgnc, caimdmgexp, caimdmgc),
+                                title: builddamagebarwithcrit(
+                                    Colors.black, 'Charged Aim Shoot Damage:($caimdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600], caimdmgnc, caimdmgexp, caimdmgc),
                                 children: <Widget>[
-                                  builddamagebarwithcrit(Colors.black, '1-Hit Damage:($hit1dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit1dmgnc, hit1dmgexp, hit1dmgc),
+                                  builddamagebarwithcrit(Colors.black, '1-Hit Damage:($hit1dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit1dmgnc, hit1dmgexp, hit1dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '2-Hit Damage:($hit2dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit2dmgnc, hit2dmgexp, hit2dmgc),
+                                  builddamagebarwithcrit(Colors.black, '2-Hit Damage:($hit2dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit2dmgnc, hit2dmgexp, hit2dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '3-Hit Damage:($hit3dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit3dmgnc, hit3dmgexp, hit3dmgc),
+                                  builddamagebarwithcrit(Colors.black, '3-Hit Damage:($hit3dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit3dmgnc, hit3dmgexp, hit3dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '4-Hit Damage:($hit4dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit4dmgnc, hit4dmgexp, hit4dmgc),
+                                  builddamagebarwithcrit(Colors.black, '4-Hit Damage:($hit4dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit4dmgnc, hit4dmgexp, hit4dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '5-Hit Damage:($hit5dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit5dmgnc, hit5dmgexp, hit5dmgc),
+                                  builddamagebarwithcrit(Colors.black, '5-Hit Damage:($hit5dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit5dmgnc, hit5dmgexp, hit5dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '6-Hit Damage:($hit6dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit6dmgnc, hit6dmgexp, hit6dmgc),
+                                  builddamagebarwithcrit(Colors.black, '6-Hit Damage:($hit6dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit6dmgnc, hit6dmgexp, hit6dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Aim Shoot Damage:($aimdmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], aimdmgnc, aimdmgexp, aimdmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Plunge Damage:($plungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], plungedmgnc, plungedmgexp, plungedmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Low Plunge Damage:($lplungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], lplungedmgnc, lplungedmgexp, lplungedmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'High Plunge Damage:($hplungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hplungedmgnc, hplungedmgexp, hplungedmgc),
+                                  builddamagebarwithcrit(Colors.black, 'Aim Shoot Damage:($aimdmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], aimdmgnc, aimdmgexp, aimdmgc),
                                   SizedBox(height: 10),
                                   builddamagebarwithcrit(
-                                      Colors.red,
-                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
-                                      Colors.lightBlue[200],
-                                      Colors.lightBlue[400],
-                                      Colors.lightBlue[600],
-                                      caimdmgnc * 1.5 * meltDMGpercent / 100,
-                                      caimdmgexp * 1.5 * meltDMGpercent / 100,
-                                      caimdmgc * 1.5 * meltDMGpercent / 100),
+                                      Colors.black, 'Plunge Damage:($plungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], plungedmgnc, plungedmgexp, plungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(
+                                      Colors.black, 'Low Plunge Damage:($lplungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], lplungedmgnc, lplungedmgexp, lplungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(
+                                      Colors.black, 'High Plunge Damage:($hplungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hplungedmgnc, hplungedmgexp, hplungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(Colors.red, 'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)', Colors.lightBlue[200], Colors.lightBlue[400],
+                                      Colors.lightBlue[600], caimdmgnc * 1.5 * meltDMGpercent / 100, caimdmgexp * 1.5 * meltDMGpercent / 100, caimdmgc * 1.5 * meltDMGpercent / 100),
                                   SizedBox(height: 10),
                                 ],
                               ),
@@ -12989,8 +12459,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow:($frostflakedmgpercent%)', Colors.lightBlue[200],
-                                      Colors.lightBlue[400], Colors.lightBlue[600], frostflakedmgnc, frostflakedmgexp, frostflakedmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow:($frostflakedmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                      frostflakedmgnc, frostflakedmgexp, frostflakedmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -13007,8 +12477,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Bloom:($frostflakebloomdmgpercent%)', Colors.lightBlue[200],
-                                      Colors.lightBlue[400], Colors.lightBlue[600], frostflakebloomdmgnc, frostflakebloomdmgexp, frostflakebloomdmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Bloom:($frostflakebloomdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                      frostflakebloomdmgnc, frostflakebloomdmgexp, frostflakebloomdmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -13025,8 +12495,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow All', Colors.lightBlue[200], Colors.lightBlue[400],
-                                    Colors.lightBlue[600], frostflakealldmgnc, frostflakealldmgexp, frostflakealldmgc),
+                                title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow All', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600], frostflakealldmgnc,
+                                    frostflakealldmgexp, frostflakealldmgc),
                                 children: <Widget>[
                                   builddamagebarwithcrit(
                                       Colors.red,
@@ -13042,104 +12512,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               if (echoingBalladOn)
                                 //ANCHOR Echoing Ballad Physical AoE
-                                Column(
-                                  children: [
-                                    Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-                                      SelectableText(
-                                        'Echoing Ballad Physical AoE:(125%)',
-                                        style: TextStyle(
-                                          //fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ]),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        SelectableText(
-                                          'Non-Crit:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(echoingballaddmgnc.toStringAsFixed(1)).toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[500],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          'Expectation:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(echoingballaddmgexp.toStringAsFixed(1)).toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[700],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          'Crit:',
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        SelectableText(
-                                          double.parse(echoingballaddmgc.toStringAsFixed(1)).toString(),
-                                          style: TextStyle(
-                                            //fontWeight: FontWeight.bold,
-                                            color: Colors.grey[900],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Stack(
-                                          alignment: Alignment.topLeft,
-                                          children: [
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration: Duration(milliseconds: 500),
-                                              width: echoingballaddmgc / 50,
-                                              height: 20,
-                                              color: Colors.grey[900],
-                                            ),
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration: Duration(milliseconds: 500),
-                                              width: echoingballaddmgexp / 50,
-                                              height: 20,
-                                              color: Colors.grey[700],
-                                            ),
-                                            AnimatedContainer(
-                                              curve: Curves.easeIn,
-                                              duration: Duration(milliseconds: 500),
-                                              width: echoingballaddmgnc / 50,
-                                              height: 20,
-                                              color: Colors.grey[500],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                builddamagebarwithcrit(Colors.black, 'Echoing Ballad Physical AoE:(125%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], echoingballaddmgnc,
+                                    echoingballaddmgexp, echoingballaddmgc),
                             ],
                           ),
                         ),
@@ -13188,15 +12562,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(
-                                    Colors.black,
-                                    'Trail of the Qilin DMG:($trailoftheqilindmgpercent)',
-                                    Colors.lightBlue[200],
-                                    Colors.lightBlue[400],
-                                    Colors.lightBlue[600],
-                                    trailoftheqilindmgnc,
-                                    trailoftheqilindmgexp,
-                                    trailoftheqilindmgc),
+                                title: builddamagebarwithcrit(Colors.black, 'Trail of the Qilin DMG:($trailoftheqilindmgpercent)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                    trailoftheqilindmgnc, trailoftheqilindmgexp, trailoftheqilindmgc),
                                 children: <Widget>[
                                   builddamagebarwithcrit(
                                       Colors.red,
@@ -13228,15 +12595,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(
-                                      Colors.black,
-                                      'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
-                                      Colors.lightBlue[200],
-                                      Colors.lightBlue[400],
-                                      Colors.lightBlue[600],
-                                      celestialshowerdmgnc,
-                                      celestialshowerdmgexp,
-                                      celestialshowerdmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400],
+                                      Colors.lightBlue[600], celestialshowerdmgnc, celestialshowerdmgexp, celestialshowerdmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -13831,6 +13191,22 @@ class _MyHomePageState extends State<MyHomePage> {
           curve: Curves.easeIn,
           duration: Duration(milliseconds: 500),
           width: a / 7 * statscale / 10,
+          height: 20,
+          color: color,
+        ),
+      ],
+    );
+  }
+
+//ANCHOR method:statbarbuilder(HP)
+  Column buildstatbarhp(Color color, var a) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AnimatedContainer(
+          curve: Curves.easeIn,
+          duration: Duration(milliseconds: 500),
+          width: a / 75 * statscale / 10,
           height: 20,
           color: color,
         ),
