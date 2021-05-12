@@ -12604,58 +12604,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                       FilterChip(
                                         selectedColor: Colors.red[300],
                                         backgroundColor: Colors.red[200],
-                                        label: Text('ATK%'),
-                                        selected: manualatkpercentOn,
-                                        onSelected: (bool value) {
-                                          setState(() {
-                                            manualatkpercentOn = value;
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Container(
-                                        width: 100,
-                                        height: 50,
-                                        alignment: Alignment.center,
-                                        child: TextFormField(
-                                            textAlignVertical: TextAlignVertical.center,
-                                            keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
-                                            decoration: InputDecoration(
-                                              // prefixIcon: Text("basic atk"),
-                                              labelText: 'Bonus atk%:',
-
-                                              contentPadding: EdgeInsets.all(5),
-                                              //isDense: true,
-                                            ),
-                                            //maxLength: 4,
-                                            style: TextStyle(
-                                              fontSize: 15.0,
-                                            ),
-                                            initialValue: "0",
-                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
-                                            onChanged: (value) {
-                                              setState(() {
-                                                manualatkpercent = num.tryParse(value) ?? 0;
-                                              });
-                                            }),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      FilterChip(
-                                        selectedColor: Colors.red[300],
-                                        backgroundColor: Colors.red[200],
                                         label: Text('Crit Rate%'),
                                         selected: manualCRpercentOn,
                                         onSelected: (bool value) {
@@ -12694,6 +12642,58 @@ class _MyHomePageState extends State<MyHomePage> {
                                             onChanged: (value) {
                                               setState(() {
                                                 manualCRpercent = num.tryParse(value) ?? 0;
+                                              });
+                                            }),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FilterChip(
+                                        selectedColor: Colors.red[300],
+                                        backgroundColor: Colors.red[200],
+                                        label: Text('ATK%'),
+                                        selected: manualatkpercentOn,
+                                        onSelected: (bool value) {
+                                          setState(() {
+                                            manualatkpercentOn = value;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: TextFormField(
+                                            textAlignVertical: TextAlignVertical.center,
+                                            keyboardType: TextInputType.number,
+                                            inputFormatters: <TextInputFormatter>[
+                                              FilteringTextInputFormatter.digitsOnly,
+                                              LengthLimitingTextInputFormatter(3)
+                                            ],
+                                            decoration: InputDecoration(
+                                              // prefixIcon: Text("basic atk"),
+                                              labelText: 'Bonus atk%:',
+
+                                              contentPadding: EdgeInsets.all(5),
+                                              //isDense: true,
+                                            ),
+                                            //maxLength: 4,
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                            ),
+                                            initialValue: "0",
+                                            // onSaved: (input) => bennetbasicatk = num.tryParse(input),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                manualatkpercent = num.tryParse(value) ?? 0;
                                               });
                                             }),
                                       ),
