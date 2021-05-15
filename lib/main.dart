@@ -6303,9 +6303,13 @@ class _MyHomePageState extends State<MyHomePage> {
     bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) + (thundersoother4On ? 35 : 0) + (manualDMGpercentOn ? manualDMGpercent : 0) as double;
 
     if (strongWilled2Times <= 3) {
-      bloomBonusChargedATKDMGpercent = bonusChargedATKDMGpercent;
+      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
+        (strongWilled2On ? (6 + weaponref * 2) * (strongWilled2Times+2) : 0) +
+        (troupesdawnlight4on ? 35 : 0) as double;
     } else {
-      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) as double;
+      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
+        (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) +
+        (troupesdawnlight4on ? 35 : 0) as double;
     }
 
     //ATK params
