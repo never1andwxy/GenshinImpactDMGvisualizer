@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Genshin damage calculator',
+      title: 'Genshin Damage Calculator & Visualizer',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Genshin damage calculator'),
+      home: MyHomePage(title: 'Genshin Damage Calculator & Visualizer'),
     );
   }
 }
