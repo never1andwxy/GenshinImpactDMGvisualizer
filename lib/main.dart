@@ -82,27 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Map<int, double> cleveltoGeoDMGpercent = {};
   double levelGeoDMGpercent = 0;
 
-  Map<int, int> weapontoatk = {
-    1: 46,
-    5: 62,
-    10: 82,
-    15: 102,
-    20: 122,
-    25: 173,
-    30: 194,
-    35: 214,
-    40: 235,
-    45: 287,
-    50: 308,
-    55: 361,
-    60: 382,
-    65: 435,
-    70: 457,
-    75: 510,
-    80: 532,
-    85: 586,
-    90: 608
-  };
+  Map<int, int> weapontoatk = {1: 46, 5: 62, 10: 82, 15: 102, 20: 122, 25: 173, 30: 194, 35: 214, 40: 235, 45: 287, 50: 308, 55: 361, 60: 382, 65: 435, 70: 457, 75: 510, 80: 532, 85: 586, 90: 608};
 
   Map<int, double> weapontoatkpercent = {
     1: 10.8,
@@ -695,16 +675,7 @@ class _MyHomePageState extends State<MyHomePage> {
     1: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //1 -> Hilichurl
     2: {'physical': 70, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //2 -> Ruin Guard
     3: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //3 -> Treasure Hoarder
-    4: {
-      'physical': 10,
-      'pyro': 10,
-      'hydro': 10,
-      'dendro': 10,
-      'electro': 10,
-      'anemo': 999,
-      'cryo': 999,
-      'geo': 10
-    }, //4 -> Andrius, Dominator of Wolves
+    4: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 999, 'cryo': 999, 'geo': 10}, //4 -> Andrius, Dominator of Wolves
     5: {'physical': 10, 'pyro': 999, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //5 -> Pyro Slime
     6: {'physical': 10, 'pyro': 10, 'hydro': 999, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //6 -> Hydro Slime
     7: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 999, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //7 -> Dendro Slime
@@ -725,16 +696,7 @@ class _MyHomePageState extends State<MyHomePage> {
     22: {'physical': 10, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //22-> Pyro Flower(Stunned)
     23: {'physical': 10, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 50, 'geo': 10}, //23-> Cryo Flower(Stunned)
     24: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //24-> Fatui Skirmisher
-    25: {
-      'physical': 80,
-      'pyro': 110,
-      'hydro': 110,
-      'dendro': 110,
-      'electro': 110,
-      'anemo': 110,
-      'cryo': 110,
-      'geo': 110
-    }, //25-> Fatui Skirmisher(Shielded)
+    25: {'physical': 80, 'pyro': 110, 'hydro': 110, 'dendro': 110, 'electro': 110, 'anemo': 110, 'cryo': 110, 'geo': 110}, //25-> Fatui Skirmisher(Shielded)
     26: {'physical': -20, 'pyro': 50, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 10}, //26-> Fatui Pyro Agent
     27: {'physical': -20, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 50, 'anemo': 10, 'cryo': 10, 'geo': 10}, //27-> Fatui Electro Cincin Mage
     28: {'physical': 30, 'pyro': 10, 'hydro': 10, 'dendro': 10, 'electro': 10, 'anemo': 10, 'cryo': 10, 'geo': 50}, //28-> Geovishap Hatchling
@@ -1131,6 +1093,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 //ANCHOR optionsstat
   bool undividedHeartOn = false;
+  bool harmonyOn = false;
+
   bool constellation1On = false;
 
   bool blizzardstrayer2On = true;
@@ -1371,27 +1335,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (weaponselect == "amos") {
       strongWilled1On = true;
       strongWilled2On = true;
-      weapontoatk = {
-        1: 46,
-        5: 62,
-        10: 82,
-        15: 102,
-        20: 122,
-        25: 173,
-        30: 194,
-        35: 214,
-        40: 235,
-        45: 287,
-        50: 308,
-        55: 361,
-        60: 382,
-        65: 435,
-        70: 457,
-        75: 510,
-        80: 532,
-        85: 586,
-        90: 608
-      };
+      weapontoatk = {1: 46, 5: 62, 10: 82, 15: 102, 20: 122, 25: 173, 30: 194, 35: 214, 40: 235, 45: 287, 50: 308, 55: 361, 60: 382, 65: 435, 70: 457, 75: 510, 80: 532, 85: 586, 90: 608};
       weapontoatkpercent = {
         1: 10.8,
         5: 12.5,
@@ -1420,27 +1364,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (weaponselect == "skywardharp") {
       echoingBalladOn = true;
-      weapontoatk = {
-        1: 48,
-        5: 65,
-        10: 87,
-        15: 110,
-        20: 133,
-        25: 188,
-        30: 212,
-        35: 236,
-        40: 261,
-        45: 316,
-        50: 341,
-        55: 398,
-        60: 423,
-        65: 480,
-        70: 506,
-        75: 563,
-        80: 590,
-        85: 648,
-        90: 674
-      };
+      weapontoatk = {1: 48, 5: 65, 10: 87, 15: 110, 20: 133, 25: 188, 30: 212, 35: 236, 40: 261, 45: 316, 50: 341, 55: 398, 60: 423, 65: 480, 70: 506, 75: 563, 80: 590, 85: 648, 90: 674};
       weapontoCRpercent = {
         1: 4.8,
         5: 5.6,
@@ -1468,27 +1392,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (weaponselect == "prototypecrescent") {
       unreturningOn = true;
-      weapontoatk = {
-        1: 42,
-        5: 56,
-        10: 74,
-        15: 91,
-        20: 109,
-        25: 152,
-        30: 170,
-        35: 187,
-        40: 205,
-        45: 248,
-        50: 266,
-        55: 306,
-        60: 327,
-        65: 370,
-        70: 388,
-        75: 431,
-        80: 449,
-        85: 492,
-        90: 510
-      };
+      weapontoatk = {1: 42, 5: 56, 10: 74, 15: 91, 20: 109, 25: 152, 30: 170, 35: 187, 40: 205, 45: 248, 50: 266, 55: 306, 60: 327, 65: 370, 70: 388, 75: 431, 80: 449, 85: 492, 90: 510};
       weapontoatkpercent = {
         1: 9,
         5: 10.5,
@@ -6291,25 +6195,18 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
 
     //bonusNormalATK
-    bonusNormalATKDMGpercent =
-        (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
+    bonusNormalATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) as double;
     //bonusChargedATK
-    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-        (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) +
-        (troupesdawnlight4on ? 35 : 0) as double;
+    bonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * strongWilled2Times : 0) + (troupesdawnlight4on ? 35 : 0) as double;
 //bonusBurstATK
     bonusBurstDMGpercent = (royalflora2On ? 20 : 0) as double;
 //bonusDMG
     bonusDMGpercent = (monaqOn ? monaqlvtoratio[monaqlv] : 0) + (thundersoother4On ? 35 : 0) + (manualDMGpercentOn ? manualDMGpercent : 0) as double;
 
     if (strongWilled2Times <= 3) {
-      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-        (strongWilled2On ? (6 + weaponref * 2) * (strongWilled2Times+2) : 0) +
-        (troupesdawnlight4on ? 35 : 0) as double;
+      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * (strongWilled2Times + 2) : 0) + (troupesdawnlight4on ? 35 : 0) as double;
     } else {
-      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) +
-        (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) +
-        (troupesdawnlight4on ? 35 : 0) as double;
+      bloomBonusChargedATKDMGpercent = (strongWilled1On ? (9 + weaponref * 3) : 0) + (strongWilled2On ? (6 + weaponref * 2) * 5 : 0) + (troupesdawnlight4on ? 35 : 0) as double;
     }
 
     //ATK params
@@ -6514,15 +6411,8 @@ class _MyHomePageState extends State<MyHomePage> {
     a5CDmain = a5CDbyLVL[cstar][clv];
     a5CD = artifact5mainstatcat == 6 ? a5CDmain : 0;
     //baseCD += weaponCD;
-    bonusCD = weaponCD +
-        a5CD +
-        stat1CDpercent +
-        stat2CDpercent +
-        stat3CDpercent +
-        stat4CDpercent +
-        stat5CDpercent +
-        (echoingBalladOn ? (15 + weaponref * 5) : 0) +
-        (manualCDpercentOn ? manualCDpercent : 0);
+    bonusCD =
+        weaponCD + a5CD + stat1CDpercent + stat2CDpercent + stat3CDpercent + stat4CDpercent + stat5CDpercent + (echoingBalladOn ? (15 + weaponref * 5) : 0) + (manualCDpercentOn ? manualCDpercent : 0);
     allCD = baseCD + bonusCD;
 
     //DMG params
@@ -6556,7 +6446,7 @@ class _MyHomePageState extends State<MyHomePage> {
     a4CryoDMGpercentMain = a4ElementDMGpercentbyLVL[gstar][glv];
     a4CryoDMGpercent = artifact4mainstatcat == 8 ? a4CryoDMGpercentMain : 0;
 
-    bonusCryoDMGpercent = levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent + (blizzardstrayer2On ? 15 : 0);
+    bonusCryoDMGpercent = levelCryoDMGpercent + weaponCryoDMGpercent + a4CryoDMGpercent + (blizzardstrayer2On ? 15 : 0) + (harmonyOn ? 20 : 0);
 
     if (cleveltoElectroDMGpercent[level] != null) levelElectroDMGpercent = cleveltoElectroDMGpercent[level];
     if (weapontoElectroDMGpercent[weaponlv] != null) weaponElectroDMGpercent = weapontoElectroDMGpercent[weaponlv];
@@ -6731,7 +6621,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hit2dmgc = allatk *
         (hit2dmgpercent / 100) *
@@ -6754,7 +6644,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hit3dmgc = allatk *
         (hit3dmgpercent / 100) *
@@ -6777,7 +6667,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hit4dmgc = allatk *
         (hit4dmgpercent / 100) *
@@ -6800,7 +6690,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hit5dmgc = allatk *
         (hit5dmgpercent / 100) *
@@ -6823,7 +6713,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hit6dmgc = allatk *
         (hit6dmgpercent / 100) *
@@ -6846,7 +6736,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     aimdmgc = allatk *
         (aimdmgpercent / 100) *
@@ -6869,7 +6759,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     caimdmgc = allatk *
         (caimdmgpercent / 100) *
@@ -6892,7 +6782,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     plungedmgc = allatk *
         (plungedmgpercent / 100) *
@@ -6915,7 +6805,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     lplungedmgc = allatk *
         (lplungedmgpercent / 100) *
@@ -6938,7 +6828,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     hplungedmgc = allatk *
         (hplungedmgpercent / 100) *
@@ -6961,7 +6851,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     frostflakedmgc = allatk *
         (frostflakedmgpercent / 100) *
@@ -6984,7 +6874,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     frostflakebloomdmgc = allatk *
         (frostflakebloomdmgpercent / 100) *
@@ -7007,7 +6897,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     frostflakealldmgc = frostflakebloomdmgc + frostflakedmgc;
     frostflakealldmgnc = frostflakebloomdmgnc + frostflakedmgnc;
@@ -7034,7 +6924,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     trailoftheqilinhp = allHP * trailoftheqilinhppercent / 100;
 
@@ -7059,7 +6949,7 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyCryores *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
 
     echoingballaddmgc = allatk *
         (125 / 100) *
@@ -7069,12 +6959,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres;
 
-    echoingballaddmgnc = allatk *
-        (125 / 100) *
-        (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) *
-        (100 + level) /
-        ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
-        enemyPhysicalres;
+    echoingballaddmgnc =
+        allatk * (125 / 100) * (1 + bonusPhysicalDMGpercent / 100 + bonusDMGpercent / 100) * (100 + level) / ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) * enemyPhysicalres;
 
     echoingballaddmgexp = allatk *
         (125 / 100) *
@@ -7082,7 +6968,10 @@ class _MyHomePageState extends State<MyHomePage> {
         (100 + level) /
         ((1 - enemydefdebuff / 100) * (100 + enemylv) + 100 + level) *
         enemyPhysicalres *
-        (1 + allCD / 100 * allCR / 100);
+        (1 + allCD / 100 * (allCR < 100 ? allCR : 100) / 100);
+
+    //screenadjust
+    double heightadjust = (MediaQuery.of(context).size.height - 200 > 800) ? (MediaQuery.of(context).size.height - 200) : 800;
 
     return Scaffold(
       appBar: AppBar(
@@ -7099,7 +6988,7 @@ class _MyHomePageState extends State<MyHomePage> {
               md: 6,
               lg: 3,
               child: Container(
-                height: 800,
+                height: heightadjust,
                 //color: Colors.lightBlue[50],
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[50],
@@ -7292,7 +7181,7 @@ class _MyHomePageState extends State<MyHomePage> {
               md: 6,
               lg: 3,
               child: Container(
-                height: 800,
+                height: heightadjust,
                 color: Colors.lightGreen[50],
                 child: Center(
                   child: SingleChildScrollView(
@@ -7496,7 +7385,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               // color: Colors.lightBlue[50],
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage('Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Icon_Flower_of_Life.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -7676,7 +7565,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               // color: Colors.lightBlue[50],
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage('Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Icon_Plume_of_Death.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -7856,7 +7745,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               // color: Colors.lightBlue[50],
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage('Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Icon_Sands_of_Eon.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8078,7 +7967,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               // color: Colors.lightBlue[50],
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage('Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Icon_Goblet_of_Eonothem.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8328,7 +8217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               // color: Colors.lightBlue[50],
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               image: DecorationImage(
-                                                image: AssetImage('Item_Snowswept_Memory.png'),
+                                                image: AssetImage('Icon_Circlet_of_Logos.png'),
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -8546,7 +8435,7 @@ class _MyHomePageState extends State<MyHomePage> {
               md: 6,
               lg: 3,
               child: Container(
-                height: 800,
+                height: heightadjust,
                 color: Colors.yellow[50],
                 child: Center(
                   child: SingleChildScrollView(
@@ -8569,10 +8458,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'ATK:$basicatk + ' +
-                                    double.parse(bonusatk.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allatk.toStringAsFixed(1)).toString(),
+                                'ATK:$basicatk + ' + double.parse(bonusatk.toStringAsFixed(1)).toString() + ' = ' + double.parse(allatk.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -8609,59 +8495,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                             children: [
                                               buildStatRow(Colors.red, 'level', '$levelatk'),
                                               buildStatRow(Colors.blue, 'weapon', '$weaponatk'),
-                                              if (weaponatkpercent != 0)
-                                                buildStatRow(Colors.green, 'weapon%($weaponatkpercent)',
-                                                    double.parse(weaponatkpercentstat.toStringAsFixed(1)).toString()),
-                                              if (stat1atkOn == true)
-                                                buildStatRow(Colors.red, 'a1', double.parse(stat1atk.toStringAsFixed(1)).toString()),
-                                              if (stat1atkpercentOn == true)
-                                                buildStatRow(Colors.yellow[700], 'a1%($stat1atkpercent)',
-                                                    double.parse(a1percentatk.toStringAsFixed(1)).toString()),
+                                              if (weaponatkpercent != 0) buildStatRow(Colors.green, 'weapon%($weaponatkpercent)', double.parse(weaponatkpercentstat.toStringAsFixed(1)).toString()),
+                                              if (stat1atkOn == true) buildStatRow(Colors.red, 'a1', double.parse(stat1atk.toStringAsFixed(1)).toString()),
+                                              if (stat1atkpercentOn == true) buildStatRow(Colors.yellow[700], 'a1%($stat1atkpercent)', double.parse(a1percentatk.toStringAsFixed(1)).toString()),
                                               buildStatRow(Colors.pink, 'a2', a2atk.toString()),
-                                              if (stat2atkpercentOn == true)
-                                                buildStatRow(Colors.pink[700], 'a2%($stat2atkpercent)',
-                                                    double.parse(a2percentatk.toStringAsFixed(1)).toString()),
-                                              if (artifact3mainstatcat == 2)
-                                                buildStatRow(Colors.blueGrey, 'a3%($a3atkpercentMain)',
-                                                    double.parse(a3percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat3atkpercentOn == true)
-                                                buildStatRow(Colors.blueGrey, 'a3%($stat3atkpercent)',
-                                                    double.parse(a3percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat3atkOn == true)
-                                                buildStatRow(Colors.blueGrey[700], 'a3', double.parse(stat3atk.toStringAsFixed(1)).toString()),
-                                              if (artifact4mainstatcat == 2)
-                                                buildStatRow(Colors.purple, 'a4%($a4atkpercentMain)',
-                                                    double.parse(a4percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat4atkpercentOn == true)
-                                                buildStatRow(
-                                                    Colors.purple, 'a4%($stat4atkpercent)', double.parse(a4percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat4atkOn == true)
-                                                buildStatRow(Colors.purple[700], 'a4', double.parse(stat4atk.toStringAsFixed(1)).toString()),
-                                              if (artifact5mainstatcat == 2)
-                                                buildStatRow(Colors.teal, 'a5%($a5atkpercentMain)',
-                                                    double.parse(a5percentatkMain.toStringAsFixed(1)).toString()),
-                                              if (stat5atkpercentOn == true)
-                                                buildStatRow(
-                                                    Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
-                                              if (stat5atkOn == true)
-                                                buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
+                                              if (stat2atkpercentOn == true) buildStatRow(Colors.pink[700], 'a2%($stat2atkpercent)', double.parse(a2percentatk.toStringAsFixed(1)).toString()),
+                                              if (artifact3mainstatcat == 2) buildStatRow(Colors.blueGrey, 'a3%($a3atkpercentMain)', double.parse(a3percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat3atkpercentOn == true) buildStatRow(Colors.blueGrey, 'a3%($stat3atkpercent)', double.parse(a3percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat3atkOn == true) buildStatRow(Colors.blueGrey[700], 'a3', double.parse(stat3atk.toStringAsFixed(1)).toString()),
+                                              if (artifact4mainstatcat == 2) buildStatRow(Colors.purple, 'a4%($a4atkpercentMain)', double.parse(a4percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat4atkpercentOn == true) buildStatRow(Colors.purple, 'a4%($stat4atkpercent)', double.parse(a4percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat4atkOn == true) buildStatRow(Colors.purple[700], 'a4', double.parse(stat4atk.toStringAsFixed(1)).toString()),
+                                              if (artifact5mainstatcat == 2) buildStatRow(Colors.teal, 'a5%($a5atkpercentMain)', double.parse(a5percentatkMain.toStringAsFixed(1)).toString()),
+                                              if (stat5atkpercentOn == true) buildStatRow(Colors.teal, 'a5%($stat5atkpercent)', double.parse(a5percentatk.toStringAsFixed(1)).toString()),
+                                              if (stat5atkOn == true) buildStatRow(Colors.teal[700], 'a5', double.parse(stat5atk.toStringAsFixed(1)).toString()),
                                               if (pyro2On == true) buildStatRow(Colors.red, '2 pyro(25%)', (basicatk * 25 / 100).toStringAsFixed(1)),
-                                              if (gladiator2On == true)
-                                                buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
-                                              if (royalflora4On == true)
-                                                buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
+                                              if (gladiator2On == true) buildStatRow(Colors.red, 'Gladiator2(18%)', (basicatk * 18 / 100).toStringAsFixed(1)),
+                                              if (royalflora4On == true) buildStatRow(Colors.blue, 'Noblesse4(20%)', (basicatk * 20 / 100).toStringAsFixed(1)),
                                               if (unreturningOn == true)
-                                                buildStatRow(Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)',
-                                                    (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
-                                              if (dragonslayerOn)
-                                                buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
-                                              if (bennetqOn)
-                                                buildStatRow(Colors.red, 'Bennet(burst)',
-                                                    (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
+                                                buildStatRow(
+                                                    Colors.tealAccent, 'Unreturning(' + (27 + weaponref * 9).toStringAsFixed(1) + '%)', (basicatk * (27 + weaponref * 9) / 100).toStringAsFixed(1)),
+                                              if (dragonslayerOn) buildStatRow(Colors.grey, 'Dragon Slayers(48%)', (basicatk * 48 / 100).toStringAsFixed(1)),
+                                              if (bennetqOn) buildStatRow(Colors.red, 'Bennet(burst)', (bennetbasicatk * bennetqlvtoratio[bennetqlv] / 100).toStringAsFixed(1)),
                                               if (manualatkOn) buildStatRow(Colors.red[300], 'Manual:ATK', (manualatk.toStringAsFixed(1))),
-                                              if (manualatkpercentOn)
-                                                buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)',
-                                                    ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
+                                              if (manualatkpercentOn) buildStatRow(Colors.red[300], 'Manual:ATK%($manualatkpercent)', ((basicatk * manualatkpercent / 100).toStringAsFixed(1))),
                                             ],
                                           ),
                                           //ANCHOR statATK:bar
@@ -8704,10 +8561,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               SizedBox(height: 10),
                               SelectableText(
-                                'HP:$lvlhp + ' +
-                                    double.parse(bonusHP.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allHP.toStringAsFixed(1)).toString(),
+                                'HP:$lvlhp + ' + double.parse(bonusHP.toStringAsFixed(1)).toString() + ' = ' + double.parse(allHP.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9121,10 +8975,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR DEF
                               SelectableText(
-                                'DEF:$lvldef + ' +
-                                    double.parse(bonusdef.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(alldef.toStringAsFixed(1)).toString(),
+                                'DEF:$lvldef + ' + double.parse(bonusdef.toStringAsFixed(1)).toString() + ' = ' + double.parse(alldef.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9480,11 +9331,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR ER
                               SelectableText(
-                                'Energy Recharge:100% + ' +
-                                    double.parse(bonusER.toStringAsFixed(1)).toString() +
-                                    '% = ' +
-                                    double.parse(allER.toStringAsFixed(1)).toString() +
-                                    '%',
+                                'Energy Recharge:100% + ' + double.parse(bonusER.toStringAsFixed(1)).toString() + '% = ' + double.parse(allER.toStringAsFixed(1)).toString() + '%',
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -9693,12 +9540,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Column(
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
-                                                  AnimatedContainer(
-                                                      curve: Curves.easeIn,
-                                                      duration: Duration(milliseconds: 500),
-                                                      width: baseCR * 2,
-                                                      height: 20,
-                                                      color: Colors.red),
+                                                  AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCR * 2, height: 20, color: Colors.red),
                                                 ],
                                               ),
                                               if (weaponCR != 0)
@@ -9886,8 +9728,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               if (stat4CDpercentOn == true) buildStatRow(Colors.blueGrey, 'a4', '$stat4CDpercent'),
                                               if (artifact5mainstatcat == 6) buildStatRow(Colors.teal, 'a5', '$a5CD'),
                                               if (stat5CDpercentOn == true) buildStatRow(Colors.teal, 'a5', '$stat5CDpercent'),
-                                              if (echoingBalladOn == true)
-                                                buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
+                                              if (echoingBalladOn == true) buildStatRow(Colors.tealAccent, 'Echoing Ballad1', (15 + weaponref * 5).toString()),
                                               if (manualCDpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualCDpercent).toStringAsFixed(1))),
                                             ],
                                           ),
@@ -9900,12 +9741,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 Column(
                                                   mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
-                                                    AnimatedContainer(
-                                                        curve: Curves.easeIn,
-                                                        duration: Duration(milliseconds: 500),
-                                                        width: baseCD * 2,
-                                                        height: 20,
-                                                        color: Colors.red),
+                                                    AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: baseCD * 2, height: 20, color: Colors.red),
                                                   ],
                                                 ),
                                               if (weaponCD != 0)
@@ -10051,8 +9887,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                         ],
                                       ),
                                     //ANCHOR statNormalATKDMG:bar
@@ -10099,8 +9934,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
                                           if (strongWilled1On) buildStatRow(Colors.purple[300], 'strong Willed1', (9 + weaponref * 3).toString()),
-                                          if (strongWilled2On)
-                                            buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
+                                          if (strongWilled2On) buildStatRow(Colors.blue[300], 'strong Willed2', ((6 + weaponref * 2) * strongWilled2Times).toString()),
                                           if (troupesdawnlight4on) buildStatRow(Colors.green[400], "Troupe's Dawnlight 4 set", "35"),
                                         ],
                                       ),
@@ -10236,6 +10070,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (weaponCryoDMGpercent != 0) buildStatRow(Colors.green, 'weapon', '$weaponCryoDMGpercent'),
                                         if (artifact4mainstatcat == 8) buildStatRow(Colors.purple, 'a4', '$a4CryoDMGpercent'),
                                         if (blizzardstrayer2On) buildStatRow(Colors.blue[300], 'Blizzard Strayer 2 Set', '15'),
+                                        if (harmonyOn) buildStatRow(Colors.amber, 'Harmony between Heaven and Earth', '20'),
                                       ],
                                     ),
                                     //ANCHOR statCryoDMG:bar
@@ -10246,6 +10081,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (weaponCryoDMGpercent != 0) buildstatbarpercent(Colors.blue, weaponCryoDMGpercent),
                                         if (artifact4mainstatcat == 8) buildstatbarpercent(Colors.purple, a4CryoDMGpercent),
                                         if (blizzardstrayer2On) buildstatbarpercent(Colors.blue[300], 15),
+                                        if (harmonyOn) buildstatbarpercent(Colors.amber, 20),
                                       ],
                                     ),
                                     //ANCHOR Electro Damage Title
@@ -10353,8 +10189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (monaqOn)
-                                          buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
+                                        if (monaqOn) buildStatRow(Colors.purple[300], 'Mona(burst)', (monaqlvtoratio[monaqlv] * 1).toStringAsFixed(1)),
                                         if (thundersoother4On) buildStatRow(Color(0xFF6480FF), 'Thundersoother 4 Set', '35'),
                                         if (manualDMGpercentOn) buildStatRow(Colors.red[300], 'Manual', ((manualDMGpercent).toStringAsFixed(1))),
                                       ],
@@ -10390,10 +10225,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               //ANCHOR EM
                               SelectableText(
-                                'Elemental Mastery:$lvlEM + ' +
-                                    double.parse(bonusEM.toStringAsFixed(1)).toString() +
-                                    ' = ' +
-                                    double.parse(allEM.toStringAsFixed(1)).toString(),
+                                'Elemental Mastery:$lvlEM + ' + double.parse(bonusEM.toStringAsFixed(1)).toString() + ' = ' + double.parse(allEM.toStringAsFixed(1)).toString(),
                                 style: TextStyle(fontSize: 15),
                               ),
                               Padding(
@@ -10621,12 +10453,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         Column(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            AnimatedContainer(
-                                                curve: Curves.easeIn,
-                                                duration: Duration(milliseconds: 500),
-                                                width: lvlEM / 7,
-                                                height: 20,
-                                                color: Colors.red),
+                                            AnimatedContainer(curve: Curves.easeIn, duration: Duration(milliseconds: 500), width: lvlEM / 7, height: 20, color: Colors.red),
                                           ],
                                         ),
                                         if (weaponEM != 0)
@@ -10772,8 +10599,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statVaporizeDMG:bar
@@ -10793,8 +10619,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((1 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statMeltDMG:bar
@@ -10815,9 +10640,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -10839,9 +10662,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -10863,9 +10684,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                         if (thunderbird4On) buildStatRow(Colors.purple[400], 'Thundering Fury 4 Set', '40'),
                                       ],
                                     ),
@@ -10887,9 +10706,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statShatteredDMG:bar
@@ -10909,9 +10726,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        if (allEM != 0)
-                                          buildStatRow(
-                                              Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
+                                        if (allEM != 0) buildStatRow(Colors.amber[400], 'EM', (((2.4 * 25 * allEM / (9 * (allEM + 1400)))) * 100).toStringAsFixed(1)),
                                       ],
                                     ),
                                     //ANCHOR statShatteredDMG:bar
@@ -11483,6 +11298,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         });
                                       },
                                     ),
+                                    FilterChip(
+                                      selectedColor: Colors.amber,
+                                      backgroundColor: Colors.amber[200],
+                                      label: Text('Harmony between Heaven and Earth: Cryo DMG + 20%'),
+                                      selected: harmonyOn,
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          harmonyOn = value;
+                                        });
+                                      },
+                                    ),
                                   ]),
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
                                     SelectableText(
@@ -11550,9 +11376,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             },
                                           ),
                                           FilterChip(
-                                            label: Text('Strong-Willed2: ' +
-                                                (6 + weaponref * 2).toString() +
-                                                '% every 0.1s the arrow is in the air for up to 5 times.'),
+                                            label: Text('Strong-Willed2: ' + (6 + weaponref * 2).toString() + '% every 0.1s the arrow is in the air for up to 5 times.'),
                                             selected: true,
                                             selectedColor: Colors.blue[300],
                                             onSelected: (bool value) {
@@ -11625,11 +11449,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                           SizedBox(height: 10),
                                           FilterChip(
-                                            label: Text('Echoing Ballad2: ' +
-                                                (50 + weaponref * 10).toString() +
-                                                '% chance get a 125% Physical ATK AoE DMG every ' +
-                                                (4.5 - weaponref * 0.5).toString() +
-                                                's'),
+                                            label: Text(
+                                                'Echoing Ballad2: ' + (50 + weaponref * 10).toString() + '% chance get a 125% Physical ATK AoE DMG every ' + (4.5 - weaponref * 0.5).toString() + 's'),
                                             selected: true,
                                             onSelected: (bool value) {
                                               setState(() {});
@@ -11644,9 +11465,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: [
                                         Wrap(spacing: 10, runSpacing: 10, children: <Widget>[
                                           FilterChip(
-                                            label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' +
-                                                (27 + weaponref * 9).toString() +
-                                                '% ATK for 10s'),
+                                            label: Text('Unreturning: Charged Attack hits on weak points + 10% Movement SPD & ' + (27 + weaponref * 9).toString() + '% ATK for 10s'),
                                             selected: unreturningOn,
                                             selectedColor: Colors.tealAccent,
                                             onSelected: (bool value) {
@@ -11976,10 +11795,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bennet Basic atk:',
@@ -12285,10 +12101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(4)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk:',
@@ -12332,10 +12145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(2)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus Crit Rate%:',
@@ -12384,10 +12194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus atk%:',
@@ -12431,10 +12238,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus Crit Damage%:',
@@ -12483,10 +12287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Bonus EM:',
@@ -12530,10 +12331,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(3)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Damage Bonus%:',
@@ -12582,10 +12380,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: TextFormField(
                                             textAlignVertical: TextAlignVertical.center,
                                             keyboardType: TextInputType.number,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly,
-                                              LengthLimitingTextInputFormatter(2)
-                                            ],
+                                            inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(2)],
                                             decoration: InputDecoration(
                                               // prefixIcon: Text("basic atk"),
                                               labelText: 'Enemy Res Decrease:',
@@ -12628,7 +12423,7 @@ class _MyHomePageState extends State<MyHomePage> {
               md: 6,
               lg: 3,
               child: Container(
-                height: 800,
+                height: heightadjust,
                 color: Colors.red[50],
                 child: Center(
                   child: SingleChildScrollView(
@@ -12650,48 +12445,34 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(Colors.black, 'Charged Aim Shoot Damage:($caimdmgpercent%)', Colors.lightBlue[200],
-                                    Colors.lightBlue[400], Colors.lightBlue[600], caimdmgnc, caimdmgexp, caimdmgc),
+                                title: builddamagebarwithcrit(
+                                    Colors.black, 'Charged Aim Shoot Damage:($caimdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600], caimdmgnc, caimdmgexp, caimdmgc),
                                 children: <Widget>[
-                                  builddamagebarwithcrit(Colors.black, '1-Hit Damage:($hit1dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit1dmgnc, hit1dmgexp, hit1dmgc),
+                                  builddamagebarwithcrit(Colors.black, '1-Hit Damage:($hit1dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit1dmgnc, hit1dmgexp, hit1dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '2-Hit Damage:($hit2dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit2dmgnc, hit2dmgexp, hit2dmgc),
+                                  builddamagebarwithcrit(Colors.black, '2-Hit Damage:($hit2dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit2dmgnc, hit2dmgexp, hit2dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '3-Hit Damage:($hit3dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit3dmgnc, hit3dmgexp, hit3dmgc),
+                                  builddamagebarwithcrit(Colors.black, '3-Hit Damage:($hit3dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit3dmgnc, hit3dmgexp, hit3dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '4-Hit Damage:($hit4dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit4dmgnc, hit4dmgexp, hit4dmgc),
+                                  builddamagebarwithcrit(Colors.black, '4-Hit Damage:($hit4dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit4dmgnc, hit4dmgexp, hit4dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '5-Hit Damage:($hit5dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit5dmgnc, hit5dmgexp, hit5dmgc),
+                                  builddamagebarwithcrit(Colors.black, '5-Hit Damage:($hit5dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit5dmgnc, hit5dmgexp, hit5dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, '6-Hit Damage:($hit6dmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hit6dmgnc, hit6dmgexp, hit6dmgc),
+                                  builddamagebarwithcrit(Colors.black, '6-Hit Damage:($hit6dmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hit6dmgnc, hit6dmgexp, hit6dmgc),
                                   SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Aim Shoot Damage:($aimdmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], aimdmgnc, aimdmgexp, aimdmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Plunge Damage:($plungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], plungedmgnc, plungedmgexp, plungedmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'Low Plunge Damage:($lplungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], lplungedmgnc, lplungedmgexp, lplungedmgc),
-                                  SizedBox(height: 10),
-                                  builddamagebarwithcrit(Colors.black, 'High Plunge Damage:($hplungedmgpercent%)', Colors.grey[500], Colors.grey[700],
-                                      Colors.grey[900], hplungedmgnc, hplungedmgexp, hplungedmgc),
+                                  builddamagebarwithcrit(Colors.black, 'Aim Shoot Damage:($aimdmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], aimdmgnc, aimdmgexp, aimdmgc),
                                   SizedBox(height: 10),
                                   builddamagebarwithcrit(
-                                      Colors.red,
-                                      'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)',
-                                      Colors.lightBlue[200],
-                                      Colors.lightBlue[400],
-                                      Colors.lightBlue[600],
-                                      caimdmgnc * 1.5 * meltDMGpercent / 100,
-                                      caimdmgexp * 1.5 * meltDMGpercent / 100,
-                                      caimdmgc * 1.5 * meltDMGpercent / 100),
+                                      Colors.black, 'Plunge Damage:($plungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], plungedmgnc, plungedmgexp, plungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(
+                                      Colors.black, 'Low Plunge Damage:($lplungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], lplungedmgnc, lplungedmgexp, lplungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(
+                                      Colors.black, 'High Plunge Damage:($hplungedmgpercent%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], hplungedmgnc, hplungedmgexp, hplungedmgc),
+                                  SizedBox(height: 10),
+                                  builddamagebarwithcrit(Colors.red, 'Melt:(' + double.parse((meltDMGpercent * 1.5).toStringAsFixed(1)).toString() + '%)', Colors.lightBlue[200], Colors.lightBlue[400],
+                                      Colors.lightBlue[600], caimdmgnc * 1.5 * meltDMGpercent / 100, caimdmgexp * 1.5 * meltDMGpercent / 100, caimdmgc * 1.5 * meltDMGpercent / 100),
                                   SizedBox(height: 10),
                                 ],
                               ),
@@ -12699,8 +12480,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow:($frostflakedmgpercent%)', Colors.lightBlue[200],
-                                      Colors.lightBlue[400], Colors.lightBlue[600], frostflakedmgnc, frostflakedmgexp, frostflakedmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow:($frostflakedmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                      frostflakedmgnc, frostflakedmgexp, frostflakedmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -12717,8 +12498,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Bloom:($frostflakebloomdmgpercent%)', Colors.lightBlue[200],
-                                      Colors.lightBlue[400], Colors.lightBlue[600], frostflakebloomdmgnc, frostflakebloomdmgexp, frostflakebloomdmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Frostflake Bloom:($frostflakebloomdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                      frostflakebloomdmgnc, frostflakebloomdmgexp, frostflakebloomdmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -12735,8 +12516,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow All', Colors.lightBlue[200], Colors.lightBlue[400],
-                                    Colors.lightBlue[600], frostflakealldmgnc, frostflakealldmgexp, frostflakealldmgc),
+                                title: builddamagebarwithcrit(Colors.black, 'Frostflake Arrow All', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600], frostflakealldmgnc,
+                                    frostflakealldmgexp, frostflakealldmgc),
                                 children: <Widget>[
                                   builddamagebarwithcrit(
                                       Colors.red,
@@ -12752,8 +12533,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               if (echoingBalladOn)
                                 //ANCHOR Echoing Ballad Physical AoE
-                                builddamagebarwithcrit(Colors.black, 'Echoing Ballad Physical AoE:(125%)', Colors.grey[500], Colors.grey[700],
-                                    Colors.grey[900], echoingballaddmgnc, echoingballaddmgexp, echoingballaddmgc),
+                                builddamagebarwithcrit(Colors.black, 'Echoing Ballad Physical AoE:(125%)', Colors.grey[500], Colors.grey[700], Colors.grey[900], echoingballaddmgnc,
+                                    echoingballaddmgexp, echoingballaddmgc),
                             ],
                           ),
                         ),
@@ -12802,15 +12583,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                 tilePadding: EdgeInsets.all(0),
                                 childrenPadding: EdgeInsets.all(0),
-                                title: builddamagebarwithcrit(
-                                    Colors.black,
-                                    'Trail of the Qilin DMG:($trailoftheqilindmgpercent)',
-                                    Colors.lightBlue[200],
-                                    Colors.lightBlue[400],
-                                    Colors.lightBlue[600],
-                                    trailoftheqilindmgnc,
-                                    trailoftheqilindmgexp,
-                                    trailoftheqilindmgc),
+                                title: builddamagebarwithcrit(Colors.black, 'Trail of the Qilin DMG:($trailoftheqilindmgpercent)', Colors.lightBlue[200], Colors.lightBlue[400], Colors.lightBlue[600],
+                                    trailoftheqilindmgnc, trailoftheqilindmgexp, trailoftheqilindmgc),
                                 children: <Widget>[
                                   builddamagebarwithcrit(
                                       Colors.red,
@@ -12842,15 +12616,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               ExpansionTile(
                                   tilePadding: EdgeInsets.all(0),
                                   childrenPadding: EdgeInsets.all(0),
-                                  title: builddamagebarwithcrit(
-                                      Colors.black,
-                                      'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)',
-                                      Colors.lightBlue[200],
-                                      Colors.lightBlue[400],
-                                      Colors.lightBlue[600],
-                                      celestialshowerdmgnc,
-                                      celestialshowerdmgexp,
-                                      celestialshowerdmgc),
+                                  title: builddamagebarwithcrit(Colors.black, 'Celestial Shower/per Ice Shard:($celestialshowerdmgpercent%)', Colors.lightBlue[200], Colors.lightBlue[400],
+                                      Colors.lightBlue[600], celestialshowerdmgnc, celestialshowerdmgexp, celestialshowerdmgc),
                                   children: <Widget>[
                                     builddamagebarwithcrit(
                                         Colors.red,
@@ -13317,11 +13084,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.favorite),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.favorite),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
