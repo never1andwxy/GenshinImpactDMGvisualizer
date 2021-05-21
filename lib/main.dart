@@ -6999,7 +6999,28 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(widget.title),
+            SizedBox(width: 10),
+            Container(
+              width: 120,
+              decoration: BoxDecoration(color: Color.fromRGBO(255, 255, 255, 1), borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                child: Text(
+                  ' ver Ganyu 0.9',
+                  style: TextStyle(
+                    //fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              //color: Colors.white,
+            )
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
