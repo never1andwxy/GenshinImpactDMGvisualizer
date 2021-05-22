@@ -3282,8 +3282,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3312,6 +3314,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK%:$stat1atkpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1atkpercent < 34.8) stat1atkpercent = num.parse((stat1atkpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1atkpercent > 0) stat1atkpercent = num.parse((stat1atkpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3336,8 +3360,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3366,6 +3392,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP%:$stat1hppercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1hppercent < 34.8) stat1hppercent = num.parse((stat1hppercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1hppercent > 0) stat1hppercent = num.parse((stat1hppercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3393,8 +3441,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3423,6 +3473,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF%:$stat1defpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1defpercent < 43.8) stat1defpercent = num.parse((stat1defpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1defpercent > 0) stat1defpercent = num.parse((stat1defpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3450,6 +3522,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -3480,6 +3554,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Rate%:$stat1CRpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1CRpercent < 23.4) stat1CRpercent = num.parse((stat1CRpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1CRpercent > 0) stat1CRpercent = num.parse((stat1CRpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3507,6 +3603,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -3537,6 +3635,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Damage%:$stat1CDpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1CDpercent < 46.8) stat1CDpercent = num.parse((stat1CDpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1CDpercent > 0) stat1CDpercent = num.parse((stat1CDpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3564,6 +3684,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -3594,6 +3716,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Elemental Mastery:$stat1EM'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1EM < 138) stat1EM = num.parse((stat1EM + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1EM > 0) stat1EM = num.parse((stat1EM - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3616,6 +3760,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -3646,6 +3792,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Energy Recharge%:$stat1ERpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1ERpercent < 39) stat1ERpercent = num.parse((stat1ERpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1ERpercent > 0) stat1ERpercent = num.parse((stat1ERpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3673,8 +3841,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3703,6 +3873,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP:$stat1hp'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1hp < 1794) stat1hp = num.parse((stat1hp + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1hp > 0) stat1hp = num.parse((stat1hp - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3730,8 +3922,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3760,6 +3954,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK:$stat1atk'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1atk < 114) stat1atk = num.parse((stat1atk + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1atk > 0) stat1atk = num.parse((stat1atk - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3787,8 +4003,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3815,6 +4033,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF:$stat1def'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1def < 138) stat1def = num.parse((stat1def + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat1def > 0) stat1def = num.parse((stat1def - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3863,8 +4103,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3893,6 +4135,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK%:$stat2atkpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2atkpercent < 34.8) stat2atkpercent = num.parse((stat2atkpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2atkpercent > 0) stat2atkpercent = num.parse((stat2atkpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3917,8 +4181,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -3947,6 +4213,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP%:$stat2hppercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2hppercent < 34.8) stat2hppercent = num.parse((stat2hppercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2hppercent > 0) stat2hppercent = num.parse((stat2hppercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -3974,8 +4262,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4004,6 +4294,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF%:$stat2defpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2defpercent < 43.8) stat2defpercent = num.parse((stat2defpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2defpercent > 0) stat2defpercent = num.parse((stat2defpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4031,6 +4343,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4061,6 +4375,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Rate%:$stat2CRpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2CRpercent < 23.4) stat2CRpercent = num.parse((stat2CRpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2CRpercent > 0) stat2CRpercent = num.parse((stat2CRpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4088,6 +4424,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4118,6 +4456,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Damage%:$stat2CDpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2CDpercent < 46.8) stat2CDpercent = num.parse((stat2CDpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2CDpercent > 0) stat2CDpercent = num.parse((stat2CDpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4145,6 +4505,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4175,6 +4537,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Elemental Mastery:$stat2EM'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2EM < 138) stat2EM = num.parse((stat2EM + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2EM > 0) stat2EM = num.parse((stat2EM - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4197,6 +4581,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4227,6 +4613,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Energy Recharge%:$stat2ERpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2ERpercent < 39) stat2ERpercent = num.parse((stat2ERpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2ERpercent > 0) stat2ERpercent = num.parse((stat2ERpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4254,8 +4662,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4284,6 +4694,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP:$stat2hp'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2hp < 1794) stat2hp = num.parse((stat2hp + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2hp > 0) stat2hp = num.parse((stat2hp - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4311,8 +4743,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4341,6 +4775,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK:$stat2atk'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2atk < 114) stat2atk = num.parse((stat2atk + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2atk > 0) stat2atk = num.parse((stat2atk - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4368,8 +4824,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4396,6 +4854,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF:$stat2def'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2def < 138) stat2def = num.parse((stat2def + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat2def > 0) stat2def = num.parse((stat2def - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4444,8 +4924,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4474,6 +4956,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK%:$stat3atkpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3atkpercent < 34.8) stat3atkpercent = num.parse((stat3atkpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3atkpercent > 0) stat3atkpercent = num.parse((stat3atkpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4498,8 +5002,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4528,6 +5034,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP%:$stat3hppercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3hppercent < 34.8) stat3hppercent = num.parse((stat3hppercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3hppercent > 0) stat3hppercent = num.parse((stat3hppercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4555,8 +5083,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4585,6 +5115,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF%:$stat3defpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3defpercent < 43.8) stat3defpercent = num.parse((stat3defpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3defpercent > 0) stat3defpercent = num.parse((stat3defpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4612,6 +5164,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4642,6 +5196,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Rate%:$stat3CRpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3CRpercent < 23.4) stat3CRpercent = num.parse((stat3CRpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3CRpercent > 0) stat3CRpercent = num.parse((stat3CRpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4669,6 +5245,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4699,6 +5277,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Damage%:$stat3CDpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3CDpercent < 46.8) stat3CDpercent = num.parse((stat3CDpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3CDpercent > 0) stat3CDpercent = num.parse((stat3CDpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4726,6 +5326,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4756,6 +5358,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Elemental Mastery:$stat3EM'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3EM < 138) stat3EM = num.parse((stat3EM + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3EM > 0) stat3EM = num.parse((stat3EM - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4778,6 +5402,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -4808,6 +5434,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Energy Recharge%:$stat3ERpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3ERpercent < 39) stat3ERpercent = num.parse((stat3ERpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3ERpercent > 0) stat3ERpercent = num.parse((stat3ERpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4835,8 +5483,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4865,6 +5515,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP:$stat3hp'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3hp < 1794) stat3hp = num.parse((stat3hp + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3hp > 0) stat3hp = num.parse((stat3hp - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4892,8 +5564,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4922,6 +5596,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK:$stat3atk'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3atk < 114) stat3atk = num.parse((stat3atk + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3atk > 0) stat3atk = num.parse((stat3atk - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -4949,8 +5645,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -4977,6 +5675,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF:$stat3def'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3def < 138) stat3def = num.parse((stat3def + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat3def > 0) stat3def = num.parse((stat3def - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5025,8 +5745,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5055,6 +5777,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK%:$stat4atkpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4atkpercent < 34.8) stat4atkpercent = num.parse((stat4atkpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4atkpercent > 0) stat4atkpercent = num.parse((stat4atkpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5079,8 +5823,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5109,6 +5855,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP%:$stat4hppercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4hppercent < 34.8) stat4hppercent = num.parse((stat4hppercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4hppercent > 0) stat4hppercent = num.parse((stat4hppercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5136,8 +5904,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5166,6 +5936,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF%:$stat4defpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4defpercent < 43.8) stat4defpercent = num.parse((stat4defpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4defpercent > 0) stat4defpercent = num.parse((stat4defpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5193,6 +5985,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5223,6 +6017,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Rate%:$stat4CRpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4CRpercent < 23.4) stat4CRpercent = num.parse((stat4CRpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4CRpercent > 0) stat4CRpercent = num.parse((stat4CRpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5250,6 +6066,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5280,6 +6098,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Damage%:$stat4CDpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4CDpercent < 46.8) stat4CDpercent = num.parse((stat4CDpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4CDpercent > 0) stat4CDpercent = num.parse((stat4CDpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5307,6 +6147,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5337,6 +6179,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Elemental Mastery:$stat4EM'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4EM < 138) stat4EM = num.parse((stat4EM + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4EM > 0) stat4EM = num.parse((stat4EM - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5359,6 +6223,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5389,6 +6255,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Energy Recharge%:$stat4ERpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4ERpercent < 39) stat4ERpercent = num.parse((stat4ERpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4ERpercent > 0) stat4ERpercent = num.parse((stat4ERpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5416,8 +6304,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5446,6 +6336,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP:$stat4hp'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4hp < 1794) stat4hp = num.parse((stat4hp + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4hp > 0) stat4hp = num.parse((stat4hp - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5473,8 +6385,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5503,6 +6417,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK:$stat4atk'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4atk < 114) stat4atk = num.parse((stat4atk + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4atk > 0) stat4atk = num.parse((stat4atk - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5530,8 +6466,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5558,6 +6496,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF:$stat4def'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4def < 138) stat4def = num.parse((stat4def + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat4def > 0) stat4def = num.parse((stat4def - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5606,8 +6566,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5636,6 +6598,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK%:$stat5atkpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5atkpercent < 34.8) stat5atkpercent = num.parse((stat5atkpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5atkpercent > 0) stat5atkpercent = num.parse((stat5atkpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5660,8 +6644,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5690,6 +6676,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP%:$stat5hppercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5hppercent < 34.8) stat5hppercent = num.parse((stat5hppercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5hppercent > 0) stat5hppercent = num.parse((stat5hppercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5717,8 +6725,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -5747,6 +6757,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF%:$stat5defpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5defpercent < 43.8) stat5defpercent = num.parse((stat5defpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5defpercent > 0) stat5defpercent = num.parse((stat5defpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5774,6 +6806,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5804,6 +6838,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Rate%:$stat5CRpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5CRpercent < 23.4) stat5CRpercent = num.parse((stat5CRpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5CRpercent > 0) stat5CRpercent = num.parse((stat5CRpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5831,6 +6887,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5861,6 +6919,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Critical Damage%:$stat5CDpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5CDpercent < 46.8) stat5CDpercent = num.parse((stat5CDpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5CDpercent > 0) stat5CDpercent = num.parse((stat5CDpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5888,6 +6968,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5918,6 +7000,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Elemental Mastery:$stat5EM'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5EM < 138) stat5EM = num.parse((stat5EM + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5EM > 0) stat5EM = num.parse((stat5EM - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5940,6 +7044,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
                         width: 200,
                         child: Row(
@@ -5970,6 +7076,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('Energy Recharge%:$stat5ERpercent'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5ERpercent < 39) stat5ERpercent = num.parse((stat5ERpercent + 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5ERpercent > 0) stat5ERpercent = num.parse((stat5ERpercent - 0.1).toStringAsFixed(1));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -5997,8 +7125,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -6027,6 +7157,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('HP:$stat5hp'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5hp < 1794) stat5hp = num.parse((stat5hp + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5hp > 0) stat5hp = num.parse((stat5hp - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -6054,8 +7206,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -6084,6 +7238,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('ATK:$stat5atk'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5atk < 114) stat5atk = num.parse((stat5atk + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5atk > 0) stat5atk = num.parse((stat5atk - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -6111,8 +7287,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SimpleDialogOption(
                     child: ListTile(
+                      horizontalTitleGap: -10,
+                      contentPadding: EdgeInsets.all(0),
                       leading: Container(
-                        width: 100,
+                        width: 130,
                         child: Row(
                           children: [
                             Checkbox(
@@ -6139,6 +7317,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 }),
                             Text('DEF:$stat5def'),
+                            Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_up, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5def < 138) stat5def = num.parse((stat5def + 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                                InkWell(
+                                  child: Icon(Icons.arrow_drop_down, size: 22.0, color: Colors.blue),
+                                  onTap: () {
+                                    setState(() {
+                                      if (stat5def > 0) stat5def = num.parse((stat5def - 1).toStringAsFixed(0));
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
